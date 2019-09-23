@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
+    <link rel="stylesheet" href="css/common.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src='js/common.js'></script>
+    <script src="js/layout.js"></script>
+    <!-- <script src="js/layout.min.js"></script> -->
+    <script src="js/animation.js"></script>
+    <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script>
+        $(window).on('load', function () {
+            var booleanControl = true;
+            $(".slider-tit-0").delay(200).animate({
+                "opacity": "1.0",
+                "top":"0",
+                "left":"0",
+                "right":"0"
+            }, 400)
+            $(".slider-sub-tit-0").delay(400).animate({
+                "opacity": "1.0",
+                "top":"0",
+                "left":"0",
+                "right":"0"
+            }, 400)
+            $(".slider-desc-0").delay(600).animate({
+                "opacity": "1.0",
+                "top":"0",
+                "left":"0",
+                "right":"0"
+            }, 400)
+            slider = $('.slider').bxSlider(
+                {
+                    easing: "ease-out",
+                    speed: 500,
+                    auto: true,
+                    autoDelay: 1000,
+                    touchEnabled: false,
+                    autoHover: booleanControl,
+
+                    onSlideBefore: function ($slideElement, oldIndex, newIndex) {
+                        $(".slider-text").css({
+                            "opacity": "0.0"
+                        })
+                        $(".slider-0").css({
+                            "top":"-50px"
+                        })
+                        $(".slider-1").css({
+                            "left":"-50px"
+                        })
+                        $(".slider-2").css({
+                            "left":"50px"
+                        })
+
+                    }, onSlideAfter: function ($slideElement, oldIndex, newIndex) {
+                        // clearInterval(slideInterval)
+                        $(".slider-tit-" + newIndex).animate({
+                            "opacity": "1.0",
+                            "top":"0",
+                            "left":"0",
+                            "right":"0"
+                        }, 400)
+                        $(".slider-sub-tit-" + newIndex).delay(200).animate({
+                            "opacity": "1.0",
+                            "top":"0",
+                            "left":"0",
+                            "right":"0"
+                        }, 400)
+                        $(".slider-desc-" + newIndex).delay(400).animate({
+                            "opacity": "1.0",
+                            "top":"0",
+                            "left":"0",
+                            "right":"0"
+                        }, 400)
+                    }
+                });//bxslider
+
+            var current = slider.getCurrentSlide();
+            $('.pc_slides').bxSlider({ auto: true });//bxslider
+        })
+     
+    </script>
+    <title>보험친구들</title>
+</head>
+
+<body>
+    <div id='wrap'>
+        <header>
+            <!-- js/layout.js => layoutRender.HeaderRender(); -->
+        </header>
+        <main class='index_main'>
+            <section class='main_slider'>
+                <div class="slider">
+                    <div class="slider-img slider-img1">
+                        <div class='wrap'>
+                            <h3 class='slider-text slider-0 slider-tit-0'><img src="img/index_page/slider/slide-1_tit.png"
+                                    alt="슬라이드1 메인 제목"></h3>
+                            <h3 class='slider-text slider-0 slider-sub-tit-0'><img
+                                    src="img/index_page/slider/slide-1_sub_tit.png" alt="슬라이드1 서브 제목"></h3>
+                            <h3 class='slider-text slider-0 slider-desc-0'><img src="img/index_page/slider/slide-1_desc.png"
+                                    alt="슬라이드1 본문"></h3>
+                        </div>
+                    </div>
+                    <div class="slider-img slider-img2">
+                        <div class='wrap'>
+                            <h3 class='slider-text slider-1 slider-tit-1'><img src="img/index_page/slider/slide-2_tit.png"
+                                    alt="슬라이드2 메인 제목"></h3>
+                            <h3 class='slider-text slider-1 slider-sub-tit-1'><img
+                                    src="img/index_page/slider/slide-2_sub_tit.png" alt="슬라이드2 서브 제목"></h3>
+                            <h3 class='slider-text slider-1 slider-desc-1'><img src="img/index_page/slider/slide-2_desc.png"
+                                    alt="슬라이드2 본문"></h3>
+                        </div>
+                    </div>
+                    <div class="slider-img slider-img3">
+                        <div class='wrap'>
+                            <h3 class='slider-text slider-2 slider-tit-2'><img src="img/index_page/slider/slide-3_tit.png"
+                                    alt="슬라이드3 메인 제목"></h3>
+                            <h3 class='slider-text slider-2 slider-sub-tit-2'><img
+                                    src="img/index_page/slider/slide-3_sub_tit.png" alt="슬라이드3 서브 제목"></h3>
+                            <h3 class='slider-text slider-2 slider-desc-2'><img src="img/index_page/slider/slide-3_desc.png"
+                                    alt="슬라이드3 본문"></h3>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <div class='scroll_widget' id='floatMenu'>
+                    <!-- layoutRender.floatMenuRender(); -->
+            </div>
+            <section class='event_fn_tab'>
+                <div class='left_tab tab'>
+                    <h3>보험료 셀프 계산기</h3>
+                    <p>내 보험료는 얼마? 예상 보험료를 미리 계산해보세요.</p>
+                    <div class='event_go_btn'>보험료 셀프계산기</div>
+                </div>
+                <div class='right_tab tab'>
+                    <h3>스피드 보험비교</h3>
+                    <p>내게 딱 맞는 보험 상품을 비교해보세요.</p>
+                    <div class='event_go_btn'>스피드 보험비교</div>
+                </div>
+                <div class='center_tab'>
+                    <h3>빠른 상담신청</h3>
+                    <p>입력하신 번호로 연락 드립니다.</p>
+                    <ul class="tab_forms">
+                        <li class="inputs"><input type="text" placeholder="이름"></li>
+                        <li class="inputs"><input type="text" placeholder="연락받으실 전화번호"></li>
+                        <li class='btn'>상담 신청</li>
+                    </ul>
+                </div>
+
+            </section>
+            <section class="banner banner-1">
+                <div class='wrap'>
+                    <div class='left_tab'>
+                        <h3>01 <img src="img/index_page/section-banner-plus_img.png" alt="섹션 십자 이미지"></h3>
+                        <h2>우리나라 <span>가계소득 대비</span></h2>
+                        <h2>월 보험료는?</h2>
+                        <p>국내 가계의 보험료 지출이 소득대비 과다하고,</br> 중도해지로 인한 재무 손실 위험이 높은 것으로 평가 되었습니다.</p>
+                        <div class='btn'>
+                            보험료 셀프계산기 <img src="img/common/btn_arrow.png" class='btn_arrow1' alt="계산기 화살표 이미지">
+                        </div>
+                    </div>
+                    <div class='right_tab'>
+                        <div class="coin_anis">
+                            <span class="coin1"><img src="img/ani_img/coin_1.png" alt="coin_animation_img1"></span>
+                            <span class="coin2"><img src="img/ani_img/coin_2.png" alt="coin_animation_img2"></span>
+                            <span class="coin3"><img src="img/ani_img/coin_3.png" alt="coin_animation_img3"></span>
+                            <span class="coin4"><img src="img/ani_img/coin_4.png" alt="coin_animation_img4"></span>
+                            <span class="coin5"><img src="img/ani_img/coin_5.png" alt="coin_animation_img5"></span>
+                            <span class="coin6"><img src="img/ani_img/coin_6.png" alt="coin_animation_img6"></span>
+                            <span class="coin7"><img src="img/ani_img/coin_7.png" alt="coin_animation_img7"></span>
+                            <span class="coin8"><img src="img/ani_img/coin_8.png" alt="coin_animation_img8"></span>
+                            <span class="coin9"><img src="img/ani_img/coin_9.png" alt="coin_animation_img9"></span>
+                            <span class="coin10"><img src="img/ani_img/coin_10.png" alt="coin_animation_img10"></span>
+                            <span class="coin11"><img src="img/ani_img/coin_11.png" alt="coin_animation_img11"></span>
+                            <span class="coin12"><img src="img/ani_img/coin_3.png" alt="coin_animation_img12"></span>
+                            <span class="coin13"><img src="img/ani_img/coin_4.png" alt="coin_animation_img13"></span>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section class="banner">
+                <div class='wrap'>
+                    <div class='left_tab'>
+                        <h3>02 <img src="img/index_page/section-banner-plus_img.png" alt="섹션 십자 이미지"></h3>
+                        <h2>보험가입자 <span>약 70% 이상이</span></h2>
+                        <h2>보험해약을 합니다.</h2>
+                        <p>보험가입자 70% 이상이 보장내역은 확인하지 않은 채</br>지인의 권유로 보험가입을 하고 또 해약을 합니다.</p>
+                        <div class='btn'>
+                            빠른 상담 신청하기<img src="img/common/btn_arrow.png" class='btn_arrow2' alt="계산기 화살표 이미지">
+                        </div>
+                    </div>
+                    <div class='right_tab'>
+                        <div class='circle_bg'>
+                            <div class='ani_left_hide_box'>1</div>
+                            <div class='ani_hide_box'></div>
+                            <div class='circle_ani'></div>
+                            <div class='circle_gradation'></div>
+                            <div class='graph_arrow'></div>
+                        </div>
+                        <div class='graph_counter'><span class='counter' data-count="70"
+                                id='main-percent-ani'>00</span><span class='percent'>%</span> / 100</div>
+
+                        <script>
+
+                        </script>
+                    </div>
+                </div>
+            </section>
+            <section class="forms">
+                <div class='wrap'>
+                    <h2>당신의 보험은 어떻습니까?</h2>
+                    <img class='left_dbq' src="img/index_page/section-forms_dbq_l.png" alt="섹션 따옴표 이미지">
+                    <h3>부족한 보장은 채우고 보험료는 </br><span>15~20% 이상 줄여드립니다.</span></h3>
+                    <img class='right_dbq' src="img/index_page/section-forms_dbq_r.png" alt="섹션 따옴표 이미지">
+                    <div class='forms'>
+                        <div class='input_box'>
+                            <input type="text" placeholder="이름">
+                        </div>
+                        <div class='input_box'>
+                            <select name="" id="">
+                                <option value="">=성별=</option>
+                                <option value="">남성</option>
+                                <option value="">여성</option>
+                            </select>
+
+                        </div>
+                        <div class='input_box'>
+                            <input type="text" placeholder="생년월일(예:850505)">
+
+                        </div>
+                        <div class='input_box'>
+                            <input type="text" placeholder="휴대폰번호">
+                        </div>
+                    </div>
+                    <p>
+                        <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
+                            <input type="checkbox" id='agree_check'>
+                            <span class="checkmark" id='check_box'></span>
+                        </label>
+                    </p>
+                    <div class='btns_wrap'>
+                        <div class='btns left_btn'>보험료 셀프 계산하기 <img class='btn_arrow3' src="img/common/btn_arrow.png"
+                                class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                        <div class='btns right_btn'>무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
+                                class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                    </div>
+                </div>
+            </section>
+            <section class='banner-2'>
+                <div class='wrap'>
+                    <h2>오래도록 묵혀만 두었던 <span>당신의 보험을 꺼내세요!</span></h2>
+                    <h4>32개 보험사의 모든 상품을 전격 비교분석하는 1:1 맞춤 보장분석서비스 <span>보험친구들</span></h4>
+                    <div class='pc_slide'>
+                        <div class='pc_slides'>
+                            <div class="sldier_img sldier_img1"></div>
+                            <div class="sldier_img sldier_img2"></div>
+                            <div class="sldier_img sldier_img3"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </section>
+
+
+        </main>
+
+
+        <footer>
+
+
+        </footer>
+    </div>
+    <script>
+        layoutRender.HeaderRender();
+        layoutRender.floatMenuRender();
+
+        layoutRender.footerRender();
+
+    </script>
+</body>
+
+
+</html>

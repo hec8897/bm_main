@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="css/common.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <link rel="stylesheet" href="css/style_main.css">
+
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src='js/common.js'></script>
+    <script src="js/layout.js"></script>
+    <script src="js/animation.js"></script>
+    <!-- <script src="js/layout.min.js"></script> -->
+    <!-- babeljs.io-->
+    <title>보험친구들</title>
+</head>
+
+<body>
+    <div id='wrap'>
+        <header>
+            <!-- js/layout.js => layoutRender.HeaderRender(); -->
+        </header>
+        <main class="main_page page1" id='sub_page_main'>
+            <section class='top_banner' id='top_banner'>
+                <div class="wrap">
+                </div>
+            </section>
+            <div class='scroll_widget' id='floatMenu'>
+                    <!-- layoutRender.floatMenuRender(); -->
+            </div>
+            <section class='top_inputs'>
+                <div class="wrap">
+                    <div class='left_tab'>
+                        <h2>내 보험, 어떤가요?</h2>
+                        <p>간편 보험료 계산</p>
+                    </div>
+                    <div class='input_tab'>
+                        <ul class="inputs">
+                            <li><input type="text" name="" id="" placeholder="이름"></li>
+                            <li><input type="text" name="" id="" placeholder="성별"></li>
+                            <li><input type="text" name="" id="" placeholder="생년월일"></li>
+                            <li><input type="text" name="" id="" placeholder="휴대폰번호"></li>
+                        </ul>
+                        <p><label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
+                                <input type="checkbox" id='agree_check'>
+                                <span class="checkmark" id='check_box'></span>
+                            </label></p>
+                    </div>
+                    <div class="btn_tab">
+                        <div class='btns left_btn'>보험료 셀프 계산하기 <img class='btn_arrow3' src="img/common/btn_arrow.png"
+                                class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                        <div class='btns right_btn'>무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
+                                class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                    </div>
+                </div>
+            </section>
+            <section class='section1' id='section1'>
+                <div class="wrap">
+                    <div class="left_tab tabs" id='section_left'></div>
+                    <div class="right_tab tabs" id='section_right'></div>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script>
+        layoutRender.HeaderRender();
+        layoutRender.floatMenuRender();
+
+        activeList();
+        subLayoutRender.subSectionRender();
+        subLayoutRender.subMainbannerRender()
+        subLayoutRender.section1Render()
+
+
+    </script>
+</body>
+
+
+</html>
