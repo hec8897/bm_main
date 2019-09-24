@@ -169,6 +169,7 @@ body {
   z-index: 10;
 }
 #wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page1-section1-ani ul li {
+  opacity: 0;
   width: 150px;
   height: 100%;
   display: inline-block;
@@ -235,98 +236,80 @@ body {
 #wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani h2 span {
   color: #ec6647;
 }
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani {
+#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 {
   margin-top: 15px;
   margin-bottom: 15px;
   display: inline-block;
-  width: 270px;
-  height: 270px;
-  border-radius: 50%;
-  position: relative;
-  background: conic-gradient(#e0e0e0 0% 53%, #cacc1a 0% 61%, #fe9a38 0% 71%, #ec6647 0% 100%, #f0f0f0 100% 100%);
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani {
-  margin-top: 15px;
-  margin-bottom: 15px;
-  display: inline-block;
-  width: 270px;
-  height: 270px;
-  border-radius: 50%;
+  width: 280px;
+  height: 280px;
   position: relative;
 }
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.center,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani div.center {
-  width: 170px;
-  height: 170px;
-  background: #f0f0f0;
+#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.pie_half1 {
+  background-position: left;
+  position: relative;
+  background-image: url(../img/ani_img/page2-section1.png);
+  opacity: 0;
+  z-index: 75;
+}
+#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.pie_half1 div {
+  position: relative;
+  width: 101%;
+  height: 101%;
+  border-radius: 150px 0px 0px 150px;
+  background-color: #f0f0f0;
+  top: -2px;
+  left: -1px;
+  transform-origin: right center;
+  z-index: 80;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.pie_half2 {
+  background-position: right;
+  position: relative;
+  z-index: 80;
+  background-image: url(../img/ani_img/page2-section1.png);
+}
+#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.pie_half2 div {
+  position: relative;
+  z-index: 75;
+  width: 100%;
+  height: 100%;
+  border-radius: 0px 150px 150px 0px;
+  background-color: #f0f0f0;
+  transform-origin: left center;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes rotateBox {
+  100% {
+    transform: rotate(180deg);
+  }
+}
+#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.center {
+  width: 145px;
+  height: 145px;
+  background-image: url(../img/ani_img/page2-section1_text.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
   position: absolute;
-  border-radius: 50%;
+  border-radius: 140px;
+  z-index: 90;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  text-align: center;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.center p,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani div.center p {
-  margin-top: 40px;
-  font-size: 1.2rem;
-  margin-bottom: 15px;
-  letter-spacing: -1px;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.center h3,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani div.center h3 {
-  font-size: 1.4rem;
-  margin-bottom: 15px;
-  letter-spacing: -1px;
-  color: #ec6647;
-  font-weight: bold;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 div.center h4,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani div.center h4 {
-  font-size: 1.4rem;
-  letter-spacing: -1px;
-  color: #ec6647;
-  font-weight: bold;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 span,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani span {
-  display: inline-block;
-  position: absolute;
-  text-align: center;
-  font-size: 0.8rem;
-  letter-spacing: -1px;
-  line-height: 1.1rem;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 span.per_1,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani span.per_1 {
-  right: 10px;
-  top: 50%;
-  transform: translateY(-50%);
-  color: #777777;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 span.per_2,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani span.per_2 {
-  bottom: 20px;
-  left: 25%;
-  color: white;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 span.per_3,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani span.per_3 {
-  bottom: 60px;
-  left: 15px;
-  color: white;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani div.pie-chart1 span.per_4,
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani .off_ani span.per_4 {
-  top: 30%;
-  left: 20px;
-  transform: translateY(-50%);
-  color: white;
-}
-#wrap main.main_page section.section1 div.wrap.tab2_mode .right_tab .page2-section1-ani p {
-  font-size: 0.875rem;
-  color: #777777;
+  opacity: 0;
 }
 #wrap main.main_page section.section1 div.wrap.tab3_mode {
   max-width: 1200px;
@@ -371,8 +354,419 @@ body {
   color: #777777;
   line-height: 1.2rem;
 }
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab {
+  width: 95%;
+  height: 155px;
+  margin: 25px auto;
+  position: relative;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab div.hide_bar {
+  width: 95%;
+  height: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #d9d9d9;
+  border-left: 0px;
+  border-right: 0px;
+  position: absolute;
+  bottom: 40px;
+  z-index: 90;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul {
+  width: 100%;
+  height: 80%;
+  border-bottom: 1px solid #d0d0d0;
+  margin: 0 auto;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li {
+  position: relative;
+  bottom: 0%;
+  width: calc(99%/6);
+  height: 100%;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  margin: 0 auto;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap p {
+  font-size: 0.875rem;
+  color: #222222;
+  opacity: 0;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap .count_people4 {
+  color: #4ab120;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap .count_people5 {
+  color: #f99430;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap .count_people6 {
+  color: #ec5938;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick {
+  width: 30px;
+  height: 0px;
+  margin: 0 auto;
+  background-color: #d9d9d9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick_l4 {
+  background-image: url(../img/ani_img/page3_section1-stcik1.png);
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick_l5 {
+  background-image: url(../img/ani_img/page3_section1-stcik2.png);
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick_l6 {
+  background-image: url(../img/ani_img/page3_section1-stcik3.png);
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.count {
+  width: 100%;
+  height: 10%;
+  border: 0px;
+  padding-top: 10px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.count li {
+  color: #777777;
+  font-size: 0.875rem;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.count li:nth-child(4) {
+  color: #4ab120;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.count li:nth-child(5) {
+  color: #f99430;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.count li:nth-child(6) {
+  color: #ec6647;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.r_count li:nth-child(4) {
+  color: #777777;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.r_count li:nth-child(5) {
+  color: #777777;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .tabs div.graph_tab ul.r_count li:nth-child(6) {
+  color: #777777;
+}
 #wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab {
   float: right;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab p.gender_tab {
+  position: absolute;
+  top: -25px;
+  left: -10px;
+  font-size: 0.775rem;
+  color: #777777;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab p.gender_tab b {
+  margin-right: 5px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab p.gender_tab b:nth-child(1) {
+  color: #83c8f9;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab p.gender_tab b:nth-child(1) span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #83c8f9;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab p.gender_tab b:nth-child(2) {
+  color: #fda1d7;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab p.gender_tab b:nth-child(2) span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background-color: #fda1d7;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap {
+  width: 50%;
+  height: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap div.left_stick {
+  width: 60%;
+  position: absolute;
+  bottom: 0px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap div.left_stick div {
+  bottom: 0;
+  width: 70%;
+  height: 100%;
+  float: left;
+  background: #fda1d7;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap div.left_stick p {
+  width: 100%;
+  color: #fda1d7;
+  text-align: center;
+  opacity: 0;
+  position: relative;
+  left: -3px;
+  letter-spacing: -1px;
+  font-size: 0.775rem;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap div.right_stick {
+  width: 50%;
+  position: absolute;
+  bottom: 0px;
+  right: 0px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap div.right_stick div {
+  float: right;
+  width: 70%;
+  height: 100%;
+  background: #83c8f9;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap div.right_stick p {
+  width: 100%;
+  color: #83c8f9;
+  text-align: center;
+  opacity: 0;
+  letter-spacing: -1px;
+  font-size: 0.775rem;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page3-section1-ani .right_tab ul.graph_tab li div.stick_wrap div.right_stick p b {
+  color: #83c8f9;
+  font-weight: bold;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani {
+  margin-top: 30px;
+  width: 100%;
+  height: 280px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs {
+  width: 48%;
+  height: 100%;
+  display: inline-block;
+  float: left;
+  background: white;
+  padding: 30px;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs h3 {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.3rem;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs p {
+  margin-top: 10px;
+  font-size: 0.875rem;
+  color: #777777;
+  line-height: 1.2rem;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab {
+  width: 95%;
+  height: 155px;
+  margin: 25px auto;
+  position: relative;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab div.hide_bar {
+  width: 95%;
+  height: 9px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: white;
+  border: 1px solid #d9d9d9;
+  border-left: 0px;
+  border-right: 0px;
+  position: absolute;
+  bottom: 40px;
+  z-index: 90;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul {
+  width: 100%;
+  height: 80%;
+  border-bottom: 1px solid #d0d0d0;
+  margin: 0 auto;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li {
+  position: relative;
+  bottom: 0%;
+  width: calc(99%/6);
+  height: 100%;
+  float: left;
+  text-align: center;
+  overflow: hidden;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap {
+  position: absolute;
+  bottom: -10%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  margin: 0 auto;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap p {
+  font-size: 0.875rem;
+  color: #222222;
+  opacity: 0;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap .count_people4 {
+  color: #4ab120;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap .count_people5 {
+  color: #f99430;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap .count_people6 {
+  color: #ec5938;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick {
+  width: 30px;
+  height: 0px;
+  margin: 0 auto;
+  background-color: #d9d9d9;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick_l4 {
+  background-image: url(../img/ani_img/page3_section1-stcik1.png);
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick_l5 {
+  background-image: url(../img/ani_img/page3_section1-stcik2.png);
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul li div.graph_wrap div.stick_l6 {
+  background-image: url(../img/ani_img/page3_section1-stcik3.png);
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.count {
+  width: 100%;
+  height: 10%;
+  border: 0px;
+  padding-top: 10px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.count li {
+  color: #777777;
+  font-size: 0.875rem;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.count li:nth-child(4) {
+  color: #4ab120;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.count li:nth-child(5) {
+  color: #f99430;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.count li:nth-child(6) {
+  color: #ec6647;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.r_count li:nth-child(4) {
+  color: #777777;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.r_count li:nth-child(5) {
+  color: #777777;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .tabs div.graph_tab ul.r_count li:nth-child(6) {
+  color: #777777;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab {
+  float: right;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_left {
+  width: 40%;
+  float: left;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_left p.count_sticker {
+  margin-top: 90px;
+  font-size: 0.813rem;
+  color: #777777;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_left p.count_sticker b {
+  color: #ec6647;
+  font-weight: bold;
+  margin-right: 5px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_left p.count_sticker b span {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  background: #ec6647;
+  margin-right: 3px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_left p.count_sticker b:nth-child(2) {
+  color: #999999;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_left p.count_sticker b:nth-child(2) span {
+  background: #999999;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right {
+  width: 60%;
+  height: 100%;
+  float: right;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  background-color: #ec6647;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 100%;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle div.half_circle {
+  width: 50%;
+  height: 100%;
+  background-color: #ec6647;
+  opacity: 0;
+  float: left;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle .main_half_left {
+  border-radius: 210px 0 0 210px;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle .main_half_right {
+  position: relative;
+  z-index: 21;
+  border-radius: 0px 210px 210px 0px;
+  transform-origin: left center;
+  transform: rotate(30deg);
+  background: #ec6647;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle {
+  position: absolute;
+  width: 210px;
+  height: 210px;
+  margin: 0 auto;
+  margin-top: 10px;
+  border-radius: 100%;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle div.half_circle {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle .hide_half_left {
+  position: relative;
+  background: #f0f0f0;
+  border-radius: 210px 0 0 210px;
+  z-index: 20;
+  transform-origin: right center;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle .hide_half_right {
+  border-radius: 0px 210px 210px 0px;
+  position: relative;
+  z-index: 21;
+  transform-origin: left center;
+  background: #f0f0f0;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes rotateData {
+  100% {
+    transform: rotate(180deg);
+  }
 }
 #wrap main.main_page section.section1.page1 {
   background-image: url(../img/sub_page/page1-section1_bg.jpg);

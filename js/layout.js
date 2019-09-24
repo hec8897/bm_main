@@ -175,20 +175,20 @@ var subLayoutRender = {
                 SectionAnimaitionHtml: `<div class='ani_section page1-section1-ani'>
                                         <h2>신생아 질환 특약</h2>
                                         <ul>
-                                            <li><div class='circle_box'></div>
+                                            <li class='page1_circle1'><div class='circle_box'></div>
                                                 <p>다양한 선천기형,</p>
                                                 <p>변형 및 염색체 이상 보장</p>
                                             </li>
-                                            <li>
+                                            <li class='page1_circle2'>
                                             <div class='circle_box'></div>
                                             <p>희귀난치성 질환 보장</p>
                                             </li>
-                                            <li>
+                                            <li class='page1_circle3'>
                                             <div class='circle_box'></div>
                                             <p>인큐베이터 사용비 및</p>
                                             <p>입원비 보장내역 확인!</p>
                                             </li>
-                                            <li>
+                                            <li class='page1_circle4'>
                                             <div class='circle_box'></div>
                                             <p>커서 겪을 수 있는 아토피,</p>
                                             <p>성조숙증, ADHD 특약도</p>
@@ -202,20 +202,16 @@ var subLayoutRender = {
                 h2: "당신의 암보험은 든든합니까?",
                 p1: "여러 개의 암 보험을 가입했지만 보장내역&지급조건을",
                 p2: "자세히 알고 있는 분은 많지 않습니다.",
-                SectionAnimaitionHtml:`<div class='ani_section page2-section1-ani'>
+                SectionAnimaitionHtml: `<div class='ani_section page2-section1-ani'>
                                        <h2><span>연간 약 21만여 명의 신규 암 환자</span>가 발생하고 있습니다.</h2>
                                        <div class="pie-chart1">
-                                       <div class='center'>
-                                       <p>우리나라</p>
-                                       <h3>3대 사망 원인</h3>
-                                       <h4>46.4%</h4>
+                                       <div class='pie_half1'>
+                                       <div class='hide_box1'></div>
                                        </div>
-                                       <span class='per_1'>기타 </br> 53.6%</span>
-                                       <span class='per_2'>뇌질환</br>8%</span>
-                                       <span class='per_3'>심장질환</br>10.8%</span>
-                                       <span class='per_4'>암</br>27.4%</span>
-
-
+                                       <div class='pie_half2'>
+                                       <div class='hide_box2'></div>
+                                       </div>
+                                       <div class='center'></div>
                                        </div>
                                        <p>자료 : 통계청 2017 사망원인</p>
                                        </div>`
@@ -224,29 +220,227 @@ var subLayoutRender = {
 
                 h2: "높은 발병률과 사망률을 기록하고 있는 심&middot;뇌혈관질환",
                 p: "암보험만큼 든든하게 준비하셔야 합니다",
-                SectionAnimaitionHtml:`<div class='ani_section page3-section1-ani'>
-                                            <div class='left_tab  tabs'>
+                SectionAnimaitionHtml: `<div class='ani_section page3-section1-ani'>
+                                            <div class='left_tab tabs'>
                                             <h3>연도별 심혈관질환 환자수 추이</h3>
                                             <p>성인의 심혈관질환 발병률은 꾸준하게 증가하고 있습니다.</p>
+                                            <div class='graph_tab'>
+                                            <div class='hide_bar'></div>
+                                                <ul>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people1'>905.936명</p>
+                                                    <div class='stick stick_l1'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people2'>935,990명</p>
+                                                    <div class='stick stick_l2'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people3'>959,490명</p>
+                                                    <div class='stick stick_l3'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people4'>1,004,056명</p>
+                                                    <div class='stick stick_l4'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people5'>1,038,720명</p>
+                                                    <div class='stick stick_l5'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people6'>1,089,861명</p>
+                                                    <div class='stick stick_l6'></div>
+                                                    </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class='count'>
+                                                    <li>2013</li>
+                                                    <li>2014</li>
+                                                    <li>2015</li>
+                                                    <li>2016</li>
+                                                    <li>2017</li>
+                                                    <li>2018</li>
+                                                </ul>
                                             </div>
-                                            <div class='right_tab  tabs'>
+                                            </div>
+                                            <div class='right_tab tabs'>
                                             <h3>연도별 심혈관질환 성별 환자수 추이</h3>
                                             <p>남성 환자수가 매년 증가하고 있어 이에 대한 대비가 필요합니다.</p>
+                                            <div class='graph_tab'>
+                                            <p class='gender_tab'><b><span></span>남자</b> <b><span></span>여자</b>(단위: 1000명)</p>
+                                            <div class='hide_bar'></div>
+                                            <ul class='graph_tab'>
+                                            <li>
+                                                <div class='stick_wrap'>
+                                                    <div class='left_stick' id='stick_left_1'>
+                                                    <p id='stick_count_1'>406</p>
+                                                    <div class='stick1_l'></div>
+                                                    </div>
+                                                    <div class='right_stick' id='stick_right_1'>
+                                                    <p id='stick_count_2'>499</p>
+                                                    <div class='stick1_r'></div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            <li>
+                                            <div class='stick_wrap'>
+                                                <div class='left_stick' id='stick_left_2'>
+                                                <p id='stick_count_3'>413</p>
+                                                <div class='stick1_l'></div>
+                                                </div>
+                                                <div class='right_stick' id='stick_right_2'>
+                                                <p id='stick_count_4'>522</p>
+                                                <div class='stick1_r'></div>
+                                                </div>
                                             </div>
-                                       </div>`
+                                        </li>
+                                        <li>
+                                        <div class='stick_wrap'>
+                                            <div class='left_stick' id='stick_left_3'>
+                                            <p id='stick_count_5'>417</p>
+                                            <div class='stick1_l'></div>
+                                            </div>
+                                            <div class='right_stick' id='stick_right_3'>
+                                            <p id='stick_count_6'>541</p>
+                                            <div class='stick1_r'></div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                    <div class='stick_wrap'>
+                                        <div class='left_stick' id='stick_left_4'>
+                                        <p id='stick_count_7'>431</p>
+                                        <div class='stick1_l'></div>
+                                        </div>
+                                        <div class='right_stick' id='stick_right_4'>
+                                        <p id='stick_count_8'>572</p>
+                                        <div class='stick1_r'></div>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li>
+                                <div class='stick_wrap'>
+                                    <div class='left_stick' id='stick_left_5'>
+                                    <p id='stick_count_9'>439</p>
+                                    <div class='stick1_l'></div>
+                                    </div>
+                                    <div class='right_stick' id='stick_right_5'>
+                                    <p id='stick_count_10'>599</p>
+                                    <div class='stick1_r'></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                            <div class='stick_wrap'>
+                                <div class='left_stick' id='stick_left_6'>
+                                <p id='stick_count_11'>453</p>
+                                <div class='stick1_l'></div>
+                                </div> 
+                                <div class='right_stick' id='stick_right_6'>
+                                <p id='stick_count_12'><b>636</b></p>
+                                <div class='stick1_r'></div>
+                                </div>
+                            </div>
+                        </li>
+                        </ul>
+                            <ul class='count r_count'>
+                                <li>2013</li>
+                                <li>2014</li>
+                                <li>2015</li>
+                                <li>2016</li>
+                                <li>2017</li>
+                                <li>2018</li>
+                            </ul>
+                        </div>
+                        </div>
+                    </div>`
             },
             {
 
                 h2: "건강한 100세 시대를 위한 당신의 치매보험을 점검해드립니다.",
                 p: "경도, 중도, 중증치매까지 단계별 보장, 간병비, 생활자금까지 빠짐없이 보장되는지 확인하세요.",
-                SectionAnimaitionHtml:`<div class='ani_section page3-section1-ani'>
+                SectionAnimaitionHtml: `<div class='ani_section page4-section1-ani'>
                                             <div class='left_tab  tabs'>
                                             <h3>연도별 치매 환자수 추이</h3>
                                             <p>꾸준하게 늘어나고 있는 치매환자, 미리 준비하지 않으면</br>함께 하는 가족도 고통받습니다.</p>
+                                            <div class='graph_tab'>
+                                            <div class='hide_bar'></div>
+                                                <ul>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people1'>315,219명</p>
+                                                    <div class='stick stick_l1'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people2'>348,652명</p>
+                                                    <div class='stick stick_l2'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people3'>386,607명</p>
+                                                    <div class='stick stick_l3'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people4'>424,239명</p>
+                                                    <div class='stick stick_l4'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people5'>459,421명</p>
+                                                    <div class='stick stick_l5'></div>
+                                                    </div>
+                                                    </li>
+                                                    <li>
+                                                    <div class='graph_wrap'>
+                                                    <p class='count_people6'>511,931명</p>
+                                                    <div class='stick stick_l6'></div>
+                                                    </div>
+                                                    </li>
+                                                </ul>
+                                                <ul class='count'>
+                                                    <li>2013</li>
+                                                    <li>2014</li>
+                                                    <li>2015</li>
+                                                    <li>2016</li>
+                                                    <li>2017</li>
+                                                    <li>2018</li>
+                                                </ul>
+                                            </div>
                                             </div>
                                             <div class='right_tab  tabs'>
+                                            <div class='tab_left'>
                                             <h3>치매환자 입원 외래별</br>요양급여비용총액 비율</h3>
                                             <p>요양급여비용이 외래비용보다</br>월등히 높게 나타나 이에 대한</br>단계별 대비가 필요합니다</p>
+                                            <p class='count_sticker'><b><span></span>입원</b><b><span></span>외래</b> (단위:%)</p>
+                                            </div>
+                                            <div class='tab_right'>
+                                            <div class='main_circle'>
+                                            <div class='half_circle main_half_left'>1</div>
+                                            <div class='half_circle main_half_right'>1</div>
+                                            </div>
+                                            <div class='hide_circle'>
+                                            <div class='half_circle hide_half_left'>1</div>
+                                            <div class='half_circle hide_half_right'>1</div>
+                                            </div>
+                                            </div>
+                                            
                                             </div>
                                        </div>`
             },
@@ -268,7 +462,7 @@ var subLayoutRender = {
             </div>`
         }
 
- 
+
 
 
         // var Section1Left = document.getElementById('section_left');
