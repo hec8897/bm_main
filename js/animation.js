@@ -29,10 +29,11 @@ $(window).scroll(function () {
             });
         });
     }
-    if (offsets >= 600 & offsets <= 700) {
+    if (offsets >= 600 & offsets <= 800) {
         page1Section1Ani();
         page2Section1Ani();
-        page3Section1Ani1()
+        page3Section1Ani1();
+        page4Section1Ani();
         
         page3Section1Ani2(1,60,80,1,2)
         page3Section1Ani2(2,65,85,3,4)
@@ -60,23 +61,33 @@ function page2Section1Ani(){
         },500)
     },1200)
 }
-// function page4Section1Ani(){
-//     $('.hide_half_right').css({
-//         "animationName":'rotateData'
-//     })
-//     setTimeout(function(){
-//         $('.half_circle').css({"opacity":'1.0'})
-//         $('.hide_half_right').hide()
-//         $('.hide_half_left').css({
-//             "animationName":'rotateData'
-//         })
-//     },600)
-//     // setTimeout(function(){
-//     //     $(".center").animate({
-//     //         "opacity":"1.0"
-//     //     },500)
-//     // },1200)
-// }
+
+function page4Section1Ani(){
+    $('.hide_box2').css({
+        "animationName":'rotateBox'
+    })
+    setTimeout(function(){
+        $('.pie_half1').css({"opacity":'1.0'})
+        $('.hide_box2').hide()
+        $('.hide_box1').css({
+            "animationName":'rotateBox'
+        })
+    },600)
+    setTimeout(function(){
+        $(".center_h3").animate({
+            "opacity":"1.0"
+        },500)
+        $(".center_h4").delay(200).animate({
+            "opacity":"1.0"
+        },500)
+        $("#page4_line").delay(200).animate({
+            "width":"120px"
+        },600)
+        $(".line_text").delay(800).animate({
+            "opacity":"1.0"
+        },500)
+    },1200)
+}
 
 function page1Section1Ani(){
     $('.page1_circle1').animate({'opacity':1.0})

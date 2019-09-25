@@ -700,73 +700,125 @@ body {
   width: 60%;
   height: 100%;
   float: right;
+  position: relative;
 }
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle {
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.line {
+  width: 0px;
+  height: 20px;
   position: absolute;
-  width: 210px;
-  height: 210px;
-  background-color: #ec6647;
-  margin: 0 auto;
-  margin-top: 10px;
-  border-radius: 100%;
+  z-index: 100;
+  top: 10px;
+  right: 15px;
+  background-image: url(../img/ani_img/page4-section1-line.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-position: right;
+  text-align: right;
 }
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle div.half_circle {
-  width: 50%;
-  height: 100%;
-  background-color: #ec6647;
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right p.line_text {
+  position: absolute;
+  right: 15px;
+  transform: translateY(-18px);
   opacity: 0;
-  float: left;
 }
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle .main_half_left {
-  border-radius: 210px 0 0 210px;
-}
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.main_circle .main_half_right {
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 {
+  margin-top: 15px;
+  margin-bottom: 15px;
+  display: inline-block;
+  width: 220px;
+  height: 220px;
   position: relative;
-  z-index: 21;
-  border-radius: 0px 210px 210px 0px;
-  transform-origin: left center;
-  transform: rotate(30deg);
-  background: #ec6647;
+  margin-left: 40px;
 }
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle {
-  position: absolute;
-  width: 210px;
-  height: 210px;
-  margin: 0 auto;
-  margin-top: 10px;
-  border-radius: 100%;
-}
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle div.half_circle {
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div {
   width: 50%;
   height: 100%;
   float: left;
 }
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle .hide_half_left {
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div.pie_half1 {
   position: relative;
-  background: #f0f0f0;
-  border-radius: 210px 0 0 210px;
-  z-index: 20;
-  transform-origin: right center;
-  animation-duration: 0.6s;
-  animation-timing-function: ease-in;
-  -webkit-animation-fill-mode: forwards;
-  animation-fill-mode: forwards;
+  background-image: url(../img/ani_img/page4-section1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: left;
+  opacity: 0;
+  z-index: 75;
 }
-#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.hide_circle .hide_half_right {
-  border-radius: 0px 210px 210px 0px;
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div.pie_half1 div {
   position: relative;
-  z-index: 21;
-  transform-origin: left center;
-  background: #f0f0f0;
+  width: 104%;
+  height: 104%;
+  border-radius: 150px 0px 0px 150px;
+  background-color: white;
+  top: -2px;
+  left: -1px;
+  transform-origin: right center;
+  z-index: 80;
   animation-duration: 0.6s;
   animation-timing-function: ease-out;
   -webkit-animation-fill-mode: forwards;
   animation-fill-mode: forwards;
 }
-@keyframes rotateData {
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div.pie_half2 {
+  position: relative;
+  z-index: 80;
+  background-image: url(../img/ani_img/page4-section1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: right;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div.pie_half2 div {
+  position: relative;
+  z-index: 75;
+  width: 104%;
+  height: 104%;
+  border-radius: 0px 150px 150px 0px;
+  background-color: white;
+  transform-origin: left center;
+  animation-duration: 0.6s;
+  animation-timing-function: ease-in;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+}
+@keyframes rotateBox {
   100% {
     transform: rotate(180deg);
   }
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div.center {
+  width: 130px;
+  height: 130px;
+  background: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 70%;
+  position: absolute;
+  border-radius: 140px;
+  z-index: 90;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  text-align: center;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div.center h3 {
+  padding-top: 30px;
+  box-sizing: border-box;
+  font-size: 1.313rem;
+  color: #ea5735;
+  opacity: 0;
+}
+#wrap main.main_page section.section1 div.wrap.tab3_mode .page4-section1-ani .right_tab .tab_right div.pie-chart1 div.center h2 {
+  font-size: 2.5rem;
+  color: #ea5735;
+  opacity: 0;
 }
 #wrap main.main_page section.section1.page1 {
   background-image: url(../img/sub_page/page1-section1_bg.jpg);
@@ -774,17 +826,179 @@ body {
 #wrap main.main_page section.section1.page2 {
   background-image: url(../img/sub_page/page2-section1_bg.jpg);
 }
+#wrap main.main_page section.section2 div.wrap {
+  max-width: 1200px;
+  margin: 0 auto;
+  height: 100%;
+  padding-top: 100px;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section2 div.wrap div.left_tab {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+#wrap main.main_page section.section2 div.wrap div.left_tab h2 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #222222;
+  letter-spacing: -1.5px;
+}
+#wrap main.main_page section.section2 div.wrap div.left_tab h2 span {
+  font-size: 1.875rem;
+  font-weight: normal;
+  color: #222222;
+  letter-spacing: -1.5px;
+}
+#wrap main.main_page section.section2 div.wrap div.left_tab p {
+  margin-top: 35px;
+  font-size: 1.125rem;
+  color: #444444;
+  line-height: 1.5rem;
+  letter-spacing: -1.5px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab {
+  width: 50%;
+  height: 100%;
+  float: left;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 {
+  width: 100%;
+  height: 190px;
+  position: relative;
+  left: -10%;
+  top: 70px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 p {
+  text-align: center;
+  margin-bottom: 10px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area {
+  width: 100%;
+  height: 120px;
+  margin-top: 20px;
+  border-left: 1px solid #777777;
+  border-right: 1px solid #777777;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.center_line {
+  width: 1px;
+  height: 120px;
+  background: #777777;
+  z-index: 10;
+  position: absolute;
+  left: 35%;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.stick {
+  height: 35px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.stick_1 {
+  width: 100%;
+  background-image: url(../img/ani_img/page1-section2-in1.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.stick_2 {
+  width: 35%;
+  background-image: url(../img/ani_img/page1-section2-in2.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: left;
+  background-size: contain;
+  position: relative;
+  top: -8px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.text_area {
+  line-height: 30px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.text_area span {
+  display: inline-block;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.text_area span.text-box {
+  width: 90px;
+  height: 30px;
+  background: #ec6647;
+  text-align: center;
+  border-radius: 30px;
+  color: white;
+  font-weight: bold;
+  font-size: 0.875rem;
+}
+#wrap main.main_page section.section2 div.page3 h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  color: #222222;
+  letter-spacing: -1.5px;
+  font-weight: bold;
+  margin-bottom: 30px;
+}
+#wrap main.main_page section.section2 div.page3 p {
+  text-align: center;
+  margin-bottom: 5px;
+}
+#wrap main.main_page section.section2 div.page4 h4 {
+  font-size: 1.875rem;
+  font-weight: normal;
+  letter-spacing: -2.5px;
+  margin-bottom: 10px;
+  color: #222222;
+}
+#wrap main.main_page section.section2 div.page4 h3 {
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+  line-height: 2.8rem;
+  color: #222222;
+}
+#wrap main.main_page section.section2 div.page4 h3 span {
+  color: #ec6647;
+}
 #wrap main.page1 section.top_banner {
   background-image: url(../img/sub_page/page1-banner1.jpg);
+}
+#wrap main.page1 section.section2 {
+  height: 520px;
+  background-image: url(../img/sub_page/page1-section2_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: bottom;
 }
 #wrap main.page2 section.top_banner {
   background-image: url(../img/sub_page/page2-banner1.jpg);
 }
+#wrap main.page2 section.section2 {
+  height: 600px;
+  background-image: url(../img/sub_page/page2-section2_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: bottom;
+}
 #wrap main.page3 section.top_banner {
   background-image: url(../img/sub_page/page3-banner1.jpg);
 }
+#wrap main.page3 section.section2 {
+  height: 620px;
+  background-image: url(../img/sub_page/page3-section2_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: bottom;
+}
 #wrap main.page4 section.top_banner {
   background-image: url(../img/sub_page/page4-banner1.jpg);
+}
+#wrap main.page4 section.section2 {
+  height: 440px;
+  background-image: url(../img/sub_page/page4-section2_bg.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-position: bottom;
 }
 #wrap main.page5 section.top_banner {
   background-image: url(../img/sub_page/page5-banner1.jpg);

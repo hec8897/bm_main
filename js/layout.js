@@ -151,28 +151,28 @@ var layoutRender = {
 
 var subLayoutRender = {
 
-    subSectionRender: function () {
-        var mainPage = document.getElementById('sub_page_main');
-        mainPage.className = 'main_page ' + params.id
-    },
-    subMainbannerRender: function () {
-        var pageNo = params.listNo;
+        subSectionRender: function () {
+            var mainPage = document.getElementById('sub_page_main');
+            mainPage.className = 'main_page ' + params.id
+        },
+        subMainbannerRender: function () {
+            var pageNo = params.listNo;
 
-        var ThisBanner = document.getElementById('top_banner');
-        ThisBanner.innerHTML = `<div class='wrap page${pageNo}'>
+            var ThisBanner = document.getElementById('top_banner');
+            ThisBanner.innerHTML = `<div class='wrap page${pageNo}'>
                                     <h2><img src="img/sub_page/page${pageNo}_banner_h1.png" alt=""></h2>
                                     <h3><img src="img/sub_page/page${pageNo}_banner_h2.png" alt=""></h3></div>`
-    },
-    section1Render: function () {
-        var pageNo = Number(params.listNo);
-        var pageID = params.id;
+        },
+        section1Render: function () {
+            var pageNo = Number(params.listNo);
+            var pageID = params.id;
 
 
-        var LeftTabData = [{
-                h2: "태아보험",
-                p1: "출산 시 발생할 수 있는 선천성 질환과",
-                p2: "산모 건강까지 책임집니다.",
-                SectionAnimaitionHtml: `<div class='ani_section page1-section1-ani'>
+            var Section1Data = [{
+                    h2: "태아보험",
+                    p1: "출산 시 발생할 수 있는 선천성 질환과",
+                    p2: "산모 건강까지 책임집니다.",
+                    SectionAnimaitionHtml: `<div class='ani_section page1-section1-ani'>
                                         <h2>신생아 질환 특약</h2>
                                         <ul>
                                             <li class='page1_circle1'><div class='circle_box'></div>
@@ -197,12 +197,12 @@ var subLayoutRender = {
                                         </ul>
                                         <p class='ani_line'></p>
                                         </div>`
-            },
-            {
-                h2: "당신의 암보험은 든든합니까?",
-                p1: "여러 개의 암 보험을 가입했지만 보장내역&지급조건을",
-                p2: "자세히 알고 있는 분은 많지 않습니다.",
-                SectionAnimaitionHtml: `<div class='ani_section page2-section1-ani'>
+                },
+                {
+                    h2: "당신의 암보험은 든든합니까?",
+                    p1: "여러 개의 암 보험을 가입했지만 보장내역&지급조건을",
+                    p2: "자세히 알고 있는 분은 많지 않습니다.",
+                    SectionAnimaitionHtml: `<div class='ani_section page2-section1-ani'>
                                        <h2><span>연간 약 21만여 명의 신규 암 환자</span>가 발생하고 있습니다.</h2>
                                        <div class="pie-chart1">
                                        <div class='pie_half1'>
@@ -215,12 +215,12 @@ var subLayoutRender = {
                                        </div>
                                        <p>자료 : 통계청 2017 사망원인</p>
                                        </div>`
-            },
-            {
+                },
+                {
 
-                h2: "높은 발병률과 사망률을 기록하고 있는 심&middot;뇌혈관질환",
-                p: "암보험만큼 든든하게 준비하셔야 합니다",
-                SectionAnimaitionHtml: `<div class='ani_section page3-section1-ani'>
+                    h2: "높은 발병률과 사망률을 기록하고 있는 심&middot;뇌혈관질환",
+                    p: "암보험만큼 든든하게 준비하셔야 합니다",
+                    SectionAnimaitionHtml: `<div class='ani_section page3-section1-ani'>
                                             <div class='left_tab tabs'>
                                             <h3>연도별 심혈관질환 환자수 추이</h3>
                                             <p>성인의 심혈관질환 발병률은 꾸준하게 증가하고 있습니다.</p>
@@ -229,7 +229,7 @@ var subLayoutRender = {
                                                 <ul>
                                                     <li>
                                                     <div class='graph_wrap'>
-                                                    <p class='count_people1'>905.936명</p>
+                                                    <p class='count_people1'>905,936명</p>
                                                     <div class='stick stick_l1'></div>
                                                     </div>
                                                     </li>
@@ -365,12 +365,12 @@ var subLayoutRender = {
                         </div>
                         </div>
                     </div>`
-            },
-            {
+                },
+                {
 
-                h2: "건강한 100세 시대를 위한 당신의 치매보험을 점검해드립니다.",
-                p: "경도, 중도, 중증치매까지 단계별 보장, 간병비, 생활자금까지 빠짐없이 보장되는지 확인하세요.",
-                SectionAnimaitionHtml: `<div class='ani_section page4-section1-ani'>
+                    h2: "건강한 100세 시대를 위한 당신의 치매보험을 점검해드립니다.",
+                    p: "경도, 중도, 중증치매까지 단계별 보장, 간병비, 생활자금까지 빠짐없이 보장되는지 확인하세요.",
+                    SectionAnimaitionHtml: `<div class='ani_section page4-section1-ani'>
                                             <div class='left_tab  tabs'>
                                             <h3>연도별 치매 환자수 추이</h3>
                                             <p>꾸준하게 늘어나고 있는 치매환자, 미리 준비하지 않으면</br>함께 하는 가족도 고통받습니다.</p>
@@ -430,49 +430,119 @@ var subLayoutRender = {
                                             <p>요양급여비용이 외래비용보다</br>월등히 높게 나타나 이에 대한</br>단계별 대비가 필요합니다</p>
                                             <p class='count_sticker'><b><span></span>입원</b><b><span></span>외래</b> (단위:%)</p>
                                             </div>
-                                            <div class='tab_right'>
-                                            <div class='main_circle'>
-                                            <div class='half_circle main_half_left'>1</div>
-                                            <div class='half_circle main_half_right'>1</div>
-                                            </div>
-                                            <div class='hide_circle'>
-                                            <div class='half_circle hide_half_left'>1</div>
-                                            <div class='half_circle hide_half_right'>1</div>
-                                            </div>
-                                            </div>
-                                            
+                                                <div class='tab_right'>
+                                                <p class='line_text'>외래: 5.9%</p>
+
+                                                <div class='line' id='page4_line'>
+                                                </div>
+                                                <div class="pie-chart1">
+                                                <div class='pie_half1'>
+                                                <div class='hide_box1'></div>
+                                                </div>
+                                                <div class='pie_half2'>
+                                                <div class='hide_box2'></div>
+                                                </div>
+                                                <div class='center'>
+                                                <h3 class='center_h3'>입원</h3>
+                                                <h2 class='center_h4'>94.1%</h2>
+                                                </div>
+                                                </div>
+                                                </div>
                                             </div>
                                        </div>`
-            },
+                },
 
-        ]
-        // console.log(pageNo)
-        var Section = document.getElementById('section1');
-        if (pageNo <= 2) {
-            Section.className = `section1 ${pageID}`
-            Section.innerHTML = `<div class='wrap tab2_mode ${pageID}'>
-            <div class="left_tab tabs" id='section_left'><h2>${LeftTabData[pageNo-1].h2}</h2><p>${LeftTabData[pageNo-1].p1}</p><p>${LeftTabData[pageNo-1].p2}</p></div>
-            <div class="right_tab tabs" id='section_right'>${LeftTabData[pageNo-1].SectionAnimaitionHtml}</div>
+            ]
+            // console.log(pageNo)
+            var Section = document.getElementById('section1');
+            if (pageNo <= 2) {
+                Section.className = `section1 ${pageID}`
+                Section.innerHTML = `<div class='wrap tab2_mode ${pageID}'>
+            <div class="left_tab tabs" id='section_left'><h2>${Section1Data[pageNo-1].h2}</h2><p>${Section1Data[pageNo-1].p1}</p><p>${Section1Data[pageNo-1].p2}</p></div>
+            <div class="right_tab tabs" id='section_right'>${Section1Data[pageNo-1].SectionAnimaitionHtml}</div>
         </div>`
-        } else if (pageNo <= 4) {
-            Section.innerHTML = `<div class='wrap tab3_mode'>
-                <h2>${LeftTabData[pageNo-1].h2}</h2>
-                <p>${LeftTabData[pageNo-1].p}</p>
-                ${LeftTabData[pageNo-1].SectionAnimaitionHtml}
+            } else if (pageNo <= 4) {
+                Section.innerHTML = `<div class='wrap tab3_mode'>
+                <h2>${Section1Data[pageNo-1].h2}</h2>
+                <p>${Section1Data[pageNo-1].p}</p>
+                ${Section1Data[pageNo-1].SectionAnimaitionHtml}
             </div>`
+            }
+        },
+        section2Render: function () {
+            var pageNo = params.listNo;
+            var pageID = params.id;
+            var Section = document.getElementById('section2');
+            var Section2Data = [{
+                    h2: '어린이보험',
+                    p: '내 아이 성장 과정에 따라</br>보장내역과 만기를 다르게 설정해야합니다.',
+                    SectionAnimaitionHtml:`<div class='animation_tab_page1'>
+                                           <p>큰 병 아니더라도 입원할 일이 많은 영유아기</p> 
+                                           <p>입원일당 특약은 최대로! 어른이 되면 불필요한 내역은 30세 만기로!</p>
+                                           <div class='animation_area'>
+                                           <div class='center_line'></div>
+
+                                           <div class='stick_1 stick'></div>
+                                           <div class='stick_2 stick'></div>
+                                           <div class='text_area'><span class='text-ani-1 text-box'>30세 만기</span><span class='text-ani-2 text-box'>특약 최대</span><span class='text-ani-3'>깁스 치료비 등 상해 보장 꼼꼼 확인</span></div>
+                                           </div>
+                                           </div>`
+                                           ///////////여기부터
+                                           ///////////여기부터
+                                           ///////////여기부터
+                                           ///////////여기부터
+                                           ///////////여기부터
+                                           ///////////여기부터
+                                           ///////////여기부터
+                },
+                {
+                    h2: '가입한 암보험!</br><span>이제는 한 번쯤 점검해봐야 할 때입니다.</span>',
+                    p: '흩어진 암보험을 하나로 모아</br>보장은 든든하게 바로잡아 드립니다.'
+                },
+                {
+                    h2: '더 저렴한 보험으로 미래를 대비하세요',
+                    p1:'변화된 생활패턴으로 꾸준하게 증가하고 있는 2대 질병에 대한 대비!',
+                    p2:'같은 보장, 더 저렴한 보험으로 미래를 대비하세요'
+                },
+                {
+                    h2: '치매는 오랜 시간동안 소요되는 간병비와의 싸움!',
+                    h3:'고령자, 유병자라면</br><span>치매보험은 더욱 필수입니다.</span>',
+                    p:'기존에 가입한 보험을 꼼꼼하게 비교분석하고 부족한 보장을 채워줍니다.'
+                }
+
+
+            ]
+            if (pageNo == 3) {
+                Section.innerHTML = `<div class='wrap page3'>
+                                         <h2>${Section2Data[pageNo-1].h2}</h2>
+                                         <p>${Section2Data[pageNo-1].p1}</p>
+                                         <p>${Section2Data[pageNo-1].p2}</p>
+                                     </div>`
+
+
+                } else if (pageNo == 4) {
+
+                    Section.innerHTML = `<div class='wrap page4'>
+                                             <div class='left_tab'>
+                                                 <h4>${Section2Data[pageNo-1].h2}</h4>
+                                                 <h3>${Section2Data[pageNo-1].h3}</h3>
+                                                 <p>${Section2Data[pageNo-1].p}</p>
+                                                </div>
+                                            <div class='right_tab'>2</div>
+                                         </div>`
+
+                } else {
+                    Section.innerHTML = `<div class='wrap'>
+                                            <div class='left_tab'><h2>${Section2Data[pageNo-1].h2}</h2><p>${Section2Data[pageNo-1].p}</p></div>
+                                            <div class='right_tab'>${Section2Data[pageNo-1].SectionAnimaitionHtml}</div>
+                                        </div>`
+
+
+
+                }
+
+
+            }
+
+
         }
-
-
-
-
-        // var Section1Left = document.getElementById('section_left');
-        // var Section2Left = document.getElementById('section_right');
-
-        // Section1Left.innerHTML = `${pageNo}`
-        // Section2Left.innerHTML = `${pageNo}`
-
-
-    }
-
-
-}
