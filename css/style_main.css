@@ -15,6 +15,9 @@ body {
   min-height: 2000px;
   /*지워*/
 }
+* {
+  color: #222;
+}
 .wraps {
   max-width: 1200px;
   height: 100%;
@@ -880,12 +883,13 @@ body {
   border-left: 1px solid #777777;
   border-right: 1px solid #777777;
   box-sizing: border-box;
+  overflow: hidden;
 }
 #wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.center_line {
   width: 1px;
   height: 120px;
   background: #777777;
-  z-index: 10;
+  z-index: 9;
   position: absolute;
   left: 35%;
 }
@@ -899,6 +903,9 @@ body {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  z-index: 10;
+  position: relative;
+  left: -90%;
 }
 #wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.stick_2 {
   width: 35%;
@@ -910,6 +917,7 @@ body {
   background-size: contain;
   position: relative;
   top: -8px;
+  left: -25%;
 }
 #wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.text_area {
   line-height: 30px;
@@ -926,6 +934,120 @@ body {
   color: white;
   font-weight: bold;
   font-size: 0.875rem;
+  margin-left: 65px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page1 div.animation_area div.text_area span.text-ani-2 {
+  background: #4ab120;
+  margin-left: 70px;
+  margin-right: 10px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 {
+  padding-top: 60px;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.tit_box {
+  width: 600px;
+  height: 110px;
+  background-image: url(../img/sub_page/page2-section2-text-box.png);
+  padding-top: 20px;
+  box-sizing: border-box;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.tit_box h3 {
+  text-align: center;
+  font-size: 1.125rem;
+  font-weight: bold;
+  margin-bottom: 7px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box {
+  width: 100%;
+  height: 240px;
+  margin-top: 10px;
+  box-sizing: border-box;
+  border-left: 1px solid #999;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li {
+  height: 20px;
+  margin-bottom: 15px;
+  line-height: 20px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li div {
+  width: 1%;
+  height: 100%;
+  float: left;
+  margin-right: 10px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .point {
+  opacity: 0;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .graph_1,
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .graph_2,
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .graph_3,
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .graph_4 {
+  background: #a9a9a9;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #a9a9a9 26%, #e0e3e5 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #a9a9a9 26%, #e0e3e5 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to right, #a9a9a9 26%, #e0e3e5 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#a9a9a9', endColorstr='#e0e3e5', GradientType=0);
+  /* IE6-9 */
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .graph_5 {
+  background: #64bd22;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #64bd22 26%, #bff411 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #64bd22 26%, #bff411 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #64bd22 26%, #bff411 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#64bd22', endColorstr='#bff411', GradientType=0);
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .graph_6 {
+  background: #fe9a38;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #fe9a38 26%, #ffcf3f 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #fe9a38 26%, #ffcf3f 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #fe9a38 26%, #ffcf3f 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fe9a38', endColorstr='#ffcf3f', GradientType=0);
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li .graph_7 {
+  background: #ec6647;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ec6647 26%, #ff982a 100%);
+  /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #ec6647 26%, #ff982a 100%);
+  /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(to bottom, #ec6647 26%, #ff982a 100%);
+  /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ec6647', endColorstr='#ff982a', GradientType=0);
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li span {
+  font-size: 0.875rem;
+  color: #888;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li span.point1 {
+  color: #4ab120;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li span.point2 {
+  color: #fe9125;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li span.point3 {
+  color: #ec6647;
+}
+#wrap main.main_page section.section2 div.wrap div.right_tab div.animation_tab_page2 div.graph_box ul li span.point3 b {
+  font-size: 1.5rem;
+  color: #ec6647;
 }
 #wrap main.main_page section.section2 div.page3 h2 {
   text-align: center;
@@ -938,6 +1060,73 @@ body {
 #wrap main.main_page section.section2 div.page3 p {
   text-align: center;
   margin-bottom: 5px;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab {
+  text-align: center;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-circle {
+  width: 270px;
+  height: 270px;
+  background-color: rgba(0, 0, 0, 0.2);
+  margin-top: 50px;
+  position: relative;
+  display: inline-block;
+  border-radius: 100%;
+  overflow: hidden;
+  opacity: 0;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-circle div.inner_circle {
+  width: 210px;
+  height: 210px;
+  margin: 30px auto;
+  background: white;
+  border-radius: 100%;
+  padding-top: 50px;
+  box-sizing: border-box;
+  text-align: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-circle div.inner_circle p.text_area {
+  font-size: 1.125rem;
+  color: #444;
+  font-weight: bold;
+  margin-top: 10px;
+  padding-top: 75px;
+  letter-spacing: -1px;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani1 {
+  transform: translateX(18%);
+  background: #ff8a77;
+  z-index: 3;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani1 div.inner_circle {
+  background-image: url(../img/sub_page/page3-section2-icon.png);
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani2 {
+  transform: translateX(6%);
+  background-color: rgba(53, 152, 225, 0.7);
+  z-index: 6;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani2 div.inner_circle {
+  background-image: url(../img/sub_page/page3-section2-icon2.png);
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani3 {
+  transform: translateX(-6%);
+  background: #ffca3e;
+  z-index: 3;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani3 div.inner_circle {
+  background-image: url(../img/sub_page/page3-section2-icon3.png);
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani4 {
+  transform: translateX(-18%);
+  background-color: rgba(255, 157, 59, 0.7);
+  z-index: 6;
+}
+#wrap main.main_page section.section2 div.page3 .page3-animation-tab div.page3-ani4 div.inner_circle {
+  background-image: url(../img/sub_page/page3-section2-icon4.png);
 }
 #wrap main.main_page section.section2 div.page4 h4 {
   font-size: 1.875rem;
@@ -955,6 +1144,249 @@ body {
 }
 #wrap main.main_page section.section2 div.page4 h3 span {
   color: #ec6647;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.top_line {
+  width: 440px;
+  height: 15px;
+  margin: 0 auto;
+  border-bottom: 1px solid #d9d9d9;
+  font-size: 0.773rem;
+  transform: translateY(20px);
+  padding-bottom: 5px;
+  position: relative;
+  color: #777;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section {
+  width: 440px;
+  height: 220px;
+  margin: 0 auto;
+  border-bottom: 1px solid #d9d9d9;
+  position: relative;
+  text-align: center;
+  padding-left: 30px;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph {
+  width: 150px;
+  height: 220px;
+  background: #d9d9d9;
+  display: inline-block;
+  overflow: hidden;
+  position: relative;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph .inner_box {
+  width: 100%;
+  height: 200px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  position: absolute;
+  bottom: -200px;
+  padding-top: 90px;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph .inner_box h4 {
+  font-size: 1rem;
+  height: 30px;
+  color: white;
+  font-weight: bold;
+  letter-spacing: -1px;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph .inner_box h4 span {
+  display: block;
+  height: 30px;
+  font-weight: bold;
+  color: white;
+  font-size: 1.25rem;
+  margin-top: 5px;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph_1 {
+  margin-right: 30px;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph_1 .inner_box {
+  background-image: url(../img/sub_page/page4-section2-graph1.png);
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph_2 {
+  margin-right: 30px;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section div.page4_s2_graph_2 .inner_box {
+  background-image: url(../img/sub_page/page4-section2-graph2.png);
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab div.ani_section span.bottom_text {
+  font-size: 0.773rem;
+  position: absolute;
+  bottom: 5px;
+  left: 0;
+  color: #777;
+}
+#wrap main.main_page section.section2 div.page4 div.right_tab p {
+  width: 440px;
+  height: 220px;
+  margin: 0 auto;
+  text-align: right;
+  font-size: 0.875rem;
+  padding-top: 10px;
+  letter-spacing: -1px;
+  color: #666;
+}
+#wrap main.main_page section.section3 {
+  width: 100%;
+  height: 460px;
+  background-image: url(../img/sub_page/section3_bg.png);
+  background-color: white;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  text-align: center;
+  padding-top: 100px;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section3 h2 {
+  font-size: 3.125rem;
+  font-weight: bold;
+  color: #ec6647;
+  letter-spacing: -2px;
+  margin-bottom: 70px;
+}
+#wrap main.main_page section.section3 h3 {
+  font-size: 1.875rem;
+  letter-spacing: -2px;
+  margin-bottom: 20px;
+  color: #444;
+}
+#wrap main.main_page section.section3 h3 span {
+  color: #ec6647;
+  font-weight: bold;
+}
+#wrap main.main_page section.section3 div.text_box {
+  max-width: 700px;
+  height: 90px;
+  background: white;
+  margin: 40px auto;
+  padding-top: 30px;
+  box-sizing: border-box;
+}
+#wrap main.main_page section.section3 div.text_box h4 {
+  font-size: 1.313rem;
+  letter-spacing: -2px;
+  margin-bottom: 10px;
+  color: #444;
+}
+#wrap main.main_page section.section3 div.text_box h4 span {
+  color: #ec6647;
+}
+#wrap main.main_page section.section4 {
+  width: 100%;
+  height: 840px;
+  padding-bottom: 100px;
+  background: white;
+}
+#wrap main.main_page section.section4 div.wrap {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 100px;
+  box-sizing: border-box;
+  text-align: center;
+}
+#wrap main.main_page section.section4 div.wrap h2 {
+  font-size: 3.125rem;
+  font-weight: bold;
+  letter-spacing: -4px;
+  margin-bottom: 20px;
+}
+#wrap main.main_page section.section4 div.wrap p {
+  font-size: 1.125rem;
+  letter-spacing: -2px;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs {
+  width: 100%;
+  height: 520px;
+  margin: 0px auto;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  text-align: left;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box {
+  width: 285px;
+  height: 250px;
+  border: 2px solid #d9d9d9;
+  box-sizing: border-box;
+  display: inline-block;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  padding-top: 20px;
+  text-align: center;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box img.bedge {
+  float: right;
+  transform: translate(30%, -30%);
+  opacity: 0;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box .fn_icon {
+  width: 100px;
+  height: 80px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  margin: 0 auto;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box p {
+  font-size: 1rem;
+  color: #444;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box p span {
+  display: block;
+  margin-top: 5px;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box div.more_btn {
+  cursor: pointer;
+  width: 120px;
+  height: 40px;
+  margin: 30px auto;
+  text-align: center;
+  line-height: 40px;
+  border: 1px solid #d9d9d9;
+  color: #444;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box1 .fn_icon {
+  background-image: url(../img/sub_page/company_mz.png);
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box2 .fn_icon {
+  background-image: url(../img/sub_page/company_hk.png);
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box3 .fn_icon {
+  background-image: url(../img/sub_page/company_hh.png);
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box4 .fn_icon {
+  background-image: url(../img/sub_page/company_hd.png);
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box5 .fn_icon {
+  background-image: url(../img/sub_page/company_db.png);
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box6 .fn_icon {
+  background-image: url(../img/sub_page/company_mh.png);
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box7 .fn_icon {
+  background-image: url(../img/sub_page/company_rt.png);
+}
+#wrap main.main_page section.section4 div.wrap div.fn_btn {
+  cursor: pointer;
+  width: 250px;
+  height: 50px;
+  background: #ec6647;
+  margin: 0 auto;
+  margin-top: 50px;
+  color: white;
+  border-radius: 100px;
+  line-height: 50px;
+  font-size: 1.125rem;
+  font-weight: bold;
+  -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+  box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
 }
 #wrap main.page1 section.top_banner {
   background-image: url(../img/sub_page/page1-banner1.jpg);

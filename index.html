@@ -9,10 +9,21 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <meta property="og:url" content="http://bmcompany.kr">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="당신의 삶을 더욱 든든하게">
+    <meta property="og:title" content="BM Company">
+    <meta property="og:image" content="http://bmcompany.kr/og.jpg">
+    <link rel="shortcut icon" href="http://bmcompany.kr/favicon.ico">
+    <link rel="icon" href="http://bmcompany.kr/favicon.ico">
     <script src='js/common.js'></script>
-    <!-- <script src="js/layout.js"></script> -->
-    <script src="js/layout.min.js"></script>
+
+    <script src="js/layout.js"></script>
+    <!-- <script src="js/layout.min.js"></script> -->
     <script src="js/animation.js"></script>
+
+    
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script>
         $(window).on('load', function () {
@@ -91,6 +102,11 @@
 
 <body>
     <div id='wrap'>
+        <div class="popups" id='popup_box'>
+            <div class='loader'>
+
+            </div>
+        </div>
         <header>
             <!-- js/layout.js => layoutRender.HeaderRender(); -->
         </header>
@@ -141,7 +157,7 @@
                 <div class='right_tab tab'>
                     <h3>스피드 보험비교</h3>
                     <p>내게 딱 맞는 보험 상품을 비교해보세요.</p>
-                    <div class='event_go_btn'>스피드 보험비교</div>
+                    <div class='event_go_btn' onclick="popupRender.speedpopup(0)">스피드 보험비교</div>
                 </div>
                 <div class='center_tab'>
                     <h3>빠른 상담신청</h3>

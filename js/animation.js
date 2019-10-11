@@ -1,5 +1,6 @@
 var page2Section1AniCount = 1;//don't delet
 $(window).scroll(function () {
+    
     var offsets = $(document).scrollTop();
     if (offsets >= 1100 & offsets <= 1500) {
         //main_page_rotate animation to banner
@@ -29,6 +30,12 @@ $(window).scroll(function () {
             });
         });
     }
+    if (offsets >= 1000 & offsets <= 1300) {
+        page1Section2Ani()
+        page2Section2Ani()
+        page3Section2Ani()
+        page4Section2Ani()
+    }
     if (offsets >= 600 & offsets <= 800) {
         page1Section1Ani();
         page2Section1Ani();
@@ -43,6 +50,8 @@ $(window).scroll(function () {
         page3Section1Ani2(6,80,120,11,12)
 
     }
+   
+
 })
 function page2Section1Ani(){
     $('.hide_box2').css({
@@ -159,4 +168,74 @@ var page3Section1Ani2 = function(a,b,c,d,e){
   
 }
 
+var page1Section2Ani = function(){
+    $('#stick1').animate({
+        "left":"0%"
+    },1000)
+    $('#stick2').delay(100).animate({
+        "left":"0%"
+    },900)
 
+}
+
+function page2Section2Ani(){
+    $('.graph_1').animate({
+        "width":"1.6%"
+    },1000)
+    $('.graph_2').animate({
+        "width":"1.8%"
+    },1000)
+    $('.graph_3').animate({
+        "width":"4.5%"
+    },1000)
+    $('.graph_4').animate({
+        "width":"5.7%"
+    },1000)
+    $('.graph_5').animate({
+        "width":"5.8%"
+    },1000)
+    $('.graph_6').animate({
+        "width":"12.2%"
+    },1000)
+    $('.graph_7').animate({
+        "width":"67.5%"
+    },1000)
+    $('.point').animate({
+        "opacity":"1.0"
+    },1000)
+}
+
+function page3Section2Ani(){
+    $('#page3-s2-ani1').animate({
+        "opacity":1.0
+    })
+    $('#page3-s2-ani2').delay(200).animate({
+        "opacity":1.0
+    })
+    $('#page3-s2-ani3').delay(400).animate({
+        "opacity":1.0
+    })
+    $('#page3-s2-ani4').delay(600).animate({
+        "opacity":1.0
+    })
+}
+function page4Section2Ani(){
+    $('#page4_s2_graph_1').animate({
+        "bottom":"00px"
+    },500)
+    $('#page4_s2_graph_2').animate({
+        "bottom":"00px"
+    },500)
+}
+
+$(window).on('load',function(){
+    $('#popup_box').delay(5000).css({
+        "display":"none"
+    })
+    
+    $('#popup_box').on('scroll touchmove mousewheel', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+    });
+})

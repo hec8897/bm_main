@@ -302,7 +302,7 @@ div#wrap header div.gnb_nav {
   box-sizing: border-box;
   position: relative;
   right: 0%;
-  z-index: 999;
+  z-index: 900;
 }
 div#wrap header div.gnb_nav div.wrap {
   line-height: 50px;
@@ -352,6 +352,9 @@ div#wrap header div.gnb_nav div.wrap nav ul li.active p {
 div#wrap header div.gnb_nav div.wrap nav ul li.disable_li:hover a {
   color: #ec6647;
   font-weight: bold;
+}
+div#wrap footer {
+  background: white;
 }
 div#wrap footer div.company_list {
   width: 100%;

@@ -113,6 +113,7 @@ div#wrap main.index_main section.main_slider .bx-wrapper .bx-next {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  z-index: 900;
 }
 div#wrap main.index_main section.main_slider .bx-wrapper .bx-next:hover {
   transform: rotate(360deg);
