@@ -1,6 +1,5 @@
 var page2Section1AniCount = 1;//don't delet
 $(window).scroll(function () {
-    
     var offsets = $(document).scrollTop();
     if (offsets >= 1100 & offsets <= 1500) {
         //main_page_rotate animation to banner
@@ -50,9 +49,9 @@ $(window).scroll(function () {
         page3Section1Ani2(6,80,120,11,12)
 
     }
-   
-
 })
+
+
 function page2Section1Ani(){
     $('.hide_box2').css({
         "animationName":'rotateBox'
@@ -229,13 +228,16 @@ function page4Section2Ani(){
 }
 
 $(window).on('load',function(){
-    $('#popup_box').delay(5000).css({
-        "display":"none"
-    })
+    setTimeout(function(){
+        $('#popup_box').css({
+            "display":"none"
+        })
+    },500)
     
-    $('#popup_box').on('scroll touchmove mousewheel', function(event) {
-        event.preventDefault();
-        event.stopPropagation();
-        return false;
-    });
+    
+    // $('#popup_box').on('scroll touchmove mousewheel', function(event) {
+    //     event.preventDefault();
+    //     event.stopPropagation();
+    //     return false;
+    // });
 })

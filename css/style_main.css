@@ -1318,6 +1318,7 @@ body {
   border-radius: 15px;
   padding-top: 20px;
   text-align: center;
+  overflow: hidden;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box img.bedge {
   float: right;
@@ -1336,6 +1337,7 @@ body {
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box p {
   font-size: 1rem;
   color: #444;
+  margin-bottom: 5px;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box p span {
   display: block;
@@ -1350,27 +1352,6 @@ body {
   line-height: 40px;
   border: 1px solid #d9d9d9;
   color: #444;
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box1 .fn_icon {
-  background-image: url(../img/sub_page/company_mz.png);
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box2 .fn_icon {
-  background-image: url(../img/sub_page/company_hk.png);
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box3 .fn_icon {
-  background-image: url(../img/sub_page/company_hh.png);
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box4 .fn_icon {
-  background-image: url(../img/sub_page/company_hd.png);
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box5 .fn_icon {
-  background-image: url(../img/sub_page/company_db.png);
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box6 .fn_icon {
-  background-image: url(../img/sub_page/company_mh.png);
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box7 .fn_icon {
-  background-image: url(../img/sub_page/company_rt.png);
 }
 #wrap main.main_page section.section4 div.wrap div.fn_btn {
   cursor: pointer;

@@ -1,3 +1,6 @@
+String.prototype.replaceAll = function (org, dest) {
+    return this.split(org).join(dest);
+}
 var layoutRender = {
     params: '',
     getQueryString: function () {
@@ -453,7 +456,6 @@ var subLayoutRender = {
             },
 
         ]
-        // console.log(pageNo)
         var Section = document.getElementById('section1');
         if (pageNo <= 2) {
             Section.className = `section1 ${pageID}`
@@ -667,19 +669,61 @@ var subLayoutRender = {
                                      </div>
                                      `
 
+    },
+    section4Render: function (a) {
+        var pageIndex = Number(params.listNo) - 1;
+        var key = ["baby", "cancer", "disease", "dementia"];
+        var Section = document.getElementById('section4');
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var returnJson = JSON.parse(this.responseText)
+                result = returnJson.filter((x, idx, array) => {
+                    return x.catekey == key[pageIndex];
+                })
+                var resultArray = [];
+                for (var i = 0; i < result.length; i++) {
+                    resultArray.push(` <div class='fn_box fn_box${i}'>
+                                        <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
+                                        <div class="fn_icon" style="background-image:url(${result[i].logo})"></div>
+                                        <p>${result[i].product}<span>${result[i].type}</span></p>
+                                        <div class="more_btn">자세히보기</div>
+                                    </div>`)
+
+                }
+                var resultArrayHtml = resultArray.toString();
+                var replaceAll1 = resultArrayHtml.replaceAll(',', '');
+                var replaceAll2 = replaceAll1.replaceAll(null, ' ');
+
+                Section.innerHTML = `
+                            <div class="wrap">
+                            <h2>스피드 보험비교</h2>
+                            <p>보험친구들에서 추천하는 상품을 비교해보세요.(최대 2개의 상품을 비교해보실 수 있습니다.)</p>
+                            <div class="fn_boxs">                                
+                                ${replaceAll2}
+                            </div>
+                            <div class="fn_btn">보험 비교하기</div>
+
+                        </div>`
+
+            }
+        }
+        xhttp.open('POST', 'data/ins_data.json', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("data=0")
     }
-
-
 }
 
 
 var popupRender = {
+    GetJsonData: function () {
+
+    },
     closepopup: function () {
         var popup = document.getElementById('popup_box')
         $('html, body').css({
             'overflow-y': 'auto'
         });
-
         popup.style.display = 'none'
 
     },
@@ -692,52 +736,164 @@ var popupRender = {
                 <span class='xbox' onclick='popupRender.closepopup()'></span>
                 <h2>스피드 보험비교</h2>
                 <div class='popup_nav'>
-                    <div class='popup_list popup_list1 active'><img src='img/common/header-nav-icon1.png'>태아(어린이보험)</div>
-                    <div class='popup_list popup_list2'>암보험</div>
-                    <div class='popup_list popup_list3'>2대중대질병</div>
-                    <div class='popup_list popup_list4'>치매보험</div>
+                    <div class='popup_list popup_list1 active' onclick='popupRender.tabData(0), popupRender.tabListActive(0,this,"nav")'><img src='img/common/header-nav-icon1.png'>태아(어린이보험)</div>
+                    <div class='popup_list popup_list2' onclick='popupRender.tabData(1), popupRender.tabListActive(1,this,"nav")'>암보험</div>
+                    <div class='popup_list popup_list3' onclick='popupRender.tabData(2), popupRender.tabListActive(2,this,"nav")'>2대중대질병</div>
+                    <div class='popup_list popup_list4' onclick='popupRender.tabData(3), popupRender.tabListActive(3,this,"nav")'>치매보험</div>
                 </div>
-                <h3>최대 2개까지 보험비교를 하실 수 있습니다.</h3>
                 <div class='ins_tabs' id='ins_tab'>
-                    123
                 </div>
+                <div class='compare_fn_btn' onclick='popupRender.compareTabRnder()'>보험 비교하기</div>
             </div>`
-
-            tabData(a)
-        }, 1000);
-
-        function tabData(a) {
-            var insTab = document.getElementById('ins_tab')
-            insTab.innerHTML = `<div class='ins_tab ins_tab1'>
-                                    <img src="img/sub_page/company_mz.png" alt="">
-                                    <p>내맘같은 어린이보험</p>
-
-                                </div>
-                                <div class='ins_tab ins_tab2'>
-                                <img src="img/sub_page/company_hk.png" alt="">
-
-                                </div>
-                                <div class='ins_tab ins_tab3'>
-                                <img src="img/sub_page/company_hh.png" alt="">
-
-                                </div>
-                                <div class='ins_tab ins_tab4'>
-                                <img src="img/sub_page/company_db.png" alt="">
-
-                                </div>
-                                <div class='ins_tab ins_tab5'>
-                                <img src="img/sub_page/company_mh.png" alt="">
-
-                                </div>
-                                <div class='ins_tab ins_tab6'>
-                                <img src="img/sub_page/company_rt.png" alt="">
-
-                                </div>`
-                            }
-
+            this.tabData(0)
+        }, 500);
         $('html, body').css({
             'overflow-y': 'hidden'
         });
+    },
+    tabListActive: function (a, b, c, d) {
+        if (c == 'nav') {
+            var popupList = document.querySelectorAll('.popup_list');
+            for (i = 0; i < popupList.length; i++) {
+                popupList[i].className = `popup_list popup_list${i+1}`
+            }
+            b.className = `popup_list popup_list${a+1} active`
+            this.arrayDish = [];
+        } else if (c == 'tab') {
+            if (this.arrayDish.length < 2) {
+                if (b.id == '') {
+                    b.id = 'active'
+                    this.arrayDish.push(d)
+                } else {
+                    b.id = ''
+                    this.arrayDish.splice(this.arrayDish.indexOf(d), 1)
+                }
+            } else {
+                if (b.id == 'active') {
+                    b.id = ''
+                    this.arrayDish.splice(this.arrayDish.indexOf(d), 1)
+                } else if (b.id == '') {
+                    alert("목록은 두개만 선택할 수 있습니다")
+                }
+            }
+        }
+    },
+    arrayDish: [],
+    tabData: function (a, b) {
+        var pageIndex = a;
+        var key = ["baby", "cancer", "disease", "dementia"];
+        var insTab = document.getElementById('ins_tab')
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                returnJson = JSON.parse(this.responseText)
+                resultArray = [];
+                result = returnJson.filter((x) => {
+                    return x.catekey == key[pageIndex];
+                })
+                for (var i = 0; i < result.length; i++) {
+                    resultArray.push(
+                        `<div class='ins_tab ins_tab${i+1}' onclick='popupRender.tabListActive(${i+1}|this|"tab"|${result[i].no})'>
+                            <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
+                            <div class='icon_area' style="background-image:url(${result[i].logo})"></div>
+                            <p>${result[i].product}</p>
+                        </div>`
+                    )
+                }
+                var resultArrayHtml = resultArray.toString();
+                var replaceAll1 = resultArrayHtml.replaceAll(',', '');
+                var replaceAll2 = replaceAll1.replaceAll('|', ',');
+                var replaceAll3 = replaceAll2.replaceAll(null, ' ');
+                insTab.innerHTML = `<h3>최대 2개까지 보험비교를 하실 수 있습니다.</h3>
+                ${replaceAll3}`
+            }
+        }
+        xhttp.open('POST', 'data/ins_data.json', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("data=0")
+    },
+    compareTabRnder: function () {
+        var insTab = document.getElementById('ins_tab')
 
+        if (this.arrayDish.length == 2) {
+            result1 = returnJson.filter((x) => {
+                return x.no == this.arrayDish[0];
+            })
+            priceHtml1 = []
+                if(result1[0].ageprice == 0){
+
+                    priceHtml1.push(`<div class='null_data'>-</div>`)
+                }
+                else if(result1[0].ageprice > 0){
+                }
+                
+                console.log(result1)
+     
+
+
+            result2 = returnJson.filter((x) => {
+                return x.no == this.arrayDish[1];
+            })
+
+            insTab.innerHTML = `
+            <h3 class='result_compare'>스피드 보험비교</h3>
+            <h4>고객님이 선택하신 보험상품의 특징을 꼼꼼하게 비교해보세요</h4>
+            <div class='compare_bord'>
+                <div class='bord_wrap'>
+                    <div class='head_data data_tabs'>
+                        <div class='left_tab tabs'>
+                            <div class='logo_section' style="background-image:url(${result1[0].logo})"></div>
+                            <div class='text_area'>
+                                <h3>${result1[0].product}</h3>
+                                <p>${result1[0].type}</p>
+                            </div>
+                        </div>
+
+                        <div class='center_tab'></div>
+
+                        <div class='right_tab tabs'>
+                            <div class='logo_section' style="background-image:url(${result2[0].logo})"></div>
+                                <div class='text_area'>
+                                    <h3>${result2[0].product}</h3>
+                                    <p>${result2[0].type}</p>
+                                </div>
+                        </div>
+                        </div>
+                        <div class='price_tab data_tabs'>
+                        <div class='left_tab tabs'>
+                            <div class='price_bord'>
+                                ${priceHtml1}
+                                <!-- <div class='tb_head row'>
+                                    <b>1</b>
+                                    <b>2</b>
+                                    <b>3</b>
+                                </div>
+                                <div class='tb_body1 row'></div>
+                                <div class='tb_body2 row'></div> -->
+                            </div>
+                        </div>
+
+                        <div class='center_tab'>
+                            <span>연령별</br> 월 보험료</span>
+                        </div>
+
+                        <div class='right_tab tabs'>
+                            <div class='price_bord'>
+                            <div class='tb_head row'>
+                                    <b>1</b>
+                                    <b>2</b>
+                                    <b>3</b>
+                                </div>
+                                <div class='tb_body1 row'></div>
+                                <div class='tb_body2 row'></div>
+                            </div>
+                        </div>
+                        </div>
+                    </div>
+            </div>
+            `
+        } else {
+            alert('목록을 두개 선택해주세요')
+        }
     }
 }
