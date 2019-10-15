@@ -19,9 +19,8 @@
     <link rel="icon" href="http://bmcompany.kr/favicon.ico">
     <script src='js/common.js'></script>
     <script src="js/layout.js"></script>
-    <script src="js/animation.js"></script>
-
     <!-- <script src="js/layout.min.js"></script> -->
+    <script src="js/animation.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script>
         $(window).on('load', function () {
@@ -97,7 +96,6 @@
     </script>
     <title>보험친구들</title>
 </head>
-
 <body>
     <div id='wrap'>
         <div class="popups" id='popup_box'>
@@ -149,12 +147,12 @@
                 <div class='left_tab tab'>
                     <h3>보험료 셀프 계산기</h3>
                     <p>내 보험료는 얼마? 예상 보험료를 미리 계산해보세요.</p>
-                    <div class='event_go_btn'>보험료 셀프계산기</div>
+                    <div class='event_go_btn' onclick="popupRender.speedpopup(0)">보험료 셀프계산기</div>
                 </div>
                 <div class='right_tab tab'>
                     <h3>스피드 보험비교</h3>
                     <p>내게 딱 맞는 보험 상품을 비교해보세요.</p>
-                    <div class='event_go_btn' onclick="popupRender.speedpopup(0)">스피드 보험비교</div>
+                    <div class='event_go_btn' onclick="popupRender.calculateFn(0)">스피드 보험비교</div>
                 </div>
                 <div class='center_tab'>
                     <h3>빠른 상담신청</h3>
