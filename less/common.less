@@ -162,8 +162,8 @@ div#wrap{
         width: 80px;
         height: 350px;
         position: absolute;
-        top: 80px;
-        right: 10%;
+        top: 180px;
+        right:2%;
         z-index: 900;
         border-radius: 80px;
         padding: 5px;
@@ -179,6 +179,9 @@ div#wrap{
         animation-timing-function: ease;
         -webkit-animation-fill-mode: forwards;
         animation-fill-mode: forwards;
+        @media screen and (max-width:1200px){        
+            display: none;
+        }
 
         @keyframes show {
             0%{
@@ -215,6 +218,7 @@ div#wrap{
             width: 80%;
             margin: 0 auto;
             li{
+                cursor: pointer;
                 width: 100%;
                 height: 40px;
                 border-bottom: 1px solid #cecece;
@@ -234,12 +238,15 @@ div#wrap{
             }
         }
     }
+
+   
     /********************Header CSS****/
     header{
         width: 100%;
         height: 100%;
         max-width: 1920px;
         margin: 0 auto;
+        background: white;
         // background: gray;
         div.gnb_line{
             width: 100%;
@@ -303,7 +310,6 @@ div#wrap{
             box-sizing: border-box;
             position: relative;
             right:0%;
-
             z-index: 900;
             div.wrap{
                 line-height: 50px;

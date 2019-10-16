@@ -105,6 +105,7 @@ body {
   float: left;
 }
 #wrap main.main_page section.top_inputs div.wrap div.btn_tab .btns {
+  cursor: pointer;
   height: 47%;
   background: #ec6647;
   margin-bottom: 2%;
@@ -1308,17 +1309,18 @@ body {
   text-align: left;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box {
+  cursor: pointer;
   width: 285px;
   height: 250px;
   border: 2px solid #d9d9d9;
   box-sizing: border-box;
-  display: inline-block;
-  margin-right: 10px;
+  float: left;
   margin-bottom: 10px;
   border-radius: 15px;
   padding-top: 20px;
   text-align: center;
-  overflow: hidden;
+  margin-right: 5px;
+  margin-left: 5px;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box img.bedge {
   float: right;
@@ -1345,13 +1347,17 @@ body {
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box div.more_btn {
   cursor: pointer;
-  width: 120px;
-  height: 40px;
   margin: 30px auto;
   text-align: center;
   line-height: 40px;
-  border: 1px solid #d9d9d9;
   color: #444;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box#active {
+  border: 2px solid #ec6647;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box#active img.bedge {
+  display: block;
+  opacity: 1;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_btn {
   cursor: pointer;

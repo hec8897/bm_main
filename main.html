@@ -15,12 +15,22 @@
     <link rel="icon" href="http://bmcompany.kr/favicon.ico">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style_main.css">
+    <link rel="stylesheet" href="css/popup.css">
   
     <title>보험친구들</title>
 </head>
 
 <body>
     <div id='wrap'>
+            <div class="popups" id='popup_box'>
+                    <div class='loader'>
+                    </div>
+                </div>
+                <div class='popups insert_popup' id='insert_box'>
+                    <div class='insert_box' id='innser_insert'>
+                            <div class='loader'></div>
+                    </div>
+                </div>
         <header>
             <!-- js/layout.js => layoutRender.HeaderRender(); -->
         </header>
@@ -51,7 +61,7 @@
                             </label></p>
                     </div>
                     <div class="btn_tab">
-                        <div class='btns left_btn'>보험료 셀프 계산하기 <img class='btn_arrow3' src="img/common/btn_arrow.png"
+                        <div class='btns left_btn' onclick="popupRender.calculateFn(0)">보험료 셀프 계산하기 <img class='btn_arrow3' src="img/common/btn_arrow.png"
                                 class='btn_arrow1' alt="계산기 화살표 이미지"></div>
                         <div class='btns right_btn'>무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
                                 class='btn_arrow1' alt="계산기 화살표 이미지"></div>
@@ -73,8 +83,7 @@
         <footer></footer>
     </div>
     <script src='js/common.js'></script>
-    <script src="js/layout.js"></script>
-    <!-- <script src="js/layout.min.js"></script> -->
+    <script src="js/layout.min.js"></script>
     <script src="js/animation.js"></script>
     <script>
         layoutRender.HeaderRender();

@@ -104,14 +104,13 @@ body {
                         }
                     }
                 }
-
                 div.btn_tab {
                     width: 250px;
                     height: 115px;
                     margin-left: 15px;
                     float: left;
-
                     .btns {
+                        cursor: pointer;
                         height: 47%;
                         background: #ec6647;
                         margin-bottom: 2%;
@@ -1592,17 +1591,19 @@ body {
                     margin-top: 20px;;
                     text-align: left;;
                     div.fn_box{
+                        cursor: pointer;
                         width: 285px;
                         height: 250px;
                         border:2px solid #d9d9d9;
                         box-sizing: border-box;;
-                        display: inline-block;
-                        margin-right: 10px;
+                        float: left;
+                        // margin-right: 15px;
                         margin-bottom: 10px;;
                         border-radius: 15px;
                         padding-top: 20px;
                         text-align: center;;
-                        overflow: hidden;
+                        margin-right: 5px;
+                        margin-left: 5px;
                         
                         img.bedge{
                             float: right;
@@ -1627,14 +1628,24 @@ body {
                         }
                         div.more_btn{
                             cursor: pointer;
-                            width: 120px;
-                            height: 40px;
+                            // width: 120px;
+                            // height: 40px;
                             margin: 30px auto;;
                             text-align: center;
                             line-height: 40px;;
-                            border:1px solid #d9d9d9;
                             color: #444;
 
+                        }
+                    }
+
+                    div.fn_box#active{
+                        border: 2px solid @mainColor;
+    
+                        img.bedge{
+                            display: block;
+                            opacity: 1.0;
+    
+    
                         }
                     }
                   

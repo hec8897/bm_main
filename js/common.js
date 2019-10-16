@@ -63,25 +63,34 @@ $(document).ready(function(){
         },80)
     })
 
+    var Media = window.matchMedia('( max-width: 1200px )');
     var floatPosition = parseInt($("#floatMenu").css('top'));
     // 250px 이런식으로 가져오므로 여기서 숫자만 가져온다. parseInt( 값 );
 
     $(window).scroll(function () {
-        // 현재 스크롤 위치를 가져온다.
         var scrollTop = $(window).scrollTop();
-        if (scrollTop >= 600) {
+
+        if(Media.matches == true){
             $("#floatMenu").css({
-                "display":"block",
-                "animationName":"show"
+                "display":"none",
+                "animationName":"hide"
             });
         }
-        else {
-            $("#floatMenu").css({
-                "animationName":"hide",
-
-            });
-
+        else{
+            if (scrollTop >= 600) {
+                $("#floatMenu").css({
+                    "display":"block",
+                    "animationName":"show"
+                });
+            }
+            else {
+                $("#floatMenu").css({
+                    "animationName":"hide",
+                });
+            }
         }
+        // 현재 스크롤 위치를 가져온다.
+    
         var newPosition = scrollTop + floatPosition + "px";
 
         /* 애니메이션 없이 바로 따라감
