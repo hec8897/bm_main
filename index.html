@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name='description' contnet="보험,유전자,암,치매,2대질병,태아보험">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <link rel="stylesheet" href="css/common.css">
     <link rel="stylesheet" href="css/style.css">
@@ -18,12 +17,22 @@
     <meta property="og:image" content="http://bmcompany.kr/og.jpg">
     <link rel="shortcut icon" href="http://bmcompany.kr/favicon.ico">
     <link rel="icon" href="http://bmcompany.kr/favicon.ico">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='js/common.js'></script>
-    <script src="js/layout.min.js"></script>
+    <script src="js/layout.js"></script>
+    <!-- <script src="js/layout.min.js"></script> -->
     <script src="js/animation.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+        
+    <link rel="stylesheet" href="jquery/jquery-ui.min.css">
+    <script src="jquery/jquery-ui.min.js"></script>
+    <script src="jquery/datepicker-ko.js"></script>
     <script>
+
+        
+
         $(window).on('load', function () {
+            
             var booleanControl = true;
             $(".slider-tit-0").delay(200).animate({
                 "opacity": "1.0",
@@ -206,7 +215,7 @@
                         <h2>보험가입자 <span>약 70% 이상이</span></h2>
                         <h2>보험해약을 합니다.</h2>
                         <p>보험가입자 70% 이상이 보장내역은 확인하지 않은 채</br>지인의 권유로 보험가입을 하고 또 해약을 합니다.</p>
-                        <div class='btn' onclick='popupRender.insertTapRender()'>
+                        <div class='btn' onclick='popupRender.insertTapRender("mainSection2")'>
                             빠른 상담 신청하기<img src="img/common/btn_arrow.png" class='btn_arrow2' alt="계산기 화살표 이미지">
                         </div>
                     </div>
@@ -235,21 +244,21 @@
                     <img class='right_dbq' src="img/index_page/section-forms_dbq_r.png" alt="섹션 따옴표 이미지">
                     <div class='forms'>
                         <div class='input_box'>
-                            <input type="text" placeholder="이름">
+                            <input type="text" placeholder="이름" id='reqname'>
                         </div>
                         <div class='input_box'>
-                            <select name="" id="">
+                            <select name="" id='sexflag'>
                                 <option value="">=성별=</option>
-                                <option value="">남성</option>
-                                <option value="">여성</option>
+                                <option value="남성">남성</option>
+                                <option value="여성">여성</option>
                             </select>
 
                         </div>
-                        <div class='input_box'>
+                        <div class='input_box' id='reqbirth'>
                             <input type="text" placeholder="생년월일(예:850505)">
 
                         </div>
-                        <div class='input_box'>
+                        <div class='input_box' id='reqphone'>
                             <input type="text" placeholder="휴대폰번호">
                         </div>
                     </div>
@@ -260,7 +269,7 @@
                         </label>
                     </p>
                     <div class='btns_wrap'>
-                        <div class='btns right_btn'>무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
+                        <div class='btns right_btn' onclick="dataInsertFn('mainInput','main_input')">무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
                                 class='btn_arrow1' alt="계산기 화살표 이미지"></div>
                     </div>
                 </div>

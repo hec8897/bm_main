@@ -1,6 +1,10 @@
 String.prototype.replaceAll = function (org, dest) {
     return this.split(org).join(dest);
 }
+
+var returnJson = [{
+    no: "0",
+}]
 var layoutRender = {
     params: '',
     getQueryString: function () {
@@ -151,7 +155,7 @@ var layoutRender = {
             <img src="img/common/widget-call.png" alt="웨젯 콜 이미지">
             <b>전화상담</b>
         </li>
-        <li onclick='popupRender.insertTapRender()'>
+        <li onclick='popupRender.insertTapRender("widget")'>
             <img src="img/common/widget-msg.png" alt="웨젯 콜 이미지">
             <b>상담예약</b>
         </li>
@@ -680,24 +684,24 @@ var subLayoutRender = {
                                      `
 
     },
-    arrayDish:[],
-    tabListActive: function(thisdata, Dataindex){
-            if (popupRender.arrayDish.length < 2) {
-                if (thisdata.id == '') {
-                    thisdata.id = 'active'
-                    popupRender.arrayDish.push(Dataindex)
-                } else {
-                    thisdata.id = ''
-                    popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
-                }
+    arrayDish: [],
+    tabListActive: function (thisdata, Dataindex) {
+        if (popupRender.arrayDish.length < 2) {
+            if (thisdata.id == '') {
+                thisdata.id = 'active'
+                popupRender.arrayDish.push(Dataindex)
             } else {
-                if (thisdata.id == 'active') {
-                    thisdata.id = ''
-                    popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
-                } else if (thisdata.id == '') {
-                    alert("목록은 두개만 선택할 수 있습니다")
-                }
+                thisdata.id = ''
+                popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
             }
+        } else {
+            if (thisdata.id == 'active') {
+                thisdata.id = ''
+                popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
+            } else if (thisdata.id == '') {
+                alert("목록은 두개만 선택할 수 있습니다")
+            }
+        }
     },
     section4Render: function (a) {
         var pageIndex = Number(params.listNo) - 1;
@@ -707,16 +711,17 @@ var subLayoutRender = {
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 returnJson = JSON.parse(this.responseText)
-                result = returnJson.filter((x, idx, array) => {
+                result1 = returnJson.filter((x) => {
                     return x.catekey == key[pageIndex];
                 })
+
                 var resultArray = [];
-                for (var i = 0; i < result.length; i++) {
-                    resultArray.push(` <div class='fn_box fn_box${i}' onclick='subLayoutRender.tabListActive(this|${result[i].no})'>
+                for (var i = 0; i < result1.length; i++) {
+                    resultArray.push(` <div class='fn_box fn_box${i}' onclick='subLayoutRender.tabListActive(this|${result1[i].no})'>
                                         <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
-                                        <div class="fn_icon" style="background-image:url(${result[i].logo})"></div>
-                                        <p>${result[i].product}<span>${result[i].type}</span></p>
-                                        <div class="more_btn">${result[i].extension}</div>
+                                        <div class="fn_icon" style="background-image:url(${result1[i].logo})"></div>
+                                        <p>${result1[i].product}<span>${result1[i].type}</span></p>
+                                        <div class="more_btn">${result1[i].extension}</div>
                                     </div>`)
 
                 }
@@ -748,6 +753,8 @@ var popupRender = {
         if (target == 'popup') {
             this.arrayDish = [];
             this.applyUserinfo = [];
+            this.applyUserinfo = []
+
             var popup = document.getElementById('popup_box')
             popup.innerHTML = `<div class='loader'></div>`
 
@@ -761,25 +768,24 @@ var popupRender = {
         }
 
     },
-    returnFn:function(mode){
+    returnFn: function (mode) {
         this.arrayDish = [];
         var popup = document.getElementById('popup_box');
-        popup.innerHTML=`<div class='loader'></div>`
+        popup.innerHTML = `<div class='loader'></div>`
         setTimeout(() => {
-            if(mode == 'speed'){
+            if (mode == 'speed') {
                 this.speedpopup();
-            }
-            else if(mode=='cals'){
+            } else if (mode == 'cals') {
                 this.calculateFn();
-            } 
+            }
         }, 500);
-        
+
     },
-    subPage:function(){
+    subPage: function () {
         var popup = document.getElementById('popup_box');
 
-        var fnsubBox =  document.querySelectorAll('.fn_box');
-        if(this.arrayDish.length == 2){
+        var fnsubBox = document.querySelectorAll('.fn_box');
+        if (this.arrayDish.length == 2) {
             this.popupHead('speed')
             popup.style.display = 'block'
             popup.style.backgroundColor = 'rgba(0,0,0,0.6)'
@@ -788,20 +794,19 @@ var popupRender = {
                     <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
                     ${_popuphead}
                     <div class='ins_tabs' id='ins_tab'></div></div>`
-                this.compareTabRnder()
+                this.compareTabRnder("sub")
             }, 500);
             $('html, body').css({
                 'overflow-y': 'hidden'
             });
             // fnsubBox.id = '';
-            for(var i = 0; i<fnsubBox.length; i++){
+            for (var i = 0; i < fnsubBox.length; i++) {
                 fnsubBox[i].id = '';
             }
-        }
-        else{
+        } else {
             alert('목록을 두개 선택해주세요');
         }
-      
+
     },
     popupHead: function (b) {
         const popuptit = b == 'speed' ? '스피드보험비교' : '보험 셀프 계산기';
@@ -925,22 +930,33 @@ var popupRender = {
                 if (b == 'speed') {
                     resultArray.push(`<div class='forms'>
                     <div class='input_box name_box'>
-                    <input type='text' id='reqname' placeholder='이름'>
+                    <input type='text' id='reqname' placeholder='이름' autocomplete="off">
                     </div>
                     <div class='input_box info_box'>
-                    <select>
-                    <option id='sexflag'>성별</option>
+                    <select id='sexflag'>
+                    <option value=''>성별</option>
+                    <option value='여성'>여자</option>
+                    <option value='남성'>남자</option>
                     </select>
-                    <input type='number' id='reqbirth' placeholder='생년월일 ex)20190101'>
+                    <input type='text' id='reqbirth' placeholder='생년월일 ex)20190101' autocomplete="off"> 
                     </div>
                     <div class='input_box phone_box'>
-                    <select>
-                    <option>010</option>
+                    <select id='reqphone-front'>
+                    <option value='010'>010</option>
+                    <option value='011'>011</option>
+                    <option value='012'>012</option>
+                    <option value='013'>013</option>
+                    <option value='014'>014</option>
+                    <option value='015'>015</option>
+                    <option value='016'>016</option>
+                    <option value='017'>017</option>
+                    <option value='018'>018</option>
+                    <option value='019'>019</option>    
                     </select>
-                    <input type='number' id='reqphone'></div>
+                    <input type='text' id='reqphone-end' autocomplete="off"></div>
 
                     <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
-                    <input type="checkbox" id='agree_check'>
+                    <input type="checkbox" id='agree_check' autocomplete="off">
                     <span class="checkmark" id='check_box'></span>
                     </label>
                     </div>`)
@@ -962,28 +978,46 @@ var popupRender = {
     applyUserinfo: [],
     applyFn: function () {
         var reqName = document.getElementById('reqname').value;
-        var reqPhone = document.getElementById('reqphone').value;
+        var reqPhone = document.getElementById('reqphone-front').value + document.getElementById('reqphone-end').value;
         var reqSexflag = document.getElementById('sexflag').value;
         var reqBirth = document.getElementById('reqbirth').value;
+        var Checked = document.getElementById('agree_check').checked;
 
-        this.applyUserinfo.push({
-            "reqName": reqName,
-            "reqPhone": reqPhone,
-            "reqSexflag": reqSexflag,
-            "reqBirth": reqBirth
-        })
-        if(this.arrayDish.length > 0){
-            this.calResultRender()
+
+
+        if (reqName == '') {
+            alert('성함을 입력해주세요')
+        } else if (reqPhone.length <= 10) {
+            alert('전화 번호를 확인해 주세요')
+        } else if (reqSexflag == '') {
+            alert('성별을 선택해주세요')
+        } else if (reqBirth.length < 8) {
+            alert('생년월일을 확인해주세요 예)20190101')
+        } else if (Checked == false) {
+            alert('개인정보 수집 및 이용을 체크해주세요')
+        } else {
+            if (this.arrayDish.length > 0) {
+                this.applyUserinfo.push({
+                    "reqName": reqName,
+                    "reqPhone": reqPhone,
+                    "reqSexflag": reqSexflag,
+                    "reqBirth": reqBirth,
+                    "Node": "메인 보험 셀프 계산기 계산전 유입"
+                })
+                dataInsertFn("dir", "calBegin")
+                this.calResultRender()
+
+            } else {
+                alert('목록을 선택해주세요')
+            }
         }
-        else{
-            alert('목록을 선택해주세요')
-        }
+
     },
     calResultRender: function () {
         var insTab = document.getElementById('ins_tab');
         var date = new Date();
         var year = date.getFullYear()
-        var result1 = [];
+        result1 = [];
         result1 = returnJson.filter((x) => {
             return x.no == this.arrayDish[0];
         })
@@ -1008,7 +1042,7 @@ var popupRender = {
                           </div>
 
                             <div class='btn_area'>
-                            <div class='insert_consult' onclick='popupRender.insertTapRender()'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
+                            <div class='insert_consult' onclick='popupRender.insertTapRender("calsEnd")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
                             <div class='return_cal' onclick='popupRender.returnFn("speed")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
                           </div>
                             </div>
@@ -1072,12 +1106,31 @@ var popupRender = {
                             </div>
                             `
 
-    },
-    compareTabRnder: function () {
-        var insTab = document.getElementById('ins_tab');
-        var result1 = [];
-        var result2 = [];
+        popupRender.applyUserinfo = [];
 
+
+    },
+    compareTabRnder: function (accessnode) {
+        var insTab = document.getElementById('ins_tab');
+        if(accessnode =="sub"){
+            result2 = [];
+
+        }
+        else{
+            result1 = [];
+            result2 = [];
+        }
+
+        function objectValues2(obj, ArrayName) {
+            var vals;
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
+                    vals = obj[key];
+                }
+            }
+            ArrayName.push(vals)
+            return vals;
+        };
         if (this.arrayDish.length == 2) {
             result1 = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
@@ -1086,6 +1139,17 @@ var popupRender = {
             if (result1[0].ageprice == 0) {
                 priceHtml1.push(`<div class='null_data'>-</div>`)
             } else if (result1[0].ageprice == 'mnf') {
+                var objectKeyArrayMan = [];
+                var objectKeyArrayWoMan = [];
+
+                for (var i = 0; i < result1[0].agepricem.length; i++) {
+                    objectValues2(result1[0].agepricem[i], objectKeyArrayMan);
+                }
+                for (var i = 0; i < result1[0].agepricef.length; i++) {
+                    objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
+                }
+
+
                 priceHtml1.push(
                     `<div class='price_bord'>
                 <div class='tb_head row'>
@@ -1097,18 +1161,25 @@ var popupRender = {
                     </div>
                     <div class='tb_body1 row'>
                         <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-                        <div class='colum colum-4 colum_body'>${Object.values(result1[0].agepricem[0])}원</div>
-                        <div class='colum colum-4 colum_body'>${Object.values(result1[0].agepricem[1])}원</div>
-                        <div class='colum colum-4 colum_body'>${Object.values(result1[0].agepricem[2])}원</div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[0]}원</div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[1]}원</div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[2]}원</div>
                     </div>
                     <div class='tb_body2 row'>
                     <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-                    <div class='colum colum-4 colum_body'>${Object.values(result1[0].agepricef[0])}원</div>
-                    <div class='colum colum-4 colum_body'>${Object.values(result1[0].agepricef[1])}원</div>
-                    <div class='colum colum-4 colum_body'>${Object.values(result1[0].agepricef[2])}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[0]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[1]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
                 </div>
-                </div>`)
+                </div>`
+                )
+
             } else if (result1[0].ageprice != 0) {
+                var objectKeyArray = [];
+
+                for (var i = 0; i < result1[0].ageprice.length; i++) {
+                    objectValues2(result1[0].ageprice[i], objectKeyArray);
+                }
                 priceHtml1.push(`          <div class='price_bord'>
                                             <div class='tb_head row'>
                                                     <div class='colum colum-4  colum_head'>-</div>
@@ -1119,15 +1190,15 @@ var popupRender = {
                                                 </div>
                                                 <div class='tb_body1 row'>
                                                     <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-                                                    <div class='colum colum-4 colum_body'>${Object.values(result1[0].ageprice[0])}원</div>
-                                                    <div class='colum colum-4 colum_body'>${Object.values(result1[0].ageprice[1])}원</div>
-                                                    <div class='colum colum-4 colum_body'>${Object.values(result1[0].ageprice[2])}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
                                                 </div>
                                                 <div class='tb_body2 row'>
                                                 <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-                                                <div class='colum colum-4 colum_body'>${Object.values(result1[0].ageprice[0])}원</div>
-                                                <div class='colum colum-4 colum_body'>${Object.values(result1[0].ageprice[1])}원</div>
-                                                <div class='colum colum-4 colum_body'>${Object.values(result1[0].ageprice[2])}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
                                             </div>
                                             </div>`)
             }
@@ -1138,28 +1209,47 @@ var popupRender = {
             if (result2[0].ageprice == 0) {
                 priceHtml2.push(`<div class='null_data'>-</div>`)
             } else if (result2[0].ageprice == 'mnf') {
-                priceHtml2.push(`<div class='price_bord'>
-                                    <div class='tb_head row'>
-                                            <div class='colum colum-4  colum_head'>-</div>
-                                            <div class='colum colum-4 colum_body'>${Object.keys(result2[0].agepricem[0])}세</div>
-                                            <div class='colum colum-4 colum_body'>${Object.keys(result2[0].agepricem[1])}세</div>
-                                            <div class='colum colum-4 colum_body'>${Object.keys(result2[0].agepricem[2])}세</div>
+                var objectKeyArrayMan = [];
+                var objectKeyArrayWoMan = [];
 
-                                        </div>
-                                        <div class='tb_body1 row'>
-                                            <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-                                            <div class='colum colum-4 colum_body'>${Object.values(result2[0].agepricem[0])}원</div>
-                                            <div class='colum colum-4 colum_body'>${Object.values(result2[0].agepricem[1])}원</div>
-                                            <div class='colum colum-4 colum_body'>${Object.values(result2[0].agepricem[2])}원</div>
-                                        </div>
-                                        <div class='tb_body2 row'>
-                                        <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-                                        <div class='colum colum-4 colum_body'>${Object.values(result2[0].agepricef[0])}원</div>
-                                        <div class='colum colum-4 colum_body'>${Object.values(result2[0].agepricef[1])}원</div>
-                                        <div class='colum colum-4 colum_body'>${Object.values(result2[0].agepricef[2])}원</div>
-                                    </div>
-                                    </div>`)
+                for (var i = 0; i < result2[0].agepricem.length; i++) {
+                    objectValues2(result2[0].agepricem[i], objectKeyArrayMan);
+                }
+                for (var i = 0; i < result2[0].agepricef.length; i++) {
+                    objectValues2(result2[0].agepricef[i], objectKeyArrayWoMan);
+                }
+
+
+                priceHtml2.push(
+                    `<div class='price_bord'>
+                <div class='tb_head row'>
+                        <div class='colum colum-4  colum_head'>-</div>
+                        <div class='colum colum-4 colum_body'>${Object.keys(result2[0].agepricem[0])}세</div>
+                        <div class='colum colum-4 colum_body'>${Object.keys(result2[0].agepricem[1])}세</div>
+                        <div class='colum colum-4 colum_body'>${Object.keys(result2[0].agepricem[2])}세</div>
+
+                    </div>
+                    <div class='tb_body1 row'>
+                        <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[0]}원</div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[1]}원</div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[2]}원</div>
+                    </div>
+                    <div class='tb_body2 row'>
+                    <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[0]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[1]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
+                </div>
+                </div>`
+                )
+
             } else if (result2[0].ageprice != 0) {
+                var objectKeyArray = [];
+
+                for (var i = 0; i < result2[0].ageprice.length; i++) {
+                    objectValues2(result2[0].ageprice[i], objectKeyArray);
+                }
                 priceHtml2.push(`          <div class='price_bord'>
                                             <div class='tb_head row'>
                                                     <div class='colum colum-4  colum_head'>-</div>
@@ -1170,15 +1260,15 @@ var popupRender = {
                                                 </div>
                                                 <div class='tb_body1 row'>
                                                     <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-                                                    <div class='colum colum-4 colum_body'>${Object.values(result2[0].ageprice[0])}원</div>
-                                                    <div class='colum colum-4 colum_body'>${Object.values(result2[0].ageprice[1])}원</div>
-                                                    <div class='colum colum-4 colum_body'>${Object.values(result2[0].ageprice[2])}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
                                                 </div>
                                                 <div class='tb_body2 row'>
                                                 <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-                                                <div class='colum colum-4 colum_body'>${Object.values(result2[0].ageprice[0])}원</div>
-                                                <div class='colum colum-4 colum_body'>${Object.values(result2[0].ageprice[1])}원</div>
-                                                <div class='colum colum-4 colum_body'>${Object.values(result2[0].ageprice[2])}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
                                             </div>
                                             </div>`)
             }
@@ -1231,7 +1321,7 @@ var popupRender = {
                                                     <p>어떤 보험을 선택해야 할지 막막 하시다고요?</p>
                                                     <p>혼자서 이것 저것 비교 어렵다면 전문상담사와 함께 하세요</p>
                                                     <p>한 눈으로 확인하는 보험상품 보장분석 서비스, 1:1 맞춤 무료 진행합니다.</p>
-                                                    <div class='consult_btn' onclick='popupRender.insertTapRender()'>무료 상담 신청</div>
+                                                    <div class='consult_btn' onclick='popupRender.insertTapRender("compare")'>무료 상담 신청</div>
                                                 </div>                         
                                             </div>
                                             <div class='character_data data_tabs bottom_data'>
@@ -1293,50 +1383,178 @@ var popupRender = {
         var insertTab = document.getElementById('insert_box')
         var insertpopup = document.getElementById('innser_insert')
         insertTab.style.display = 'block'
-        setTimeout(() => {
-            insertpopup.innerHTML = `<span class='xbox' onclick='popupRender.closepopup("insert")'></span>
+        var result = []
+
+        console.log(returnJson)
+
+        if (returnJson != '') {
+            result = returnJson.filter((x) => {
+                return x.no == this.arrayDish[0];
+            })
+        } else {
+            result = returnJson.filter((x) => {
+                return x.no == this.arrayDish[0];
+            })
+        }
+
+        const name = this.applyUserinfo.length > 0 ? `${this.applyUserinfo[0].reqName}` : ``;
+        const Memo = this.applyUserinfo.length > 0 ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})` : ``;
+
+        function datePicker() {
+            $("#date").datepicker();
+        }
+        // setTimeout(() => {
+        insertpopup.innerHTML = `<span class='xbox' onclick='popupRender.closepopup("insert")'></span>
             <h2>전화 상담 예약</h2>
             <div class='insert_form' id='insert_form'>
                 <div class='row top_tab'>
                     <div class='colums colum-1'>
                         <p>이름</p>
-                        <input type='text' placeholder='이름'>
+                        <input type='text' placeholder='이름' id='reqname' value='${name}'>
                     </div>
                     <div class='colums colum-2'>
                     <p>연락처</p>
-                    <select>
-                        <option>010</option>
+                    <select id='reqphone-front'>
+                        <option value='010'>010</option>
+                        <option value='011'>011</option>
+                        <option value='012'>012</option>
+                        <option value='013'>013</option>
+                        <option value='014'>014</option>
+                        <option value='015'>015</option>
+                        <option value='016'>016</option>
+                        <option value='017'>017</option>
+                        <option value='018'>018</option>
+                        <option value='019'>019</option>    
                     </select>
-                    <input type='number' placeholder='휴대폰 번호'>
+                    <input class='number' type='text' id='reqphone-end' placeholder='휴대폰 번호'>
                     </div>
                 </div>
                 <div class='row middle_tab'>
                 <div class='colums colum-1'>
                         <p>상담유형</p>
-                        <select></select>
+                        <select id='memo1'>
+                            <option value='태아(어린이)보험'>태아(어린이)보험</option>
+                            <option value='암보험'>암보험</option>
+                            <option value='2대중대질병'>2대중대질병</option>
+                            <option value='치매보험'>치매보험</option>
+                        </select>
                     </div>
                     <div class='colums colum-2'>
                     <p>예약시간</p>
-                    <input type='date'>
-                    <select>
-                        <option>시간선택</option>
+                    <input type='text' class='date' id="date"></input>
+                    <span class='date_btn'><img src='img/popup/calender.png'></img></span>
+                    <select id="time">
+                        <option value=''>시간선택</option>
+                        <option value='9'>9시</option>
+                        <option value='10'>10시</option>
+                        <option value='11'>11시</option>
+                        <option value='12'>12시</option>
+                        <option value='13'>13시</option>
+                        <option value='14'>14시</option>
+                        <option value='15'>15시</option>
+                        <option value='16'>16시</option>
+                        <option value='17'>17시</option>
+                        <option value='18'>18시</option>
+                        <option value='19이후'>19시 이후</option>
                     </select>
                     </div>
                 </div>
                 <div class='row bottom_tab'>
                     <p>문의내용</p>
-                    <textarea></textarea>
+                    <textarea id='long_memo'>${Memo}</textarea>
                 </div>
-
             </div>
-            
             <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
                     <input type="checkbox" id='agree_check'>
                     <span class="checkmark" id='check_box'></span>
                     </label>
-                    <div class='sub_btn'>상담 예약하기</div>
-            `
-
-        }, 1000);
+                    <div class='sub_btn' onclick='dataInsertFn("refresh","${accessnode}")'>상담 예약하기</div>`
+        datePicker();
+        // }, 1000);
     }
+}
+
+function dataInsertFn(fnNode, Nodes) {
+
+    if (fnNode == 'refresh') {
+        var reqName = document.getElementById('reqname').value;
+        var reqPhone = document.getElementById('reqphone-front').value + document.getElementById('reqphone-end').value;
+        var reqMemo = document.getElementById('long_memo').value + "/n" + document.getElementById('memo1').value;
+        var reqWantDay = document.getElementById('date').value;
+        var reqWantTime = document.getElementById('time').value;
+        var Checked = document.getElementById('agree_check').checked;
+
+
+
+        if (reqName == '') {
+            alert('성함을 입력해주세요')
+        } else if (reqPhone.length <= 10) {
+            alert('전화 번호를 확인해 주세요')
+        } else if (reqWantDay == '') {
+            alert('상담 일자를 선택해주세요')
+        } else if (Checked == false) {
+            alert('개인정보 수집 및 이용을 체크해주세요')
+        } else {
+
+            popupRender.applyUserinfo.push({
+                "reqName": reqName,
+                "reqPhone": reqPhone,
+                // "reqSexflag":popupRender.applyUserinfo[0]
+                "reqMemo": reqMemo,
+                "reqWantDay": reqWantDay,
+                "reqWantTime": reqWantTime,
+                "Nodes": Nodes
+            })
+            InsertDates()
+            alert('상담신청이 완료되었습니다.')
+            location.reload()
+        }
+    } else if (fnNode == 'mainInput') {
+        var reqName = document.getElementById('reqname').value;
+        var reqBirth = document.getElementById('reqbirth').value;
+        var reqSexflag = document.getElementById('sexflag').value;
+        var reqPhone = document.getElementById('reqphone').value;
+        var Checked = document.getElementById('agree_check').checked;
+        if (reqName == '') {
+            alert('성함을 입력해주세요')
+        } else if (reqSexflag == '') {
+            alert('성별을 입력해주세요')
+        } else if (reqBirth == '') {
+            alert('생년월일을 확인해주세요')
+        } else if (reqPhone == '') {
+            alert('전화 번호를 확인해 주세요')
+        } else if (Checked == false) {
+            alert('개인정보 수집 및 이용을 체크해주세요')
+        } else {
+            popupRender.applyUserinfo.push({
+                "reqName": reqName,
+                "reqPhone": reqPhone,
+                "reqSexflag":reqSexflag,
+                "reqBirth": reqBirth,
+                "Nodes": Nodes
+            })
+            InsertDates()
+            alert('상담신청이 완료되었습니다.')
+            location.reload()
+        }
+    } else {
+        InsertDates()
+    }
+    function InsertDates() {
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                var returnJson = JSON.parse(this.responseText)
+                if (returnJson.phpresult == 'ok') {
+                    console.log(returnJson)
+              
+                }
+            }
+        }
+        xhttp.open('POST', 'php/insert.php', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
+    }
+
+
 }

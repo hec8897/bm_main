@@ -18,20 +18,23 @@ body {
     background-position: center;
 }
 
-#wrap{
-    div.popups{
+#wrap {
+    div.popups {
         width: 100%;
         height: 100%;
         position: fixed;
-        background-color: rgba(255,255,255);;;
+        background-color: rgba(255, 255, 255);
+        ;
+        ;
         z-index: 999;
-        div.loader{
+
+        div.loader {
             width: 100px;
             height: 100px;
             position: relative;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             margin: -75px 0 0 -75px;
             border: 16px solid #f3f3f3;
             border-radius: 50%;
@@ -41,46 +44,65 @@ body {
         }
 
         @-webkit-keyframes spin {
-            0% { -webkit-transform: rotate(0deg); }
-            100% { -webkit-transform: rotate(360deg); }
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
         }
 
-        div.speed_compare_popup{
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        div.speed_compare_popup {
             width: 1100px;
             height: 850px;
-            background: white;;
+            background: white;
+            ;
             position: relative;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             padding: 50px;
-            box-sizing: border-box;;
-            text-align: center;;
+            box-sizing: border-box;
+            ;
+            text-align: center;
+            ;
             overflow: hidden;
-            padding-bottom: 50px;;
-            box-sizing: border-box;;
-            span.xbox{
+            padding-bottom: 50px;
+            ;
+            box-sizing: border-box;
+            ;
+
+            span.xbox {
                 cursor: pointer;
                 width: 25px;
                 height: 25px;
                 display: block;
-                background-image: url(../img/popup/x_btn.png);;
+                background-image: url(../img/popup/x_btn.png);
+                ;
                 position: absolute;
                 right: 20px;
                 top: 20px;
             }
-            h2{
+
+            h2 {
                 font-size: 2.6rem;
                 color: #222;
                 font-weight: bold;
                 letter-spacing: -2px;
             }
-            div.popup_nav{
+
+            div.popup_nav {
                 width: 100%;
                 height: 50px;
                 box-sizing: border-box;
@@ -88,140 +110,179 @@ body {
                 border-top: 2px solid #222;
                 border-left: 2px solid #222;
                 border-right: 2px solid #222;
-                div.popup_list{
+
+                div.popup_list {
                     cursor: pointer;
                     width: 25%;
-                    float: left;;
+                    float: left;
+                    ;
                     height: 50px;
                     background: #f0f0f0;
                     border-right: 2px solid #222;
                     border-bottom: 2px solid #222;
-                    box-sizing: border-box;;    
-                    line-height: 50px;          
-                    color: #888;      
-                    img{
+                    box-sizing: border-box;
+                    ;
+                    line-height: 50px;
+                    color: #888;
+
+                    img {
                         vertical-align: middle;
-                        margin-right: 10px;;
+                        margin-right: 10px;
+                        ;
                     }
                 }
-                div.popup_list4{
+
+                div.popup_list4 {
                     border-right: 0px;
                 }
-                
-                div.popup_list.active{
-                    border-bottom: 0px;                   
-                    background-color: white;;
+
+                div.popup_list.active {
+                    border-bottom: 0px;
+                    background-color: white;
+                    ;
                     color: @mainColor;
-                    font-weight: bold;;
-                    
+                    font-weight: bold;
+                    ;
+
                 }
             }
-            div.ins_tabs{
+
+            div.ins_tabs {
                 width: 100%;
-                height: 280px;;
-                margin-top: 20px;;
+                height: 280px;
+                ;
+                margin-top: 20px;
+                ;
                 text-align: left;
-                h3{
-                    margin-bottom: 50px;;
+
+                h3 {
+                    margin-bottom: 50px;
+                    ;
                 }
-                h3.result_compare{
+
+                h3.result_compare {
                     text-align: left;
-                    font-weight: bold;;
+                    font-weight: bold;
+                    ;
                     font-size: 1.125rem;
-                    margin-bottom: 10px;;
+                    margin-bottom: 10px;
+                    ;
                 }
-                h4{
+
+                h4 {
                     text-align: left;
                 }
-                div.ins_tab{
+
+                div.ins_tab {
                     cursor: pointer;
                     width: 32%;
                     height: 45%;
-                    background: white;;
+                    background: white;
+                    ;
                     border: 1px solid #f0f0f0;
                     display: inline-block;
-                    margin-bottom: 10px;;
-                    margin-right: 20px;;
-                    border-radius: 5px;;
+                    margin-bottom: 10px;
+                    ;
+                    margin-right: 20px;
+                    ;
+                    border-radius: 5px;
+                    ;
                     padding-top: 25px;
-                    box-sizing: border-box;;
+                    box-sizing: border-box;
+                    ;
                     position: relative;
                     text-align: center;
-                  
-                    img.bedge{
+
+                    img.bedge {
                         position: absolute;
                         right: -5px;
-                        top:-5px;
+                        top: -5px;
                         opacity: 0.0;
                     }
-                    .icon_area{
+
+                    .icon_area {
                         width: 150px;
                         height: 40px;
-                        margin: 0px auto;;
+                        margin: 0px auto;
+                        ;
                         margin-bottom: 10px;
                         .backgroundOption;
-                        background-size: contain;;
+                        background-size: contain;
+                        ;
                     }
-                    .p{
+
+                    .p {
                         letter-spacing: -1px;
 
                     }
                 }
-                div.ins_tab3, div.ins_tab6{
+
+                div.ins_tab3,
+                div.ins_tab6 {
                     margin-right: 0px;
 
                 }
-                div.ins_tab#active{
+
+                div.ins_tab#active {
                     border: 2px solid @mainColor;
 
-                    img.bedge{
+                    img.bedge {
                         display: block;
                         opacity: 1.0;
 
 
                     }
                 }
-                div.compare_bord{
+
+                div.compare_bord {
                     width: 100%;
-                    margin: 0px auto;;
+                    margin: 0px auto;
+                    ;
                     height: 600px;
                     border-radius: 15px;
                     float: left;
                     box-sizing: border-box;
                     overflow-y: scroll;
                     overflow-x: hidden;
-                    .bord_wrap{
+
+                    .bord_wrap {
                         width: 99%;
                         box-sizing: border-box;
                         margin-left: 5px;
                         height: 500px;
-                    position: relative;
+                        position: relative;
 
-                        div.caption{
+                        div.caption {
                             width: 975px;
                             height: 70px;
                             z-index: 95;
-                            background: white;;
+                            background: white;
+                            ;
+
                             // -ms-transform: translateX(48%);
                             // -webkit-transform: none;
-                            h3{
+                            h3 {
                                 width: 500px;
                                 float: left;
                             }
-                            h4{
+
+                            h4 {
                                 width: 500px;
 
                                 float: left;
                             }
-                            div.back_btn{
+
+                            div.back_btn {
                                 cursor: pointer;
                                 width: 220px;
                                 height: 50px;
                                 background: #3c5271;
                                 border-radius: 5px;
-                                font-weight: bold;;
+                                font-weight: bold;
+                                ;
                                 text-align: center;
-                                color: white;;
+                                color: white;
+                                ;
                                 line-height: 50px;
                                 margin-right: 20px;
                                 float: right;
@@ -230,40 +291,48 @@ body {
                             }
 
                         }
-                        div.tables{
-                        // display: none;;
-                        height: 708px;
-                        border: 1.5px solid #ec6647;
-                        border-radius: 5px;
-                        transform: translateY(5px);
-                        box-sizing: inherit;
-                        position: relative;
-                        z-index: 90;
-                        text-align: center;
-                        overflow: hidden;
+
+                        div.tables {
+                            // display: none;;
+                            height: 708px;
+                            border: 1.5px solid #ec6647;
+                            border-radius: 5px;
+                            transform: translateY(5px);
+                            box-sizing: inherit;
+                            position: relative;
+                            z-index: 90;
+                            text-align: center;
+                            overflow: hidden;
                         }
 
-                        div.data_tabs{
+                        div.data_tabs {
                             width: 100%;
                             border-bottom: 1px solid #d0d0d0;
                             margin-top: 1px;
-                            .left_tab{
+
+                            .left_tab {
                                 width: 45%;
                                 height: 100%;
                                 float: left;
-                                box-sizing: border-box;;
+                                box-sizing: border-box;
+                                ;
                             }
-                            .center_tab{
+
+                            .center_tab {
                                 width: 10%;
                                 height: 100%;
                                 background: #f5f5f5;
                                 float: left;
-                                border-left: 1px solid #d0d0d0;;
-                                border-right: 1px solid #d0d0d0;;
-                                box-sizing: border-box;;
-                              
+                                border-left: 1px solid #d0d0d0;
+                                ;
+                                border-right: 1px solid #d0d0d0;
+                                ;
+                                box-sizing: border-box;
+                                ;
+
                             }
-                            .right_tab{
+
+                            .right_tab {
                                 width: 45%;
                                 height: 100%;
                                 float: left;
@@ -271,13 +340,16 @@ body {
                             }
 
                         }
-                        div.head_data{
-                            height: 110px;
-                            div.tabs{
-                                box-sizing: border-box;
-                                padding-left: 20px;;
 
-                                div.logo_section{
+                        div.head_data {
+                            height: 110px;
+
+                            div.tabs {
+                                box-sizing: border-box;
+                                padding-left: 20px;
+                                ;
+
+                                div.logo_section {
                                     width: 30%;
                                     height: 100%;
                                     float: left;
@@ -286,109 +358,137 @@ body {
                                     background-size: 100px;
 
                                 }
-                                div.text_area{
-                                    width: 60%;;
+
+                                div.text_area {
+                                    width: 60%;
+                                    ;
                                     height: 100%;
                                     float: left;
-                                    padding-left: 30px;;
-                                    box-sizing: border-box;;
+                                    padding-left: 30px;
+                                    ;
+                                    box-sizing: border-box;
+                                    ;
                                     padding-top: 25px;
                                     text-align: left;
 
-                                    h3{
+                                    h3 {
                                         margin-bottom: 10px;
                                         color: #222;
                                         letter-spacing: -1px;
                                         word-break: keep-all;
 
                                     }
-                                    p{
+
+                                    p {
                                         color: #222;
                                         word-break: keep-all;
                                     }
 
                                 }
                             }
-                            .left_tab{
+
+                            .left_tab {
                                 width: 45%;
                                 height: 100%;
                                 float: left;
-                                box-sizing: border-box;;
-                           
+                                box-sizing: border-box;
+                                ;
+
                             }
-                            .center_tab{
+
+                            .center_tab {
                                 width: 10%;
                                 height: 100%;
                                 background: #f5f5f5;
                                 float: left;
-                                border-left: 1px solid #d0d0d0;;
-                                border-right: 1px solid #d0d0d0;;
-                                box-sizing: border-box;;
+                                border-left: 1px solid #d0d0d0;
+                                ;
+                                border-right: 1px solid #d0d0d0;
+                                ;
+                                box-sizing: border-box;
+                                ;
                                 background-image: url(../img/popup/vs_img.png);
                                 .backgroundOption;
-                                background-size:50px;
+                                background-size: 50px;
                             }
-                            .right_tab{
+
+                            .right_tab {
                                 width: 45%;
                                 height: 100%;
                                 float: left;
 
                             }
                         }
-                        div.price_tab{
+
+                        div.price_tab {
                             width: 100%;
                             height: 150px;
-                            .center_tab{
+
+                            .center_tab {
                                 position: relative;
-                                span{
+
+                                span {
                                     width: 100%;
                                     position: absolute;
                                     top: 50%;
                                     left: 0px;
-                                    transform: translate(0%,-50%);
+                                    transform: translate(0%, -50%);
                                     font-size: 0.875rem;
                                     color: #444444;
-                                    font-weight: bold;;
+                                    font-weight: bold;
+                                    ;
 
                                 }
                             }
-                            .tabs{
+
+                            .tabs {
                                 padding: 15px;
-                                box-sizing: border-box;;
-                                div.price_bord{
+                                box-sizing: border-box;
+                                ;
+
+                                div.price_bord {
                                     width: 100%;
                                     height: 100%;
-                                    border:1px solid #d0d0d0;
+                                    border: 1px solid #d0d0d0;
                                     overflow: hidden;
-                                    div.null_data{
+
+                                    div.null_data {
                                         width: 100%;
                                         height: 100%;
                                         line-height: 100px;
                                     }
-                                    div.row{
+
+                                    div.row {
                                         width: 100%;
                                         height: 33.3%;
-                                        div.colum{
+
+                                        div.colum {
                                             height: 100%;
-                                            text-align: center;;
+                                            text-align: center;
+                                            ;
                                             float: left;
                                             line-height: 33.3px;
                                         }
-                                        div.colum.colum-4{
+
+                                        div.colum.colum-4 {
                                             width: 25%;
                                         }
-                                        div.colum.colum-6{
+
+                                        div.colum.colum-6 {
                                             width: calc(100%/6);
                                         }
-                                        div.colum_head{
+
+                                        div.colum_head {
                                             width: 20%;
                                             font-size: 0.875rem;
                                         }
-                                        div.colum_body{
+
+                                        div.colum_body {
                                             width: 40%;
                                             font-size: 0.875rem;
                                             position: relative;
-                                            span.gender_mark{
+
+                                            span.gender_mark {
                                                 position: absolute;
                                                 line-height: 25px;
                                                 color: white;
@@ -396,32 +496,39 @@ body {
                                                 font-size: 0.875rem;
                                                 top: 50%;
                                                 left: 50%;
-                                                transform: translate(-50%,-50%);
+                                                transform: translate(-50%, -50%);
                                                 display: inline-block;
                                                 width: 25px;
-                                                height: 25px;;
+                                                height: 25px;
+                                                ;
                                             }
-                                            .man_mark{
+
+                                            .man_mark {
                                                 background: #24a1e9;
                                             }
-                                            .woman_mark{
+
+                                            .woman_mark {
                                                 background: #ff449c;
                                             }
                                         }
 
                                     }
-                                    div.tb_body1{
-                                        .colum{
-                                        background-color: #f0f0f0;
+
+                                    div.tb_body1 {
+                                        .colum {
+                                            background-color: #f0f0f0;
 
                                         }
-                                        div{
+
+                                        div {
                                             color: #24a1e9;
                                         }
                                     }
-                                    div.tb_body2{
+
+                                    div.tb_body2 {
                                         border: 0px;
-                                        div{
+
+                                        div {
                                             font-size: 0.875rem;
                                             color: #ff449c;
                                         }
@@ -429,35 +536,45 @@ body {
 
                                 }
                             }
-                          
+
                         }
-                        div.illust_tab{
+
+                        div.illust_tab {
                             width: 100%;
                             height: 200px;
                             border-bottom: 1px solid #d0d0d0;
-                            padding: 10px;;
-                            box-sizing: border-box;;
-                            div.illu_tab{
+                            padding: 10px;
+                            ;
+                            box-sizing: border-box;
+                            ;
+
+                            div.illu_tab {
                                 width: 35%;
                                 height: 100%;
-                                background-image: url(../img/popup/illust.png);;
+                                background-image: url(../img/popup/illust.png);
+                                ;
                                 .backgroundOption;
                                 background-position: right;
                                 background-size: contain;
                                 float: left;
                             }
-                            div.text_tab{
+
+                            div.text_tab {
                                 width: 60%;
                                 float: left;
-                                height: 100%;;
+                                height: 100%;
+                                ;
                                 padding: 15px;
                                 box-sizing: border-box;
-                                text-align: left;;
-                                p{
+                                text-align: left;
+                                ;
+
+                                p {
                                     color: #444;
                                     margin-bottom: 5px;
                                 }
-                                div.consult_btn{
+
+                                div.consult_btn {
                                     cursor: pointer;
                                     width: 250px;
                                     height: 50px;
@@ -466,93 +583,121 @@ body {
                                     line-height: 50px;
                                     font-weight: bold;
                                     font-size: 1.125rem;
-                                    color: white;;
+                                    color: white;
+                                    ;
                                     border-radius: 100px;
                                     margin-top: 30px;
                                 }
 
                             }
 
-                        }  
-                        div.bottom_data{
-                            div.tabs{
+                        }
+
+                        div.bottom_data {
+                            div.tabs {
                                 box-sizing: border-box;
-                                padding-left: 20px;;
+                                padding-left: 20px;
+                                ;
                                 position: relative;
-                                p{
+
+                                p {
                                     width: 350px;
                                     position: absolute;
                                     top: 50%;
                                     left: 50%;
-                                    transform: translate(-50%,-50%);
-                                    text-align: center  ;
+                                    transform: translate(-50%, -50%);
+                                    text-align: center;
                                     color: #666;
 
                                 }
-                        
+
                             }
-                            .left_tab{
+
+                            .left_tab {
                                 width: 45%;
                                 height: 100%;
                                 float: left;
-                                box-sizing: border-box;;
+                                box-sizing: border-box;
+                                ;
                                 word-break: keep-all;
 
-                           
+
                             }
-                            .center_tab{
+
+                            .center_tab {
                                 width: 10%;
                                 height: 100%;
                                 background: #f5f5f5;
                                 float: left;
-                                border-left: 1px solid #d0d0d0;;
-                                border-right: 1px solid #d0d0d0;;
-                                box-sizing: border-box;;
-                                background-size:50px;
+                                border-left: 1px solid #d0d0d0;
+                                ;
+                                border-right: 1px solid #d0d0d0;
+                                ;
+                                box-sizing: border-box;
+                                ;
+                                background-size: 50px;
                                 position: relative;
-                                span{
+
+                                span {
                                     width: 100%;
                                     position: absolute;
                                     top: 50%;
                                     left: 0px;
-                                    transform: translate(0%,-50%);
+                                    transform: translate(0%, -50%);
                                     font-size: 0.875rem;
                                     color: #444444;
-                                    font-weight: bold;;
+                                    font-weight: bold;
+                                    ;
                                 }
 
                             }
-                           
-                            .right_tab{
+
+                            .right_tab {
                                 width: 45%;
                                 height: 100%;
                                 float: left;
-                                box-sizing: border-box;;
+                                box-sizing: border-box;
+                                ;
                                 word-break: keep-all;
-                                
+
 
                             }
 
-                        }        
-                        div.character_data.bottom_data{
+                        }
+
+                        div.character_data.bottom_data {
                             height: 90px;
-                        }      
-                        div.term_data.bottom_data{
+                        }
+
+                        div.term_data.bottom_data {
                             height: 50px;
-                        }                 
-                        div.term_data.bottom_data.last-row{
+                        }
+
+                        div.term_data.bottom_data.last-row {
                             border: 0px;
                         }
-               
+
                     }
                 }
-                div.forms{
+
+                div.forms {
                     width: 1000px;
                     height: 120px;
                     margin: 40px auto;
-                    border-top: 1px solid #d0d0d0;;
-                    text-align: center;;
-                    div.input_box{
+                    border-top: 1px solid #d0d0d0;
+                    ;
+                    text-align: center;
+                    ;
+
+                    select {
+                        background-image: url(../img/popup/select_bg.png);
+                        ;
+                        .backgroundOption;
+                        background-size: 14PX;
+                        background-position-x: 95%;
+                    }
+
+                    div.input_box {
                         margin-top: 20px;
                         width: 30%;
                         height: 40px;
@@ -561,280 +706,362 @@ body {
                         margin-right: 1%;
                         margin-left: 1%;
 
-                        input,select{
+                        input,
+                        select {
+                            padding-left: 10px;
                             box-sizing: border-box;
                             border: 2px solid #d0d0d0;
                             outline: none;
                             box-shadow: none;
-                            padding: 0px;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
                         }
+
                     }
-                    .name_box{
-                        input{
+
+                    .name_box {
+                        input {
                             width: 100%;
                             height: 100%;
                             outline: none;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
                         }
                     }
-                    .info_box{
-                        select{
+
+                    .info_box {
+                        select {
                             width: 30%;
                             height: 100%;
                             outline: none;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
                         }
-                        input{
+
+                        input {
                             width: 68%;
                             height: 100%;
                             outline: none;
                             float: right;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
                         }
                     }
-                    .phone_box{
-                        select{
+
+                    .phone_box {
+                        select {
                             width: 30%;
                             height: 100%;
                             outline: none;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
                         }
-                        input{
+
+                        input {
                             width: 68%;
                             height: 100%;
                             outline: none;
                             float: right;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
                         }
                     }
-                    label.container{
+
+                    label.container {
                         width: 250px;
                         margin-left: 26px;
-                        margin-top: 10px;;
+                        margin-top: 10px;
+                        ;
                     }
                 }
 
-                div.cal_top_tab{
+                div.cal_top_tab {
                     width: 100%;
                     height: 135px;
-                    box-sizing: border-box;;
+                    box-sizing: border-box;
+                    ;
 
-                    div.user_info{
+                    div.user_info {
                         width: 20%;
                         height: 100%;
                         border: 1px solid #d9d9d9;
-                        box-sizing: border-box;;
+                        box-sizing: border-box;
+                        ;
                         margin-right: 2%;
                         float: left;
                         padding: 20px;
                         text-align: left;
                         border-radius: 5px;
-                        h3{
+
+                        h3 {
                             font-size: 1.125rem;
                             color: #222;
                             letter-spacing: -1px;
-                            margin-bottom: 25px;    
+                            margin-bottom: 25px;
                         }
-                        h4{
+
+                        h4 {
                             color: #666;
                             letter-spacing: -1px;
                             font-size: 0.875rem;
                             margin-bottom: 5px;
                         }
                     }
-                    
-                    div.place_info{
+
+                    div.place_info {
                         width: 54%;
                         height: 100%;
                         border: 1px solid #d9d9d9;
-                        box-sizing: border-box;;
+                        box-sizing: border-box;
+                        ;
                         float: left;
                         margin-right: 2%;
                         padding: 20px;
                         border-radius: 5px;
 
-                        h3{
+                        h3 {
                             font-size: 1.125rem;
                             color: #222;
                             text-align: left;
                             margin-bottom: 35px;
-                            font-weight: bold;;
+                            font-weight: bold;
+                            ;
                         }
-                        p{
+
+                        p {
                             font-size: 1rem;
                             width: 60%;
-                            float: left;;
+                            float: left;
+                            ;
                             text-align: left;
                             margin-bottom: 5px;
                             letter-spacing: -1px;
-                            span{
+
+                            span {
                                 color: @mainColor;
                                 font-weight: bold;
                             }
                         }
-                        h2.price{
+
+                        h2.price {
                             width: 30%;
                             float: right;
-                            font-size: 2rem;;
+                            font-size: 2rem;
+                            ;
                             color: @mainColor;
                             letter-spacing: -1px;
-                            span{
+
+                            span {
                                 font-size: 1.125rem;
                                 color: #222;
-                                margin-left: 10px;;
+                                margin-left: 10px;
+                                ;
                             }
                         }
-                        div.btn_area{
+
+                        div.btn_area {
                             width: 30%;
                             float: right;
                         }
                     }
-                    div.btn_area{
+
+                    div.btn_area {
                         width: 22%;
                         height: 100%;
-                        box-sizing: border-box;;
-                        font-weight: bold;;
+                        box-sizing: border-box;
+                        ;
+                        font-weight: bold;
+                        ;
                         letter-spacing: -1px;
                         float: left;
                         line-height: calc(135px*0.48);
-                        color: white;;
-                        div{
+                        color: white;
+                        ;
+
+                        div {
                             cursor: pointer;
                             width: 100%;
                             height: 60px;
                             margin-bottom: 10px;
                             background: #3c5271;
-                            border-radius:5px;
-                            color: white;;
+                            border-radius: 5px;
+                            color: white;
+                            ;
                             letter-spacing: -1px;
                             text-align: center;
-                            img{
+
+                            img {
                                 vertical-align: middle;
                                 margin-left: 5px;
                             }
                         }
-                        div.insert_consult{
+
+                        div.insert_consult {
                             background: @mainColor;
                         }
                     }
                 }
-                div.cal_bottom_tab{
+
+                div.cal_bottom_tab {
                     width: 100%;
                     height: 420px;
-                    margin: 20px auto;;
-                    div.bottom_left{
+                    margin: 20px auto;
+                    ;
+
+                    div.bottom_left {
                         width: 20%;
                         float: left;
                         height: 100%;
-                    
-                 
 
-                    div.service_center_phone{
-                        width: 100%;;
-                        height: 100px;
-                        border-radius: 5px;
-                        border:1px solid #d0d0d0;
-                        text-align: left;
-                        padding: 20px;
-                        box-sizing: border-box;;
-                        margin-bottom: 20px;
-                        p{
-                            color: #222;
-                            font-weight: bold;;
-                        }
-                        h3{
-                            font-family: 'Roboto';
-                            color: #222;
-                            font-size: 1.775rem;
-                            letter-spacing: -3px;
-                            margin-top: 15px;
-                        }
-                    }
-                    div.cal-banner{
-                        width: 100%;
-                        height: 300px;
-                        border-radius: 5px;
-                        border:1px solid #d0d0d0;
-                        padding-top: 25px;
-                        padding-left: 15px;
-                        padding-right: 15px;
-                        position: relative;
-                        box-sizing: border-box;;
-                        background: #f76069; /* Old browsers */
-                        background: -moz-linear-gradient(top,  #f76069 0%, #ff8c55 100%); /* FF3.6-15 */
-                        background: -webkit-linear-gradient(top,  #f76069 0%,#ff8c55 100%); /* Chrome10-25,Safari5.1-6 */
-                        background: linear-gradient(to bottom,  #f76069 0%,#ff8c55 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-                        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f76069', endColorstr='#ff8c55',GradientType=0 ); /* IE6-9 */
-                        h3,h4,p{
-                            color: white;
-                            margin: 0;
+
+
+                        div.service_center_phone {
+                            width: 100%;
+                            height: 100px;
+                            border-radius: 5px;
+                            border: 1px solid #d0d0d0;
                             text-align: left;
-                            letter-spacing: -1.5px;
-                        }
-                        h3{
-                            font-size: 1.125rem;
-                            font-weight: bold;;
-                            margin-bottom: 10px;
-
-                        }
-                        h4{
-                            font-size: 0.875rem;
+                            padding: 20px;
+                            box-sizing: border-box;
                             margin-bottom: 20px;
+
+                            p {
+                                color: #222;
+                                font-weight: bold;
+                            }
+
+                            h3 {
+                                font-family: 'Roboto';
+                                color: #222;
+                                font-size: 1.775rem;
+                                letter-spacing: -3px;
+                                margin-top: 15px;
+                            }
                         }
-                        p{
-                            font-size: 0.775rem;
-                            margin-bottom: 10px;
-                            letter-spacing: -0.5px;
+
+                        div.cal-banner {
+                            width: 100%;
+                            height: 300px;
+                            border-radius: 5px;
+                            border: 1px solid #d0d0d0;
+                            padding-top: 25px;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            position: relative;
+                            box-sizing: border-box;
+                            ;
+                            background: #f76069;
+                            /* Old browsers */
+                            background: -moz-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                            /* FF3.6-15 */
+                            background: -webkit-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                            /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to bottom, #f76069 0%, #ff8c55 100%);
+                            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f76069', endColorstr='#ff8c55', GradientType=0);
+
+                            /* IE6-9 */
+                            h3,
+                            h4,
+                            p {
+                                color: white;
+                                margin: 0;
+                                text-align: left;
+                                letter-spacing: -1.5px;
+                            }
+
+                            h3 {
+                                font-size: 1.125rem;
+                                font-weight: bold;
+                                ;
+                                margin-bottom: 10px;
+
+                            }
+
+                            h4 {
+                                font-size: 0.875rem;
+                                margin-bottom: 20px;
+                            }
+
+                            p {
+                                font-size: 0.775rem;
+                                margin-bottom: 10px;
+                                letter-spacing: -0.5px;
+
+                            }
+
+                            img {
+                                position: absolute;
+                                right: 5px;
+                                bottom: 0px;
+                            }
 
                         }
-                        img{
-                            position: absolute;
-                            right: 5px;
-                            bottom: 0px;
-                        }
-
                     }
-                }
 
 
-                    div.bottom_right{
+                    div.bottom_right {
                         width: 78%;
                         height: 100%;
                         float: right;
-                        
-                        div.ins_info_tab{
+
+                        div.ins_info_tab {
                             width: 100%;
                             height: 370px;
                             border-radius: 5px;
                             padding: 20px;
-                            border:1px solid #d0d0d0;
-                            box-sizing: border-box;;
+                            border: 1px solid #d0d0d0;
+                            box-sizing: border-box;
+                            ;
                             text-align: left;
                             margin-bottom: 15px;
 
-                            h3{
+                            h3 {
                                 font-weight: bold;
                                 color: #222;
                                 margin-bottom: 20px;
                             }
-                            ul{
+
+                            ul {
                                 width: 100%;
                                 height: 280px;
-                                border:1px solid #d0d0d0;
+                                border: 1px solid #d0d0d0;
                                 border-bottom: 0px;
-                                li{
+
+                                li {
                                     height: 40px;
                                     border-bottom: 1px solid #d0d0d0;
-                                    box-sizing: border-box;;
+                                    box-sizing: border-box;
+                                    ;
                                     line-height: 40px;
-                                    div.list_head{
+
+                                    div.list_head {
                                         height: 100%;
                                         background: #f6f6f6;
                                         width: 120px;
                                         float: left;
                                         border-right: 1px solid #d0d0d0;
-                                        box-sizing: border-box;;
+                                        box-sizing: border-box;
+                                        ;
                                         font-weight: bold;
                                         color: #222;
                                         padding-left: 10px;
                                         font-size: 0.875rem;
                                     }
-                                    div.list_desc{
+
+                                    div.list_desc {
                                         height: 100%;
                                         float: left;
                                         color: #444;
@@ -844,13 +1071,13 @@ body {
                                         overflow: hidden;
                                     }
                                 }
-                                li:nth-last-child(1){
-                                   
-                                }
+
+                                li:nth-last-child(1) {}
                             }
-                           
+
                         }
-                        p.cal_mention{
+
+                        p.cal_mention {
                             color: @mainColor;
                             font-size: 0.875rem;
                             margin-bottom: 5px;
@@ -861,12 +1088,14 @@ body {
                     }
                 }
             }
-            div.compare_fn_btn{
+
+            div.compare_fn_btn {
                 cursor: pointer;
                 width: 250px;
                 height: 50px;
                 background: @mainColor;
-                margin: 0 auto;;
+                margin: 0 auto;
+                ;
                 margin-top: 100px;
                 border-radius: 50px;
                 line-height: 50px;
@@ -874,68 +1103,78 @@ body {
                 font-weight: bold;
                 text-align: center;
             }
-            div.cal_fn_btn{
+
+            div.cal_fn_btn {
                 cursor: pointer;
                 width: 250px;
                 height: 50px;
                 background: @mainColor;
-                margin: 0 auto;;
+                margin: 0 auto;
+                ;
                 border-radius: 50px;
                 line-height: 50px;
                 color: white;
                 font-weight: bold;
-                text-align: center;;
+                text-align: center;
+                ;
             }
         }
     }
-    div.insert_popup{
-        background-color: rgba(0,0,0,0.6);
+
+    div.insert_popup {
+        background-color: rgba(0, 0, 0, 0.6);
         width: 100%;
         height: 100%;
         display: none;
 
-        div.insert_box{
+        div.insert_box {
             width: 740px;
             height: 630px;
             background: white;
             position: relative;
             left: 50%;
             top: 50%;
-            transform: translate(-50%,-50%);
+            transform: translate(-50%, -50%);
             padding: 50px;
 
-            span.xbox{
+            span.xbox {
                 cursor: pointer;
                 width: 25px;
                 height: 25px;
                 display: block;
-                background-image: url(../img/popup/x_btn.png);;
+                background-image: url(../img/popup/x_btn.png);
+                ;
                 position: absolute;
                 right: 20px;
                 top: 20px;
             }
-            h2{
+
+            h2 {
                 font-size: 1.875rem;
                 color: #222;
                 font-weight: bold;
                 letter-spacing: -2px;
                 text-align: center;
             }
-            div.insert_form{
+
+            div.insert_form {
                 width: 100%;
                 height: 410px;
                 margin-top: 35px;
-                div.row{
+
+                div.row {
                     width: 100%;
                     height: 75px;
                     margin-bottom: 30px;
-                    div.colums{
+
+                    div.colums {
                         width: 50%;
                         height: 100%;
                         float: left;
-                 
+
                     }
-                    p{
+
+                    p {
                         height: 15px;
                         font-size: 0.875rem;
                         margin-bottom: 5px;
@@ -945,76 +1184,144 @@ body {
 
                     }
                 }
-                div.top_tab{
-                    input[type=text]{
+
+                div.top_tab {
+                    input[type=text] {
                         width: 95%;
                         height: 55px;
                         box-sizing: border-box;
                         padding-left: 20px;
-                        border:2px solid #d9d9d9;;
+                        border: 2px solid #d9d9d9;
+                        ;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
                     }
-                    select{
+
+                    select {
                         width: 30%;
                         height: 55px;
-                        border:2px solid #d9d9d9;;
+                        border: 2px solid #d9d9d9;
+                        ;
                         box-sizing: border-box;
+                        padding-left: 20px;
+
+                        background-image: url(../img/popup/select_bg.png);
+                        ;
+                        .backgroundOption;
+                        background-size: 14PX;
+                        background-position-x: 95%;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
 
 
                     }
-                    input[type=number]{
+
+                    input.number {
                         width: 67%;
                         height: 55px;
                         box-sizing: border-box;
                         padding-left: 20px;
-                        border:2px solid #d9d9d9;;
+                        border: 2px solid #d9d9d9;
+                        ;
                         float: right;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
                     }
 
                 }
-                div.middle_tab{
-                        select{
-                            width: 95%;
-                            height: 55px;
-                            box-sizing: border-box;
-                            padding-left: 20px;
-                            border:2px solid #d9d9d9;;
+
+                div.middle_tab {
+                    select {
+                        width: 95%;
+                        height: 55px;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                        border: 2px solid #d9d9d9;
+                        ;
+                        background-image: url(../img/popup/select_bg.png);
+                        ;
+                        .backgroundOption;
+                        background-size: 14PX;
+                        background-position-x: 95%;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
                         }
-                        input[type=date]{
+                    }
+
+
+                    input.date {
+                        width: 49%;
+                        height: 55px;
+                        border: 2px solid #d9d9d9;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
+                        
+                    }
+
+                    span.date_btn{
+                        position: absolute;
+                        right: 53%;
+                        top: 50%;
+                    }
+             
+                    .colum-2 {
+                        position: relative;
+
+                        select {
                             width: 49%;
                             height: 55px;
-                            border:2px solid #d9d9d9;;
                             box-sizing: border-box;
-                        }
-                        .colum-2{
-                            select{
-                                width: 49%;
-                                height: 55px;
-                                box-sizing: border-box;
-                                float: right;
-                                padding-left: 20px;
-                                border:2px solid #d9d9d9;;
+                            float: right;
+                            padding-left: 20px;
+                            border: 2px solid #d9d9d9;
+
+
+                            &:focus {
+                                border: 2px solid @mainColor;
                             }
                         }
-                       
+
+                    }
+
 
 
                 }
-                div.bottom_tab{
+
+                div.bottom_tab {
                     height: 170px;
-                    textarea{
+
+                    textarea {
                         height: 150px;
                         width: 100%;
                         box-sizing: border-box;
                         padding-left: 20px;
-                        border:2px solid #d9d9d9;;
+                        border: 2px solid #d9d9d9;
+                        ;
                         resize: none;
                         margin-top: 10px;
-                    };
+                    }
+
+                    ;
+
+                    textarea:focus {
+                        border: 2px solid @mainColor;
+                    }
 
                 }
 
             }
-            div.sub_btn{
+
+            div.sub_btn {
                 cursor: pointer;
                 width: 250px;
                 height: 50px;
@@ -1023,13 +1330,29 @@ body {
                 line-height: 50px;
                 font-weight: bold;
                 font-size: 1.125rem;
-                color: white;;
+                color: white;
+                ;
                 border-radius: 100px;
-                margin: 50px auto;;
+                margin: 50px auto;
+                ;
                 -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
                 -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
                 box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
             }
         }
     }
+}
+
+input[type=text]:focus {
+    outline: none;
+    border: 2px solid @mainColor;
+}
+
+select:focus {
+    outline: none;
+}
+
+input[type=number]:focus {
+    outline: none;
+    border: 2px solid @mainColor;
 }

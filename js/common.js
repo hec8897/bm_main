@@ -75,8 +75,10 @@ $(document).ready(function(){
                 "display":"none",
                 "animationName":"hide"
             });
+
         }
         else{
+           
             if (scrollTop >= 600) {
                 $("#floatMenu").css({
                     "display":"block",
@@ -100,9 +102,20 @@ $(document).ready(function(){
         $("#floatMenu").stop().animate({
             "top": newPosition
         }, 300);
-
     }).scroll();
+})
 
+var Media = window.matchMedia('( max-width: 1200px )');
+
+$(window).resize(function(){
+
+    if(Media.matches == true){
+        $("#floatMenu").css({
+            "display":"none",
+            "animationName":"hide"
+        });
+
+    }
 })
 function activeList(){
     var listNode = $(".nav_li .active").children()[0].className
