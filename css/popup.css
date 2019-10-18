@@ -154,9 +154,10 @@ body {
   text-align: center;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab img.bedge {
+  width: 35px;
   position: absolute;
-  right: -5px;
-  top: -5px;
+  right: -15px;
+  top: -15px;
   opacity: 0;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab .icon_area {

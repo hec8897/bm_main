@@ -97,6 +97,25 @@ body {
   box-sizing: border-box;
   outline: none;
   padding-left: 10px;
+  line-height: 52px;
+}
+#wrap main.main_page section.top_inputs div.wrap div.input_tab ul.inputs li input::placeholder {
+  font-size: 1.125rem;
+  color: #222;
+}
+#wrap main.main_page section.top_inputs div.wrap div.input_tab ul.inputs li select {
+  width: 100%;
+  height: 100%;
+  border: 2px solid #d9d9d9;
+  box-sizing: border-box;
+  outline: none;
+  padding-left: 10px;
+  background-image: url(../img/popup/select_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 14PX;
+  background-position-x: 95%;
 }
 #wrap main.main_page section.top_inputs div.wrap div.btn_tab {
   width: 250px;
@@ -1312,19 +1331,20 @@ body {
   cursor: pointer;
   width: 285px;
   height: 250px;
-  border: 2px solid #d9d9d9;
+  border: 1px solid #d9d9d9;
   box-sizing: border-box;
   float: left;
   margin-bottom: 10px;
-  border-radius: 15px;
+  border-radius: 5px;
   padding-top: 20px;
   text-align: center;
   margin-right: 5px;
   margin-left: 5px;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box img.bedge {
+  width: 35px;
   float: right;
-  transform: translate(30%, -30%);
+  transform: translate(30%, -100%);
   opacity: 0;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box .fn_icon {

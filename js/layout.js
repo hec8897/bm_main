@@ -1,7 +1,6 @@
 String.prototype.replaceAll = function (org, dest) {
     return this.split(org).join(dest);
 }
-
 var returnJson = [{
     no: "0",
 }]
@@ -17,7 +16,6 @@ var layoutRender = {
     HeaderRender: function () {
         this.getQueryString()
         var acitveList = ['disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li'];
-        // console.listNo(acitveList)
         if (params.listNo != undefined) {
             acitveList.splice(Number(params.listNo - 1), 1, "active")
         } else {
@@ -27,10 +25,10 @@ var layoutRender = {
         <div class='wrap'>
             <h1><a href='index.html'><img src="img/common/header-h1-BI.png" alt="BM_BI"></a></h1>
                 <ul class='sns_bar'>
-                    <li><a href='https://www.youtube.com/channel/UCsgs4ibSA_J4q5FC2IE5Gpw'><img src='img/common/header-sns-icon-youtube.png' alt="youtube_icon">유튜브</a></li>
-                    <li><a href='https://www.facebook.com/bm9351'><img src='img/common/header-sns-icon-fb.png' alt="youtube_icon"alt="facebook_icon">페이스북</a></li>
-                    <li><a href='https://www.instagram.com/bmconsulting9351'><img src='img/common/header-sns-icon-ins.png' alt="instar_icon">인스타그램</a></li>
-                    <li><a href='https://blog.naver.com/bm9351'><img src='img/common/header-sns-icon-blog.png' alt="instar_blog">블로그</a></li>
+                    <li><a href='https://www.youtube.com/channel/UCsgs4ibSA_J4q5FC2IE5Gpw' target="_blank"><img src='img/common/header-sns-icon-youtube.png' alt="youtube_icon">유튜브</a></li>
+                    <li><a href='https://www.facebook.com/bm9351' target="_blank"><img src='img/common/header-sns-icon-fb.png' alt="youtube_icon"alt="facebook_icon">페이스북</a></li>
+                    <li><a href='https://www.instagram.com/bmconsulting9351' target="_blank"><img src='img/common/header-sns-icon-ins.png' alt="instar_icon">인스타그램</a></li>
+                    <li><a href='https://blog.naver.com/bm9351' target="_blank"><img src='img/common/header-sns-icon-blog.png' alt="instar_blog">블로그</a></li>
                 </ul>
             <div class='tel_bar'> 
                 <img src="img/common/header-sns-icon-tel.png" alt="tel_icon">
@@ -155,7 +153,7 @@ var layoutRender = {
             <img src="img/common/widget-call.png" alt="웨젯 콜 이미지">
             <b>전화상담</b>
         </li>
-        <li onclick='popupRender.insertTapRender("widget")'>
+        <li onclick='popupRender.insertTapRender("widget","subNode")'>
             <img src="img/common/widget-msg.png" alt="웨젯 콜 이미지">
             <b>상담예약</b>
         </li>
@@ -737,7 +735,7 @@ var subLayoutRender = {
                             <div class="fn_boxs">                                
                                 ${replaceAll3}
                             </div>
-                            <div class="fn_btn" onclick='popupRender.subPage()'>보험 비교하기</div>
+                            <div class="fn_btn" onclick='popupRender.subPage("sub-${pageIndex}")'>보험 비교하기</div>
                         </div>`
             }
         }
@@ -751,13 +749,8 @@ var subLayoutRender = {
 var popupRender = {
     closepopup: function (target) {
         if (target == 'popup') {
-            this.arrayDish = [];
-            this.applyUserinfo = [];
-            this.applyUserinfo = []
-
             var popup = document.getElementById('popup_box')
             popup.innerHTML = `<div class='loader'></div>`
-
             $('html, body').css({
                 'overflow-y': 'auto'
             });
@@ -766,6 +759,13 @@ var popupRender = {
             var insertpopup = document.getElementById('insert_box')
             insertpopup.style.display = 'none'
         }
+        this.arrayDish = [];
+        this.applyUserinfo = [];
+        result = [];
+        result1 = [];
+        result2 = [];
+        //all popup inset data Null 
+        //팝업이 닫힐 때 모든 입력된 데이터를 Null 시킨다.
 
     },
     returnFn: function (mode) {
@@ -781,7 +781,7 @@ var popupRender = {
         }, 500);
 
     },
-    subPage: function () {
+    subPage: function (Nodes) {
         var popup = document.getElementById('popup_box');
 
         var fnsubBox = document.querySelectorAll('.fn_box');
@@ -794,7 +794,7 @@ var popupRender = {
                     <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
                     ${_popuphead}
                     <div class='ins_tabs' id='ins_tab'></div></div>`
-                this.compareTabRnder("sub")
+                this.compareTabRnder("sub", Nodes)
             }, 500);
             $('html, body').css({
                 'overflow-y': 'hidden'
@@ -930,15 +930,15 @@ var popupRender = {
                 if (b == 'speed') {
                     resultArray.push(`<div class='forms'>
                     <div class='input_box name_box'>
-                    <input type='text' id='reqname' placeholder='이름' autocomplete="off">
+                    <input type='text' id='apply_reqname' placeholder='이름' autocomplete="off">
                     </div>
                     <div class='input_box info_box'>
-                    <select id='sexflag'>
+                    <select id='apply_sexflag'>
                     <option value=''>성별</option>
                     <option value='여성'>여자</option>
                     <option value='남성'>남자</option>
                     </select>
-                    <input type='text' id='reqbirth' placeholder='생년월일 ex)20190101' autocomplete="off"> 
+                    <input type='text' id='apply_reqbirth' placeholder='생년월일 ex)20190101' autocomplete="off"> 
                     </div>
                     <div class='input_box phone_box'>
                     <select id='reqphone-front'>
@@ -961,7 +961,7 @@ var popupRender = {
                     </label>
                     </div>`)
                 }
-                const btnData = b == 'speed' ? `<div class='cal_fn_btn' id='compare_fn_btn' onclick='popupRender.applyFn()'>보험료 계산하기</div>` : `<div class='compare_fn_btn' id='compare_fn_btn' onclick='popupRender.compareTabRnder()'>보험 비교하기</div>`;
+                const btnData = b == 'speed' ? `<div class='cal_fn_btn' id='compare_fn_btn' onclick='popupRender.applyFn()'>보험료 계산하기</div>` : `<div class='compare_fn_btn' id='compare_fn_btn' onclick='popupRender.compareTabRnder("main"|"main_compare")'>보험 비교하기</div>`;
 
                 resultArray.push(`${btnData}`)
                 var resultArrayHtml = resultArray.toString();
@@ -977,14 +977,11 @@ var popupRender = {
     },
     applyUserinfo: [],
     applyFn: function () {
-        var reqName = document.getElementById('reqname').value;
+        var reqName = document.getElementById('apply_reqname').value;
         var reqPhone = document.getElementById('reqphone-front').value + document.getElementById('reqphone-end').value;
-        var reqSexflag = document.getElementById('sexflag').value;
-        var reqBirth = document.getElementById('reqbirth').value;
+        var reqSexflag = document.getElementById('apply_sexflag').value;
+        var reqBirth = document.getElementById('apply_reqbirth').value;
         var Checked = document.getElementById('agree_check').checked;
-
-
-
         if (reqName == '') {
             alert('성함을 입력해주세요')
         } else if (reqPhone.length <= 10) {
@@ -1002,11 +999,11 @@ var popupRender = {
                     "reqPhone": reqPhone,
                     "reqSexflag": reqSexflag,
                     "reqBirth": reqBirth,
-                    "Node": "메인 보험 셀프 계산기 계산전 유입"
+                    "Nodes": "front cals"
                 })
                 dataInsertFn("dir", "calBegin")
+                alert('입력하신 자료로 계산합니다!')
                 this.calResultRender()
-
             } else {
                 alert('목록을 선택해주세요')
             }
@@ -1042,7 +1039,7 @@ var popupRender = {
                           </div>
 
                             <div class='btn_area'>
-                            <div class='insert_consult' onclick='popupRender.insertTapRender("calsEnd")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
+                            <div class='insert_consult' onclick='popupRender.insertTapRender("calsEnd","cals")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
                             <div class='return_cal' onclick='popupRender.returnFn("speed")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
                           </div>
                             </div>
@@ -1106,17 +1103,15 @@ var popupRender = {
                             </div>
                             `
 
-        popupRender.applyUserinfo = [];
 
 
     },
-    compareTabRnder: function (accessnode) {
+    compareTabRnder: function (accessnode, subNode) {
         var insTab = document.getElementById('ins_tab');
-        if(accessnode =="sub"){
+        if (accessnode == "sub") {
             result2 = [];
 
-        }
-        else{
+        } else {
             result1 = [];
             result2 = [];
         }
@@ -1321,7 +1316,7 @@ var popupRender = {
                                                     <p>어떤 보험을 선택해야 할지 막막 하시다고요?</p>
                                                     <p>혼자서 이것 저것 비교 어렵다면 전문상담사와 함께 하세요</p>
                                                     <p>한 눈으로 확인하는 보험상품 보장분석 서비스, 1:1 맞춤 무료 진행합니다.</p>
-                                                    <div class='consult_btn' onclick='popupRender.insertTapRender("compare")'>무료 상담 신청</div>
+                                                    <div class='consult_btn' onclick='popupRender.insertTapRender("compare","${subNode}")'>무료 상담 신청</div>
                                                 </div>                         
                                             </div>
                                             <div class='character_data data_tabs bottom_data'>
@@ -1379,14 +1374,11 @@ var popupRender = {
             alert('목록을 두개 선택해주세요')
         }
     },
-    insertTapRender: function (accessnode) {
+    insertTapRender: function (accessnode, subNode) {
         var insertTab = document.getElementById('insert_box')
         var insertpopup = document.getElementById('innser_insert')
         insertTab.style.display = 'block'
         var result = []
-
-        console.log(returnJson)
-
         if (returnJson != '') {
             result = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
@@ -1395,15 +1387,30 @@ var popupRender = {
             result = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
             })
+        }   
+            if(accessnode =="widget"){
+                var Nodes = "widget";
+                var Memo = "";
+                var name = "";
+            }
+            else if (accessnode =="mainsection"){
+                var Nodes = "mainsection";
+                var Memo = "";
+                var name = "";
+            }
+            else{
+            var name = accessnode == "calsEnd" ? `${this.applyUserinfo[0].reqName}` : ``;
+            var Memo = accessnode == "calsEnd" ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})`:`${result1[0].cate} 상품비교\n${result1[0].product}\n${result2[0].product} `;
+            var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
         }
 
-        const name = this.applyUserinfo.length > 0 ? `${this.applyUserinfo[0].reqName}` : ``;
-        const Memo = this.applyUserinfo.length > 0 ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})` : ``;
 
         function datePicker() {
             $("#date").datepicker();
         }
+        // insertTab.innerHTML = `<div class='loader'></div>`
         // setTimeout(() => {
+         
         insertpopup.innerHTML = `<span class='xbox' onclick='popupRender.closepopup("insert")'></span>
             <h2>전화 상담 예약</h2>
             <div class='insert_form' id='insert_form'>
@@ -1468,9 +1475,10 @@ var popupRender = {
                     <input type="checkbox" id='agree_check'>
                     <span class="checkmark" id='check_box'></span>
                     </label>
-                    <div class='sub_btn' onclick='dataInsertFn("refresh","${accessnode}")'>상담 예약하기</div>`
+                    <div class='sub_btn' onclick='dataInsertFn("refresh","${Nodes}")'>상담 예약하기</div>`
         datePicker();
-        // }, 1000);
+        this.applyUserinfo = [];
+        // },500)
     }
 }
 
@@ -1484,8 +1492,81 @@ function dataInsertFn(fnNode, Nodes) {
         var reqWantTime = document.getElementById('time').value;
         var Checked = document.getElementById('agree_check').checked;
 
+        if(Nodes == 'widget'){
+            if (reqName == '') {
+                alert('성함을 입력해주세요')
+            } else if (reqPhone.length <= 10) {
+                alert('전화 번호를 확인해 주세요')
+            } else if (reqWantDay == '') {
+                alert('상담 일자를 선택해주세요')
+            } else if (Checked == false) {
+                alert('개인정보 수집 및 이용을 체크해주세요')
+            } else {
+                popupRender.applyUserinfo.push({
+                    "reqName": reqName,
+                    "reqPhone": reqPhone,
+                    "reqMemo": reqMemo,
+                    "reqWantDay": reqWantDay,
+                    "reqWantTime": reqWantTime,
+                    "Nodes": Nodes,
+                })
+                InsertDates()
+                popupRender.applyUserinfo = []
+                alert('상담신청이 완료되었습니다.')
+            } 
+        }
+        else if(Nodes =='mainsection'){
+            if (reqName == '') {
+                alert('성함을 입력해주세요')
+            } else if (reqPhone.length <= 10) {
+                alert('전화 번호를 확인해 주세요')
+            } else if (reqWantDay == '') {
+                alert('상담 일자를 선택해주세요')
+            } else if (Checked == false) {
+                alert('개인정보 수집 및 이용을 체크해주세요')
+            } else {
+                popupRender.applyUserinfo.push({
+                    "reqName": reqName,
+                    "reqPhone": reqPhone,
+                    // "reqSexflag":popupRender.applyUserinfo[0]
+                    "reqMemo": reqMemo,
+                    "reqWantDay": reqWantDay,
+                    "reqWantTime": reqWantTime,
+                    "Nodes": Nodes,
+                })
+                InsertDates()
+                popupRender.applyUserinfo = []
+                alert('상담신청이 완료되었습니다.')
+            }
 
-
+        }
+        else if (Nodes == 'cals'){
+            if (reqName == '') {
+                alert('성함을 입력해주세요')
+            } else if (reqPhone.length <= 10) {
+                alert('전화 번호를 확인해 주세요')
+            } else if (reqWantDay == '') {
+                alert('상담 일자를 선택해주세요')
+            } else if (Checked == false) {
+                alert('개인정보 수집 및 이용을 체크해주세요')
+            } else {
+    
+                popupRender.applyUserinfo.push({
+                    "reqName": reqName,
+                    "reqPhone": reqPhone,
+                    // "reqSexflag":popupRender.applyUserinfo[0]
+                    "reqMemo": reqMemo,
+                    "reqWantDay": reqWantDay,
+                    "reqWantTime": reqWantTime,
+                    "Nodes": Nodes,
+                    "consultType": result1[0].product + "(" + result1[0].ins + ")",
+                })
+                InsertDates()
+                popupRender.applyUserinfo = []
+                alert('상담신청이 완료되었습니다.')
+            }
+        }
+        else{
         if (reqName == '') {
             alert('성함을 입력해주세요')
         } else if (reqPhone.length <= 10) {
@@ -1495,20 +1576,24 @@ function dataInsertFn(fnNode, Nodes) {
         } else if (Checked == false) {
             alert('개인정보 수집 및 이용을 체크해주세요')
         } else {
-
             popupRender.applyUserinfo.push({
                 "reqName": reqName,
                 "reqPhone": reqPhone,
-                // "reqSexflag":popupRender.applyUserinfo[0]
                 "reqMemo": reqMemo,
                 "reqWantDay": reqWantDay,
                 "reqWantTime": reqWantTime,
-                "Nodes": Nodes
+                "Nodes": Nodes,
+                "consultType1": result1[0].product + "(" + result1[0].ins + ")",
+                "consultType2": result2[0].product + "(" + result2[0].ins + ")",
             })
             InsertDates()
+            popupRender.applyUserinfo = []
             alert('상담신청이 완료되었습니다.')
-            location.reload()
+            // location.reload()
         }
+    }
+
+       
     } else if (fnNode == 'mainInput') {
         var reqName = document.getElementById('reqname').value;
         var reqBirth = document.getElementById('reqbirth').value;
@@ -1529,32 +1614,87 @@ function dataInsertFn(fnNode, Nodes) {
             popupRender.applyUserinfo.push({
                 "reqName": reqName,
                 "reqPhone": reqPhone,
-                "reqSexflag":reqSexflag,
+                "reqSexflag": reqSexflag,
                 "reqBirth": reqBirth,
                 "Nodes": Nodes
             })
             InsertDates()
+            popupRender.applyUserinfo = []
+
             alert('상담신청이 완료되었습니다.')
-            location.reload()
+            // location.reload()
         }
-    } else {
+    } else if(fnNode == 'fastInsert'){
+        var fastName = document.getElementById('fast_reqname').value
+        var fastNumber = document.getElementById('fast_reqphone').value
+        if(fastName ==""){
+            alert('빠른상담 이름을 입력해주세요');
+        }
+        else if (fastNumber==""){
+            alert('빠른상담 전화번호를 입력해주세요');
+        }
+        else{
+            popupRender.applyUserinfo.push({
+                "reqName": fastName,
+                "reqPhone": fastNumber,
+                "Nodes": "mainFast"
+            })
+            InsertDates()
+            alert('상담신청이 완료되었습니다.')
+             
+            popupRender.applyUserinfo = []
+        }
+    } else if(fnNode =='submain'){
+
+        var reqName = document.getElementById('reqname').value;
+        var reqBirth = document.getElementById('reqbirth').value;
+        var reqSexflag = document.getElementById('sexflag').value;
+        var reqPhone = document.getElementById('reqphone').value;
+        var Checked = document.getElementById('agree_check').checked;
+        if (reqName == '') {
+            alert('성함을 입력해주세요')
+        } else if (reqSexflag == '') {
+            alert('성별을 입력해주세요')
+        } else if (reqBirth == '') {
+            alert('생년월일을 확인해주세요')
+        } else if (reqPhone == '') {
+            alert('전화 번호를 확인해 주세요')
+        } else if (Checked == false) {
+            alert('개인정보 수집 및 이용을 체크해주세요')
+        } else {
+            popupRender.applyUserinfo.push({
+                "reqName": reqName,
+                "reqPhone": reqPhone,
+                "reqSexflag": reqSexflag,
+                "reqBirth": reqBirth,
+                "Nodes": fnNode +"-"+ params.id
+            })
+            InsertDates()
+            popupRender.applyUserinfo = []
+            alert('상담신청이 완료되었습니다.')
+            // location.reload()
+        }
+    }
+    
+    else {
         InsertDates()
     }
+    location.reload()
+
+
+
     function InsertDates() {
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
                 var returnJson = JSON.parse(this.responseText)
-                if (returnJson.phpresult == 'ok') {
-                    console.log(returnJson)
-              
-                }
+                // if (returnJson.phpresult == 'ok') {
+                // }
             }
         }
         xhttp.open('POST', 'php/insert.php', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
     }
-
 
 }
