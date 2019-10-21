@@ -1367,10 +1367,19 @@ body {
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box div.more_btn {
   cursor: pointer;
+  width: 120px;
+  height: 40px;
   margin: 30px auto;
   text-align: center;
   line-height: 40px;
+  border: 2px solid #d0d0d0;
+  box-sizing: border-box;
   color: #444;
+}
+#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box div.more_btn:hover {
+  background: #ec6647;
+  border: 2px solid #ec6647;
+  color: white;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box#active {
   border: 2px solid #ec6647;

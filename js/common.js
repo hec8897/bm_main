@@ -160,3 +160,22 @@ function checkBoxEvent() {
         checkBox.style.backgroundColor = 'white'
     }
 }
+
+function checkBoxEvents() {
+    // var checkbox = document.getElementById("check_label");
+    var checkedbox = document.getElementById("agree_checks");
+    var checkLabel = document.getElementById("check_labels");
+    var checkBox = document.getElementById("check_boxs");
+
+
+    if (checkedbox.checked == true) {
+        checkLabel.style.color = '#ec6647'
+        checkBox.style.backgroundColor = '#ec6647'
+        checkBox.style.borderColor = '#ec6647';
+    }
+    else {
+        checkLabel.style.color = '#222222'
+        checkBox.style.borderColor = 'lightgray';
+        checkBox.style.backgroundColor = 'white'
+    }
+}

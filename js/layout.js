@@ -719,7 +719,7 @@ var subLayoutRender = {
                                         <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
                                         <div class="fn_icon" style="background-image:url(${result1[i].logo})"></div>
                                         <p>${result1[i].product}<span>${result1[i].type}</span></p>
-                                        <div class="more_btn">${result1[i].extension}</div>
+                                        <div class="more_btn" onclick='popupRender.moreData(${result1[i].no})'>자세히 보기</div>
                                     </div>`)
 
                 }
@@ -746,7 +746,235 @@ var subLayoutRender = {
 }
 
 
+var result1,result2;
 var popupRender = {
+    moreData: function (datakey) {
+        event.stopPropagation();
+        var popup = document.getElementById('popup_box');
+        popup.style.display = 'block'
+        popup.style.backgroundColor = 'rgba(0,0,0,0.6)'
+
+        result1 = returnJson.filter((x) => {
+            return x.no == Number(datakey);
+        })
+
+        function objectValues2(obj, ArrayName) {
+            var vals;
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
+                    vals = obj[key];
+                }
+            }
+            ArrayName.push(vals)
+            return vals;
+        };
+               priceHtml1 = []
+            if (result1[0].ageprice.length == 1) {
+                
+                var objectKeyArrays = []
+                setTimeout(() => {
+                    var infoBox = document.getElementById('info_ul')
+                    infoBox.style.height = '320px'
+                    }, 700);
+                objectValues2(result1[0].ageprice[0], objectKeyArrays);
+                priceHtml1.push(`<div class='null_data'>
+                <span>출생 전 </span>${objectKeyArrays[0]}원 
+                </div>`)
+            } else if (result1[0].ageprice == 'mnf') {
+                setTimeout(() => {
+                    var priceRow = document.getElementById('price_row')
+                    var infoBox = document.getElementById('info_ul')
+                    priceRow.style.height = '120px'
+                    infoBox.style.height = '400px'
+                    
+                }, 700);
+                var objectKeyArrayMan = [];
+                var objectKeyArrayWoMan = [];
+
+                for (var i = 0; i < result1[0].agepricem.length; i++) {
+                    objectValues2(result1[0].agepricem[i], objectKeyArrayMan);
+                }
+                for (var i = 0; i < result1[0].agepricef.length; i++) {
+                    objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
+                }
+                priceHtml1.push(
+                    `<div class='price_bord'>
+                <div class='tb_head row'>
+                        <div class='colum colum-4  colum_head'>-</div>
+                        <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[0])}세</div>
+                        <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[1])}세</div>
+                        <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[2])}세</div>
+
+                    </div>
+                    <div class='tb_body1 row'>
+                        <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[0]}원</div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[1]}원</div>
+                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[2]}원</div>
+                    </div>
+                    <div class='tb_body2 row'>
+                    <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[0]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[1]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
+                </div>
+                </div>`
+                )
+
+            } else if (result1[0].ageprice != 0) {
+                var objectKeyArray = [];
+                setTimeout(() => {
+                    var priceRow = document.getElementById('price_row')
+                    var infoBox = document.getElementById('info_ul')
+                    console.log(infoBox)
+                    priceRow.style.height = '120px'
+                    infoBox.style.height = '400px'
+
+                    }, 700);
+
+                for (var i = 0; i < result1[0].ageprice.length; i++) {
+                    objectValues2(result1[0].ageprice[i], objectKeyArray);
+                }
+                priceHtml1.push(`          <div class='price_bord'>
+                                            <div class='tb_head row'>
+                                                    <div class='colum colum-4  colum_head'>-</div>
+                                                    <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[0])}세</div>
+                                                    <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[1])}세</div>
+                                                    <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[2])}세</div>
+
+                                                </div>
+                                                <div class='tb_body1 row'>
+                                                    <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
+                                                </div>
+                                                <div class='tb_body2 row'>
+                                                <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
+                                            </div>
+                                            </div>`)
+            }
+        setTimeout(() => {
+            popup.innerHTML = `<div class='speed_compare_popup'>
+            <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
+            <div class='ins_tabs more_ins' id='ins_tab'>
+                <div class='cal_top_tab'>
+                    <div class='user_info'>
+                        <img class='more_logo' src='${result1[0].logo}' alt='선택보험사 로고'>
+                        <span class='more_cate'>${result1[0].cate}</span>
+                    </div>
+                    <div class='place_info place_more'>
+                                <p>${result1[0].product}</p>
+                        <p><span>※ 상품 개정으로 인하여 보장내용 및 보험료가 달라질 수 있습니다.</span></p>
+
+                    </div>
+                </div>
+                <div class='cal_bottom_tab'>
+        
+                    <div class='bottom_right section_rigth'>
+                        <div class='ins_info_tab'>
+                            <h3>상품 특징 및 가입조건</h3>
+                            <ul class='ins_info_tb' id='info_ul'>
+                                <li>
+                                    <div class='list_head'>상품종류</div>
+                                    <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
+                                </li>
+                                <li>
+                                    <div class='list_head'>상품명</div>
+                                    <div class='list_desc'>${result1[0].product}</div>
+                                </li>
+                                <li>
+                                    <div class='list_head'>특징</div>
+                                    <div class='list_desc'>${result1[0].Characteristic1}</div>
+                                </li>
+                                <li>
+                                    <div class='list_head'>갱신/비갱신</div>
+                                    <div class='list_desc'>${result1[0].extension}</div>
+                                </li>
+                                <li>
+                                    <div class='list_head'>보험기간</div>
+                                    <div class='list_desc'>${result1[0].term}</div>
+                                </li>
+                                <li class='price_row' id='price_row'>
+                                    <div class='list_head'>월 보험료</div>
+                                    <div class='list_desc'>${priceHtml1}</div>
+                                </li>
+                                <li>
+                                    <div class='list_head'>납입기간</div>
+                                    <div class='list_desc'>${result1[0].payterm}년</div>
+                                </li>
+                                <li>
+                                    <div class='list_head'>가입유형</div>
+                                    <div class='list_desc'>${result1[0].type} </div>
+                                </li>        
+                            </ul>
+                            
+                        </div>
+                        <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면</p>
+                        <p class='cal_mention'>최대한 빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
+                    </div>
+                    <div class='input_tab'>
+                        <h3>간편 월 보험료 계산하기</h3>
+                        <ul>
+                            <li>
+                                <p>이름</p>
+                                <input type='text' id='apply_reqname'>
+                            </li>
+                            <li>
+                                <p>성별</p>
+                                <select id='apply_sexflag'>
+                                    <option>성별을선택해주세요</option>
+                                    <option value='남성'>남성</option>
+                                    <option value='여성'>여성</option>
+                                </select>
+                            </li>
+                            <li>
+                                <p>생년월일</p>
+                                <input type='text' id='apply_reqbirth'>
+                            </li>
+                            <li class='phones'>
+                                <p>연락처</p>
+                                <select id='reqphone-front'>
+                                    <option value='010'>010</option>
+                                    <option value='011'>011</option>
+                                    <option value='012'>012</option>
+                                    <option value='013'>013</option>
+                                    <option value='014'>014</option>
+                                    <option value='015'>015</option>
+                                    <option value='016'>016</option>
+                                    <option value='017'>017</option>
+                                    <option value='018'>018</option>
+                                    <option value='019'>019</option>
+                            </select>
+                                <input type='text' id='reqphone-end'>
+                            </li>
+                        </ul>
+                        <p>
+                        <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
+                            <input type="checkbox" id='agree_check'>
+                            <span class="checkmark" id='check_box'></span>
+                        </label>
+                    </p>
+                    <div class='more_submit_btn' onclick='popupRender.applyFn()'>
+                        간편 보험료 계산
+                    </div>
+
+                    </div>
+        
+                </div>
+            </div>
+            <div class='submit_btns' id='submit_btns' onclick="popupRender.insertTapRender('more_btn','more_data')">무료 상담 신청</div>
+        </div>
+        `
+            // this.calResultRender()
+        }, 500);
+
+    },
+    arrayDish: [],
+    applyUserinfo: [],
     closepopup: function (target) {
         if (target == 'popup') {
             var popup = document.getElementById('popup_box')
@@ -755,15 +983,25 @@ var popupRender = {
                 'overflow-y': 'auto'
             });
             popup.style.display = 'none'
+            this.arrayDish = [];
+            this.applyUserinfo = [];
+            result = [];
+            result1 = [];
+            result2 = [];
         } else if (target == 'insert') {
             var insertpopup = document.getElementById('insert_box')
             insertpopup.style.display = 'none'
+            this.arrayDish = [];
+            this.applyUserinfo = [];
+            result = [];
+            result1 = [];
+            result2 = [];
         }
-        this.arrayDish = [];
-        this.applyUserinfo = [];
-        result = [];
-        result1 = [];
-        result2 = [];
+        else if (target == 'noDel') {
+            var insertpopup = document.getElementById('insert_box')
+            insertpopup.style.display = 'none'
+        }
+       
         //all popup inset data Null 
         //팝업이 닫힐 때 모든 입력된 데이터를 Null 시킨다.
 
@@ -810,19 +1048,18 @@ var popupRender = {
     },
     popupHead: function (b) {
         const popuptit = b == 'speed' ? '스피드보험비교' : '보험 셀프 계산기';
-        const fnKey = b == 'speed' ? 'cal' : 'speed';
-
+        // const fnKey = b == 'speed' ? 'cal' : 'speed';
         _popuphead = `<h2>${popuptit}</h2>
         <div class='popup_nav'>
-            <div class='popup_list popup_list1 active' onclick='popupRender.tabData(0,"${fnKey}"), popupRender.tabListActive(0,this,"nav")'><img src='img/common/header-nav-icon1.png'>태아(어린이보험)</div>
-            <div class='popup_list popup_list2' onclick='popupRender.tabData(1,"${fnKey}"), popupRender.tabListActive(1,this,"nav")'><img src='img/common/header-nav-icon2.png'>암보험</div>
-            <div class='popup_list popup_list3' onclick='popupRender.tabData(2,"${fnKey}"), popupRender.tabListActive(2,this,"nav")'><img src='img/common/header-nav-icon3.png'>2대중대질병</div>
-            <div class='popup_list popup_list4' onclick='popupRender.tabData(3,"${fnKey}"), popupRender.tabListActive(3,this,"nav")'><img src='img/common/header-nav-icon4.png'>치매보험</div>
+            <div class='popup_list popup_list1 active' onclick='popupRender.tabData(0,"${b}"), popupRender.tabListActive(0,this,"nav")'><img src='img/common/header-nav-icon1.png'>태아(어린이보험)</div>
+            <div class='popup_list popup_list2' onclick='popupRender.tabData(1,"${b}"), popupRender.tabListActive(1,this,"nav")'><img src='img/common/header-nav-icon2.png'>암보험</div>
+            <div class='popup_list popup_list3' onclick='popupRender.tabData(2,"${b}"), popupRender.tabListActive(2,this,"nav")'><img src='img/common/header-nav-icon3.png'>2대중대질병</div>
+            <div class='popup_list popup_list4' onclick='popupRender.tabData(3,"${b}"), popupRender.tabListActive(3,this,"nav")'><img src='img/common/header-nav-icon4.png'>치매보험</div>
         </div>`
     },
     speedpopup: function (a) {
         var popup = document.getElementById('popup_box');
-        this.popupHead('no')
+        this.popupHead('cal')
         popup.style.display = 'block'
         popup.style.backgroundColor = 'rgba(0,0,0,0.6)'
         setTimeout(() => {
@@ -830,8 +1067,10 @@ var popupRender = {
                 <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
                 ${_popuphead}
                 <div class='ins_tabs' id='ins_tab'></div></div>`
-            this.tabData(0, 'speed')
         }, 500);
+        setTimeout(() => {
+            this.tabData(0, 'cal')
+        }, 700);
         $('html, body').css({
             'overflow-y': 'hidden'
         });
@@ -847,8 +1086,12 @@ var popupRender = {
                                             ${_popuphead}
                                     <div class='ins_tabs' id='ins_tab'></div>
                                 </div>`
-            this.tabData(0, 'cal')
         }, 500);
+        setTimeout(() => {
+        this.tabData(0, 'speed')
+
+        },600)
+
         $('html, body').css({
             'overflow-y': 'hidden'
         });
@@ -903,7 +1146,6 @@ var popupRender = {
 
 
     },
-    arrayDish: [],
     tabData: function (a, b) {
         const popupCaption = b == 'speed' ? '' : '최대 2개까지 보험비교를 하실 수 있습니다';
         const mode2 = b == 'speed' ? 'cal' : 'speed'
@@ -961,6 +1203,9 @@ var popupRender = {
                     </label>
                     </div>`)
                 }
+                else{
+
+                }
                 const btnData = b == 'speed' ? `<div class='cal_fn_btn' id='compare_fn_btn' onclick='popupRender.applyFn()'>보험료 계산하기</div>` : `<div class='compare_fn_btn' id='compare_fn_btn' onclick='popupRender.compareTabRnder("main"|"main_compare")'>보험 비교하기</div>`;
 
                 resultArray.push(`${btnData}`)
@@ -975,13 +1220,13 @@ var popupRender = {
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("data=0")
     },
-    applyUserinfo: [],
     applyFn: function () {
         var reqName = document.getElementById('apply_reqname').value;
         var reqPhone = document.getElementById('reqphone-front').value + document.getElementById('reqphone-end').value;
         var reqSexflag = document.getElementById('apply_sexflag').value;
         var reqBirth = document.getElementById('apply_reqbirth').value;
         var Checked = document.getElementById('agree_check').checked;
+        var Btns = document.getElementById('submit_btns')
         if (reqName == '') {
             alert('성함을 입력해주세요')
         } else if (reqPhone.length <= 10) {
@@ -1002,27 +1247,60 @@ var popupRender = {
                     "Nodes": "front cals"
                 })
                 dataInsertFn("dir", "calBegin")
-                alert('입력하신 자료로 계산합니다!')
-                this.calResultRender()
-            } else {
+                setTimeout(() => {
+                    if(DBreturnJson.phpresult =='ok'){
+                        alert('입력하신 자료로 계산합니다!')
+                        this.calResultRender('refresh')
+                    }
+                }, 500);
+            } else if(result1.length < 0) {
                 alert('목록을 선택해주세요')
             }
+            else{
+                this.applyUserinfo.push({
+                    "reqName": reqName,
+                    "reqPhone": reqPhone,
+                    "reqSexflag": reqSexflag,
+                    "reqBirth": reqBirth,
+                    "Nodes": "sectiontab"
+                })
+                dataInsertFn("dir", "calBegin")
+                setTimeout(() => {
+                    if(DBreturnJson.phpresult =='ok'){
+                        alert('입력하신 자료로 계산합니다!')
+                        this.calResultRender('none')
+                    }
+                }, 500);
+             
+            }
+            Btns.style.display = 'none'
         }
 
     },
-    calResultRender: function () {
+    calResultRender: function (mode) {
         var insTab = document.getElementById('ins_tab');
         var date = new Date();
         var year = date.getFullYear()
-        result1 = [];
-        result1 = returnJson.filter((x) => {
-            return x.no == this.arrayDish[0];
-        })
-
-        var ageYear = this.applyUserinfo[0].reqBirth.substr(0, 4)
+        if(mode =='refresh'){
+            result1 = [];
+            result1 = returnJson.filter((x) => {
+                return x.no == this.arrayDish[0];
+            })
+        }
+        else{
+            console.log(123)
+        }
+        var ageYear = this.applyUserinfo[0].reqBirth.substr(0, 4);
         var age = year - ageYear;
+        var test = Number(result1[0].no);
 
-
+        if (test <= 5) {
+            console.log("태아보험")
+        } else if (test > 5 && test < 18) {
+            console.log(result1[0].ageprice)
+        } else {
+            console.log(result1[0].ageprice)
+        }
 
         insTab.innerHTML = `<div class='cal_top_tab'>
                           <div class='user_info'>
@@ -1040,7 +1318,7 @@ var popupRender = {
 
                             <div class='btn_area'>
                             <div class='insert_consult' onclick='popupRender.insertTapRender("calsEnd","cals")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
-                            <div class='return_cal' onclick='popupRender.returnFn("speed")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
+                            <div class='return_cal' onclick='popupRender.returnFn("cals")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
                           </div>
                             </div>
                             <div class='cal_bottom_tab'>
@@ -1099,12 +1377,8 @@ var popupRender = {
                                 <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면 최대한</p>
                                 <p class='cal_mention'>빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
                             </div>
-
                             </div>
                             `
-
-
-
     },
     compareTabRnder: function (accessnode, subNode) {
         var insTab = document.getElementById('ins_tab');
@@ -1131,7 +1405,7 @@ var popupRender = {
                 return x.no == this.arrayDish[0];
             })
             priceHtml1 = []
-            if (result1[0].ageprice == 0) {
+            if (result1[0].ageprice.length == 1) {
                 priceHtml1.push(`<div class='null_data'>-</div>`)
             } else if (result1[0].ageprice == 'mnf') {
                 var objectKeyArrayMan = [];
@@ -1143,8 +1417,6 @@ var popupRender = {
                 for (var i = 0; i < result1[0].agepricef.length; i++) {
                     objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
                 }
-
-
                 priceHtml1.push(
                     `<div class='price_bord'>
                 <div class='tb_head row'>
@@ -1201,7 +1473,7 @@ var popupRender = {
                 return x.no == this.arrayDish[1];
             })
             priceHtml2 = []
-            if (result2[0].ageprice == 0) {
+            if (result2[0].ageprice.length == 1) {
                 priceHtml2.push(`<div class='null_data'>-</div>`)
             } else if (result2[0].ageprice == 'mnf') {
                 var objectKeyArrayMan = [];
@@ -1273,7 +1545,7 @@ var popupRender = {
                                 <div class='caption'>
                                 <h3 class='result_compare'>스피드 보험비교</h3>
                                 <h4>고객님이 선택하신 보험상품의 특징을 꼼꼼하게 비교해보세요</h4>
-                                <div class='back_btn' onclick='popupRender.returnFn("cals")'>보험료 다시 비교하기</div>
+                                <div class='back_btn' onclick='popupRender.returnFn("speed")'>보험료 다시 비교하기</div>
                                 </div>
                                     <div class='tables'>
                                         <div class='head_data data_tabs'>
@@ -1379,6 +1651,8 @@ var popupRender = {
         var insertpopup = document.getElementById('innser_insert')
         insertTab.style.display = 'block'
         var result = []
+        console.log(result2)
+
         if (returnJson != '') {
             result = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
@@ -1387,21 +1661,34 @@ var popupRender = {
             result = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
             })
-        }   
-            if(accessnode =="widget"){
-                var Nodes = "widget";
-                var Memo = "";
-                var name = "";
-            }
-            else if (accessnode =="mainsection"){
-                var Nodes = "mainsection";
-                var Memo = "";
-                var name = "";
-            }
-            else{
-            var name = accessnode == "calsEnd" ? `${this.applyUserinfo[0].reqName}` : ``;
-            var Memo = accessnode == "calsEnd" ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})`:`${result1[0].cate} 상품비교\n${result1[0].product}\n${result2[0].product} `;
-            var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
+        }
+        if (accessnode == "widget") {
+            var Nodes = "widget";
+            var Memo = "";
+            var name = "";
+        } else if (accessnode == "mainsection") {
+            var Nodes = "mainsection";
+            var Memo = "";
+            var name = "";
+        }
+        else if(accessnode == 'more_btn'){
+            var name = "";
+            var Memo = `${result1[0].cate}\n${result1[0].product}`;
+            var Nodes = "cals";
+        }
+       
+         else {
+             if(result2 == undefined){
+                var name = accessnode == "calsEnd" ? `${this.applyUserinfo[0].reqName}` : ``;
+                var Memo = accessnode == "calsEnd" ? `${result1[0].cate}\n${result1[0].product}(${result1[0].productcate})` : ``;
+                var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
+             }
+             else{
+                var name = accessnode == "calsEnd" ? `${this.applyUserinfo[0].reqName}` : ``;
+                var Memo = accessnode == "calsEnd" ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})` : `${result1[0].cate} 상품비교\n${result1[0].product}`;    
+                var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
+             }
+         
         }
 
 
@@ -1410,8 +1697,8 @@ var popupRender = {
         }
         // insertTab.innerHTML = `<div class='loader'></div>`
         // setTimeout(() => {
-         
-        insertpopup.innerHTML = `<span class='xbox' onclick='popupRender.closepopup("insert")'></span>
+
+        insertpopup.innerHTML = `<span class='xbox' onclick='popupRender.closepopup("noDel")'></span>
             <h2>전화 상담 예약</h2>
             <div class='insert_form' id='insert_form'>
                 <div class='row top_tab'>
@@ -1471,9 +1758,9 @@ var popupRender = {
                     <textarea id='long_memo'>${Memo}</textarea>
                 </div>
             </div>
-            <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
-                    <input type="checkbox" id='agree_check'>
-                    <span class="checkmark" id='check_box'></span>
+            <label class="container checked" id='check_labels' onclick="checkBoxEvents()">개인정보 수집 및 이용 동의 합니다.
+                    <input type="checkbox" id='agree_checks'>
+                    <span class="checkmark" id='check_boxs'></span>
                     </label>
                     <div class='sub_btn' onclick='dataInsertFn("refresh","${Nodes}")'>상담 예약하기</div>`
         datePicker();
@@ -1490,9 +1777,9 @@ function dataInsertFn(fnNode, Nodes) {
         var reqMemo = document.getElementById('long_memo').value + "/n" + document.getElementById('memo1').value;
         var reqWantDay = document.getElementById('date').value;
         var reqWantTime = document.getElementById('time').value;
-        var Checked = document.getElementById('agree_check').checked;
+        var Checked = document.getElementById('agree_checks').checked;
 
-        if(Nodes == 'widget'){
+        if (Nodes == 'widget') {
             if (reqName == '') {
                 alert('성함을 입력해주세요')
             } else if (reqPhone.length <= 10) {
@@ -1511,11 +1798,8 @@ function dataInsertFn(fnNode, Nodes) {
                     "Nodes": Nodes,
                 })
                 InsertDates()
-                popupRender.applyUserinfo = []
-                alert('상담신청이 완료되었습니다.')
-            } 
-        }
-        else if(Nodes =='mainsection'){
+            }
+        } else if (Nodes == 'mainsection') {
             if (reqName == '') {
                 alert('성함을 입력해주세요')
             } else if (reqPhone.length <= 10) {
@@ -1535,12 +1819,10 @@ function dataInsertFn(fnNode, Nodes) {
                     "Nodes": Nodes,
                 })
                 InsertDates()
-                popupRender.applyUserinfo = []
-                alert('상담신청이 완료되었습니다.')
+
             }
 
-        }
-        else if (Nodes == 'cals'){
+        } else if (Nodes == 'cals') {
             if (reqName == '') {
                 alert('성함을 입력해주세요')
             } else if (reqPhone.length <= 10) {
@@ -1550,11 +1832,9 @@ function dataInsertFn(fnNode, Nodes) {
             } else if (Checked == false) {
                 alert('개인정보 수집 및 이용을 체크해주세요')
             } else {
-    
                 popupRender.applyUserinfo.push({
                     "reqName": reqName,
                     "reqPhone": reqPhone,
-                    // "reqSexflag":popupRender.applyUserinfo[0]
                     "reqMemo": reqMemo,
                     "reqWantDay": reqWantDay,
                     "reqWantTime": reqWantTime,
@@ -1562,43 +1842,38 @@ function dataInsertFn(fnNode, Nodes) {
                     "consultType": result1[0].product + "(" + result1[0].ins + ")",
                 })
                 InsertDates()
-                popupRender.applyUserinfo = []
-                alert('상담신청이 완료되었습니다.')
+            }
+        } 
+        else {
+            if (reqName == '') {
+                alert('성함을 입력해주세요')
+            } else if (reqPhone.length <= 10) {
+                alert('전화 번호를 확인해 주세요')
+            } else if (reqWantDay == '') {
+                alert('상담 일자를 선택해주세요')
+            } else if (Checked == false) {
+                alert('개인정보 수집 및 이용을 체크해주세요')
+            } else {
+                popupRender.applyUserinfo.push({
+                    "reqName": reqName,
+                    "reqPhone": reqPhone,
+                    "reqMemo": reqMemo,
+                    "reqWantDay": reqWantDay,
+                    "reqWantTime": reqWantTime,
+                    "Nodes": Nodes,
+                    "consultType1": result1[0].product + "(" + result1[0].ins + ")",
+                    "consultType2": result2[0].product + "(" + result2[0].ins + ")",
+                })
+                InsertDates()
             }
         }
-        else{
-        if (reqName == '') {
-            alert('성함을 입력해주세요')
-        } else if (reqPhone.length <= 10) {
-            alert('전화 번호를 확인해 주세요')
-        } else if (reqWantDay == '') {
-            alert('상담 일자를 선택해주세요')
-        } else if (Checked == false) {
-            alert('개인정보 수집 및 이용을 체크해주세요')
-        } else {
-            popupRender.applyUserinfo.push({
-                "reqName": reqName,
-                "reqPhone": reqPhone,
-                "reqMemo": reqMemo,
-                "reqWantDay": reqWantDay,
-                "reqWantTime": reqWantTime,
-                "Nodes": Nodes,
-                "consultType1": result1[0].product + "(" + result1[0].ins + ")",
-                "consultType2": result2[0].product + "(" + result2[0].ins + ")",
-            })
-            InsertDates()
-            popupRender.applyUserinfo = []
-            alert('상담신청이 완료되었습니다.')
-            // location.reload()
-        }
-    }
 
-       
+
     } else if (fnNode == 'mainInput') {
-        var reqName = document.getElementById('reqname').value;
-        var reqBirth = document.getElementById('reqbirth').value;
-        var reqSexflag = document.getElementById('sexflag').value;
-        var reqPhone = document.getElementById('reqphone').value;
+        var reqName = document.getElementById('main_reqname').value;
+        var reqBirth = document.getElementById('main_reqbirth').value;
+        var reqSexflag = document.getElementById('main_sexflag').value;
+        var reqPhone = document.getElementById('main_reqphone').value;
         var Checked = document.getElementById('agree_check').checked;
         if (reqName == '') {
             alert('성함을 입력해주세요')
@@ -1619,32 +1894,25 @@ function dataInsertFn(fnNode, Nodes) {
                 "Nodes": Nodes
             })
             InsertDates()
-            popupRender.applyUserinfo = []
-
-            alert('상담신청이 완료되었습니다.')
-            // location.reload()
         }
-    } else if(fnNode == 'fastInsert'){
+
+    } else if (fnNode == 'fastInsert') {
         var fastName = document.getElementById('fast_reqname').value
         var fastNumber = document.getElementById('fast_reqphone').value
-        if(fastName ==""){
+        if (fastName == "") {
             alert('빠른상담 이름을 입력해주세요');
-        }
-        else if (fastNumber==""){
+        } else if (fastNumber == "") {
             alert('빠른상담 전화번호를 입력해주세요');
-        }
-        else{
+        } else {
             popupRender.applyUserinfo.push({
                 "reqName": fastName,
                 "reqPhone": fastNumber,
                 "Nodes": "mainFast"
             })
             InsertDates()
-            alert('상담신청이 완료되었습니다.')
-             
-            popupRender.applyUserinfo = []
         }
-    } else if(fnNode =='submain'){
+
+    } else if (fnNode == 'submain') {
 
         var reqName = document.getElementById('reqname').value;
         var reqBirth = document.getElementById('reqbirth').value;
@@ -1667,29 +1935,29 @@ function dataInsertFn(fnNode, Nodes) {
                 "reqPhone": reqPhone,
                 "reqSexflag": reqSexflag,
                 "reqBirth": reqBirth,
-                "Nodes": fnNode +"-"+ params.id
+                "Nodes": fnNode + "-" + params.id
             })
             InsertDates()
-            popupRender.applyUserinfo = []
-            alert('상담신청이 완료되었습니다.')
-            // location.reload()
         }
-    }
-    
-    else {
+
+    } else {
         InsertDates()
     }
-    location.reload()
-
-
 
     function InsertDates() {
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
-                var returnJson = JSON.parse(this.responseText)
-                // if (returnJson.phpresult == 'ok') {
-                // }
+                DBreturnJson = JSON.parse(this.responseText)
+                if (DBreturnJson.phpresult == 'ok') {
+                    alert('상담신청이 완료되었습니다')
+                    var inputs = document.querySelectorAll('input');
+                    for(var i = 0; i<=inputs.length; i++){
+                        inputs[i].value = '';
+                    }
+                } else {
+                    alert('오류가 발생하였습니다. 관리자에게 문의하세요')
+                }
             }
         }
         xhttp.open('POST', 'php/insert.php', true);

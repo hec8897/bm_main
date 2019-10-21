@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/popup.css">
     <meta property="og:url" content="http://bmcompany.kr">
+    <link rel="canonical" href="http://bmcompany.kr/index.html">
     <meta property="og:type" content="website">
     <meta property="og:description" content="당신의 삶을 더욱 든든하게">
     <meta property="og:title" content="BM Company">
@@ -20,6 +21,8 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src='js/common.js'></script>
     <script src="js/layout.min.js"></script>
+    <!-- <script src="js/layout.js"></script> -->
+
     <script src="js/animation.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
         
@@ -159,12 +162,12 @@
                 <div class='left_tab tab'>
                     <h3>보험료 셀프 계산기</h3>
                     <p>내 보험료는 얼마? 예상 보험료를 미리 계산해보세요.</p>
-                    <div class='event_go_btn' onclick="popupRender.speedpopup(0)">보험료 셀프계산기</div>
+                    <div class='event_go_btn' onclick="popupRender.calculateFn(0)">보험료 셀프계산기</div>
                 </div>
                 <div class='right_tab tab'>
                     <h3>스피드 보험비교</h3>
                     <p>내게 딱 맞는 보험 상품을 비교해보세요.</p>
-                    <div class='event_go_btn' onclick="popupRender.calculateFn(0)">스피드 보험비교</div>
+                    <div class='event_go_btn' onclick="popupRender.speedpopup(0)">스피드 보험비교</div>
                 </div>
                 <div class='center_tab'>
                     <h3>빠른 상담신청</h3>
@@ -243,10 +246,10 @@
                     <img class='right_dbq' src="img/index_page/section-forms_dbq_r.png" alt="섹션 따옴표 이미지">
                     <div class='forms'>
                         <div class='input_box'>
-                            <input type="text" placeholder="이름" id='reqname'>
+                            <input type="text" placeholder="이름" id='main_reqname'>
                         </div>
                         <div class='input_box'>
-                            <select name="" id='sexflag'>
+                            <select name="" id='main_sexflag'>
                                 <option value="">=성별=</option>
                                 <option value="남성">남성</option>
                                 <option value="여성">여성</option>
@@ -254,11 +257,11 @@
 
                         </div>
                         <div class='input_box'>
-                            <input type="text" id='reqbirth' placeholder="생년월일(예:850505)">
+                            <input type="text" id='main_reqbirth' placeholder="생년월일(예:850505)">
 
                         </div>
                         <div class='input_box'>
-                            <input type="text" id='reqphone' placeholder="휴대폰번호">
+                            <input type="text" id='main_reqphone' placeholder="휴대폰번호">
                         </div>
                     </div>
                     <p>

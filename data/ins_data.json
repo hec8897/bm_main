@@ -14,7 +14,7 @@
         "term":"80,90,100세",
         "payterm":[3,5,10,20,25,30],
         "type":"표준형 무해지 환급형",
-        "ageprice":0
+        "ageprice":[{"0":"60,310"}]
     },
     {
         "no":"1",
@@ -24,14 +24,14 @@
         "key":"DB",
         "logo":"img/company_ci/company_db.png",
         "productcate":"보장성 어린이 보험",
-        "product":"아이LOVE 건강보험",
+        "product":"I LOVE 건강보험",
         "Characteristic1":"암, 유사암, 뇌/심혈관질환, 5대 난치성질환, 상해/질병, 후유장해 80% 이상 시 납입면제",
         "Characteristic2":"11대 납입면제",
         "extension":"비갱신형",
         "term":"80,90,100세",
         "payterm":[10,15,20,25,30],
         "type":"표준형 무해지 환급형",
-        "ageprice":0
+        "ageprice":[{"0":"47,297"}]
     },
     {
         "no":"2",
@@ -48,7 +48,7 @@
         "term":"80,90,100세",
         "payterm":[10,15,20,25,30,10,20,30],
         "type":"표준형 무해지 환급형",
-        "ageprice":0
+        "ageprice":[{"0":"58,340"}]
     },
     {
         "no":"3",        
@@ -65,7 +65,7 @@
         "term":"80,90,100세",
         "payterm":[5,10,15,20,25,30],
         "type":"표준형 무해지 환급형",
-        "ageprice":0
+        "ageprice":[{"0":"37,901"}]
     },
     {
         "no":"4",
@@ -82,24 +82,24 @@
         "term":"80,90,100세",
         "payterm":[10,15,20,25,30],
         "type":"표준형 무해지 환급형",
-        "ageprice":0
+        "ageprice":[{"0":"44,155"}]
     },
     {
         "no":"5",
         "catekey":"baby",
         "cate":"태아보험",
-        "ins":"NH농협손해보험",
-        "key":"NH",
-        "logo":"img/company_ci/company_nh.png",
+        "ins":"흥국생명",
+        "key":"HK",
+        "logo":"img/company_ci/company_hk.png",
         "productcate":"보장성 어린이 보험",
-        "product":"가성비 굿 플러스 어린이 보험",
+        "product":"맘편한착한가격자녀사랑보험",
         "Characteristic1":"암, 유사암, 뇌/심혈관 질환 납입 면제",
         "Characteristic2":null,
         "extension":"비갱신형",
         "term":"80,90,100세",
         "payterm":[10,15,20,25,30],
-        "type":"표준형 무해지 환급형",
-        "ageprice":0
+        "type":"해지 환급금 미지급형",
+        "ageprice":[{"0":"43,007"}]
     },
     {
         "no":"6",

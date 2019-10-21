@@ -1645,13 +1645,19 @@ body {
                         }
                         div.more_btn{
                             cursor: pointer;
-                            // width: 120px;
-                            // height: 40px;
+                            width: 120px;
+                            height: 40px;
                             margin: 30px auto;;
                             text-align: center;
                             line-height: 40px;;
+                            border:2px solid #d0d0d0;
+                            box-sizing: border-box;;
                             color: #444;
-
+                        }
+                        div.more_btn:hover{
+                            background: @mainColor;
+                            border:2px solid @mainColor;
+                            color: white;
                         }
                     }
 
