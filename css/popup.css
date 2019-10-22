@@ -633,6 +633,7 @@ body {
   height: 100%;
   border: 1px solid #d9d9d9;
   box-sizing: border-box;
+  position: relative;
   float: left;
   margin-right: 2%;
   padding: 20px;
@@ -657,12 +658,18 @@ body {
   color: #ec6647;
   font-weight: bold;
 }
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.place_info p.price_tag {
+  width: 450px;
+  letter-spacing: -1.5px;
+}
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.place_info h2.price {
-  width: 30%;
-  float: right;
+  width: 35%;
   font-size: 2rem;
+  right: 10px;
   color: #ec6647;
-  letter-spacing: -1px;
+  letter-spacing: -1.5px;
+  position: absolute;
+  text-align: right;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.place_info h2.price span {
   font-size: 1.125rem;

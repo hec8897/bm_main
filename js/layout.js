@@ -1,12 +1,17 @@
 String.prototype.replaceAll = function (org, dest) {
+    //array fillter prototype
     return this.split(org).join(dest);
 }
 var returnJson = [{
+    //returnJson Default
     no: "0",
 }]
 var layoutRender = {
+    //Common Tag Render Object (Header,footer,floating Memu)
     params: '',
+    //QueryString Default
     getQueryString: function () {
+        //Get QueryString
         params = {};
         window.location.search.replace(/[?&]+([^=&]+)=([^&]*)/gi, function (str, key, value) {
             params[key] = value;
@@ -14,7 +19,8 @@ var layoutRender = {
         return params;
     },
     HeaderRender: function () {
-        this.getQueryString()
+        //Header Rendering
+        this.getQueryString();
         var acitveList = ['disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li'];
         if (params.listNo != undefined) {
             acitveList.splice(Number(params.listNo - 1), 1, "active")
@@ -45,28 +51,26 @@ var layoutRender = {
                     <li class='${acitveList[1]}'><a href='main.html?id=page2&listNo=2' class='nav_li2'><img src='img/common/header-nav-icon2.png'>암보험</a><p class='liner2'></p></li>
                     <li class='${acitveList[2]}'><a href='main.html?id=page3&listNo=3' class='nav_li3'><img src='img/common/header-nav-icon3.png'>2대중대질병</a><p class='liner3'></p></li>
                     <li class='${acitveList[3]}'><a href='main.html?id=page4&listNo=4' class='nav_li4'><img src='img/common/header-nav-icon4.png'>치매보험</a><p class='liner4'></p></li>
-                    <li class='${acitveList[4]}'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li>
+                    <li class='${acitveList[4]}'><a href='main.html?id=page5&listNo=5' class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li>
+                    <!-- <li class='${acitveList[4]}'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li> -->
                     <li class='${acitveList[5]}'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li6'><img src='img/common/header-nav-icon6.png'>보험금청구</a><p class='liner6'></p></li>
-
-                    <!-- <li class='${acitveList[4]}'><a href='main.html?id=page5&listNo=5' class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li> -->
                     <!-- <li class='${acitveList[5]}'><a href='main.html?id=page6&listNo=6  'class='nav_li6'><img src='img/common/header-nav-icon6.png'>보험금청구</a><p class='liner6'></p></li> -->
                 </ul>
             </nav>
         </div>
     </div>`
-
-
     },
     footerRender: function () {
+        //footer Rendering
         this.getQueryString()
         var acitveList = ['disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li'];
-        // console.listNo(acitveList)
         if (params.listNo != undefined) {
             acitveList.splice(Number(params.listNo), 1, "active")
         } else {
             var acitveList = ['disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li'];
         }
-        document.querySelector("footer").innerHTML = `<div class='company_list'>
+        document.querySelector("footer").innerHTML = `
+        <div class='company_list'>
         <div class='wrap'>
             <ul>
                 <li><img src="img/common/company_list_db.png" alt="DB 손해보험 회사로고"></li>
@@ -100,19 +104,16 @@ var layoutRender = {
                                 src='img/common/header-nav-icon4.png'>치매보험</a>
                         <p class='f_liner4'></p>
                     </li>
-                    <li class='footer_li'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li5'><img
+                    <li class='footer_li'><a href='main.html?id=page5&listNo=5' class='nav_li5'><img
                                 src='img/common/header-nav-icon5.png'>고객센터</a>
                         <p class='f_liner5'></p>
                     </li>
+                 
                     <li class='footer_li'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li6'><img
                                 src='img/common/header-nav-icon6.png'>보험금청구</a>
                         <p class='f_liner6'></p>
                     </li>
-                    <!-- <li class='footer_li'><a href='main.html?id=page5&listNo=5' class='nav_li5'><img
-                                src='img/common/header-nav-icon5.png'>고객센터</a>
-                        <p class='f_liner5'></p>
-                    </li>
-                    <li class='footer_li'><a href='main.html?id=page6&listNo=6' class='nav_li6'><img
+                    <!-- <li class='footer_li'><a href='main.html?id=page6&listNo=6' class='nav_li6'><img
                                 src='img/common/header-nav-icon6.png'>보험금청구</a>
                         <p class='f_liner6'></p>
                     </li> -->
@@ -141,6 +142,7 @@ var layoutRender = {
     </div>`
     },
     floatMenuRender: function () {
+        //floating Menu Rendering
         var rendingPoing = document.getElementById('floatMenu');
         rendingPoing.innerHTML = `  <div class='icon'>
         <img src="img/common/widget_img.png" alt="위젯 아이콘">
@@ -166,24 +168,24 @@ var layoutRender = {
 }
 
 var subLayoutRender = {
-
+    //main.html(subpage) Render Object
     subSectionRender: function () {
+        //sub_wrap give class 
         var mainPage = document.getElementById('sub_page_main');
         mainPage.className = 'main_page ' + params.id
     },
     subMainbannerRender: function () {
+        //main banner_img
         var pageNo = params.listNo;
-
         var ThisBanner = document.getElementById('top_banner');
         ThisBanner.innerHTML = `<div class='wrap page${pageNo}'>
                                     <h2><img src="img/sub_page/page${pageNo}_banner_h1.png" alt=""></h2>
                                     <h3><img src="img/sub_page/page${pageNo}_banner_h2.png" alt=""></h3></div>`
     },
     section1Render: function () {
+        //mains section1 Render no function(only animation)
         var pageNo = Number(params.listNo);
         var pageID = params.id;
-
-
         var Section1Data = [{
                 h2: "태아보험",
                 p1: "출산 시 발생할 수 있는 선천성 질환과",
@@ -485,8 +487,8 @@ var subLayoutRender = {
         }
     },
     section2Render: function () {
+        //mains section2 Render no function(only animation)
         var pageNo = params.listNo;
-        var pageID = params.id;
         var Section = document.getElementById('section2');
         var Section2Data = [{
                 h2: '어린이보험',
@@ -642,8 +644,9 @@ var subLayoutRender = {
 
 
     },
-
     section3Render: function () {
+        //mains section3 Render no function(no animation)
+
         var pageNo = params.listNo;
         var Section = document.getElementById('section3');
 
@@ -682,26 +685,8 @@ var subLayoutRender = {
                                      `
 
     },
-    arrayDish: [],
-    tabListActive: function (thisdata, Dataindex) {
-        if (popupRender.arrayDish.length < 2) {
-            if (thisdata.id == '') {
-                thisdata.id = 'active'
-                popupRender.arrayDish.push(Dataindex)
-            } else {
-                thisdata.id = ''
-                popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
-            }
-        } else {
-            if (thisdata.id == 'active') {
-                thisdata.id = ''
-                popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
-            } else if (thisdata.id == '') {
-                alert("목록은 두개만 선택할 수 있습니다")
-            }
-        }
-    },
-    section4Render: function (a) {
+    section4Render: function () {
+        //mains section4 Render no function popupRender.ajax(ins_data.json) subPage, popupRender.moreData subLayoutRender.tabListActive
         var pageIndex = Number(params.listNo) - 1;
         var key = ["baby", "cancer", "disease", "dementia"];
         var Section = document.getElementById('section4');
@@ -742,11 +727,233 @@ var subLayoutRender = {
         xhttp.open('POST', 'data/ins_data.json', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("data=0")
+    },
+    arrayDish: [],
+    tabListActive: function (thisdata, Dataindex) {
+        if (popupRender.arrayDish.length < 2) {
+            if (thisdata.id == '') {
+                thisdata.id = 'active'
+                popupRender.arrayDish.push(Dataindex)
+            } else {
+                thisdata.id = ''
+                popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
+            }
+        } else {
+            if (thisdata.id == 'active') {
+                thisdata.id = ''
+                popupRender.arrayDish.splice(popupRender.arrayDish.indexOf(Dataindex), 1)
+            } else if (thisdata.id == '') {
+                alert("목록은 두개만 선택할 수 있습니다")
+            }
+        }
+    },
+    page5Layout: function () {
+        layoutRender.getQueryString()
+        var Section1 = document.getElementById('section1');
+        var Section2 = document.getElementById('section2');
+        var Section3 = document.getElementById('section3');
+        var Section4 = document.getElementById('section4');
+        var pageNo = params.listNo;
+        var topInput = document.getElementById('top_inputs')
+
+        if (pageNo == "5") {
+            Section1.style.height = '100%'
+            Section2.style.display = 'none'
+            Section3.style.display = 'none'
+            Section4.style.display = 'none'
+            topInput.style.display = 'none'
+        }
+        Section1.innerHTML = `<div class='page5-nav'>
+            <div class='navs' id='active' onclick='subLayoutRender.page5LayOutRender("consult",this)'>무료 상담 예약 신청</div>
+            <div class='navs' onclick='subLayoutRender.page5LayOutRender("faq",this)'>자주하는 질문</div>
+        </div>
+        <div class='main_con' id='page5-main'>123</div>
+        `
+    },
+    page5LayOutRender: function (division, thisTag, mode) {
+        var NavsClass = document.querySelectorAll('.navs')
+        var mainCon = document.getElementById('page5-main')
+        NavsClass[0].id = "";
+        NavsClass[1].id = "";
+        if (mode == 'firstrednig') {
+            NavsClass[0].id = "active";
+        } else {
+            thisTag.id = "active"
+        }
+        if (division == 'consult') {
+            var MainHtml = `<h2>무료상담 예약신청</h2>
+                            <div class='input_tb'>
+                            <div class='row'>
+                            <div class='row_tit'>이름</div>
+                            <div class='row_desc'>
+                            <input type='text' id='reqname' placeholder='이름을 입력하세요'>
+                            </div>
+                            </div>
+                            <div class='row'>
+                            <div class='row_tit'>생년월일</div>
+                            <div class='row_desc'>
+                            <input type='text' id='reqbirth' placeholder='생년월일을 입력하세요(예:20190101)'>
+                            </div>
+                            </div>
+                            <div class='row row-3'>
+                            <div class='row_tit'>전화번호</div>
+                            <div class='row_desc'>
+                            <select>
+                            <option>1</option>
+                            </select>
+                            <input type='text' id='reqphone-end' placeholder='전화번호를 입력하세요'>
+                            </div>
+                            </div>
+                            <div class='row row-4'>
+                            <div class='row_tit'>문의내용(선택)</div>
+                            <div class='row_desc'>
+                            <textarea></textarea>
+                            </div>
+                            </div>
+                            <div class='row row-5'>
+                            <div class='row_tit'>개인정보 취급 방침 동의</div>
+                            <div class='row_desc'>
+                            <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
+                            <input type="checkbox" id='agree_check'>
+                            <span class="checkmark" id='check_box'></span>
+                            </label>
+                            <div class='agree_desc'>
+                            <p>당사는 [개인정보보호법] 및 [신용정보의 이용 및 보호에 관한 법률]에 따라</p>
+                            <p class='margin_point'>보험 상품소개 및 홍보등을 위하여 귀하의 개인(신용)정보를 다음과 같이 수집 및 이용하고자 함을 알려드립니다.
+                            </p>
+                            <p>1. 개인(신용)정보의 수입 및 이용 목적</p>
+                            <p class='margin_point'>-보험보장분석, 보험리모델링, 보험상담, 상품소개, 가입권유를 위한 안내 및 서비스제공</p>
+                            <p>2. 개인(신용)정보 수집 및 이용 대상</p>
+                            <p class='margin_point'>- 이름, 생년월일, 성별, 연락처, 지역 외</p>
+                            <p>
+                            3.  개인(신용)정보의 보유 및 이용기간
+                            </p>
+                            <p class='margin_point'>
+                            - 동의일로부터 3년
+                            </p>
+                            <p>
+                            * 본 동의를 거부하시는 경우 보장분석서비스(보험리모델링) 및 보험상담 등의 서비스를 받으실 수 없습니다.
+                            </p>
+                            <p>
+                            *동의하신 후에도 당사 홈페이지 고객센터(02-1670-5208)을 통해 철회하거나 상담 및 가입권유 목적의 연락에 </br>대한 중단을 요청하실 수 있습니다.
+                            </p>
+
+                            </div>
+                            </div>
+                            </div>
+                            </div>
+                            <div class='insert_btn'>무료상담 신청하기</div>
+                            `
+            mainCon.innerHTML = `${MainHtml}`
+
+        } else {
+            mainCon.innerHTML = `<h2>자주하는 질문</h2>
+                     <div class='fna_nav'>
+                        <div class='fna_navs fna_nav1' onclick='subLayoutRender.FnaRender(this,"all",0,10)' id='active'>전체</div>
+                        <div class='fna_navs fna_nav2'onclick='subLayoutRender.FnaRender(this,"baby")' >태아 어린이보험</div>
+                        <div class='fna_navs fna_nav3'onclick='subLayoutRender.FnaRender(this,"cancer")' >암보험</div>
+                        <div class='fna_navs fna_nav4'onclick='subLayoutRender.FnaRender(this,"disease")' >2대중대질병</div>
+                        <div class='fna_navs fna_nav5'onclick='subLayoutRender.FnaRender(this,"dementia")' >치매보험</div>
+                    </div>
+                    <div class='fna_box' id='fna_box'></div>
+                    <ul class='numbering' id='numbering'></ul>`
+                    
+                
+            this.FnaRender(this,"all",10,20,0)
+            var NumberRender = document.getElementById('numbering');
+            setTimeout(() => {
+                console.log(NumberResultOk)
+                NumberRender.innerHTML=`${NumberResultOk}`
+                var NumberClass = document.querySelectorAll('.NumberingFn');
+                NumberClass[0].id = 'active'
+
+
+            }, 500);
+            setTimeout(() => {
+            for(var i = 0; i<NumberClass.length; i++){
+                NumberClass[i].id= ''
+                NumberRender.innerHTML=`${NumberResultOk}`
+            }
+            }, 300);
+            
+        }
+    },
+    FnaRender:function(thistag,datakey,no,limit){
+            var FnaRendeing = document.getElementById('fna_box');
+            var NumberClass = document.querySelectorAll('.NumberingFn');
+            var NumberRender = document.getElementById('numbering');
+            returnQa = [];
+            returnAn = [];
+            var fnaNavs = document.querySelectorAll('.fna_navs');
+            for(var i = 0; i<fnaNavs.length; i++){
+                fnaNavs[i].id=''
+            }
+            for(var i = 0; i<NumberClass.length; i++){
+                NumberClass[i].id=''
+            }
+           
+            thistag.id = 'active'
+
+            function ListPush(no,limit){
+                for(var i = no; i<limit; i++){
+                    returnQa.push(`<li><p><span class='q_icon'>Q</span><b>${fnareturnJson[i].cate}</b>${fnareturnJson[i].qa}</p></li>`)
+                    returnAn.push(fnareturnJson[i].an)
+                }
+            }
+            xhttp = new XMLHttpRequest();
+            xhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status == 200) {
+                    fnareturnJson = JSON.parse(this.responseText)
+                    if(datakey == "all"){
+                        ListPush(no,limit,"all")
+                        fnaNavs[0].id='active'
+
+                        var listNumbering = [];
+                        var MaxNumber = Math.round(fnareturnJson.length/10);
+                        for(var i = 0; i<MaxNumber-1; i++){
+                        listNumbering.push(`<li class='NumberingFn' id onclick='subLayoutRender.FnaRender(this|"all"|${i*10}|${(i+1)*10}|${i})'>${i+1}</li>`)
+                        }
+                        listNumbering.push(`<li class='NumberingFn' id onclick='subLayoutRender.FnaRender(this|"all"|${(MaxNumber-1)*10}|${fnareturnJson.length}|${i})'>${MaxNumber}</li>`)
+
+                        var NumberResult = listNumbering.toString();
+                        var NumberResult1 = NumberResult.replaceAll(",","");
+                        NumberResultOk = NumberResult1.replaceAll("|",",");
+                        console.log(NumberClass)
+
+                        // setTimeout(() => {
+                        //     for(var i = 0; i<NumberClass.length; i++){
+                        //         NumberClass[i].id= ''
+                        //         NumberRender.innerHTML=`${NumberResultOk}`
+                        //     }
+                        //     }, 300);
+                    }
+                    else{
+                        var Fnaresult = [];
+                        Fnaresult = fnareturnJson.filter((x) => {
+                            return x.catekey == datakey;
+                        })
+                        for(var i = 0; i<Fnaresult.length; i++){
+                            returnQa.push(`<li><p><span class='q_icon'>Q</span><b>${Fnaresult[i].cate}</b>${Fnaresult[i].qa}</p></li>
+                            <div class='hide_an'><p><span>A</span><b>${Fnaresult[i].an}</b></p></div>
+                            `)
+                            returnAn.push(Fnaresult[i].an)
+                        }
+                        NumberRender.innerHTML=``
+                    }
+                
+                    resultQa = returnQa.toString();
+                    replaceQa = resultQa.replaceAll(",","");;
+                    FnaRendeing.innerHTML=`<ul>${replaceQa}</ul>`
+                }
+            }
+            xhttp.open('POST', 'data/fna_data.json', true);
+            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+            xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
     }
 }
 
 
-var result1,result2;
+var result1, result2;
 var popupRender = {
     moreData: function (datakey) {
         event.stopPropagation();
@@ -768,37 +975,37 @@ var popupRender = {
             ArrayName.push(vals)
             return vals;
         };
-               priceHtml1 = []
-            if (result1[0].ageprice.length == 1) {
-                
-                var objectKeyArrays = []
-                setTimeout(() => {
-                    var infoBox = document.getElementById('info_ul')
-                    infoBox.style.height = '320px'
-                    }, 700);
-                objectValues2(result1[0].ageprice[0], objectKeyArrays);
-                priceHtml1.push(`<div class='null_data'>
+        priceHtml1 = []
+        if (result1[0].ageprice.length == 1) {
+
+            var objectKeyArrays = []
+            setTimeout(() => {
+                var infoBox = document.getElementById('info_ul')
+                infoBox.style.height = '320px'
+            }, 700);
+            objectValues2(result1[0].ageprice[0], objectKeyArrays);
+            priceHtml1.push(`<div class='null_data'>
                 <span>출생 전 </span>${objectKeyArrays[0]}원 
                 </div>`)
-            } else if (result1[0].ageprice == 'mnf') {
-                setTimeout(() => {
-                    var priceRow = document.getElementById('price_row')
-                    var infoBox = document.getElementById('info_ul')
-                    priceRow.style.height = '120px'
-                    infoBox.style.height = '400px'
-                    
-                }, 700);
-                var objectKeyArrayMan = [];
-                var objectKeyArrayWoMan = [];
+        } else if (result1[0].ageprice == 'mnf') {
+            setTimeout(() => {
+                var priceRow = document.getElementById('price_row')
+                var infoBox = document.getElementById('info_ul')
+                priceRow.style.height = '120px'
+                infoBox.style.height = '400px'
 
-                for (var i = 0; i < result1[0].agepricem.length; i++) {
-                    objectValues2(result1[0].agepricem[i], objectKeyArrayMan);
-                }
-                for (var i = 0; i < result1[0].agepricef.length; i++) {
-                    objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
-                }
-                priceHtml1.push(
-                    `<div class='price_bord'>
+            }, 700);
+            var objectKeyArrayMan = [];
+            var objectKeyArrayWoMan = [];
+
+            for (var i = 0; i < result1[0].agepricem.length; i++) {
+                objectValues2(result1[0].agepricem[i], objectKeyArrayMan);
+            }
+            for (var i = 0; i < result1[0].agepricef.length; i++) {
+                objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
+            }
+            priceHtml1.push(
+                `<div class='price_bord'>
                 <div class='tb_head row'>
                         <div class='colum colum-4  colum_head'>-</div>
                         <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[0])}세</div>
@@ -819,23 +1026,22 @@ var popupRender = {
                     <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
                 </div>
                 </div>`
-                )
+            )
 
-            } else if (result1[0].ageprice != 0) {
-                var objectKeyArray = [];
-                setTimeout(() => {
-                    var priceRow = document.getElementById('price_row')
-                    var infoBox = document.getElementById('info_ul')
-                    console.log(infoBox)
-                    priceRow.style.height = '120px'
-                    infoBox.style.height = '400px'
+        } else if (result1[0].ageprice != 0) {
+            var objectKeyArray = [];
+            setTimeout(() => {
+                var priceRow = document.getElementById('price_row')
+                var infoBox = document.getElementById('info_ul')
+                priceRow.style.height = '120px'
+                infoBox.style.height = '400px'
 
-                    }, 700);
+            }, 700);
 
-                for (var i = 0; i < result1[0].ageprice.length; i++) {
-                    objectValues2(result1[0].ageprice[i], objectKeyArray);
-                }
-                priceHtml1.push(`          <div class='price_bord'>
+            for (var i = 0; i < result1[0].ageprice.length; i++) {
+                objectValues2(result1[0].ageprice[i], objectKeyArray);
+            }
+            priceHtml1.push(`          <div class='price_bord'>
                                             <div class='tb_head row'>
                                                     <div class='colum colum-4  colum_head'>-</div>
                                                     <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[0])}세</div>
@@ -856,7 +1062,7 @@ var popupRender = {
                                                 <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
                                             </div>
                                             </div>`)
-            }
+        }
         setTimeout(() => {
             popup.innerHTML = `<div class='speed_compare_popup'>
             <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
@@ -969,8 +1175,13 @@ var popupRender = {
             <div class='submit_btns' id='submit_btns' onclick="popupRender.insertTapRender('more_btn','more_data')">무료 상담 신청</div>
         </div>
         `
-            // this.calResultRender()
+            var fnsubBox = document.querySelectorAll('.fn_box');
+            for (var i = 0; i < fnsubBox.length; i++) {
+                fnsubBox[i].id = '';
+            }
         }, 500);
+
+
 
     },
     arrayDish: [],
@@ -996,12 +1207,11 @@ var popupRender = {
             result = [];
             result1 = [];
             result2 = [];
-        }
-        else if (target == 'noDel') {
+        } else if (target == 'noDel') {
             var insertpopup = document.getElementById('insert_box')
             insertpopup.style.display = 'none'
         }
-       
+
         //all popup inset data Null 
         //팝업이 닫힐 때 모든 입력된 데이터를 Null 시킨다.
 
@@ -1024,7 +1234,7 @@ var popupRender = {
 
         var fnsubBox = document.querySelectorAll('.fn_box');
         if (this.arrayDish.length == 2) {
-            this.popupHead('speed')
+            this.popupHead('cal')
             popup.style.display = 'block'
             popup.style.backgroundColor = 'rgba(0,0,0,0.6)'
             setTimeout(() => {
@@ -1038,6 +1248,7 @@ var popupRender = {
                 'overflow-y': 'hidden'
             });
             // fnsubBox.id = '';
+
             for (var i = 0; i < fnsubBox.length; i++) {
                 fnsubBox[i].id = '';
             }
@@ -1047,7 +1258,7 @@ var popupRender = {
 
     },
     popupHead: function (b) {
-        const popuptit = b == 'speed' ? '스피드보험비교' : '보험 셀프 계산기';
+        const popuptit = b == 'cal' ? '스피드보험비교' : '보험 셀프 계산기';
         // const fnKey = b == 'speed' ? 'cal' : 'speed';
         _popuphead = `<h2>${popuptit}</h2>
         <div class='popup_nav'>
@@ -1088,15 +1299,16 @@ var popupRender = {
                                 </div>`
         }, 500);
         setTimeout(() => {
-        this.tabData(0, 'speed')
+            this.tabData(0, 'speed')
 
-        },600)
+        }, 600)
 
         $('html, body').css({
             'overflow-y': 'hidden'
         });
     },
     tabListActive: function (index, thisdata, mode1, Dataindex, mode2) {
+        this.applyUserinfo = [];
         if (mode2 == 'cal') {
             if (this.arrayDish.length < 1) {
                 if (thisdata.id == '') {
@@ -1202,8 +1414,7 @@ var popupRender = {
                     <span class="checkmark" id='check_box'></span>
                     </label>
                     </div>`)
-                }
-                else{
+                } else {
 
                 }
                 const btnData = b == 'speed' ? `<div class='cal_fn_btn' id='compare_fn_btn' onclick='popupRender.applyFn()'>보험료 계산하기</div>` : `<div class='compare_fn_btn' id='compare_fn_btn' onclick='popupRender.compareTabRnder("main"|"main_compare")'>보험 비교하기</div>`;
@@ -1248,15 +1459,14 @@ var popupRender = {
                 })
                 dataInsertFn("dir", "calBegin")
                 setTimeout(() => {
-                    if(DBreturnJson.phpresult =='ok'){
+                    if (DBreturnJson.phpresult == 'ok') {
                         alert('입력하신 자료로 계산합니다!')
                         this.calResultRender('refresh')
                     }
                 }, 500);
-            } else if(result1.length < 0) {
+            } else if (result1.length < 0) {
                 alert('목록을 선택해주세요')
-            }
-            else{
+            } else {
                 this.applyUserinfo.push({
                     "reqName": reqName,
                     "reqPhone": reqPhone,
@@ -1266,12 +1476,12 @@ var popupRender = {
                 })
                 dataInsertFn("dir", "calBegin")
                 setTimeout(() => {
-                    if(DBreturnJson.phpresult =='ok'){
+                    if (DBreturnJson.phpresult == 'ok') {
                         alert('입력하신 자료로 계산합니다!')
                         this.calResultRender('none')
                     }
                 }, 500);
-             
+
             }
             Btns.style.display = 'none'
         }
@@ -1281,28 +1491,95 @@ var popupRender = {
         var insTab = document.getElementById('ins_tab');
         var date = new Date();
         var year = date.getFullYear()
-        if(mode =='refresh'){
+
+        function objectValues2(obj, ArrayName) {
+            var vals;
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
+                    vals = obj[key];
+                }
+            }
+            ArrayName.push(vals)
+            return vals;
+        };
+        if (mode == 'refresh') {
             result1 = [];
             result1 = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
             })
-        }
-        else{
-            console.log(123)
+        } else {
         }
         var ageYear = this.applyUserinfo[0].reqBirth.substr(0, 4);
         var age = year - ageYear;
-        var test = Number(result1[0].no);
+        var ObjKey = Number(result1[0].no);
+        var priceResultArray = [];
+        var priceKeyArray = [];
 
-        if (test <= 5) {
-            console.log("태아보험")
-        } else if (test > 5 && test < 18) {
-            console.log(result1[0].ageprice)
+        Productprice;
+        if (ObjKey <= 5) {
+            objectValues2(result1[0].ageprice[0], priceResultArray)
+            Productprice = `<span>출생전:</span> ${priceResultArray[0]}`
+        } else if (ObjKey > 5 && ObjKey < 18) {
+            objectValues2(result1[0].ageprice[0], priceResultArray)
+            objectValues2(result1[0].ageprice[1], priceResultArray)
+            objectValues2(result1[0].ageprice[2], priceResultArray)
+            setTimeout(() => {
+                MinKey = Object.keys(result1[0].ageprice[0]);
+                MidKey = Object.keys(result1[0].ageprice[1]);
+                MaxKey = Object.keys(result1[0].ageprice[2]);
+                if (Number(MinKey) > age) {
+                    Productprice = `${priceResultArray[0]}`
+                } else if (Number(MinKey) <= age && Number(MidKey) > age) {
+                    Productprice = `${priceResultArray[0]}`
+                } else if (Number(MidKey) <= age && Number(MaxKey) > age) {
+                    Productprice = `${priceResultArray[1]}`
+                } else if (Number(MaxKey) < age) {
+                    Productprice = `${priceResultArray[2]}`
+                }
+            }, 300)
         } else {
-            console.log(result1[0].ageprice)
+            var Productprice;
+            var reqSexflag = this.applyUserinfo[0].reqSexflag
+            if (reqSexflag == "남성") {
+                objectValues2(result1[0].agepricem[0], priceResultArray)
+                objectValues2(result1[0].agepricem[1], priceResultArray)
+                objectValues2(result1[0].agepricem[2], priceResultArray)
+                setTimeout(() => {
+                    MinKey = Object.keys(result1[0].agepricem[0]);
+                    MidKey = Object.keys(result1[0].agepricem[1]);
+                    MaxKey = Object.keys(result1[0].agepricem[2]);
+                    if (Number(MinKey) > age) {
+                        Productprice = `${priceResultArray[0]}`
+                    } else if (Number(MinKey) <= age && Number(MidKey) > age) {
+                        Productprice = `${priceResultArray[0]}`
+                    } else if (Number(MidKey) <= age && Number(MaxKey) > age) {
+                        Productprice = `${priceResultArray[1]}`
+                    } else if (Number(MaxKey) < age) {
+                        Productprice = `${priceResultArray[2]}`
+                    }
+                }, 300)
+            } else {
+                objectValues2(result1[0].agepricef[0], priceResultArray)
+                objectValues2(result1[0].agepricef[1], priceResultArray)
+                objectValues2(result1[0].agepricef[2], priceResultArray)
+                setTimeout(() => {
+                    MinKey = Object.keys(result1[0].agepricef[0]);
+                    MidKey = Object.keys(result1[0].agepricef[1]);
+                    MaxKey = Object.keys(result1[0].agepricef[2]);
+                    if (Number(MinKey) > age) {
+                        Productprice = `${priceResultArray[0]}`
+                    } else if (Number(MinKey) <= age && Number(MidKey) > age) {
+                        Productprice = `${priceResultArray[0]}`
+                    } else if (Number(MidKey) <= age && Number(MaxKey) > age) {
+                        Productprice = `${priceResultArray[1]}`
+                    } else if (Number(MaxKey) < age) {
+                        Productprice = `${priceResultArray[2]}`
+                    }
+                }, 300)
+            }
         }
-
-        insTab.innerHTML = `<div class='cal_top_tab'>
+        setTimeout(() => {
+            insTab.innerHTML = `<div class='cal_top_tab'>
                           <div class='user_info'>
                           <h3>고객님 정보</h3>
 
@@ -1311,8 +1588,8 @@ var popupRender = {
                           </div>
                           <div class='place_info'>
                           <h3>월 납입보험료<h3>
-                          <h2 class='price'>45,000<span>원</span></h2>
-                          <p>선택하신 <span>${result1[0].product}</span>의</p>
+                          <h2 class='price'>${Productprice}<span>원</span></h2>
+                          <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
                           <p>월 예상 납입 보험료</p>
                           </div>
 
@@ -1379,6 +1656,8 @@ var popupRender = {
                             </div>
                             </div>
                             `
+        }, 500);
+
     },
     compareTabRnder: function (accessnode, subNode) {
         var insTab = document.getElementById('ins_tab');
@@ -1651,7 +1930,6 @@ var popupRender = {
         var insertpopup = document.getElementById('innser_insert')
         insertTab.style.display = 'block'
         var result = []
-        console.log(result2)
 
         if (returnJson != '') {
             result = returnJson.filter((x) => {
@@ -1670,25 +1948,21 @@ var popupRender = {
             var Nodes = "mainsection";
             var Memo = "";
             var name = "";
-        }
-        else if(accessnode == 'more_btn'){
+        } else if (accessnode == 'more_btn') {
             var name = "";
             var Memo = `${result1[0].cate}\n${result1[0].product}`;
             var Nodes = "cals";
-        }
-       
-         else {
-             if(result2 == undefined){
+        } else {
+            if (result2 == undefined) {
                 var name = accessnode == "calsEnd" ? `${this.applyUserinfo[0].reqName}` : ``;
                 var Memo = accessnode == "calsEnd" ? `${result1[0].cate}\n${result1[0].product}(${result1[0].productcate})` : ``;
                 var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
-             }
-             else{
+            } else {
                 var name = accessnode == "calsEnd" ? `${this.applyUserinfo[0].reqName}` : ``;
-                var Memo = accessnode == "calsEnd" ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})` : `${result1[0].cate} 상품비교\n${result1[0].product}`;    
+                var Memo = accessnode == "calsEnd" ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})` : `${result1[0].cate} 상품비교\n${result1[0].product}`;
                 var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
-             }
-         
+            }
+
         }
 
 
@@ -1843,8 +2117,7 @@ function dataInsertFn(fnNode, Nodes) {
                 })
                 InsertDates()
             }
-        } 
-        else {
+        } else {
             if (reqName == '') {
                 alert('성함을 입력해주세요')
             } else if (reqPhone.length <= 10) {
@@ -1952,7 +2225,7 @@ function dataInsertFn(fnNode, Nodes) {
                 if (DBreturnJson.phpresult == 'ok') {
                     alert('상담신청이 완료되었습니다')
                     var inputs = document.querySelectorAll('input');
-                    for(var i = 0; i<=inputs.length; i++){
+                    for (var i = 0; i <= inputs.length; i++) {
                         inputs[i].value = '';
                     }
                 } else {

@@ -46,7 +46,7 @@
             <div class='scroll_widget' id='floatMenu'>
                 <!-- layoutRender.floatMenuRender(); -->
             </div>
-            <section class='top_inputs'>
+            <section class='top_inputs' id='top_inputs'>
                 <div class="wrap">
                     <div class='left_tab'>
                         <h2>내 보험, 어떤가요?</h2>
@@ -91,9 +91,8 @@
         <footer></footer>
     </div>
     <script src='js/common.js'></script>
-    <script src="js/layout.min.js"></script>
-    <!-- <script src="js/layout.js"></script> -->
-
+    <!-- <script src="js/layout.min.js"></script> -->
+    <script src="js/layout.js"></script>
     <script src="js/animation.js"></script>
     <script>
         layoutRender.HeaderRender();
@@ -101,14 +100,24 @@
         activeList();
         subLayoutRender.subSectionRender();
         subLayoutRender.subMainbannerRender()
+        layoutRender.getQueryString();
+        var pageNo = params.listNo;
+        console.log(pageNo)
+
+        if(pageNo!="5"){
         subLayoutRender.section1Render()
         subLayoutRender.section2Render()
         subLayoutRender.section3Render()
         subLayoutRender.section4Render()
+        }
+        else if(pageNo == "5"){
+            subLayoutRender.page5Layout()
+            subLayoutRender.page5LayOutRender("consult",this,'firstrednig')
+        }
         layoutRender.footerRender();
 
 
-
+      
 
 
     </script>

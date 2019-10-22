@@ -18,14 +18,16 @@ $consultType1 = (isset($data[0]->consultType1)?$consultType1=$data[0]->consultTy
 $consultType2 = (isset($data[0]->consultType2)?$consultType2=$data[0]->consultType2:"");
 $time = date('Y-m-d H:i:s');
 $reqMemos = "원하는 상담시간 $reqWantDay $reqWantTime 시 \n사이트 선택 내용 $consultType\n$consultType1\n$consultType2\n 원하는 상담내용: $reqMemo";
-$sql ="INSERT INTO `tb_consult` (site_code,reqName,reqPhone,reqSexflag,reqMemo,Insertdate) 
-VALUES('$Nodes','$reqName','$reqPhone','$reqSexflag','$reqMemos','$time')";
+$sql ="INSERT INTO `tb_consult` (site_code,reqName,reqBirth,reqPhone,reqSexflag,reqMemo,Insertdate) 
+VALUES('$Nodes','$reqName','$reqBirth','$reqPhone','$reqSexflag','$reqMemos','$time')";
+
+
 $conn = mysqli_query($conn,$sql);
 if(isset($conn)){$phpresult = 'ok';}
 else{$phpresult = 'no';}
 
 $json = json_encode(
-    array("datas" => $data,"name" =>$reqMemo,"reqbirth" => $sql, "phpresult"=>$phpresult)
+    array("datas" => $data,"reqbirth" => $sql, "phpresult"=>$phpresult)
 );
 echo urldecode($json);
 header('Content-Type: application/json');

@@ -825,7 +825,7 @@ body {
                         height: 100%;
                         border: 1px solid #d9d9d9;
                         box-sizing: border-box;
-                        ;
+                        position: relative;
                         float: left;
                         margin-right: 2%;
                         padding: 20px;
@@ -844,24 +844,27 @@ body {
                             font-size: 1rem;
                             width: 60%;
                             float: left;
-                            ;
                             text-align: left;
                             margin-bottom: 5px;
                             letter-spacing: -1px;
-
                             span {
                                 color: @mainColor;
                                 font-weight: bold;
                             }
                         }
+                        p.price_tag{
+                            width: 450px;
+                            letter-spacing: -1.5px;
+                        }
 
                         h2.price {
-                            width: 30%;
-                            float: right;
+                            width: 35%;
                             font-size: 2rem;
-                            ;
+                            right: 10px;
                             color: @mainColor;
-                            letter-spacing: -1px;
+                            letter-spacing: -1.5px;
+                            position: absolute;
+                            text-align: right;
 
                             span {
                                 font-size: 1.125rem;
