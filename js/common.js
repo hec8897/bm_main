@@ -179,3 +179,41 @@ function checkBoxEvents() {
         checkBox.style.backgroundColor = 'white'
     }
 }
+
+function checkBoxEvent5() {
+    // var checkbox = document.getElementById("check_label");
+    var checkedbox = document.getElementById("agree_check_page5");
+    var checkLabel = document.getElementById("check_label_page5");
+    var checkBox = document.getElementById("check_box_page5");
+
+
+    if (checkedbox.checked == true) {
+        checkLabel.style.color = '#ec6647'
+        checkBox.style.backgroundColor = '#ec6647'
+        checkBox.style.borderColor = '#ec6647';
+    }
+    else {
+        checkLabel.style.color = '#222222'
+        checkBox.style.borderColor = 'lightgray';
+        checkBox.style.backgroundColor = 'white'
+    }
+}
+
+function checkBoxEvent6() {
+    // var checkbox = document.getElementById("check_label");
+    var checkedbox = document.getElementById("agree_check_page6");
+    var checkLabel = document.getElementById("check_label_page6");
+    var checkBox = document.getElementById("check_box_page6");
+
+
+    if (checkedbox.checked == true) {
+        checkLabel.style.color = '#ec6647'
+        checkBox.style.backgroundColor = '#ec6647'
+        checkBox.style.borderColor = '#ec6647';
+    }
+    else {
+        checkLabel.style.color = '#222222'
+        checkBox.style.borderColor = 'lightgray';
+        checkBox.style.backgroundColor = 'white'
+    }
+}

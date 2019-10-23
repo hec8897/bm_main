@@ -98,10 +98,12 @@ body {
   outline: none;
   padding-left: 10px;
   line-height: 52px;
+  font-size: 1.125rem;
+  color: #444;
 }
 #wrap main.main_page section.top_inputs div.wrap div.input_tab ul.inputs li input::placeholder {
   font-size: 1.125rem;
-  color: #222;
+  color: #777;
 }
 #wrap main.main_page section.top_inputs div.wrap div.input_tab ul.inputs li select {
   width: 100%;
@@ -116,6 +118,16 @@ body {
   background-position: center;
   background-size: 14PX;
   background-position-x: 95%;
+  font-size: 1.125rem;
+  color: #777;
+}
+#wrap main.main_page section.top_inputs div.wrap div.input_tab ul.inputs li input[type=text]:focus {
+  outline: none;
+  border: 2px solid #ec6647;
+}
+#wrap main.main_page section.top_inputs div.wrap div.input_tab ul.inputs li select:focus {
+  outline: none;
+  border: 2px solid #ec6647;
 }
 #wrap main.main_page section.top_inputs div.wrap div.btn_tab {
   width: 250px;
@@ -1641,6 +1653,7 @@ body {
   box-sizing: border-box;
 }
 #wrap main.page5 section.section1 div.main_con div.fna_box ul li {
+  cursor: pointer;
   height: 60px;
   box-sizing: border-box;
   border-bottom: 1px solid #d0d0d0;
@@ -1671,6 +1684,12 @@ body {
   color: #888;
   letter-spacing: -1px;
 }
+#wrap main.page5 section.section1 div.main_con div.fna_box ul li img {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+}
 #wrap main.page5 section.section1 div.main_con div.fna_box ul div.hide_an {
   border-bottom: 1px solid #d0d0d0;
   position: relative;
@@ -1679,7 +1698,7 @@ body {
 #wrap main.page5 section.section1 div.main_con div.fna_box ul div.hide_an p {
   padding-top: 30px;
   padding-bottom: 30px;
-  background: #d0d0d0;
+  background: #f9f9f9;
 }
 #wrap main.page5 section.section1 div.main_con div.fna_box ul div.hide_an p span {
   position: absolute;
@@ -1714,14 +1733,396 @@ body {
 #wrap main.page5 section.section1 div.main_con ul.numbering li {
   cursor: pointer;
   display: inline-block;
-  width: 30px;
-  height: 30px;
+  width: 40px;
+  height: 40px;
   border: 1px solid #d0d0d0;
-  margin: 10px;
-  line-height: 30px;
+  margin: 3px;
+  line-height: 40px;
   color: #777;
 }
 #wrap main.page5 section.section1 div.main_con ul.numbering li#active {
   border: 1px solid #ec6647;
   color: #ec6647;
+}
+#wrap main.page6 section.top_banner {
+  background-image: url(../img/sub_page/page6-banner1.jpg);
+}
+#wrap main.page6 section.section1 {
+  background: white;
+  padding-bottom: 100px;
+}
+#wrap main.page6 div.input_area {
+  height: 480px;
+}
+#wrap main.page6 div.input_area div.wrap {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 100px;
+  box-sizing: border-box;
+}
+#wrap main.page6 div.input_area div.wrap h2 {
+  font-size: 2.5rem;
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+  letter-spacing: -2px;
+}
+#wrap main.page6 div.input_area div.wrap h4 {
+  text-align: center;
+  color: #444;
+  font-size: 1.125rem;
+  margin-top: 30px;
+  letter-spacing: -1px;
+}
+#wrap main.page6 div.input_area div.wrap div.forms {
+  width: 1100px;
+  height: 60px;
+  margin: 0px auto;
+  margin-top: 30px;
+}
+#wrap main.page6 div.input_area div.wrap div.forms div.input_box {
+  width: 250px;
+  height: 100%;
+  float: left;
+  margin-right: 20px;
+}
+#wrap main.page6 div.input_area div.wrap div.forms div.input_box input,
+#wrap main.page6 div.input_area div.wrap div.forms div.input_box select {
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  border: 2px solid #d0d0d0;
+  padding-left: 10px;
+  font-size: 1.125rem;
+  color: #444;
+}
+#wrap main.page6 div.input_area div.wrap div.forms div.input_box input::placeholder {
+  font-size: 1.125rem;
+  color: #777;
+}
+#wrap main.page6 div.input_area div.wrap div.forms div.input_box select {
+  background-image: url(../img/popup/select_bg.png);
+  color: #777;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  background-position-x: 95%;
+}
+#wrap main.page6 div.input_area div.wrap div.forms div.input_box input[type=text]:focus {
+  outline: none;
+  border: 2px solid #ec6647;
+}
+#wrap main.page6 div.input_area div.wrap div.forms div.input_box select:focus {
+  outline: none;
+  border: 2px solid #ec6647;
+}
+#wrap main.page6 div.input_area div.wrap div.forms .input1 {
+  width: 270px;
+  margin-left: 20px;
+}
+#wrap main.page6 div.input_area div.wrap div.forms .input4 {
+  width: 270px;
+  margin-right: 0px;
+}
+#wrap main.page6 div.input_area div.wrap label {
+  margin-left: 70px;
+  margin-top: 15px;
+}
+#wrap main.page6 div.input_area div.wrap div.insert_btn {
+  cursor: pointer;
+  width: 250px;
+  height: 50px;
+  background: #ec6647;
+  margin: 30px auto;
+  text-align: center;
+  border-radius: 50px;
+  line-height: 50px;
+  font-weight: bold;
+  color: white;
+}
+#wrap main.page6 div.page6-section1 {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  height: 240px;
+  background: #f6f6f6;
+  border: 1px solid #d0d0d0;
+  padding: 50px;
+  box-sizing: border-box;
+}
+#wrap main.page6 div.page6-section1 h2 {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+#wrap main.page6 div.page6-section1 div.icon_area {
+  width: 1100px;
+  margin: 0 auto;
+  margin-top: 30px;
+  height: 80px;
+  background-image: url(../img/sub_page/page5-section2-icons.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 90%;
+}
+#wrap main.page6 div.page6-section2 {
+  margin-top: 100px;
+}
+#wrap main.page6 div.page6-section2 h2 {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  height: 200px;
+  margin-bottom: 20px;
+  border-top: 1px solid #444;
+  border-bottom: 1px solid #444;
+}
+#wrap main.page6 div.page6-section2 div.page6-table .tb_head {
+  width: 100%;
+  height: 60px;
+  background: #f6f6f6;
+  border-bottom: 1px solid #d0d0d0;
+  box-sizing: border-box;
+}
+#wrap main.page6 div.page6-section2 div.page6-table .tb_head div.colum {
+  line-height: 60px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.colum {
+  height: 100%;
+  float: left;
+  text-align: center;
+  font-weight: bold;
+  color: #222;
+  box-sizing: border-box;
+  border-right: 1px solid #d0d0d0;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.colum1 {
+  width: 240px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.colum2 {
+  width: 480px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.colum3 {
+  width: 480px;
+  border: 0px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table {
+  margin-top: 30px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.tb_body div.colum {
+  position: relative;
+  padding-top: 20px;
+  box-sizing: border-box;
+  padding-left: 15px;
+  text-align: left;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.tb_body div.colum p {
+  width: 240px;
+  text-align: center;
+  color: #444;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-weight: normal;
+  font-size: 0.875rem;
+  letter-spacing: -1px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.tb_body div.colum b {
+  display: block;
+  font-weight: normal;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 0.875rem;
+  color: #666;
+  letter-spacing: -1px;
+  line-height: 18px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.tb_body div.colum b.margin_point {
+  margin-bottom: 20px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table div.tb_body div.colum span {
+  display: inline-block;
+  margin-bottom: 15px;
+  font-size: 0.875rem;
+  color: #ec6647;
+  font-weight: normal;
+}
+#wrap main.page6 div.page6-section2 div.page6-table1 {
+  height: 330px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table1 div.tb_body {
+  height: 270px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table2 {
+  height: 160px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table2 div.tb_head {
+  height: 50px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table2 div.tb_head div.colum {
+  line-height: 50px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table2 div.tb_body {
+  height: 110px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table3 {
+  height: 210px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table3 div.tb_head {
+  height: 50px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table3 div.tb_head div.colum {
+  line-height: 50px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table3 div.tb_body {
+  height: 160px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table3 div.tb_body span {
+  margin-bottom: 5px!important;
+}
+#wrap main.page6 div.page6-section2 div.page6-table3 div.tb_body div.margin_point {
+  margin-bottom: 25px!important;
+}
+#wrap main.page6 div.page6-section2 div.page6-table4 {
+  height: 130px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table4 div.tb_head {
+  height: 50px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table4 div.tb_head div.colum {
+  line-height: 50px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table4 div.tb_body {
+  height: 80px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table4 .colum2 {
+  width: 960px!important;
+  border: 0px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table5 {
+  height: 330px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table5 div.tb_head {
+  height: 50px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table5 div.tb_body {
+  height: 280px;
+}
+#wrap main.page6 div.page6-section2 div.page6-table5 div.tb_body span {
+  margin-bottom: 5px!important;
+}
+#wrap main.page6 div.page6-section2 div.page6-table5 div.tb_body b.margin_point {
+  margin-bottom: 35px!important;
+}
+#wrap main.page6 div.page6-section3 {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  height: 680px;
+  margin-top: 50px;
+}
+#wrap main.page6 div.page6-section3 h2 {
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: bold;
+  letter-spacing: -2px;
+}
+#wrap main.page6 div.page6-section3 div.link-acrobat {
+  width: 100%;
+  height: 25px;
+  line-height: 25px;
+  margin-top: 30px;
+  color: #444;
+}
+#wrap main.page6 div.page6-section3 div.link-acrobat img {
+  vertical-align: middle;
+}
+#wrap main.page6 div.page6-section3 div.link-acrobat div.acrobat_btn {
+  display: inline-block;
+  width: 170px;
+  height: 25px;
+  background: #ef1b23;
+  margin-right: 10px;
+  font-size: 0.875rem;
+  color: #666;
+  letter-spacing: -1px;
+  padding-left: 10px;
+  box-sizing: border-box;
+  color: white;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb {
+  width: 580px;
+  float: left;
+  margin-top: 20px;
+  border-top: 1px solid #222;
+  border-bottom: 1px solid #222;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb div.tb_head {
+  height: 60px;
+  background: #f6f6f6;
+  border-bottom: 1px solid #d9d9d9;
+  line-height: 60px;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb div.tb_head div.colum {
+  border-right: 1px solid #d9d9d9;
+  font-weight: bold;
+  color: #222;
+  letter-spacing: -1px;
+  text-align: center;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb div.tb_head div.colum4 {
+  border: 0px;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb div.tb_body {
+  height: 30px;
+  font-size: 0.875rem;
+  box-sizing: border-box;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb div.tb_body div.colum {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-right: 1px solid #d0d0d0;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb div.tb_body div.colum4 {
+  border: 0px;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb div.colum {
+  float: left;
+  height: 100%;
+  box-sizing: border-box;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb .colum1 {
+  width: 150px;
+  text-align: left;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb .colum2 {
+  width: 130px;
+  text-align: center;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb .colum3 {
+  width: 60px;
+  text-align: center;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.bottom_tb .colum4 {
+  width: 240px;
+  border: 0px;
+  text-align: left;
+  padding-left: 20px;
+  box-sizing: border-box;
+}
+#wrap main.page6 div.page6-section3 div.bottom_tables div.right_table {
+  float: right;
 }

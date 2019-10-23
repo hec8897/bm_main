@@ -91,8 +91,7 @@
         <footer></footer>
     </div>
     <script src='js/common.js'></script>
-    <!-- <script src="js/layout.min.js"></script> -->
-    <script src="js/layout.js"></script>
+    <script src="js/layout.min.js"></script>
     <script src="js/animation.js"></script>
     <script>
         layoutRender.HeaderRender();
@@ -102,9 +101,8 @@
         subLayoutRender.subMainbannerRender()
         layoutRender.getQueryString();
         var pageNo = params.listNo;
-        console.log(pageNo)
 
-        if(pageNo!="5"){
+        if(pageNo!="5" && pageNo!="6"){
         subLayoutRender.section1Render()
         subLayoutRender.section2Render()
         subLayoutRender.section3Render()
@@ -113,6 +111,9 @@
         else if(pageNo == "5"){
             subLayoutRender.page5Layout()
             subLayoutRender.page5LayOutRender("consult",this,'firstrednig')
+        }
+        else if(pageNo == "6"){
+            subLayoutRender.page6Layout()
         }
         layoutRender.footerRender();
 

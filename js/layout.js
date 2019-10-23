@@ -52,9 +52,7 @@ var layoutRender = {
                     <li class='${acitveList[2]}'><a href='main.html?id=page3&listNo=3' class='nav_li3'><img src='img/common/header-nav-icon3.png'>2대중대질병</a><p class='liner3'></p></li>
                     <li class='${acitveList[3]}'><a href='main.html?id=page4&listNo=4' class='nav_li4'><img src='img/common/header-nav-icon4.png'>치매보험</a><p class='liner4'></p></li>
                     <li class='${acitveList[4]}'><a href='main.html?id=page5&listNo=5' class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li>
-                    <!-- <li class='${acitveList[4]}'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li> -->
-                    <li class='${acitveList[5]}'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li6'><img src='img/common/header-nav-icon6.png'>보험금청구</a><p class='liner6'></p></li>
-                    <!-- <li class='${acitveList[5]}'><a href='main.html?id=page6&listNo=6  'class='nav_li6'><img src='img/common/header-nav-icon6.png'>보험금청구</a><p class='liner6'></p></li> -->
+                    <li class='${acitveList[5]}'><a href='main.html?id=page6&listNo=6' class='nav_li6'><img src='img/common/header-nav-icon6.png'>보험금청구</a><p class='liner6'></p></li>
                 </ul>
             </nav>
         </div>
@@ -109,7 +107,7 @@ var layoutRender = {
                         <p class='f_liner5'></p>
                     </li>
                  
-                    <li class='footer_li'><a href='javascript:fnDeleteUser()' onclick="alert('서비스 준비중입니다')" class='nav_li6'><img
+                    <li class='footer_li'><a href='main.html?id=page6&listNo=6' class='nav_li6'><img
                                 src='img/common/header-nav-icon6.png'>보험금청구</a>
                         <p class='f_liner6'></p>
                     </li>
@@ -786,20 +784,29 @@ var subLayoutRender = {
                             <div class='row'>
                             <div class='row_tit'>이름</div>
                             <div class='row_desc'>
-                            <input type='text' id='reqname' placeholder='이름을 입력하세요'>
+                            <input type='text' id='reqname_page5' placeholder='이름을 입력하세요'>
                             </div>
                             </div>
                             <div class='row'>
                             <div class='row_tit'>생년월일</div>
                             <div class='row_desc'>
-                            <input type='text' id='reqbirth' placeholder='생년월일을 입력하세요(예:20190101)'>
+                            <input type='text' id='reqbirth_page5'' placeholder='생년월일을 입력하세요(예:20190101)'>
                             </div>
                             </div>
                             <div class='row row-3'>
                             <div class='row_tit'>전화번호</div>
                             <div class='row_desc'>
-                            <select>
-                            <option>1</option>
+                            <select id='reqphone-front'>
+                            <option value='010'>010</option>
+                            <option value='011'>011</option>
+                            <option value='012'>012</option>
+                            <option value='013'>013</option>
+                            <option value='014'>014</option>
+                            <option value='015'>015</option>
+                            <option value='016'>016</option>
+                            <option value='017'>017</option>
+                            <option value='018'>018</option>
+                            <option value='019'>019</option>
                             </select>
                             <input type='text' id='reqphone-end' placeholder='전화번호를 입력하세요'>
                             </div>
@@ -807,15 +814,15 @@ var subLayoutRender = {
                             <div class='row row-4'>
                             <div class='row_tit'>문의내용(선택)</div>
                             <div class='row_desc'>
-                            <textarea></textarea>
+                            <textarea id='reqmemo'></textarea>
                             </div>
                             </div>
                             <div class='row row-5'>
                             <div class='row_tit'>개인정보 취급 방침 동의</div>
                             <div class='row_desc'>
-                            <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
-                            <input type="checkbox" id='agree_check'>
-                            <span class="checkmark" id='check_box'></span>
+                            <label class="container" id='check_label_page5' onclick="checkBoxEvent5()">개인정보 수집 및 이용 동의 합니다.
+                            <input type="checkbox" id='agree_check_page5'>
+                            <span class="checkmark" id='check_box_page5'></span>
                             </label>
                             <div class='agree_desc'>
                             <p>당사는 [개인정보보호법] 및 [신용정보의 이용 및 보호에 관한 법률]에 따라</p>
@@ -842,14 +849,14 @@ var subLayoutRender = {
                             </div>
                             </div>
                             </div>
-                            <div class='insert_btn'>무료상담 신청하기</div>
+                            <div class='insert_btn' onclick='dataInsertFn("page5_consult")'>무료상담 신청하기</div>
                             `
             mainCon.innerHTML = `${MainHtml}`
 
         } else {
             mainCon.innerHTML = `<h2>자주하는 질문</h2>
                      <div class='fna_nav'>
-                        <div class='fna_navs fna_nav1' onclick='subLayoutRender.FnaRender(this,"all",0,10)' id='active'>전체</div>
+                        <div class='fna_navs fna_nav1' onclick='subLayoutRender.FnaRender(this,"all",0,10), subLayoutRender.DataNumbering()' id='active'>전체</div>
                         <div class='fna_navs fna_nav2'onclick='subLayoutRender.FnaRender(this,"baby")' >태아 어린이보험</div>
                         <div class='fna_navs fna_nav3'onclick='subLayoutRender.FnaRender(this,"cancer")' >암보험</div>
                         <div class='fna_navs fna_nav4'onclick='subLayoutRender.FnaRender(this,"disease")' >2대중대질병</div>
@@ -857,101 +864,429 @@ var subLayoutRender = {
                     </div>
                     <div class='fna_box' id='fna_box'></div>
                     <ul class='numbering' id='numbering'></ul>`
-                    
-                
-            this.FnaRender(this,"all",10,20,0)
+
+
+            this.FnaRender(this, "all", 10, 20, 0)
             var NumberRender = document.getElementById('numbering');
             setTimeout(() => {
-                console.log(NumberResultOk)
-                NumberRender.innerHTML=`${NumberResultOk}`
+                NumberRender.innerHTML = `${NumberResultOk}`
                 var NumberClass = document.querySelectorAll('.NumberingFn');
                 NumberClass[0].id = 'active'
-
-
             }, 500);
             setTimeout(() => {
-            for(var i = 0; i<NumberClass.length; i++){
-                NumberClass[i].id= ''
-                NumberRender.innerHTML=`${NumberResultOk}`
-            }
+                for (var i = 0; i < NumberClass.length; i++) {
+                    NumberClass[i].id = ''
+                    NumberRender.innerHTML = `${NumberResultOk}`
+                }
             }, 300);
-            
+
         }
     },
-    FnaRender:function(thistag,datakey,no,limit){
-            var FnaRendeing = document.getElementById('fna_box');
-            var NumberClass = document.querySelectorAll('.NumberingFn');
-            var NumberRender = document.getElementById('numbering');
-            returnQa = [];
-            returnAn = [];
-            var fnaNavs = document.querySelectorAll('.fna_navs');
-            for(var i = 0; i<fnaNavs.length; i++){
-                fnaNavs[i].id=''
+    FnaRender: function (thistag, datakey, no, limit) {
+        var FnaRendeing = document.getElementById('fna_box');
+        var NumberClass = document.querySelectorAll('.NumberingFn');
+        var NumberRender = document.getElementById('numbering');
+        returnQa = [];
+        returnAn = [];
+        var fnaNavs = document.querySelectorAll('.fna_navs');
+
+        function NavBeActive(startNumber) {
+            for (var i = startNumber; i < fnaNavs.length; i++) {
+                fnaNavs[i].id = ''
             }
-            for(var i = 0; i<NumberClass.length; i++){
-                NumberClass[i].id=''
-            }
-           
             thistag.id = 'active'
+        }
 
-            function ListPush(no,limit){
-                for(var i = no; i<limit; i++){
-                    returnQa.push(`<li><p><span class='q_icon'>Q</span><b>${fnareturnJson[i].cate}</b>${fnareturnJson[i].qa}</p></li>`)
-                    returnAn.push(fnareturnJson[i].an)
-                }
+        for (var i = 0; i < NumberClass.length; i++) {
+            NumberClass[i].id = ''
+        }
+
+        thistag.id = 'active'
+
+        function ListPush(no, limit) {
+            for (var i = no; i < limit; i++) {
+                returnQa.push(`<li id='list_an${i}' onclick='subLayoutRender.thisListViewFn(${i})'><p><span id='q_icon${i}' class='q_icon'>Q</span><b>${fnareturnJson[i].cate}</b>${fnareturnJson[i].qa}</p><img src='img/sub_page/page5-down-arrow.png' id='arrow${i}' class='arrows' alt='리스트 오픈 화살표 이미지'></li>
+                    <div id='hide_an${i}' class='hide_an hide_an${i}'><p><span>A</span><b>${fnareturnJson[i].an}</b></p></div>
+                    `)
+                returnAn.push(fnareturnJson[i].an)
             }
-            xhttp = new XMLHttpRequest();
-            xhttp.onreadystatechange = function () {
-                if (this.readyState == 4 && this.status == 200) {
-                    fnareturnJson = JSON.parse(this.responseText)
-                    if(datakey == "all"){
-                        ListPush(no,limit,"all")
-                        fnaNavs[0].id='active'
-
-                        var listNumbering = [];
-                        var MaxNumber = Math.round(fnareturnJson.length/10);
-                        for(var i = 0; i<MaxNumber-1; i++){
+        }
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                fnareturnJson = JSON.parse(this.responseText)
+                if (datakey == "all") {
+                    NavBeActive(1)
+                    ListPush(no, limit, "all")
+                    fnaNavs[0].id = 'active'
+                    fnaNavs[0].id = 'active'
+                    var listNumbering = [];
+                    var MaxNumber = Math.round(fnareturnJson.length / 10);
+                    for (var i = 0; i < MaxNumber - 1; i++) {
                         listNumbering.push(`<li class='NumberingFn' id onclick='subLayoutRender.FnaRender(this|"all"|${i*10}|${(i+1)*10}|${i})'>${i+1}</li>`)
-                        }
-                        listNumbering.push(`<li class='NumberingFn' id onclick='subLayoutRender.FnaRender(this|"all"|${(MaxNumber-1)*10}|${fnareturnJson.length}|${i})'>${MaxNumber}</li>`)
-
-                        var NumberResult = listNumbering.toString();
-                        var NumberResult1 = NumberResult.replaceAll(",","");
-                        NumberResultOk = NumberResult1.replaceAll("|",",");
-                        console.log(NumberClass)
-
-                        // setTimeout(() => {
-                        //     for(var i = 0; i<NumberClass.length; i++){
-                        //         NumberClass[i].id= ''
-                        //         NumberRender.innerHTML=`${NumberResultOk}`
-                        //     }
-                        //     }, 300);
                     }
-                    else{
-                        var Fnaresult = [];
-                        Fnaresult = fnareturnJson.filter((x) => {
-                            return x.catekey == datakey;
-                        })
-                        for(var i = 0; i<Fnaresult.length; i++){
-                            returnQa.push(`<li><p><span class='q_icon'>Q</span><b>${Fnaresult[i].cate}</b>${Fnaresult[i].qa}</p></li>
-                            <div class='hide_an'><p><span>A</span><b>${Fnaresult[i].an}</b></p></div>
+                    listNumbering.push(`<li class='NumberingFn' id onclick='subLayoutRender.FnaRender(this|"all"|${(MaxNumber-1)*10}|${fnareturnJson.length}|${i})'>${MaxNumber}</li>`)
+                    var NumberResult = listNumbering.toString();
+                    var NumberResult1 = NumberResult.replaceAll(",", "");
+                    NumberResultOk = NumberResult1.replaceAll("|", ",");
+                } else {
+                    NavBeActive(0)
+                    var Fnaresult = [];
+                    Fnaresult = fnareturnJson.filter((x) => {
+                        return x.catekey == datakey;
+                    })
+                    for (var i = 0; i < Fnaresult.length; i++) {
+                        returnQa.push(`<li id='list_an${i}' onclick='subLayoutRender.thisListViewFn(${i})'><p><span class='q_span' id='q_icon${i}' class='q_icon'>Q</span><b>${Fnaresult[i].cate}</b>${Fnaresult[i].qa}</p><img src='img/sub_page/page5-down-arrow.png' class='arrows' id='arrow${i}' alt='리스트 오픈 화살표 이미지'></li>
+                            <div id='hide_an${i}' class='hide_an'><p><span>A</span><b>${Fnaresult[i].an}</b></p></div>
                             `)
-                            returnAn.push(Fnaresult[i].an)
-                        }
-                        NumberRender.innerHTML=``
+                        returnAn.push(Fnaresult[i].an)
                     }
-                
-                    resultQa = returnQa.toString();
-                    replaceQa = resultQa.replaceAll(",","");;
-                    FnaRendeing.innerHTML=`<ul>${replaceQa}</ul>`
+                    NumberRender.innerHTML = ``
                 }
+                resultQa = returnQa.toString();
+                replaceQa = resultQa.replaceAll(",", "");;
+                replaceQas = replaceQa.replaceAll("|", ",");;
+
+                FnaRendeing.innerHTML = `<ul>${replaceQas}</ul>`
             }
-            xhttp.open('POST', 'data/fna_data.json', true);
-            xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-            xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
+        }
+        xhttp.open('POST', 'data/fna_data.json', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
+    },
+    DataNumbering: function () {
+        var NumberRender = document.getElementById('numbering');
+        NumberRender.innerHTML = `${NumberResultOk}`
+        var NumberClass = document.querySelectorAll('.NumberingFn');
+        NumberClass[0].id = 'active'
+    },
+    thisListViewFn: function (key) {
+        var OpenList = `hide_an${key}`
+        var Qicon = `q_icon${key}`
+        var Arrows = `arrow${key}`
+
+        var OpenTag = document.getElementById(OpenList);
+        var Qspan = document.getElementById(Qicon);
+        var DownArrow = document.getElementById(Arrows);
+
+
+        $(".arrows").attr('src', 'img/sub_page/page5-down-arrow.png')
+        $(DownArrow).attr('src', 'img/sub_page/page5-up-arrow.png')
+        $(".q_icon").css({
+            "background": "#999"
+        })
+
+        Qspan.style.background = '#ec6647'
+        $(".hide_an").slideUp(250)
+        $(OpenTag).slideToggle(250)
+        // OpenTag.style.display = "block"
+
+    },
+    page6Layout: function () {
+        layoutRender.getQueryString()
+        var pageNo = params.listNo;
+        var Section1 = document.getElementById('section1');
+        var Section2 = document.getElementById('section2');
+        var Section3 = document.getElementById('section3');
+        var Section4 = document.getElementById('section4');
+        var topInput = document.getElementById('top_inputs')
+
+        if (pageNo == "6") {
+            Section1.style.height = '100%'
+            Section2.style.display = 'none'
+            Section3.style.display = 'none'
+            Section4.style.display = 'none'
+            topInput.style.display = 'none'
+        }
+
+        Section1.innerHTML = `<div class='input_area'>
+            <div class='wrap'>
+                <h2>보험금 청구가 어려우신가요?</h2>
+                <h4>보험금 대리신청 서비스를 신청하시면 정성껏 도와드리겠습니다.</h4>
+                <div class='forms'>
+                    <div class='input_box input1'>
+                        <input type='text' id='reqname_page6' placeholder='성함을 입력해주세요'> 
+                    </div>
+                    <div class='input_box input2'>
+                        <select id='reqsexflag_page6'>
+                            <option>성별</option>
+                            <option value='남성'>남성</option>
+                            <option value='여성'>여성</option>
+                        </select>
+                    </div>
+                    <div class='input_box input3'>
+                        <input type='text' placeholder='연락처를 입력해주세요' id='reqphone_page6'> 
+                    </div>
+                    <div class='input_box input4'>
+                        <select id='reqarea'>
+                        <option>지역</option>
+                        <option value="서울">서울특별시</option>
+                        <option value="인천">인천광역시</option>
+                        <option value="경기">경기도</option>
+                        <option value="대전">대전광역시</option>
+                        <option value="세종">세종특별자치시</option>
+                        <option value="부산">부산광역시</option>
+                        <option value="울산">울산광역시</option>
+                        <option value="대구">대구광역시</option>
+                        <option value="광주">광주광역시</option>
+                        <option value="제주">제주특별자치도</option>
+                        <option value="강원">강원도</option>
+                        <option value="충남">충청남도</option>
+                        <option value="충북">충청북도</option>
+                        <option value="경북">경상북도</option>
+                        <option value="경남">충상남도</option>
+                        <option value="전남">전라남도</option>
+                        <option value="전북">전라북도</option>
+                        </select>
+                    </div>
+                </div>
+                <label class="container" id='check_label_page6' onclick="checkBoxEvent6()">개인정보 수집 및 이용 동의 합니다.
+                            <input type="checkbox" id='agree_check_page6'>
+                            <span class="checkmark" id='check_box_page6'></span>
+                        </label>
+                        <div class='insert_btn' onclick='dataInsertFn("page6_consult")'>보험금 청구 대리 신청</div>
+
+            </div>
+        </div>
+        <div class='page6-section1'>
+            <h2>보험금 청구 진행과정</h2>
+            <div class='icon_area'></div>
+        </div>
+        <div class='page6-section2'>
+            <h2>보험 청구시 필요 서류</h2>
+            <div class='page6-table page6-table1'>
+                <div class='tb_head'>
+                    <div class='colum1 colum'>구분</div>
+                    <div class='colum2 colum'>입원시</div>
+                    <div class='colum3 colum'>통원시</div>
+                </div>
+                <div class='tb_body'>
+                <div class='colum1 colum'>
+                    <p>의료 실비 청구</p>
+                </div>
+                    <div class='colum2 colum'>
+                        <b>1.보험금청구서</b>
+                        <b>2.진단서(50만원 이상/진단코드,입원기간)</b>
+                        <b>3.입 퇴원 확인서(진단서內 입원기간 포함 시 생략)</b>
+                        <b>4.진료비 영수증</b>
+                        <b>5.진료비 세부내역서</b>
+                        <b>6.신분증사본,통장사본</b>
+                    </div>
+                    <div class='colum3 colum'>
+                        <span>공통서류</span>
+                        <b>1. 보험금청구서 + 병원영수증(진료비영수증)</b>
+                        <b>2. 진료비세부내역서(비급여 내역이 없는 경우 생략가능)</b>
+                        <b>3. 신분증사본 + 통장사본 + 양제비영수증(처방조제 있을경우)</b>
+                        <b class='margin_point'>4. [계약자,피보험자가 동일이고 자동이체 계좌가 본인일 경우에는</br>  &nbsp; &nbsp;신분증+통장사본 미첨부]</b>
+                        <span>금액별 추가 첨부서류</span>
+                        <b>1. 3만원초과:처방전[진단코드/통원인원 포함 필수]</b>
+                        <b>2. 10만원초과 청구건 : 통원 확인서[진단코드/통원일자 포함필수]</b>
+                    </div>
+                </div>
+
+            </div>
+            <div class='page6-table page6-table2'>
+            <div class='tb_head'>
+                    <div class='colum1 colum'>구분</div>
+                    <div class='colum2 colum'>사망보험금</div>
+                    <div class='colum3 colum'>장해보험금</div>
+                </div>
+            <div class='tb_body'>
+            <div class='colum1 colum'><p>사망금장해보험금 청구서류</p></div>
+            <div class='colum2 colum'>
+                <b>1.사망 진단서</b>
+                <b>2.피보험자의 기본증명서, 등본, 가족관계증명서, 혼인관계증명서</b>
+                <b>3.위임장 및 인감증명서(법적 상속인이 다수인 경우)</b>
+            </div>
+            <div class='colum3 colum'>
+                <b>1.후유 장애 진단서(발급 시 보상담당자에게 문의</b>
+                <b>2.정밀검사결과지(MRI,CT,X-RAY, 근전도검사 등)</b>
+            </div>
+            </div>
+            </div>
+            <div class='page6-table page6-table3'>
+            <div class='tb_head'>
+                    <div class='colum1 colum'>구분</div>
+                    <div class='colum2 colum'>암진단/암수술시</div>
+                    <div class='colum3 colum'>뇌질환/심장질환시</div>
+                </div>
+                <div class='tb_body'>
+                <div class='colum1 colum'><p>암/뇌질환/심장질환 청구서류</p></div>
+                <div class='colum2 colum'>
+                <span class='tb3'>암진단보험금 청구시</span>
+                <b class='margin_point'>암(상피내암)확정 진단서 / 조직검사 결과지</b>
+                <span class='tb3'>암수술보험금 청구시</span>
+                <b>암수술 기록지</b>
+            </div>
+            <div class='colum3 colum'>
+            <span class='tb3'>뇌질환보험금 청구시</span>
+                <b class='margin_point'>진단서 / 뇌 CT 또는 MRI 검사지</b>
+                <span class='tb3'>심장질환보험금 청구시</span>
+                <b>진단서 / 심장초음파 또는 심전도 검사 결과지</b>
+            </div>
+            </div>
+            </div>
+            <div class='page6-table page6-table4'>
+            <div class='tb_head'>
+                    <div class='colum1 colum'>구분</div>
+                    <div class='colum2 colum'>수술/입원/통원시</div>
+                </div>
+                <div class='tb_body'>
+                <div class='colum1 colum'><p>암/뇌질환/심장질환 청구서류</p></div>
+                <div class='colum2 colum'>
+                <b>1. 진단서 또는 진단명이 기재된 의료기관 발급서류(화상 진단의 경우 심재성 여부 필수기재)</b>
+                <b>2. 수술확인서</b>
+            </div>
+         
+            </div>
+            </div>
+            <div class='page6-table page6-table5'>
+            <div class='tb_head'>
+                    <div class='colum1 colum'>구분</div>
+                    <div class='colum2 colum'>형사합의지원금/벌금/방어비용</div>
+                    <div class='colum3 colum'>면허취소/면허정지</div>
+                </div>
+                <div class='tb_body'>
+                <div class='colum1 colum'>
+                    <p>운전자보험보상 청구서류</p>
+                </div>
+                    <div class='colum2 colum'>
+                    <span class='tb3'>형사합의지원금 청구시</span>
+                    <b>1.교통사고사실 확인원</b>
+                    <b class='margin_point'>2.피해자 진단서 또는 사망진단서(사망시)</b>
+                    <span class='tb3'>벌금청구시</span>
+                    <b class='margin_point'>1.교통사고사실 확인원, 벌금납부영수증, 판결문(약식명령서)</b>
+                    <span class='tb3'>방어비용 청구시</span>
+                    <b>1.교통사고사실확인원</b>
+                    <b>2.약식 증명서</b>
+                    </div>
+                    <div class='colum3 colum'>
+                    <span class='tb3'>면허정지지원금 청구시</span>
+                    <b>1.교통사고사실 확인원</b>
+                    <b>2.면허정지 행정처분 확인원(교육수료 후)</b>
+                    <b class='margin_point'>3.운전경력 증명서</b>
+                    <span class='tb3'>면허취소지원금 청구시</span>
+                    <b>1.교통사고사실 확인원</b>
+                    <b>2.면허취소 행정처분 확인원</b>
+                    <b class='margin_point'>3.운전경력 증명서</b>
+                    </div>
+                </div>
+                </div>
+
+        </div>
+        <div class='page6-section3'>
+            <h2>보험금 청구시 필요 서류</h2>
+            <div class='link-acrobat'>
+                <a href=''>
+                <div class='acrobat_btn'>
+                <img src='img/sub_page/acrobet_icon.png'>
+                    Acrobat Reader 설치하기
+                </div>
+                </a>
+                PDF 파일을 보시려면 Adobe사의 Acrobat Reader가 필요합니다
+                </div>
+                <div class='bottom_tables'>
+                    <div class='bottom_tb left_table'  id='bottom_left_tb'>
+                        <div class='tb_head'>
+                            <div class='colum colum1'>손해보험사</div>
+                            <div class='colum colum2'>대표번호</div>
+                            <div class='colum colum3'>청구서</div>
+                            <div class='colum colum4'>홈페이지</div>
+                        </div>
+                        <div class='tb_body'>
+                        <div class='colum colum1'>손해보험사</div>
+                            <div class='colum colum2'>대표번호</div>
+                            <div class='colum colum3'><a href=''>1</a></div>
+                            <div class='colum colum4'>홈페이지</div>
+                        </div>
+
+
+                    </div>
+                    <div class='bottom_tb right_table' id='bottom_right_tb'>
+                    <div class='tb_head'>
+                            <div class='colum colum1'>생명보험사</div>
+                            <div class='colum colum2'>대표번호</div>
+                            <div class='colum colum3'>청구서</div>
+                            <div class='colum colum4'>홈페이지</div>
+                        </div>
+                        <div class='tb_body'>
+                        <div class='colum colum1'>손해보험사</div>
+                            <div class='colum colum2'>대표번호</div>
+                            <div class='colum colum3'><a href=''>1</a></div>
+                            <div class='colum colum4'>홈페이지</div>
+                        </div>
+
+                    </div>
+
+                </div>
+        </div>
+        `
+        this.page6DataRending();
+    },
+    page6DataRending:function(){
+        xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function () {
+            if (this.readyState == 4 && this.status == 200) {
+                billreturnJson = JSON.parse(this.responseText)
+                billreturnJsonArrayLeft = []
+                billreturnJsonArrayRight = []
+                    billreturnJsonArrayLeft.push(`<div class='tb_head'>
+                                                        <div class='colum colum1'>생명보험사</div>
+                                                        <div class='colum colum2'>대표번호</div>
+                                                        <div class='colum colum3'>청구서</div>
+                                                        <div class='colum colum4'>홈페이지</div>
+                                                    </div>`)
+                    billreturnJsonArrayRight.push(`<div class='tb_head'>
+                        <div class='colum colum1'>손해험사</div>
+                        <div class='colum colum2'>대표번호</div>
+                        <div class='colum colum3'>청구서</div>
+                        <div class='colum colum4'>홈페이지</div>
+                    </div>`)
+                    Cate1result = billreturnJson.filter((x) => {
+                        return x.catekey == "cate1";
+                    })
+                    Cate2result = billreturnJson.filter((x) => {
+                        return x.catekey == "cate2";
+                    })
+                    for(var i = 0; i<Cate1result.length; i++){
+                        billreturnJsonArrayLeft.push(
+                            `<div class='tb_body'>
+                            <div class='colum colum1'>${Cate1result[i].insname}</div>
+                                <div class='colum colum2'>${Cate1result[i].number}</div>
+                                <div class='colum colum3'><a href='http://bmcompany.kr/${Cate1result[i].billfile}' target='_black'><img src='img/sub_page/pdf.png'></a></div>
+                                <div class='colum colum4'><a href='http://${Cate1result[i].hompage}'>${Cate1result[i].hompage}</a></div>
+                            </div>`
+                        )
+                    }
+                    for(var i = 0; i<Cate2result.length; i++){
+                        billreturnJsonArrayRight.push(
+                            `<div class='tb_body'>
+                            <div class='colum colum1'>${Cate2result[i].insname}</div>
+                                <div class='colum colum2'>${Cate2result[i].number}</div>
+                                <div class='colum colum3'><a href='http://bmcompany.kr/${Cate2result[i].billfile}' target='_black'><img src='img/sub_page/pdf.png'></a></div>
+                                <div class='colum colum4'><a href='http://${Cate2result[i].hompage}'>${Cate2result[i].hompage}</a></div>
+                            </div>`
+                        )
+                    }
+                    var LeftHtml = document.getElementById('bottom_left_tb')
+                    var RightHtml = document.getElementById('bottom_right_tb')
+
+                    var resultLeft = billreturnJsonArrayLeft.toString();
+                    var resultLeftArray =  resultLeft.replaceAll(',',"")
+                    LeftHtml.innerHTML = `${resultLeftArray}`
+
+                    var resultRight = billreturnJsonArrayRight.toString();
+                    var resultRightArray =  resultRight.replaceAll(',',"")
+                    RightHtml.innerHTML = `${resultRightArray}`
+                
+            }
+        }
+        xhttp.open('POST', 'data/bill_data.json', true);
+        xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+        xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
+
     }
 }
-
 
 var result1, result2;
 var popupRender = {
@@ -960,7 +1295,6 @@ var popupRender = {
         var popup = document.getElementById('popup_box');
         popup.style.display = 'block'
         popup.style.backgroundColor = 'rgba(0,0,0,0.6)'
-
         result1 = returnJson.filter((x) => {
             return x.no == Number(datakey);
         })
@@ -1507,8 +1841,7 @@ var popupRender = {
             result1 = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
             })
-        } else {
-        }
+        } else {}
         var ageYear = this.applyUserinfo[0].reqBirth.substr(0, 4);
         var age = year - ageYear;
         var ObjKey = Number(result1[0].no);
@@ -2044,11 +2377,10 @@ var popupRender = {
 }
 
 function dataInsertFn(fnNode, Nodes) {
-
     if (fnNode == 'refresh') {
         var reqName = document.getElementById('reqname').value;
         var reqPhone = document.getElementById('reqphone-front').value + document.getElementById('reqphone-end').value;
-        var reqMemo = document.getElementById('long_memo').value + "/n" + document.getElementById('memo1').value;
+        var reqMemo = document.getElementById('long_memo').value + "\n" + document.getElementById('memo1').value;
         var reqWantDay = document.getElementById('date').value;
         var reqWantTime = document.getElementById('time').value;
         var Checked = document.getElementById('agree_checks').checked;
@@ -2213,10 +2545,63 @@ function dataInsertFn(fnNode, Nodes) {
             InsertDates()
         }
 
-    } else {
+    } else if (fnNode == 'page5_consult') {
+        var reqName = document.getElementById('reqname_page5').value;
+        var reqBirth = document.getElementById('reqbirth_page5').value;
+        var reqPhone = document.getElementById('reqphone-front').value + "-" + document.getElementById('reqphone-end').value;
+        var reqMemo = document.getElementById('reqmemo').value;
+        var Checked = document.getElementById('agree_check_page5').checked;
+
+        if (reqName == '') {
+            alert('성함을 입력해주세요')
+        } else if (reqBirth == '') {
+            alert('생년월일을 확인해주세요')
+        } else if (reqPhone.length < '10') {
+            alert('전화 번호를 확인해 주세요')
+        } else if (Checked == false) {
+            alert('개인정보 수집 및 이용을 체크해주세요')
+        } else {
+            popupRender.applyUserinfo.push({
+                "reqName": reqName,
+                "reqPhone": reqPhone,
+                "reqMemo": reqMemo,
+                "reqBirth": reqBirth,
+                "Nodes": fnNode
+            })
+            InsertDates()
+        }
+    } else if (fnNode == 'page6_consult'){
+        var reqName = document.getElementById('reqname_page6').value;
+        var reqPhone = document.getElementById('reqphone_page6').value;
+        var reqArea = document.getElementById('reqarea').value;
+        var reqSexflag = document.getElementById('reqsexflag_page6').value;
+        var Checked = document.getElementById('agree_check_page6').checked;
+
+        if (reqName == '') {
+            alert('성함을 입력해주세요')
+        } else if (reqArea == '') {
+            alert('지역을 선택해주세요')
+        } else if (reqSexflag == '') {
+            alert('성별을 선택해주세요')
+        } else if (reqPhone.length < '10') {
+            alert('전화 번호를 확인해 주세요')
+        } else if (Checked == false) {
+            alert('개인정보 수집 및 이용을 체크해주세요')
+        } else {
+            popupRender.applyUserinfo.push({
+                "reqName": reqName,
+                "reqPhone": reqPhone,
+                "reqArea": reqArea,
+                "reqSexflag": reqSexflag,
+                "Nodes": 'page6_consult'
+            })
+            InsertDates()
+        }
+
+    }
+    else {
         InsertDates()
     }
-
     function InsertDates() {
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {

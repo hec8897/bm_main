@@ -1207,9 +1207,23 @@ div.ins_tabs.more_ins div.input_tab ul li select {
   box-sizing: border-box;
   padding-left: 15px;
 }
+div.ins_tabs.more_ins div.input_tab ul li select {
+  background-image: url(../img/popup/select_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  background-position-x: 95%;
+}
 div.ins_tabs.more_ins div.input_tab ul li.phones select {
   width: 35%;
   float: left;
+  background-image: url(../img/popup/select_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 12px;
+  background-position-x: 95%;
 }
 div.ins_tabs.more_ins div.input_tab ul li.phones input {
   width: 63%;

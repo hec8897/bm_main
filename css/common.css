@@ -383,6 +383,9 @@ div#wrap footer div.company_list {
   height: 90px;
   line-height: 90px;
   border-bottom: 1px solid lightgray;
+  border-top: 1px solid lightgray;
+  padding-top: 25px;
+  box-sizing: border-box;
 }
 div#wrap footer div.company_list div.wrap {
   height: 100%;
