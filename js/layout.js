@@ -173,7 +173,7 @@ var subLayoutRender = {
         mainPage.className = 'main_page ' + params.id
     },
     subMainbannerRender: function () {
-        //main banner_img
+        //main banner_img,text
         var pageNo = params.listNo;
         var ThisBanner = document.getElementById('top_banner');
         ThisBanner.innerHTML = `<div class='wrap page${pageNo}'>
@@ -548,7 +548,7 @@ var subLayoutRender = {
                 h2: '더 저렴한 보험으로 미래를 대비하세요',
                 p1: '변화된 생활패턴으로 꾸준하게 증가하고 있는 2대 질병에 대한 대비!',
                 p2: '같은 보장, 더 저렴한 보험으로 미래를 대비하세요',
-                SectionAnimaitionHtml: '123123'
+                SectionAnimaitionHtml: ''
             },
             {
                 h2: '치매는 오랜 시간동안 소요되는 간병비와의 싸움!',
@@ -726,8 +726,9 @@ var subLayoutRender = {
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("data=0")
     },
-    arrayDish: [],
+    arrayDish: [],//list Array
     tabListActive: function (thisdata, Dataindex) {
+        //sub1-sub4 section4 select tab Fn
         if (popupRender.arrayDish.length < 2) {
             if (thisdata.id == '') {
                 thisdata.id = 'active'
@@ -746,6 +747,7 @@ var subLayoutRender = {
         }
     },
     page5Layout: function () {
+        //page5 Layout top
         layoutRender.getQueryString()
         var Section1 = document.getElementById('section1');
         var Section2 = document.getElementById('section2');
@@ -765,10 +767,11 @@ var subLayoutRender = {
             <div class='navs' id='active' onclick='subLayoutRender.page5LayOutRender("consult",this)'>무료 상담 예약 신청</div>
             <div class='navs' onclick='subLayoutRender.page5LayOutRender("faq",this)'>자주하는 질문</div>
         </div>
-        <div class='main_con' id='page5-main'>123</div>
+        <div class='main_con' id='page5-main'></div>
         `
     },
     page5LayOutRender: function (division, thisTag, mode) {
+        //page5LayoutRender tabs
         var NavsClass = document.querySelectorAll('.navs')
         var mainCon = document.getElementById('page5-main')
         NavsClass[0].id = "";
@@ -883,6 +886,7 @@ var subLayoutRender = {
         }
     },
     FnaRender: function (thistag, datakey, no, limit) {
+        //page5 FnA Data Render
         var FnaRendeing = document.getElementById('fna_box');
         var NumberClass = document.querySelectorAll('.NumberingFn');
         var NumberRender = document.getElementById('numbering');
@@ -955,12 +959,14 @@ var subLayoutRender = {
         xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
     },
     DataNumbering: function () {
+        //page5 FnA Data Numbering
         var NumberRender = document.getElementById('numbering');
         NumberRender.innerHTML = `${NumberResultOk}`
         var NumberClass = document.querySelectorAll('.NumberingFn');
         NumberClass[0].id = 'active'
     },
     thisListViewFn: function (key) {
+        //page5 FnA Data hide,show
         var OpenList = `hide_an${key}`
         var Qicon = `q_icon${key}`
         var Arrows = `arrow${key}`
@@ -983,6 +989,7 @@ var subLayoutRender = {
 
     },
     page6Layout: function () {
+        //page6Layout Render
         layoutRender.getQueryString()
         var pageNo = params.listNo;
         var Section1 = document.getElementById('section1');
@@ -1172,12 +1179,11 @@ var subLayoutRender = {
                     </div>
                 </div>
                 </div>
-
         </div>
         <div class='page6-section3'>
             <h2>보험금 청구시 필요 서류</h2>
             <div class='link-acrobat'>
-                <a href=''>
+                <a href='https://get.adobe.com/kr/reader/' target="_blank">
                 <div class='acrobat_btn'>
                 <img src='img/sub_page/acrobet_icon.png'>
                     Acrobat Reader 설치하기
@@ -1186,44 +1192,14 @@ var subLayoutRender = {
                 PDF 파일을 보시려면 Adobe사의 Acrobat Reader가 필요합니다
                 </div>
                 <div class='bottom_tables'>
-                    <div class='bottom_tb left_table'  id='bottom_left_tb'>
-                        <div class='tb_head'>
-                            <div class='colum colum1'>손해보험사</div>
-                            <div class='colum colum2'>대표번호</div>
-                            <div class='colum colum3'>청구서</div>
-                            <div class='colum colum4'>홈페이지</div>
-                        </div>
-                        <div class='tb_body'>
-                        <div class='colum colum1'>손해보험사</div>
-                            <div class='colum colum2'>대표번호</div>
-                            <div class='colum colum3'><a href=''>1</a></div>
-                            <div class='colum colum4'>홈페이지</div>
-                        </div>
-
-
-                    </div>
-                    <div class='bottom_tb right_table' id='bottom_right_tb'>
-                    <div class='tb_head'>
-                            <div class='colum colum1'>생명보험사</div>
-                            <div class='colum colum2'>대표번호</div>
-                            <div class='colum colum3'>청구서</div>
-                            <div class='colum colum4'>홈페이지</div>
-                        </div>
-                        <div class='tb_body'>
-                        <div class='colum colum1'>손해보험사</div>
-                            <div class='colum colum2'>대표번호</div>
-                            <div class='colum colum3'><a href=''>1</a></div>
-                            <div class='colum colum4'>홈페이지</div>
-                        </div>
-
-                    </div>
-
-                </div>
+                    <div class='bottom_tb left_table'  id='bottom_left_tb'></div>
+                    <div class='bottom_tb right_table' id='bottom_right_tb'></div>
         </div>
         `
         this.page6DataRending();
     },
     page6DataRending:function(){
+        //page6 Insu Data Render
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
             if (this.readyState == 4 && this.status == 200) {
@@ -1253,7 +1229,7 @@ var subLayoutRender = {
                             `<div class='tb_body'>
                             <div class='colum colum1'>${Cate1result[i].insname}</div>
                                 <div class='colum colum2'>${Cate1result[i].number}</div>
-                                <div class='colum colum3'><a href='http://bmcompany.kr/${Cate1result[i].billfile}' target='_black'><img src='img/sub_page/pdf.png'></a></div>
+                                <div class='colum colum3'><a href='http://bmcompany.kr/${Cate1result[i].billfile}' target='__blank'><img src='img/sub_page/pdf.png'></a></div>
                                 <div class='colum colum4'><a href='http://${Cate1result[i].hompage}'>${Cate1result[i].hompage}</a></div>
                             </div>`
                         )
@@ -1263,7 +1239,7 @@ var subLayoutRender = {
                             `<div class='tb_body'>
                             <div class='colum colum1'>${Cate2result[i].insname}</div>
                                 <div class='colum colum2'>${Cate2result[i].number}</div>
-                                <div class='colum colum3'><a href='http://bmcompany.kr/${Cate2result[i].billfile}' target='_black'><img src='img/sub_page/pdf.png'></a></div>
+                                <div class='colum colum3'><a href='http://bmcompany.kr/${Cate2result[i].billfile}' target='__blank'><img src='img/sub_page/pdf.png'></a></div>
                                 <div class='colum colum4'><a href='http://${Cate2result[i].hompage}'>${Cate2result[i].hompage}</a></div>
                             </div>`
                         )
@@ -1291,10 +1267,11 @@ var subLayoutRender = {
 var result1, result2;
 var popupRender = {
     moreData: function (datakey) {
-        event.stopPropagation();
+        event.stopPropagation();//event bubbling
+        //subPage moreData popup
         var popup = document.getElementById('popup_box');
-        popup.style.display = 'block'
-        popup.style.backgroundColor = 'rgba(0,0,0,0.6)'
+        popup.style.display = 'block';
+        popup.style.backgroundColor = 'rgba(0,0,0,0.6)';
         result1 = returnJson.filter((x) => {
             return x.no == Number(datakey);
         })
@@ -2472,8 +2449,6 @@ function dataInsertFn(fnNode, Nodes) {
                 InsertDates()
             }
         }
-
-
     } else if (fnNode == 'mainInput') {
         var reqName = document.getElementById('main_reqname').value;
         var reqBirth = document.getElementById('main_reqbirth').value;
@@ -2500,7 +2475,6 @@ function dataInsertFn(fnNode, Nodes) {
             })
             InsertDates()
         }
-
     } else if (fnNode == 'fastInsert') {
         var fastName = document.getElementById('fast_reqname').value
         var fastNumber = document.getElementById('fast_reqphone').value
@@ -2516,9 +2490,7 @@ function dataInsertFn(fnNode, Nodes) {
             })
             InsertDates()
         }
-
     } else if (fnNode == 'submain') {
-
         var reqName = document.getElementById('reqname').value;
         var reqBirth = document.getElementById('reqbirth').value;
         var reqSexflag = document.getElementById('sexflag').value;
@@ -2544,14 +2516,12 @@ function dataInsertFn(fnNode, Nodes) {
             })
             InsertDates()
         }
-
     } else if (fnNode == 'page5_consult') {
         var reqName = document.getElementById('reqname_page5').value;
         var reqBirth = document.getElementById('reqbirth_page5').value;
         var reqPhone = document.getElementById('reqphone-front').value + "-" + document.getElementById('reqphone-end').value;
         var reqMemo = document.getElementById('reqmemo').value;
         var Checked = document.getElementById('agree_check_page5').checked;
-
         if (reqName == '') {
             alert('성함을 입력해주세요')
         } else if (reqBirth == '') {
@@ -2576,7 +2546,6 @@ function dataInsertFn(fnNode, Nodes) {
         var reqArea = document.getElementById('reqarea').value;
         var reqSexflag = document.getElementById('reqsexflag_page6').value;
         var Checked = document.getElementById('agree_check_page6').checked;
-
         if (reqName == '') {
             alert('성함을 입력해주세요')
         } else if (reqArea == '') {
@@ -2597,7 +2566,6 @@ function dataInsertFn(fnNode, Nodes) {
             })
             InsertDates()
         }
-
     }
     else {
         InsertDates()
@@ -2622,5 +2590,4 @@ function dataInsertFn(fnNode, Nodes) {
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("data=" + JSON.stringify(popupRender.applyUserinfo))
     }
-
 }

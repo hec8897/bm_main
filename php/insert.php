@@ -4,10 +4,21 @@ mysqli_set_charset($conn,"utf8");
 
 $data = json_decode($_POST['data']);
 
+$PhonePattern = '/^(010|011|016|017|018|019)-[^0][0-9]{3,4}-[0-9]{4}/';
+
+
 $reqName = $data[0]->reqName;
 $reqPhone = $data[0]->reqPhone;
 $Nodes = $data[0]->Nodes;
 $Node = '';
+$Phone = '';
+if(preg_match("/^[0-9]{3}-[0-9]{4}-[0-9]{4}$/",$reqPhone)){
+    $Phone = '정규표현';
+}
+else{
+    $Phone = '틀린표현';    
+}
+
 
 switch($Nodes){
     case "mainFast" : 
@@ -56,8 +67,6 @@ switch($Nodes){
                     $Node = '유입경로 확인불가..';
                     break;
 }
-
-
 $reqBirth = (isset($data[0]->reqBirth)?$reqBirth=$data[0]->reqBirth:"");
 $reqArea = (isset($data[0]->reqArea)?$reqArea=$data[0]->reqArea:"");
 
@@ -71,7 +80,7 @@ $consultType2 = (isset($data[0]->consultType2)?$consultType2='사이트 선택 �
 $site_code = '보험친구들';
 $time = date('Y-m-d H:i:s');
 
-$reqMemos = "$Node\n$reqWantDay $reqWantTime\n$consultType\n$consultType1\n$consultType2\n$reqMemo";
+$reqMemos = "$Node\n$reqWantDay     $reqWantTime\n$consultType\n$consultType1\n$consultType2\n$reqMemo";
 
 $sql ="INSERT INTO `tb_consult` (site_code,reqName,reqArea,reqBirth,reqPhone,reqSexflag,reqMemo,Insertdate) 
 VALUES('$site_code','$reqName','$reqArea','$reqBirth','$reqPhone','$reqSexflag','$reqMemos','$time')";
@@ -82,7 +91,7 @@ if(isset($conn)){$phpresult = 'ok';}
 else{$phpresult = 'no';}
 
 $json = json_encode(
-    array("datas" => $data,"test"=>123,"Node1" => $Nodes ,"Node2" =>$Node, "phpresult"=>$phpresult, "test"=>$reqMemos)
+    array("datas" => $data,"test"=>123,"Node1" => $Phone  ,"Node2" =>$matches, "phpresult"=>$phpresult, "test"=>$reqMemos)
 );
 echo urldecode($json);
 header('Content-Type: application/json');

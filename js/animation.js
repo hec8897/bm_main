@@ -102,7 +102,6 @@ function page1Section1Ani(){
     $('.page1_circle2').delay(200).animate({'opacity':1.0})
     $('.page1_circle3').delay(400).animate({'opacity':1.0})
     $('.page1_circle4').delay(600).animate({'opacity':1.0})
-
 }
 
 function page3Section1Ani1(){
@@ -161,10 +160,6 @@ var page3Section1Ani2 = function(a,b,c,d,e){
     $("#stick_count_"+e).delay(600).animate({
         "opacity":"1.0"
     })
-
-
-
-  
 }
 
 var page1Section2Ani = function(){

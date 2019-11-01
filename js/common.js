@@ -53,10 +53,10 @@ $(document).ready(function(){
         })
     })
     $(".btn,.btns").mouseout(function(){
+        var ArowImgNode = $(this).children()[0].className
         $(this).css({
             "background":"#ec6647"
         })
-        var ArowImgNode = $(this).children()[0].className
         $("."+ArowImgNode).animate({
             "opacity":"0.0",
             "marginLeft":"0px"
