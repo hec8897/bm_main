@@ -1,0 +1,1899 @@
+@mainColor: #ec6647;
+@import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
+
+html,
+body {
+    font-size: 16px;
+}
+
+.wraps {
+    max-width: 1200px;
+    height: 100%;
+    margin: 0 auto;
+}
+
+.backgroundOption {
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+@mediaVericalMobile: ~"(max-width:767px)"; //basic setting
+// @mediaHorizontalMobile: ~"(min-width: 576px) and (max-width: 767px)"; //HorizontalMobile
+@mediaTablet: ~"(min-width: 768px) and (max-width: 1024px)"; //tablet   
+
+
+#wrap {
+    div.popups {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        position: fixed;
+        background-color: rgba(255, 255, 255);
+        z-index: 999;
+        @media@mediaVericalMobile {
+            background: none!important;
+            top: 60px;
+
+        }
+
+
+        div.loader {
+            width: 100px;
+            height: 100px;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            margin: -75px 0 0 -75px;
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            -webkit-animation: spin 2s linear infinite;
+            animation: spin 2s linear infinite;
+        }
+
+        @-webkit-keyframes spin {
+            0% {
+                -webkit-transform: rotate(0deg);
+            }
+
+            100% {
+                -webkit-transform: rotate(360deg);
+            }
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        div.speed_compare_popup {
+            max-width: 740px;
+            height: 800px;
+            background: white;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            box-sizing: border-box;
+            text-align: center;
+            overflow-y: scroll;
+            padding-bottom: 50px;
+            padding-top: 50px;
+                @media@mediaVericalMobile {
+                    box-sizing: border-box;
+                    max-width: 100%;
+                    height: 100%;
+                    background: white;
+                    left: 00%;
+                    top: 0%;
+                    transform: translate(-00%, -00%);
+                }
+
+            span.xbox {
+                cursor: pointer;
+                width: 25px;
+                height: 25px;
+                display: block;
+                background-image: url(../img/popup/x_btn.png);
+                position: absolute;
+                right: 20px;
+                top: 20px;
+                @media@mediaVericalMobile {
+                    width: 15px;
+                    height: 15px;
+                    background-size: contain;
+                }
+
+            }
+
+            h2 {
+                font-size: 1.875rem;
+                color: #222;
+                font-weight: bold;
+                letter-spacing: -2px;
+                @media@mediaVericalMobile {
+                    font-size: 1.125rem;
+                }
+
+            }
+
+            div.popup_nav {
+                width: 100%;
+                height: 50px;
+                box-sizing: border-box;
+                margin: 30px auto;
+                border-top: 2px solid #222;
+                border-left: 2px solid #222;
+                border-right: 2px solid #222;
+                @media@mediaVericalMobile {
+                    border: 1px solid #222;
+                    height: 100px;
+                }
+
+
+
+                div.popup_list {
+                    cursor: pointer;
+                    width: 25%;
+                    float: left;
+                    height: 50px;
+                    background: #f0f0f0;
+                    border-right: 2px solid #222;
+                    border-bottom: 2px solid #222;
+                    box-sizing: border-box;
+                    line-height: 50px;
+                    color: #888;
+                    @media@mediaVericalMobile {
+                        width: 50%;
+                        height: 50%;
+                        border: 0px;
+                    }
+
+                    img {
+                        vertical-align: middle;
+                        margin-right: 10px;
+                        ;
+                    }
+                }
+                div.popup_list:nth-child(1){
+                    @media@mediaVericalMobile {
+                        border-bottom: 1px solid #222;
+                    }
+
+                }
+
+                div.popup_list:nth-child(2){
+                    @media@mediaVericalMobile {
+                        border-left: 1px solid #222;
+                        border-bottom: 1px solid #222;
+
+                    }
+                }
+                div.popup_list:nth-child(4){
+                    @media@mediaVericalMobile {
+                        border-left: 1px solid #222;
+
+                    }
+                }
+
+                div.popup_list4 {
+                    border-right: 0px;
+                }
+
+                div.popup_list.active {
+                    border-bottom-color:white;
+                    background-color: white;
+                    color: @mainColor;
+                    font-weight: bold;
+                    @media@mediaVericalMobile {
+                    border-bottom-color:#222;
+                    }
+
+
+                }
+            }
+
+            div.ins_tabs {
+                width: 100%;
+                height: 280px;
+                margin-top: 20px;
+                text-align: left;
+                @media@mediaVericalMobile {
+                    height: 150%;
+
+                }
+
+
+                h3 {
+                    margin-bottom: 50px;
+                    text-align: center;
+                }
+
+                h3.result_compare {
+                    text-align: left;
+                    font-weight: bold;
+                    font-size: 1.125rem;
+                    margin-bottom: 10px;
+                }
+
+                h4 {
+                    text-align: left;
+                }
+
+                div.ins_tab {
+                    cursor: pointer;
+                    width: 30%;
+                    height: 50%;
+                    background: white;
+                    border: 1px solid #f0f0f0;
+                    display: inline-block;
+                    margin-bottom: 10px;
+                    margin-right: 20px;
+                    border-radius: 5px;
+                    padding-top: 25px;
+                    box-sizing: border-box;
+                    position: relative;
+                    text-align: center;
+                    vertical-align: bottom;
+                @media@mediaVericalMobile {
+                    width: 48%;
+                    height: 20%;
+                    margin: 3px;
+                }
+
+
+                    img.bedge {
+                        width: 30px;
+                        position: absolute;
+                        right: -10px;
+                        top: -10px;
+                        opacity: 0.0;
+                    }
+
+                    .icon_area {
+                        width: 150px;
+                        height: 40px;
+                        margin: 0px auto;
+                        margin-bottom: 10px;
+                        .backgroundOption;
+                        background-size: contain;
+                        @media@mediaVericalMobile {
+                            width: 80%; 
+                            flex-basis: 75%;
+                            margin-bottom: 20px;
+
+                        }
+
+                    }
+
+                    p {
+                        width: 80%;
+                        margin: 0 auto;
+                        letter-spacing: -1px;
+                        word-break: keep-all;
+
+                    }
+                }
+
+                div.ins_tab3,
+                div.ins_tab6 {
+                    margin-right: 0px;
+
+                }
+
+                div.ins_tab#active {
+                    border: 2px solid @mainColor;
+
+                    img.bedge {
+                        display: block;
+                        opacity: 1.0;
+
+
+                    }
+                }
+
+                div.compare_bord {
+                    width: 100%;
+                    margin: 0px auto;
+                    height: 600px;
+                    border-radius: 15px;
+                    float: left;
+                    box-sizing: border-box;
+                    overflow-y: scroll;
+                    overflow-x: hidden;
+                    @media@mediaVericalMobile {
+                        padding: 20px;
+                    }
+
+
+                    .bord_wrap {
+                        width: 99%;
+                        box-sizing: border-box;
+                        margin-left: 5px;
+                        height: 500px;
+                        position: relative;
+
+                        div.caption {
+                            width: 100%;
+                            height: 70px;
+                            z-index: 95;
+                            background: white;
+                            h3 {
+                                width: 100%;
+                                float: left;
+                                font-size: 1.125rem;
+                            }
+
+                            h4 {
+                                display: inline-block;
+                                font-size: 0.875rem;
+                                float: left;
+                            }
+
+                            div.back_btn {
+                                cursor: pointer;
+                                width: 200px;
+                                height: 40px;
+                                background: #3c5271;
+                                border-radius: 5px;
+                                font-weight: bold;
+                                text-align: center;
+                                color: white;
+                                line-height: 40px;
+                                margin-right: 20px;
+                                float: right;
+                                margin-top: -25px;
+                                letter-spacing: -1px;
+                            }
+
+                        }
+
+                        div.tables {
+                            // display: none;;
+                            height: 708px;
+                            border: 1.5px solid #ec6647;
+                            border-radius: 5px;
+                            transform: translateY(5px);
+                            box-sizing: inherit;
+                            position: relative;
+                            z-index: 90;
+                            text-align: center;
+                            overflow: hidden;
+                        
+           
+
+                        }
+
+                        div.data_tabs {
+                            width: 100%;
+                            border-bottom: 1px solid #d0d0d0;
+                            margin-top: 1px;
+                            .left_tab {
+                                width: 45%;
+                                height: 100%;
+                                float: left;
+                                box-sizing: border-box;
+                          
+
+                            }
+
+                            .center_tab {
+                                width: 10%;
+                                height: 100%;
+                                background: #f5f5f5;
+                                float: left;
+                                border-left: 1px solid #d0d0d0;
+                                border-right: 1px solid #d0d0d0;
+                                box-sizing: border-box;
+                            }
+                            .right_tab {
+                                width: 45%;
+                                height: 100%;
+                                float: left;
+                            }
+
+                        }
+
+                        div.head_data {
+                            height: 110px;
+
+                            div.tabs {
+                                box-sizing: border-box;
+                                padding-left: 20px;
+                                ;
+
+                                div.logo_section {
+                                    width: 30%;
+                                    height: 100%;
+                                    float: left;
+                                    .backgroundOption;
+                                    background-size: contain;
+
+                                }
+
+                                div.text_area {
+                                    width: 60%;
+                                    ;
+                                    height: 100%;
+                                    float: left;
+                                    padding-left: 30px;
+                                    ;
+                                    box-sizing: border-box;
+                                    ;
+                                    padding-top: 25px;
+                                    text-align: left;
+
+                                    h3 {
+                                        margin-bottom: 10px;
+                                        color: #222;
+                                        letter-spacing: -1px;
+                                        word-break: keep-all;
+                                        text-align: left;
+                                        font-size: 0.875rem;
+                                        font-weight: bold;
+
+                                    }
+
+                                    p {
+                                        color: #222;
+                                        word-break: keep-all;
+                                        font-size: 0.875rem;
+
+                                    }
+
+                                }
+                            }
+
+                            .left_tab {
+                                width: 45%;
+                                height: 100%;
+                                float: left;
+                                box-sizing: border-box;
+                                ;
+
+                            }
+
+                            .center_tab {
+                                width: 10%;
+                                height: 100%;
+                                background: #f5f5f5;
+                                float: left;
+                                border-left: 1px solid #d0d0d0;
+                                border-right: 1px solid #d0d0d0;
+                                box-sizing: border-box;
+                                background-image: url(../img/popup/vs_img.png);
+                                .backgroundOption;
+                                background-size: 50px;
+                            }
+
+                            .right_tab {
+                                width: 45%;
+                                height: 100%;
+                                float: left;
+
+                            }
+                        }
+
+                        div.price_tab {
+                            width: 100%;
+                            height: 150px;
+
+                            .center_tab {
+                                position: relative;
+
+                                span {
+                                    width: 100%;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 0px;
+                                    transform: translate(0%, -50%);
+                                    font-size: 0.875rem;
+                                    color: #444444;
+                                    font-weight: bold;
+                                    ;
+
+                                }
+                            }
+
+                            .tabs {
+                                padding: 15px;
+                                box-sizing: border-box;
+                                ;
+
+                                div.price_bord {
+                                    width: 100%;
+                                    height: 100%;
+                                    border: 1px solid #d0d0d0;
+                                    overflow: hidden;
+
+                                    div.null_data {
+                                        width: 100%;
+                                        height: 100%;
+                                        line-height: 100px;
+                                    }
+
+                                    div.row {
+                                        width: 100%;
+                                        height: 33.3%;
+
+                                        div.colum {
+                                            height: 100%;
+                                            text-align: center;
+                                            ;
+                                            float: left;
+                                            line-height: 33.3px;
+                                        }
+
+                                        div.colum.colum-4 {
+                                            width: 25%;
+                                        }
+
+                                        div.colum.colum-6 {
+                                            width: calc(100%/6);
+                                        }
+
+                                        div.colum_head {
+                                            width: 20%;
+                                            font-size: 0.875rem;
+                                        }
+
+                                        div.colum_body {
+                                            width: 40%;
+                                            font-size: 0.75rem;
+                                            position: relative;
+                                            vertical-align: bottom;
+
+                                            span.gender_mark {
+                                                position: absolute;
+                                                line-height: 20px;
+                                                color: white;
+                                                border-radius: 100%;
+                                                font-size: 0.75rem;
+                                                top: 50%;
+                                                left: 50%;
+                                                transform: translate(-50%, -50%);
+                                                display: inline-block;
+                                                width: 20px;
+                                                height: 20px;
+                                                ;
+                                            }
+
+                                            .man_mark {
+                                                background: #24a1e9;
+                                            }
+
+                                            .woman_mark {
+                                                background: #ff449c;
+                                            }
+                                        }
+
+                                    }
+
+                                    div.tb_body1 {
+                                        .colum {
+                                            background-color: #f0f0f0;
+
+                                        }
+
+                                        div {
+                                            color: #24a1e9;
+                                        }
+                                    }
+
+                                    div.tb_body2 {
+                                        border: 0px;
+
+                                        div {
+                                            font-size: 0.875rem;
+                                            color: #ff449c;
+                                        }
+                                    }
+
+                                }
+                            }
+
+                        }
+
+                        div.illust_tab {
+                            width: 100%;
+                            height: 200px;
+                            border-bottom: 1px solid #d0d0d0;
+                            padding: 10px;
+                            box-sizing: border-box;
+                        @media@mediaVericalMobile {
+                            display: none;
+                        }
+
+
+                            div.illu_tab {
+                                width: 34%;
+                                height: 100%;
+                                padding-left: 50px;
+                                background-image: url(../img/popup/illust.png);
+                                .backgroundOption;
+                                box-sizing: border-box;
+                                background-position: right;
+                                background-size: contain;
+                                float: left;
+                            }
+
+                            div.text_tab {
+                                width: 60%;
+                                float: left;
+                                height: 100%;
+                                padding: 15px;
+                                box-sizing: border-box;
+                                text-align: left;
+
+                                p {
+                                    color: #444;
+                                    margin-bottom: 5px;
+                                    font-size: 0.875rem;
+                                }
+
+                                div.consult_btn {
+                                    cursor: pointer;
+                                    width: 220px;
+                                    height: 45px;
+                                    background: @mainColor;
+                                    text-align: center;
+                                    line-height: 45px;
+                                    font-weight: bold;
+                                    font-size: 1.0rem;
+                                    color: white;
+                                    ;
+                                    border-radius: 100px;
+                                    margin-top: 30px;
+                                }
+
+                            }
+
+                        }
+
+                        div.bottom_data {
+                            div.tabs {
+                                box-sizing: border-box;
+                                padding-left: 20px;
+                                position: relative;
+                                p {
+                                    width: 80%;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 50%;
+                                    transform: translate(-50%, -50%);
+                                    text-align: center;
+                                    color: #666;
+                                    font-size: 0.875rem;
+
+                                }
+
+                            }
+
+                            .left_tab {
+                                width: 45%;
+                                height: 100%;
+                                float: left;
+                                box-sizing: border-box;
+                                ;
+                                word-break: keep-all;
+
+
+                            }
+
+                            .center_tab {
+                                width: 10%;
+                                height: 100%;
+                                background: #f5f5f5;
+                                float: left;
+                                border-left: 1px solid #d0d0d0;
+                                ;
+                                border-right: 1px solid #d0d0d0;
+                                ;
+                                box-sizing: border-box;
+                                ;
+                                background-size: 50px;
+                                position: relative;
+
+                                span {
+                                    width: 100%;
+                                    position: absolute;
+                                    top: 50%;
+                                    left: 0px;
+                                    transform: translate(0%, -50%);
+                                    font-size: 0.875rem;
+                                    color: #444444;
+                                    font-weight: bold;
+                                    ;
+                                }
+
+                            }
+
+                            .right_tab {
+                                width: 45%;
+                                height: 100%;
+                                float: left;
+                                box-sizing: border-box;
+                                ;
+                                word-break: keep-all;
+
+
+                            }
+
+                        }
+
+                        div.character_data.bottom_data {
+                            height: 90px;
+                        }
+
+                        div.term_data.bottom_data {
+                            height: 50px;
+                        }
+
+                        div.term_data.bottom_data.last-row {
+                            border: 0px;
+                        }
+
+                    }
+                }
+                div.mo_compare_bord{
+                    @media@mediaVericalMobile {
+                        div.caption {
+                            width: 100%;
+                            height: 150px;
+                            z-index: 95;
+                            background: white;
+                            h3 {
+                                width: 100%;
+                                font-size: 1.125rem;
+                                float: inherit;
+                                text-align: center;
+
+                            }
+    
+                            h4 {
+                                width: 100%;
+                                font-size: 0.875rem;
+                                float: inherit;
+                                text-align: center;
+                                margin-bottom: 30px;
+                                line-height: 1.0rem;
+
+                            }
+    
+                            div.back_btn {
+                                cursor: pointer;
+                                width: 48%;
+                                float: left;
+                                height: 50px;
+                                background: #3c5271;
+                                border-radius: 5px;
+                                text-align: center;
+                                font-weight: normal;
+                                color: white;
+                                line-height: 50px;
+                                letter-spacing: -1px;
+                                
+                            }
+                            div.insert_btn {
+                                cursor: pointer;
+                                width: 48%;
+                                float: right;
+                                height: 50px;
+                                font-weight: normal;
+                                background: @mainColor;
+                                border-radius: 5px;
+                                text-align: center;
+                                color: white;
+                                line-height: 50px;
+                                letter-spacing: -1px;
+                            }
+    
+                        }
+                        div.mo_table{
+                            width: 100%;
+                            height: 500px;
+                            overflow-y: hidden;;
+                            overflow-x: scroll;
+                            position: relative;
+                            border: 2px solid @mainColor;
+                            border-radius: 5px;
+                            box-sizing: border-box;
+                        
+                            .center_tab{
+                                width: 25%;
+                                height: 500px;
+                                position: fixed;
+                                z-index: 10;
+                                border-left: 1px solid #d0d0d0;
+                                right: 0;
+                                background: white;
+                            }
+                            .left_tab{
+                                width: 100%;
+                                background: seagreen;
+                                height: 500px;
+
+                                z-index: 5;
+                                position: absolute;
+
+                            }
+                            .right_tab{
+                                width: 100%;
+                                background: sienna;
+                                z-index: 9;
+                                left: 100%;
+                                position: absolute;
+                                height: 500px;
+
+
+                            }
+                            // position: absolute;
+                            // right: 50%;
+
+                        }
+                    }
+
+                   
+
+
+                }
+
+                div.forms {
+                    width: 100%;
+                    height: 120px;
+                    margin: 40px auto;
+                    border-top: 1px solid #d0d0d0;
+                    text-align: left;
+
+                    select {
+                        background-image: url(../img/popup/select_bg.png);
+                        .backgroundOption;
+                        background-size: 14PX;
+                        background-position-x: 95%;
+                    }
+
+                    div.input_box {
+                        margin-top: 5px;
+                        width: 49%;
+                        height: 40px;
+                        display: inline-block;
+                        overflow: hidden;
+
+                        input,
+                        select {
+                            padding-left: 10px;
+                            box-sizing: border-box;
+                            border: 2px solid #d0d0d0;
+                            outline: none;
+                            box-shadow: none;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
+                        }
+
+                    }
+                    div.input_box:nth-child(even){
+                        float: right;
+                    }
+
+                    .name_box {
+                        input {
+                            width: 100%;
+                            height: 100%;
+                            outline: none;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
+                        }
+                    }
+
+                    .info_box {
+                        select {
+                            width: 30%;
+                            height: 100%;
+                            outline: none;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
+                        }
+
+                        input {
+                            width: 68%;
+                            height: 100%;
+                            outline: none;
+                            float: right;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
+                        }
+                    }
+
+                    .phone_box {
+                        select {
+                            width: 30%;
+                            height: 100%;
+                            outline: none;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
+                        }
+
+                        input {
+                            width: 68%;
+                            height: 100%;
+                            outline: none;
+                            float: right;
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
+                        }
+                    }
+
+                    label.container {
+                        width: 250px;
+                        margin-top: 10px;
+                        ;
+                    }
+                }
+
+                div.cal_top_tab {
+                    width: 100%;
+                    height: 100px;
+                    box-sizing: border-box;
+
+                    div.user_info {
+                        width: 34%;
+                        height: 100%;
+                        border: 1px solid #d9d9d9;
+                        box-sizing: border-box;
+                        margin-right: 2%;
+                        float: left;
+                        padding: 20px;
+                        text-align: left;
+                        border-radius: 5px;
+
+                        h3 {
+                            font-size: 1.125rem;
+                            color: #222;
+                            letter-spacing: -1px;
+                            margin-bottom: 15px;
+                            text-align: left;
+                        }
+
+                        h4 {
+                            color: #666;
+                            letter-spacing: -1px;
+                            font-size: 0.875rem;
+                            margin-bottom: 5px;
+                        }
+                    }
+                    div.service_center_phone {
+                        width: 34%;
+                        height: 100%;
+                        border-radius: 5px;
+                        border: 1px solid #d0d0d0;
+                        text-align: left;
+                        padding: 20px;
+                        box-sizing: border-box;
+                        margin-bottom: 20px;
+                        float: left;
+
+                        p {
+                            color: #222;
+                            font-weight: bold;
+                        }
+
+                        h3 {
+                            font-family: 'Roboto';
+                            color: #222;
+                            font-size: 1.775rem;
+                            letter-spacing: -3px;
+                            margin-top: 15px;
+                            text-align: left;
+                        }
+                    }
+                    div.btn_area {
+                        width: 28%;
+                        height: 100%;
+                        box-sizing: border-box;
+                        font-weight: bold;
+                        letter-spacing: -1px;
+                        float: right;
+                        line-height: calc(100px*0.45);
+                        color: white;
+
+                        div {
+                            cursor: pointer;
+                            width: 100%;
+                            height: 45px;
+                            margin-bottom: 10px;
+                            background: #3c5271;
+                            border-radius: 5px;
+                            color: white;
+                            letter-spacing: -1px;
+                            text-align: center;
+
+                            img {
+                                vertical-align: middle;
+                                margin-left: 5px;
+                            }
+                        }
+
+                        div.insert_consult {
+                            background: @mainColor;
+                        }
+                    }
+                   
+              
+
+                   
+                }
+                div.cal_row2_tab{
+                    width: 100%;
+                    height: 125px;
+                    margin-top: 10px;
+                    div.place_info {
+                        width: 100%;
+                        height: 100%;
+                        border: 1px solid #d9d9d9;
+                        box-sizing: border-box;
+                        position: relative;
+                        margin-right: 2%;
+                        padding: 20px;
+                        border-radius: 5px;
+
+                        h3 {
+                            font-size: 1.125rem;
+                            color: #222;
+                            text-align: left;
+                            margin-bottom: 25px;
+                            font-weight: bold;
+                            ;
+                        }
+
+                        p {
+                            font-size: 1rem;
+                            width: 60%;
+                            float: left;
+                            text-align: left;
+                            margin-bottom: 5px;
+                            letter-spacing: -1px;
+                            span {
+                                color: @mainColor;
+                                font-weight: bold;
+                            }
+                        }
+                        p.price_tag{
+                            width: 450px;
+                            letter-spacing: -1.5px;
+                        }
+
+                        h2.price {
+                            width: 35%;
+                            font-size: 2rem;
+                            right: 10px;
+                            color: @mainColor;
+                            letter-spacing: -1.5px;
+                            position: absolute;
+                            text-align: right;
+
+                            span {
+                                font-size: 1.125rem;
+                                color: #222;
+                                margin-left: 10px;
+                                ;
+                            }
+                        }
+
+                        div.btn_area {
+                            width: 30%;
+                            float: right;
+                        }
+                    }
+                }
+                div.cal_row3_tab{
+                    margin-top: 10px;
+                    div.ins_info_tab {
+                        width: 100%;
+                        height: 370px;
+                        border-radius: 5px;
+                        padding: 20px;
+                        border: 1px solid #d0d0d0;
+                        box-sizing: border-box;
+                        text-align: left;
+                        margin-bottom: 15px;
+
+                        h3 {
+                            font-weight: bold;
+                            color: #222;
+                            margin-bottom: 20px;
+                        }
+
+                        ul {
+                            width: 100%;
+                            height: 280px;
+                            border: 1px solid #d0d0d0;
+                            border-bottom: 0px;
+
+                            li {
+                                height: 40px;
+                                border-bottom: 1px solid #d0d0d0;
+                                box-sizing: border-box;
+                                line-height: 40px;
+
+                                div.list_head {
+                                    height: 100%;
+                                    background: #f6f6f6;
+                                    width: 120px;
+                                    float: left;
+                                    border-right: 1px solid #d0d0d0;
+                                    box-sizing: border-box;
+                                    ;
+                                    font-weight: bold;
+                                    color: #222;
+                                    padding-left: 10px;
+                                    font-size: 0.875rem;
+                                }
+
+                                div.list_desc {
+                                    width: 500px;
+                                    height: 100%;
+                                    float: left;
+                                    color: #444;
+                                    padding-left: 10px;
+                                    box-sizing: border-box;
+                                    font-size: 0.875rem;
+                                    overflow: hidden;
+                                }
+                            }
+
+                            li:nth-last-child(1) {}
+                        }
+
+                    }
+
+                }
+                p.cal_mention {
+                    color: @mainColor;
+                    font-size: 0.75rem;
+                    margin-bottom: 5px;
+                    text-align: left;
+                    letter-spacing: -1px;
+                    padding-left: 5px;
+                }
+                div.cal-banner {
+                    width: 100%;
+                    height: 150px;
+                    margin-top: 30px;
+                    margin-bottom: 50px;
+                    border-radius: 5px;
+                    border: 1px solid #d0d0d0;
+                    padding-top: 45px;
+                    padding-left: 15px;
+                    padding-right: 15px;
+                    position: relative;
+                    box-sizing: border-box;
+                    ;
+                    background: #f76069;
+                    /* Old browsers */
+                    background: -moz-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                    /* FF3.6-15 */
+                    background: -webkit-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                    /* Chrome10-25,Safari5.1-6 */
+                    background: linear-gradient(to bottom, #f76069 0%, #ff8c55 100%);
+                    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f76069', endColorstr='#ff8c55', GradientType=0);
+
+                    /* IE6-9 */
+                    h3,
+                    h4,
+                    p {
+                        color: white;
+                        margin: 0;
+                        text-align: left;
+                        letter-spacing: -1.5px;
+                    }
+
+                    h3 {
+                        font-size: 1.125rem;
+                        font-weight: bold;
+                        ;
+                        margin-bottom: 10px;
+
+                    }
+
+                    h4 {
+                        font-size: 0.875rem;
+                        margin-bottom: 20px;
+                    }
+
+                    p {
+                        font-size: 0.775rem;
+                        margin-bottom: 10px;
+                        letter-spacing: -0.5px;
+
+                    }
+
+                    img {
+                        position: absolute;
+                        right: 5px;
+                        bottom: 0px;
+                    }
+
+                }
+
+
+                div.cal_bottom_tab {
+                    width: 100%;
+                    height:520px;
+                    margin: 20px auto;
+                    ;
+
+                    div.bottom_left {
+                        width: 20%;
+                        float: left;
+                        height: 100%;
+
+
+
+                 
+
+                        div.cal-banner {
+                            width: 100%;
+                            height: 300px;
+                            border-radius: 5px;
+                            border: 1px solid #d0d0d0;
+                            padding-top: 25px;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            position: relative;
+                            box-sizing: border-box;
+                            ;
+                            background: #f76069;
+                            /* Old browsers */
+                            background: -moz-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                            /* FF3.6-15 */
+                            background: -webkit-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                            /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to bottom, #f76069 0%, #ff8c55 100%);
+                            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f76069', endColorstr='#ff8c55', GradientType=0);
+
+                            /* IE6-9 */
+                            h3,
+                            h4,
+                            p {
+                                color: white;
+                                margin: 0;
+                                text-align: left;
+                                letter-spacing: -1.5px;
+                            }
+
+                            h3 {
+                                font-size: 1.125rem;
+                                font-weight: bold;
+                                ;
+                                margin-bottom: 10px;
+
+                            }
+
+                            h4 {
+                                font-size: 0.875rem;
+                                margin-bottom: 20px;
+                            }
+
+                            p {
+                                font-size: 0.775rem;
+                                margin-bottom: 10px;
+                                letter-spacing: -0.5px;
+
+                            }
+
+                            img {
+                                position: absolute;
+                                right: 5px;
+                                bottom: 0px;
+                            }
+
+                        }
+                    }
+
+
+                    div.bottom_right {
+                        width: 78%;
+                        height: 100%;
+                        float: right;
+
+                        div.ins_info_tab {
+                            width: 100%;
+                            height: 370px;
+                            border-radius: 5px;
+                            padding: 20px;
+                            border: 1px solid #d0d0d0;
+                            box-sizing: border-box;
+                            ;
+                            text-align: left;
+                            margin-bottom: 15px;
+
+                            h3 {
+                                font-weight: bold;
+                                color: #222;
+                                margin-bottom: 20px;
+                            }
+
+                            ul {
+                                width: 100%;
+                                height: 280px;
+                                border: 1px solid #d0d0d0;
+                                border-bottom: 0px;
+
+                                li {
+                                    height: 40px;
+                                    border-bottom: 1px solid #d0d0d0;
+                                    box-sizing: border-box;
+                                    ;
+                                    line-height: 40px;
+
+                                    div.list_head {
+                                        height: 100%;
+                                        background: #f6f6f6;
+                                        width: 120px;
+                                        float: left;
+                                        border-right: 1px solid #d0d0d0;
+                                        box-sizing: border-box;
+                                        ;
+                                        font-weight: bold;
+                                        color: #222;
+                                        padding-left: 10px;
+                                        font-size: 0.875rem;
+                                    }
+
+                                    div.list_desc {
+                                        width: 500px;
+                                        height: 100%;
+                                        float: left;
+                                        color: #444;
+                                        padding-left: 10px;
+                                        box-sizing: border-box;
+                                        font-size: 0.875rem;
+                                        overflow: hidden;
+                                    }
+                                }
+
+                                li:nth-last-child(1) {}
+                            }
+
+                        }
+
+              
+                    }
+                }
+            }
+
+            div.compare_fn_btn {
+                cursor: pointer;
+                width: 250px;
+                height: 50px;
+                background: @mainColor;
+                margin: 0 auto;
+                margin-top: 50px;
+                border-radius: 50px;
+                line-height: 50px;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+            }
+
+            div.cal_fn_btn {
+                cursor: pointer;
+                width: 250px;
+                height: 50px;
+                background: @mainColor;
+                margin: 0 auto;
+                ;
+                border-radius: 50px;
+                line-height: 50px;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                ;
+            }
+        }
+    }
+
+    div.insert_popup {
+        background-color: rgba(0, 0, 0, 0.6);
+        max-width: 100%;
+        height: 100%;
+        display: none;
+
+        div.insert_box {
+            width: 740px;
+            height: 720px;
+            background: white;
+            position: relative;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            padding-top: 40px;
+            box-sizing: border-box;
+
+            span.xbox {
+                cursor: pointer;
+                width: 25px;
+                height: 25px;
+                display: block;
+                background-image: url(../img/popup/x_btn.png);
+                ;
+                position: absolute;
+                right: 20px;
+                top: 20px;
+            }
+
+            h2 {
+                font-size: 1.875rem;
+                color: #222;
+                font-weight: bold;
+                letter-spacing: -2px;
+                text-align: center;
+            }
+
+            div.insert_form {
+                width: 100%;
+                height: 410px;
+                margin-top: 35px;
+
+                div.row {
+                    width: 100%;
+                    height: 75px;
+                    margin-bottom: 30px;
+
+                    div.colums {
+                        width: 50%;
+                        height: 100%;
+                        float: left;
+
+                    }
+
+                    p {
+                        height: 15px;
+                        font-size: 0.875rem;
+                        margin-bottom: 5px;
+                        color: #222;
+                        font-weight: bold;
+                        padding-left: 5px;
+
+                    }
+                }
+
+                div.top_tab {
+                    input[type=text] {
+                        width: 95%;
+                        height: 55px;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                        border: 2px solid #d9d9d9;
+                        ;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
+                    }
+
+                    select {
+                        width: 30%;
+                        height: 55px;
+                        border: 2px solid #d9d9d9;
+                        ;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+
+                        background-image: url(../img/popup/select_bg.png);
+                        ;
+                        .backgroundOption;
+                        background-size: 14PX;
+                        background-position-x: 95%;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
+
+
+                    }
+
+                    input.number {
+                        width: 67%;
+                        height: 55px;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                        border: 2px solid #d9d9d9;
+                        ;
+                        float: right;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
+                    }
+
+                }
+
+                div.middle_tab {
+                    select {
+                        width: 95%;
+                        height: 55px;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                        border: 2px solid #d9d9d9;
+                        ;
+                        background-image: url(../img/popup/select_bg.png);
+                        ;
+                        .backgroundOption;
+                        background-size: 14PX;
+                        background-position-x: 95%;
+
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
+                    }
+
+
+                    input.date {
+                        width: 49%;
+                        height: 55px;
+                        border: 2px solid #d9d9d9;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                        &:focus {
+                            border: 2px solid @mainColor;
+                        }
+                        
+                    }
+
+                    span.date_btn{
+                        position: absolute;
+                        right: 53%;
+                        top: 50%;
+                    }
+             
+                    .colum-2 {
+                        position: relative;
+
+                        select {
+                            width: 49%;
+                            height: 55px;
+                            box-sizing: border-box;
+                            float: right;
+                            padding-left: 20px;
+                            border: 2px solid #d9d9d9;
+
+
+                            &:focus {
+                                border: 2px solid @mainColor;
+                            }
+                        }
+
+                    }
+
+
+
+                }
+
+                div.bottom_tab {
+                    height: 170px;
+
+                    textarea {
+                        height: 150px;
+                        width: 100%;
+                        box-sizing: border-box;
+                        padding-left: 20px;
+                        border: 2px solid #d9d9d9;
+                        ;
+                        resize: none;
+                        margin-top: 10px;
+                    }
+
+                    ;
+
+                    textarea:focus {
+                        border: 2px solid @mainColor;
+                    }
+                }
+            }
+            div.sub_btn {
+                cursor: pointer;
+                width: 250px;
+                height: 50px;
+                background: @mainColor;
+                text-align: center;
+                line-height: 50px;
+                font-weight: bold;
+                font-size: 1.125rem;
+                color: white;
+                ;
+                border-radius: 100px;
+                margin: 50px auto;
+                ;
+                -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+                -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+                box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+            }
+        }
+    }
+}
+
+input[type=text]:focus {
+    outline: none;
+    border: 2px solid @mainColor;
+}
+
+select:focus {
+    outline: none;
+}
+
+input[type=number]:focus {
+    outline: none;
+    border: 2px solid @mainColor;
+}
+
+div.ins_tabs.more_ins{
+    height: 700px!important;
+        // text-align: center;
+        div.cal_top_tab{
+            overflow: hidden;
+            div.user_info{
+                box-sizing: border-box;
+                text-align: center;
+                img.more_logo{
+                    display: block;
+                    width: 100px;
+                    margin: 0 auto;;
+                    padding-top: 15px;
+
+                }
+                span.more_cate{
+                    display: block;;
+                    width: 100%;
+                    margin-top: 20px;;
+                    font-weight: bold;;
+                    font-size: 1.125rem;
+                    text-align: center;;
+            }
+            }
+            div.place_info.place_more{
+                width: 78%!important;
+                margin-right: 0!important;
+                position: relative;
+                p{
+                    span{
+                        color: #666!important;
+                        font-size: 0.875rem!important;
+                    }
+                }
+            }
+        }
+        div.cal_bottom_tab{
+           
+            div.ins_info_tab{
+                float: right;
+                height: 480px!important;
+            }
+           
+            div.bottom_right.section_rigth{
+                width: 68%!important;
+                float: left!important;
+                ul{
+                    height: 330px;
+                    li.price_row{
+                        width: 100%;
+                        overflow: inherit;
+                        div.price_bord {
+                            width: 90%;
+                            max-width: 410px;
+                            height: 100px;
+                            border: 1px solid #d0d0d0;
+                            overflow: hidden;
+                            margin-top: 10px;
+
+                            div.null_data {
+                                width: 100%;
+                                height: 100%;
+                                line-height: 100px;
+                            }
+
+                            div.row {
+                                width: 100%;
+                                height: 33.3%;
+
+                                div.colum {
+                                    height: 100%;
+                                    text-align: center;
+                                    ;
+                                    float: left;
+                                    line-height: 33.3px;
+                                }
+
+                                div.colum.colum-4 {
+                                    width: 25%;
+                                }
+
+                                div.colum.colum-6 {
+                                    width: calc(100%/6);
+                                }
+
+                                div.colum_head {
+                                    width: 20%;
+                                    font-size: 0.875rem;
+                                }
+
+                                div.colum_body {
+                                    width: 40%;
+                                    font-size: 0.875rem;
+                                    position: relative;
+
+                                    span.gender_mark {
+                                        position: absolute;
+                                        line-height: 25px;
+                                        color: white;
+                                        border-radius: 100%;
+                                        font-size: 0.753rem;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%, -50%);
+                                        display: inline-block;
+                                        width: 20px;
+                                        height: 20px;
+                                        ;
+                                    }
+
+                                    .man_mark {
+                                        background: #24a1e9;
+                                    }
+
+                                    .woman_mark {
+                                        background: #ff449c;
+                                    }
+                                }
+
+                            }
+
+                            div.tb_body1 {
+                                .colum {
+                                    background-color: #f0f0f0;
+
+                                }
+
+                                div {
+                                    color: #24a1e9;
+                                }
+                            }
+
+                            div.tb_body2 {
+                                border: 0px;
+
+                                div {
+                                    font-size: 0.875rem;
+                                    color: #ff449c;
+                                }
+                            }
+
+                        }
+                    }
+                }
+            }
+           
+        }
+        div.input_tab{
+            width: 30%;
+            height: 480px;
+            float: right;
+            background: white;
+            border:1px solid #d0d0d0;
+            box-sizing: border-box;;
+            border-radius: 5px;
+            padding: 20px;
+            h3{
+                font-weight: bold;;
+                margin-bottom: 25px!important;
+            }
+            ul{
+                li{
+                    width: 100%;
+                    height: 60px;
+                    margin-bottom: 15px;
+                    p{
+                        height: 15px;
+                        font-size: 0.875rem;
+                        color: #444;
+                        margin-bottom: 5px;
+                        font-weight: bold;;
+                    }
+                    input,select{
+                        height: 40px;
+                        width: 100%;
+                        border: 2px solid #d0d0d0;
+                        outline: none;
+                        box-sizing: border-box;;
+                        padding-left: 15px;
+                    }
+                    select{
+                        background-image: url(../img/popup/select_bg.png);
+                        .backgroundOption;
+                        background-size: 12px;
+                        background-position-x: 95%; 
+                    }
+                    
+                }
+                li.phones{
+                    select{
+                        width: 35%;
+                        float: left;
+                        background-image: url(../img/popup/select_bg.png);
+                        .backgroundOption;
+                        background-size: 12px;
+                        background-position-x: 95%;
+
+                    }
+                    input{
+                        width: 63%;
+                        float: right;
+                    }
+                }
+            }
+            label.container{
+                padding-top: 3px;
+                font-size: 0.875rem;
+                span.checkmark{
+                    width: 20px;
+                    height: 20px;
+                    
+                }
+            }
+            .container .checkmark:after{
+                top: 2px;
+                left: 5px;
+            }
+            div.more_submit_btn{
+                cursor: pointer;
+                margin: 10px auto;;
+                width: 260px;
+                height: 40px;
+                font-weight: bold;
+                color: white;
+                text-align: center;
+                background: @mainColor;
+                line-height: 40px;
+                border-radius: 5px;;
+            }
+        }
+        
+        
+}
+div.submit_btns{
+    cursor: pointer;
+    width: 250px!important;
+    height: 40px!important;
+    background: @mainColor!important;;
+    margin: 0 auto;;
+    font-weight: bold;
+    color: white;
+    text-align: center;
+    background: @mainColor;
+    line-height: 40px;
+    border-radius: 35px;;
+
+}

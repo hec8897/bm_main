@@ -217,3 +217,74 @@ function checkBoxEvent6() {
         checkBox.style.backgroundColor = 'white'
     }
 }
+
+function moNavRender(thistag){
+    
+    var child = $(thistag).children();
+    var Popup = $('#popup_box')
+
+    $('html,body').animate({
+        scrollTop: 0
+      }, 500); // }
+
+   
+        
+    Popup.hide()
+    $(child[0]).css({
+        "-webkit-transform": "rotate(45deg)",
+        "-moz-transform": "rotate(45deg)",
+        "transform": "rotate(45deg)",
+        "top":"5.6px",
+    })
+    $(child[1]).css({
+        "opacity":0.0
+    })
+    $(child[2]).css({
+        "width":"20px",
+        "-webkit-transform": "rotate(-45deg)",
+        "-moz-transform": "rotate(-45deg)",
+        "transform": "rotate(-45deg)",
+        "bottom":"8.5px"
+    })
+    $(thistag).attr('onclick',"closeMoNav(this)")
+    $("#mo_nav_box").fadeIn()
+
+    $('#mo_nav_box').on('scroll touchmove mousewheel', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        return false;
+      });
+    
+    
+    
+}
+
+
+function closeMoNav(thistag){
+    var child = $(thistag).children();
+    $(child[0]).css({
+        "-webkit-transform": "rotate(0deg)",
+        "-moz-transform": "rotate(0deg)",
+        "transform": "rotate(0deg)",
+        "top":"0px",
+    })
+    $(child[1]).css({
+        "opacity":1.0
+    })
+    $(child[2]).css({
+        "width":"20px",
+        "-webkit-transform": "rotate(0deg)",
+        "-moz-transform": "rotate(0deg)",
+        "transform": "rotate(0deg)",
+        "bottom":"0px"
+    })
+    $(thistag).attr('onclick',"moNavRender(this)")
+    $("#mo_nav_box").fadeOut()
+    $('html, body').css({
+        'overflow-y': 'auto'
+    });
+    $('*').off('scroll touchmove mousewheel');
+
+
+
+}

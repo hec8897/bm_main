@@ -21,6 +21,8 @@ var layoutRender = {
     HeaderRender: function () {
         //Header Rendering
         this.getQueryString();
+        const mobileLink = params.device!=undefined ?'mo_':'';
+
         var acitveList = ['disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li'];
         if (params.listNo != undefined) {
             acitveList.splice(Number(params.listNo - 1), 1, "active")
@@ -29,7 +31,7 @@ var layoutRender = {
         }
         document.querySelector("header").innerHTML = `<div class='gnb gnb_line'>
         <div class='wrap'>
-            <h1><a href='index.html'><img src="img/common/header-h1-BI.png" alt="BM_BI"></a></h1>
+            <h1><a href='${mobileLink}index.html'><img src="img/common/header-h1-BI.png" alt="BM_BI"></a></h1>
                 <ul class='sns_bar'>
                     <li><a href='https://www.youtube.com/channel/UCsgs4ibSA_J4q5FC2IE5Gpw' target="_blank"><img src='img/common/header-sns-icon-youtube.png' alt="youtube_icon">유튜브</a></li>
                     <li><a href='https://www.facebook.com/bm9351' target="_blank"><img src='img/common/header-sns-icon-fb.png' alt="youtube_icon"alt="facebook_icon">페이스북</a></li>
@@ -47,12 +49,12 @@ var layoutRender = {
             <nav>
                 <ul class='nav_li'> 
                     <!-- className acitve/disalbe_li -->
-                    <li class='${acitveList[0]}'><a href='main.html?id=page1&listNo=1' class='nav_li1'><img src='img/common/header-nav-icon1.png'>태아(어린이)보험</a><p class='liner1'></p></li>
-                    <li class='${acitveList[1]}'><a href='main.html?id=page2&listNo=2' class='nav_li2'><img src='img/common/header-nav-icon2.png'>암보험</a><p class='liner2'></p></li>
-                    <li class='${acitveList[2]}'><a href='main.html?id=page3&listNo=3' class='nav_li3'><img src='img/common/header-nav-icon3.png'>2대중대질병</a><p class='liner3'></p></li>
-                    <li class='${acitveList[3]}'><a href='main.html?id=page4&listNo=4' class='nav_li4'><img src='img/common/header-nav-icon4.png'>치매보험</a><p class='liner4'></p></li>
-                    <li class='${acitveList[4]}'><a href='main.html?id=page5&listNo=5' class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li>
-                    <li class='${acitveList[5]}'><a href='main.html?id=page6&listNo=6' class='nav_li6'><img src='img/common/header-nav-icon6.png'>보험금청구</a><p class='liner6'></p></li>
+                    <li class='${acitveList[0]}'><a href='${mobileLink}main.html?id=page1&listNo=1' class='nav_li1'><img src='img/common/header-nav-icon1.png'>어린이 보험</a><p class='liner1'></p></li>
+                    <li class='${acitveList[1]}'><a href='${mobileLink}main.html?id=page2&listNo=2' class='nav_li2'><img src='img/common/header-nav-icon2.png'>암보험</a><p class='liner2'></p></li>
+                    <li class='${acitveList[2]}'><a href='${mobileLink}main.html?id=page3&listNo=3' class='nav_li3'><img src='img/common/header-nav-icon3.png'>2대중대질병</a><p class='liner3'></p></li>
+                    <li class='${acitveList[3]}'><a href='${mobileLink}main.html?id=page4&listNo=4' class='nav_li4'><img src='img/common/header-nav-icon4.png'>치매보험</a><p class='liner4'></p></li>
+                    <li class='${acitveList[4]}'><a href='${mobileLink}main.html?id=page5&listNo=5' class='nav_li5'><img src='img/common/header-nav-icon5.png'>고객센터</a><p class='liner5'></p></li>
+                    <li class='${acitveList[5]}'><a href='${mobileLink}main.html?id=page6&listNo=6' class='nav_li6'><img src='img/common/header-nav-icon6.png'>보험금청구</a><p class='liner6'></p></li>
                 </ul>
             </nav>
         </div>
@@ -87,34 +89,31 @@ var layoutRender = {
                 <ul class='nav_li'>
                     <!-- className acitve/disalbe_li -->
                     <li class='footer_li'><a href='main.html?id=page1&listNo=1' class='nav_li1'><img
-                                src='img/common/header-nav-icon1.png'>태아(어린이)보험</a>
+                                src='img/common/header-nav-icon1.png' attr='어린이 보험 아이콘'>어린이 보험</a>
                         <p class='f_liner1'></p>
                     </li>
                     <li class='footer_li'><a href='main.html?id=page2&listNo=2' class='nav_li2'><img
-                                src='img/common/header-nav-icon2.png'>암보험</a>
+                                src='img/common/header-nav-icon2.png' attr='암 보험 아이콘'>암보험</a>
                         <p class='f_liner2'></p>
                     </li>
                     <li class='footer_li'><a href='main.html?id=page3&listNo=3' class='nav_li3'><img
-                                src='img/common/header-nav-icon3.png'>2대중대질병</a>
+                                src='img/common/header-nav-icon3.png' attr='2대중대질병 보험 아이콘'>2대중대질병</a>
                         <p class='f_liner3'></p>
                     </li>
                     <li class='footer_li'><a href='main.html?id=page4&listNo=4' class='nav_li4'><img
-                                src='img/common/header-nav-icon4.png'>치매보험</a>
+                                src='img/common/header-nav-icon4.png' attr='치매 보험 아이콘'>치매보험</a>
                         <p class='f_liner4'></p>
                     </li>
                     <li class='footer_li'><a href='main.html?id=page5&listNo=5' class='nav_li5'><img
-                                src='img/common/header-nav-icon5.png'>고객센터</a>
+                                src='img/common/header-nav-icon5.png' attr='고객센터 아이콘'>고객센터</a>
                         <p class='f_liner5'></p>
                     </li>
                  
                     <li class='footer_li'><a href='main.html?id=page6&listNo=6' class='nav_li6'><img
-                                src='img/common/header-nav-icon6.png'>보험금청구</a>
+                                src='img/common/header-nav-icon6.png' attr='어린이 보험 아이콘'>보험금청구</a>
                         <p class='f_liner6'></p>
                     </li>
-                    <!-- <li class='footer_li'><a href='main.html?id=page6&listNo=6' class='nav_li6'><img
-                                src='img/common/header-nav-icon6.png'>보험금청구</a>
-                        <p class='f_liner6'></p>
-                    </li> -->
+            
                 </ul>
             </nav>
         </div>
@@ -127,7 +126,7 @@ var layoutRender = {
                 <ul class="footer_nav">
                     <li><a href=''>회사소개</a></li>
                     <li><a href=''>개인정보처리방침</a></li>
-                    <li><a href=''>회사소개</a></li>
+                    <li><a href=''>이용약관</a></li>
                     <li><a href=''>제휴안내</a></li>
                     <li><a href=''>고객센터</a></li>
                 </ul>
@@ -1573,7 +1572,7 @@ var popupRender = {
         // const fnKey = b == 'speed' ? 'cal' : 'speed';
         _popuphead = `<h2>${popuptit}</h2>
         <div class='popup_nav'>
-            <div class='popup_list popup_list1 active' onclick='popupRender.tabData(0,"${b}"), popupRender.tabListActive(0,this,"nav")'><img src='img/common/header-nav-icon1.png'>태아(어린이보험)</div>
+            <div class='popup_list popup_list1 active' onclick='popupRender.tabData(0,"${b}"), popupRender.tabListActive(0,this,"nav")'><img src='img/common/header-nav-icon1.png'>어린이보험</div>
             <div class='popup_list popup_list2' onclick='popupRender.tabData(1,"${b}"), popupRender.tabListActive(1,this,"nav")'><img src='img/common/header-nav-icon2.png'>암보험</div>
             <div class='popup_list popup_list3' onclick='popupRender.tabData(2,"${b}"), popupRender.tabListActive(2,this,"nav")'><img src='img/common/header-nav-icon3.png'>2대중대질병</div>
             <div class='popup_list popup_list4' onclick='popupRender.tabData(3,"${b}"), popupRender.tabListActive(3,this,"nav")'><img src='img/common/header-nav-icon4.png'>치매보험</div>
@@ -1775,7 +1774,7 @@ var popupRender = {
                         this.calResultRender('refresh')
                     }
                 }, 500);
-            } else if (result1.length < 0) {
+            } else if (this.arrayDish.length == 0) {
                 alert('목록을 선택해주세요')
             } else {
                 this.applyUserinfo.push({
@@ -1888,85 +1887,193 @@ var popupRender = {
                 }, 300)
             }
         }
-        setTimeout(() => {
-            insTab.innerHTML = `<div class='cal_top_tab'>
-                          <div class='user_info'>
-                          <h3>고객님 정보</h3>
+        var PcMedia = window.matchMedia('( max-width: 1200px )');
+        var TabletMedia = window.matchMedia('( max-width: 1024px ) and (min-width: 768px)');
+        var MobileMedia = window.matchMedia('(max-width:767px)');
 
-                          <h4>${this.applyUserinfo[0].reqName}/ 만 ${age}세</h4>
-                          <h4>${result1[0].cate}</h4>
-                          </div>
-                          <div class='place_info'>
-                          <h3>월 납입보험료<h3>
-                          <h2 class='price'>${Productprice}<span>원</span></h2>
-                          <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
-                          <p>월 예상 납입 보험료</p>
-                          </div>
+        if(TabletMedia.matches == true){
+            setTimeout(() => {
+                insTab.innerHTML = `<div class='cal_top_tab'>
+                      <div class='user_info'>
+                                <h3>고객님 정보</h3>
+    
+                                <h4>${this.applyUserinfo[0].reqName}/ 만 ${age}세</h4>
+                                <h4>${result1[0].cate}</h4>
+                              </div>
+                              <div class='service_center_phone'>
+                                        <p>고객센터</p>
+                                        <h3>02-1670-5208</h3>
+                                    </div>
+                                    <div class='btn_area'>
+                                <div class='insert_consult' onclick='popupRender.insertTapRender("calsEnd","cals")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
+                                <div class='return_cal' onclick='popupRender.returnFn("cals")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
+                              </div>
+                            </div>
+                            <div class='cal_row2_tab'>
 
-                            <div class='btn_area'>
-                            <div class='insert_consult' onclick='popupRender.insertTapRender("calsEnd","cals")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
-                            <div class='return_cal' onclick='popupRender.returnFn("cals")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
-                          </div>
-                            </div>
-                            <div class='cal_bottom_tab'>
-                                <div class='bottom_left'>
-                                <div class='service_center_phone'>
-                                    <p>고객센터</p>
-                                    <h3>02-1670-5208</h3>
-                                </div>
-                                <div class='cal-banner'>
-                                    <h3>오래된 보험을 꺼내라!</h3>
-                                    <h4>보장분석전문기업 보험친구들</h4>
-                                    <p>전국 32개 보험사의 모든</p>
-                                    <p>보험상품을 전격 비교하여</p>
-                                    <p>당신에게 딱 맞는 보험상품을</p>
-                                    <p>찾아드립니다. 보장내역은</p>
-                                    <p>든든하게, 보험절감의 효과를</p>
-                                    <p>누려보세요.</p>
-                                    <img src="img/popup/cal-banner.png" alt="계산기 배너이미지">
-                                </div>
-                            </div>
-                            <div class='bottom_right'>
-                                <div class='ins_info_tab'>
-                                    <h3>상품 특징 및 가입조건</h3>
-                                    <ul class='ins_info_tb'>
-                                        <li>
-                                            <div class='list_head'>상품종류</div>
-                                            <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
-                                        </li>
-                                        <li>
-                                            <div class='list_head'>상품명</div>
-                                            <div class='list_desc'>${result1[0].product}</div>
-                                        </li>
-                                        <li>
-                                            <div class='list_head'>특징</div>
-                                            <div class='list_desc'>${result1[0].Characteristic1}</div>
-                                        </li>
-                                        <li>
-                                            <div class='list_head'>갱신/비갱신</div>
-                                            <div class='list_desc'>${result1[0].extension}</div>
-                                        </li>
-                                        <li>
-                                            <div class='list_head'>보험기간</div>
-                                            <div class='list_desc'>${result1[0].term}</div>
-                                        </li>
-                                        <li>
-                                            <div class='list_head'>납입기간</div>
-                                            <div class='list_desc'>${result1[0].payterm}년</div>
-                                        </li>
-                                        <li>
-                                            <div class='list_head'>가입유형</div>
-                                            <div class='list_desc'>${result1[0].type} </div>
-                                        </li>
+                              <div class='place_info'>
+                                    <h3>월 납입보험료<h3>
+                                    <h2 class='price'>${Productprice}<span>원</span></h2>
+                                    <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
+                                    <p>월 예상 납입 보험료</p>
+                              </div>
+                        </div>
+                        <div class='cal_row3_tab'>
+                              <div class='ins_info_tab'>
+                                        <h3>상품 특징 및 가입조건</h3>
+                                        <ul class='ins_info_tb'>
+                                            <li>
+                                                <div class='list_head'>상품종류</div>
+                                                <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>상품명</div>
+                                                <div class='list_desc'>${result1[0].product}</div>
+                                            </li>   
+                                            <li>
+                                                <div class='list_head'>특징</div>
+                                                <div class='list_desc'>${result1[0].Characteristic1}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>갱신/비갱신</div>
+                                                <div class='list_desc'>${result1[0].extension}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>보험기간</div>
+                                                <div class='list_desc'>${result1[0].term}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>납입기간</div>
+                                                <div class='list_desc'>${result1[0].payterm}년</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>가입유형</div>
+                                                <div class='list_desc'>${result1[0].type} </div>
+                                            </li>
+    
+                                        </ul>
+                                    </div>
+            </div>
+            <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면 최대한</p>
+            <p class='cal_mention'>빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
 
-                                    </ul>
+            <div class='cal-banner'>
+                                        <h3>오래된 보험을 꺼내라!</h3>
+                                        <p>전국 32개 보험사의 모든 보험상품을 전격 비교하여 당신에게 딱 맞는 보험상품을 찾아드립니다.</p>
+                                        <p>보장내역은 든든하게,보험절감의 효과를 누려보세요</p>
+                                
+                                        <img src="img/popup/cal-banner.png" alt="계산기 배너이미지">
+                                    </div>
+
+                </div>`
+            },100)
+
+        }
+        else if(MobileMedia.matches == true){
+            setTimeout(() => {
+                insTab.innerHTML = `<div class='cal_top_tab'>
+                                <div class='user_info'>
+                                <h3>고객님 정보</h3>
+                                <h4>${this.applyUserinfo[0].reqName}/ 만 ${age}세</h4>
+                                <h4>${result1[0].cate}</h4>
+                              </div>
+                              <div class='service_center_phone'>
+                                        <p>고객센터</p>
+                                        <h3>02-1670-5208</h3>
+                                    </div>
+                                           <div class='place_info'>
+                                    <h3>월 납입보험료<h3>
+                                    <h2 class='price'>${Productprice}<span>원</span></h2>
+                                    <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
+                                    <p>월 예상 납입 보험료</p>
+                              </div>
+                        </div>`
+            },100)
+        }
+        else{
+            setTimeout(() => {
+                insTab.innerHTML = `<div class='cal_top_tab'>
+                              <div class='user_info'>
+                                <h3>고객님 정보</h3>
+    
+                                <h4>${this.applyUserinfo[0].reqName}/ 만 ${age}세</h4>
+                                <h4>${result1[0].cate}</h4>
+                              </div>
+                              <div class='place_info'>
+                                    <h3>월 납입보험료<h3>
+                                    <h2 class='price'>${Productprice}<span>원</span></h2>
+                                    <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
+                                    <p>월 예상 납입 보험료</p>
+                              </div>
+    
+                                <div class='btn_area'>
+                                <div class='insert_consult' onclick='popupRender.insertTapRender("calsEnd","cals")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
+                                <div class='return_cal' onclick='popupRender.returnFn("cals")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
+                              </div>
                                 </div>
-                                <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면 최대한</p>
-                                <p class='cal_mention'>빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
-                            </div>
-                            </div>
-                            `
-        }, 500);
+                                <div class='cal_bottom_tab'>
+                                    <div class='bottom_left'>
+                                    <div class='service_center_phone'>
+                                        <p>고객센터</p>
+                                        <h3>02-1670-5208</h3>
+                                    </div>
+                                    <div class='cal-banner'>
+                                        <h3>오래된 보험을 꺼내라!</h3>
+                                        <h4>보장분석전문기업 보험친구들</h4>
+                                        <p>전국 32개 보험사의 모든</p>
+                                        <p>보험상품을 전격 비교하여</p>
+                                        <p>당신에게 딱 맞는 보험상품을</p>
+                                        <p>찾아드립니다. 보장내역은</p>
+                                        <p>든든하게, 보험절감의 효과를</p>
+                                        <p>누려보세요.</p>
+                                        <img src="img/popup/cal-banner.png" alt="계산기 배너이미지">
+                                    </div>
+                                </div>
+                                <div class='bottom_right'>
+                                    <div class='ins_info_tab'>
+                                        <h3>상품 특징 및 가입조건</h3>
+                                        <ul class='ins_info_tb'>
+                                            <li>
+                                                <div class='list_head'>상품종류</div>
+                                                <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>상품명</div>
+                                                <div class='list_desc'>${result1[0].product}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>특징</div>
+                                                <div class='list_desc'>${result1[0].Characteristic1}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>갱신/비갱신</div>
+                                                <div class='list_desc'>${result1[0].extension}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>보험기간</div>
+                                                <div class='list_desc'>${result1[0].term}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>납입기간</div>
+                                                <div class='list_desc'>${result1[0].payterm}년</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>가입유형</div>
+                                                <div class='list_desc'>${result1[0].type} </div>
+                                            </li>
+    
+                                        </ul>
+                                    </div>
+                                    <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면 최대한</p>
+                                    <p class='cal_mention'>빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
+                                </div>
+                                </div>
+                                `
+            }, 500);
+    
+        }
+        
+
 
     },
     compareTabRnder: function (accessnode, subNode) {
@@ -2006,6 +2113,8 @@ var popupRender = {
                 for (var i = 0; i < result1[0].agepricef.length; i++) {
                     objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
                 }
+
+         
                 priceHtml1.push(
                     `<div class='price_bord'>
                 <div class='tb_head row'>
@@ -2030,6 +2139,16 @@ var popupRender = {
                 </div>`
                 )
 
+
+
+
+
+
+
+
+
+
+                
             } else if (result1[0].ageprice != 0) {
                 var objectKeyArray = [];
 
@@ -2129,108 +2248,135 @@ var popupRender = {
                                             </div>`)
             }
 
-            insTab.innerHTML = `<div class='compare_bord'>
-                                <div class='bord_wrap'>
-                                <div class='caption'>
-                                <h3 class='result_compare'>스피드 보험비교</h3>
-                                <h4>고객님이 선택하신 보험상품의 특징을 꼼꼼하게 비교해보세요</h4>
-                                <div class='back_btn' onclick='popupRender.returnFn("speed")'>보험료 다시 비교하기</div>
+            var PcMedia = window.matchMedia('( max-width: 1200px )');
+            var TabletMedia = window.matchMedia('( max-width: 1024px ) and (min-width: 768px)');
+            var MobileMedia = window.matchMedia('(max-width:767px)');
+
+            if(MobileMedia.matches == true){
+                insTab.innerHTML = `<div class='mo_compare_bord'>
+                    <div class='bord_wrap'>
+                    <div class='caption'>
+                <h3 class='result_compare'>스피드 보험비교</h3>
+                <h4>고객님이 선택하신 보험상품의 특징을 꼼꼼하게 비교해보세요</h4>
+                <div class='back_btn' onclick='popupRender.returnFn("speed")'>보험료 다시 비교하기</div>
+                <div class='insert_btn' onclick='popupRender.insertTapRender("compare","${subNode}")'>무료 상담 신청하기</div>
+                </div>
+                <div class='mo_table'>
+                    <div class='tabs left_tab'></div>
+                    <div class='tabs center_tab'></div>
+                    <div class='tabs right_tab'></div>
+
+                </div>
+                    </div>
+                </div>`
+
+            }
+            else{
+                insTab.innerHTML = `<div class='compare_bord'>
+                <div class='bord_wrap'>
+                <div class='caption'>
+                <h3 class='result_compare'>스피드 보험비교</h3>
+                <h4>고객님이 선택하신 보험상품의 특징을 꼼꼼하게 비교해보세요</h4>
+                <div class='back_btn' onclick='popupRender.returnFn("speed")'>보험료 다시 비교하기</div>
+                </div>
+                    <div class='tables'>
+                        <div class='head_data data_tabs'>
+                            <div class='left_tab tabs'>
+                                <div class='logo_section' style="background-image:url(${result1[0].logo})"></div>
+                                <div class='text_area'>
+                                    <h3>${result1[0].product}</h3>
+                                    <p>${result1[0].type}</p>
                                 </div>
-                                    <div class='tables'>
-                                        <div class='head_data data_tabs'>
-                                            <div class='left_tab tabs'>
-                                                <div class='logo_section' style="background-image:url(${result1[0].logo})"></div>
-                                                <div class='text_area'>
-                                                    <h3>${result1[0].product}</h3>
-                                                    <p>${result1[0].type}</p>
-                                                </div>
-                                            </div>
+                            </div>
 
-                                            <div class='center_tab'></div>
-                                            <div class='right_tab tabs'>
-                                                <div class='logo_section' style="background-image:url(${result2[0].logo})"></div>
-                                                    <div class='text_area'>
-                                                        <h3>${result2[0].product}</h3>
-                                                        <p>${result2[0].type}</p>
-                                                    </div>
-                                            </div>
-                                            </div>
-                                            <div class='price_tab data_tabs'>
-                                            <div class='left_tab tabs'>
-                                                <div class='price_bord'>
-                                                    ${priceHtml1}
-                                                </div>
-                                            </div>
-
-                                            <div class='center_tab'>
-                                                <span>연령별</br> 월 보험료</span>
-                                            </div>
-                                            <div class='right_tab tabs'>
-                                                <div class='price_bord'>
-                                                ${priceHtml2}
-                                                </div>
-                                            </div>
-                                            </div>
-                                            <div class='illust_tab'>
-                                                <div class='illu_tab'></div>
-                                                <div class='text_tab'>
-                                                    <p>어떤 보험을 선택해야 할지 막막 하시다고요?</p>
-                                                    <p>혼자서 이것 저것 비교 어렵다면 전문상담사와 함께 하세요</p>
-                                                    <p>한 눈으로 확인하는 보험상품 보장분석 서비스, 1:1 맞춤 무료 진행합니다.</p>
-                                                    <div class='consult_btn' onclick='popupRender.insertTapRender("compare","${subNode}")'>무료 상담 신청</div>
-                                                </div>                         
-                                            </div>
-                                            <div class='character_data data_tabs bottom_data'>
-                                            <div class='left_tab tabs'>
-                                                <p>${result1[0].Characteristic1}</p>
-                                            </div>
-                                            <div class='center_tab'>
-                                                <span>특징</span>
-                                            </div>
-                                            <div class='right_tab tabs'>
-                                            <p>${result2[0].Characteristic1}</p>
-                                            </div>
-                                            </div>
-
-                                            <div class='term_data data_tabs bottom_data'>
-                                                <div class='left_tab tabs'>
-                                                    <p>${result1[0].term}</p>
-                                                </div>
-                                                <div class='center_tab'>
-                                                    <span>보험기간</span>
-                                                </div>
-                                                <div class='right_tab tabs'>
-                                                <p>${result2[0].term}</p>
-                                                </div>
-                                            </div>
-
-                                            
-                                            <div class='term_data data_tabs bottom_data'>
-                                                <div class='left_tab tabs'>
-                                                    <p>${result1[0].payterm}년</p>
-                                                </div>
-                                                <div class='center_tab'>
-                                                    <span>납입</span>
-                                                </div>
-                                                <div class='right_tab tabs'>
-                                                <p>${result2[0].payterm}년</p>
-                                                </div>
-                                            </div>
-
-                                            <div class='term_data data_tabs bottom_data last-row'>
-                                                <div class='left_tab tabs'>
-                                                    <p>${result1[0].extension}</p>
-                                                </div>
-                                                <div class='center_tab'>
-                                                    <span>갱신/비갱신</span>
-                                                </div>
-                                                <div class='right_tab tabs'>
-                                                <p>${result2[0].extension}</p>
-                                                </div>
-                                            </div>
-                                        </div>
+                            <div class='center_tab'></div>
+                            <div class='right_tab tabs'>
+                                <div class='logo_section' style="background-image:url(${result2[0].logo})"></div>
+                                    <div class='text_area'>
+                                        <h3>${result2[0].product}</h3>
+                                        <p>${result2[0].type}</p>
                                     </div>
-                                </div>`
+                            </div>
+                            </div>
+                            <div class='price_tab data_tabs'>
+                            <div class='left_tab tabs'>
+                                <div class='price_bord'>
+                                    ${priceHtml1}
+                                </div>
+                            </div>
+
+                            <div class='center_tab'>
+                                <span>연령별</br> 월 보험료</span>
+                            </div>
+                            <div class='right_tab tabs'>
+                                <div class='price_bord'>
+                                ${priceHtml2}
+                                </div>
+                            </div>
+                            </div>
+                            <div class='illust_tab'>
+                                <div class='illu_tab'></div>
+                                <div class='text_tab'>
+                                    <p>어떤 보험을 선택해야 할지 막막 하시다고요?</p>
+                                    <p>혼자서 이것 저것 비교 어렵다면 전문상담사와 함께 하세요</p>
+                                    <p>한 눈으로 확인하는 보험상품 보장분석 서비스, 1:1 맞춤 무료 진행합니다.</p>
+                                    <div class='consult_btn' onclick='popupRender.insertTapRender("compare","${subNode}")'>무료 상담 신청</div>
+                                </div>                         
+                            </div>
+                            <div class='character_data data_tabs bottom_data'>
+                            <div class='left_tab tabs'>
+                                <p>${result1[0].Characteristic1}</p>
+                            </div>
+                            <div class='center_tab'>
+                                <span>특징</span>
+                            </div>
+                            <div class='right_tab tabs'>
+                            <p>${result2[0].Characteristic1}</p>
+                            </div>
+                            </div>
+
+                            <div class='term_data data_tabs bottom_data'>
+                                <div class='left_tab tabs'>
+                                    <p>${result1[0].term}</p>
+                                </div>
+                                <div class='center_tab'>
+                                    <span>보험기간</span>
+                                </div>
+                                <div class='right_tab tabs'>
+                                <p>${result2[0].term}</p>
+                                </div>
+                            </div>
+
+                            
+                            <div class='term_data data_tabs bottom_data'>
+                                <div class='left_tab tabs'>
+                                    <p>${result1[0].payterm}년</p>
+                                </div>
+                                <div class='center_tab'>
+                                    <span>납입</span>
+                                </div>
+                                <div class='right_tab tabs'>
+                                <p>${result2[0].payterm}년</p>
+                                </div>
+                            </div>
+
+                            <div class='term_data data_tabs bottom_data last-row'>
+                                <div class='left_tab tabs'>
+                                    <p>${result1[0].extension}</p>
+                                </div>
+                                <div class='center_tab'>
+                                    <span>갱신/비갱신</span>
+                                </div>
+                                <div class='right_tab tabs'>
+                                <p>${result2[0].extension}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
+            }
+
+           
         } else {
             alert('목록을 두개 선택해주세요')
         }
@@ -2311,7 +2457,7 @@ var popupRender = {
                 <div class='colums colum-1'>
                         <p>상담유형</p>
                         <select id='memo1'>
-                            <option value='태아(어린이)보험'>태아(어린이)보험</option>
+                            <option value='어린이 보험'>어린이 보험</option>
                             <option value='암보험'>암보험</option>
                             <option value='2대중대질병'>2대중대질병</option>
                             <option value='치매보험'>치매보험</option>
