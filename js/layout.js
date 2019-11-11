@@ -1593,7 +1593,7 @@ var popupRender = {
             this.tabData(0, 'cal')
         }, 700);
         $('html, body').css({
-            'overflow-y': 'hidden'
+            // 'overflow-y': 'hidden'
         });
     },
     calculateFn: function (a) {
@@ -1886,6 +1886,10 @@ var popupRender = {
                     }
                 }, 300)
             }
+
+           
+
+
         }
         var PcMedia = window.matchMedia('( max-width: 1200px )');
         var TabletMedia = window.matchMedia('( max-width: 1024px ) and (min-width: 768px)');
@@ -1894,13 +1898,12 @@ var popupRender = {
         if(TabletMedia.matches == true){
             setTimeout(() => {
                 insTab.innerHTML = `<div class='cal_top_tab'>
-                      <div class='user_info'>
-                                <h3>고객님 정보</h3>
-    
-                                <h4>${this.applyUserinfo[0].reqName}/ 만 ${age}세</h4>
-                                <h4>${result1[0].cate}</h4>
-                              </div>
-                              <div class='service_center_phone'>
+                                    <div class='user_info'>
+                                        <h3>고객님 정보</h3>
+                                        <h4>${this.applyUserinfo[0].reqName}/ 만 ${age}세</h4>
+                                        <h4>${result1[0].cate}</h4>
+                                    </div>
+                                    <div class='service_center_phone'>
                                         <p>고객센터</p>
                                         <h3>02-1670-5208</h3>
                                     </div>
@@ -1966,12 +1969,21 @@ var popupRender = {
                                     </div>
 
                 </div>`
-            },100)
+            },500)
 
         }
         else if(MobileMedia.matches == true){
             setTimeout(() => {
+                insTab.className = 'ins_tabs mo_tab'
                 insTab.innerHTML = `<div class='cal_top_tab'>
+                    <div class='top_tab'>
+                    <div class='btn_area'>
+                                        <div class='insert_consult btns' onclick='popupRender.insertTapRender("calsEnd","cals")'>무료상담 신청하기<img src="img/popup/insert_icon.png" alt="상담신청버튼아이콘"></div>
+                                        <div class='return_cal btns' onclick='popupRender.returnFn("cals")'>보험료 다시 계산하기<img src="img/popup/return_cal_icon.png" alt="다시 계산하기 아이콘"></div>
+                                    </div>
+                    </div>
+                               
+                    <div class='row2'>
                                 <div class='user_info'>
                                 <h3>고객님 정보</h3>
                                 <h4>${this.applyUserinfo[0].reqName}/ 만 ${age}세</h4>
@@ -1980,15 +1992,64 @@ var popupRender = {
                               <div class='service_center_phone'>
                                         <p>고객센터</p>
                                         <h3>02-1670-5208</h3>
+                            </div>
+                            </div>
+                            <div class='price_info'>
+                                <h3>월 납입보험료<h3>
+                                <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
+                                <p>월 예상 납입 보험료</p>
+                                <h2 class='price'><span>${Productprice}</span>원</h2>
+                            </div>
+                            <div class='ins_info_tab'>
+                                        <h3>상품 특징 및 가입조건</h3>
+                                        <ul class='ins_info_tb'>
+                                            <li>
+                                                <div class='list_head'>상품종류</div>
+                                                <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>상품명</div>
+                                                <div class='list_desc'>${result1[0].product}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>특징</div>
+                                                <div class='list_desc'>${result1[0].Characteristic1}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>갱신/비갱신</div>
+                                                <div class='list_desc'>${result1[0].extension}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>보험기간</div>
+                                                <div class='list_desc'>${result1[0].term}</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>납입기간</div>
+                                                <div class='list_desc'>${result1[0].payterm}년</div>
+                                            </li>
+                                            <li>
+                                                <div class='list_head'>가입유형</div>
+                                                <div class='list_desc'>${result1[0].type} </div>
+                                            </li>
+    
+                                        </ul>
                                     </div>
-                                           <div class='place_info'>
-                                    <h3>월 납입보험료<h3>
-                                    <h2 class='price'>${Productprice}<span>원</span></h2>
-                                    <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
-                                    <p>월 예상 납입 보험료</p>
-                              </div>
+                                    <p class='coment_p'>선택하신 보험상품에 대한 자세한 설명이 필요하시거나</p>
+                                    <p class='coment_p'>다른 상품 비교견적을 받고 싶으신 분들은 [상담신청]을</p>
+                                    <p class='coment_p'>남겨 주시면 최대한 빠른 시간 내에 전문상담사가 연락</p>
+                                    <p class='coment_p'>드리도록 하겠습니다.</p>
+                                    <div class='cal-banner'>
+                                    <h3>오래된 보험을 꺼내라!</h3>
+                                        <p>전국 32개 보험사의 모든 보험상품을 전격 비교하여</p>
+                                        <p>당신에게 딱 맞는 보험상품을 찾아드립니다.</p>
+                                        <p>보장내역은 든든하게, 보험절감의</p>
+                                        <p>효과를 누려보세요.</p>
+                                        <img src="img/popup/cal-banner.png" alt="계산기 배너이미지">
+                                    </div>
+                                    
+                                           
                         </div>`
-            },100)
+            },500)
         }
         else{
             setTimeout(() => {
@@ -2102,7 +2163,7 @@ var popupRender = {
             })
             priceHtml1 = []
             if (result1[0].ageprice.length == 1) {
-                priceHtml1.push(`<div class='null_data'>-</div>`)
+                priceHtml1.push(`<div class='null_data'><span>-</span></div>`)
             } else if (result1[0].ageprice == 'mnf') {
                 var objectKeyArrayMan = [];
                 var objectKeyArrayWoMan = [];
@@ -2138,17 +2199,6 @@ var popupRender = {
                 </div>
                 </div>`
                 )
-
-
-
-
-
-
-
-
-
-
-                
             } else if (result1[0].ageprice != 0) {
                 var objectKeyArray = [];
 
@@ -2182,7 +2232,7 @@ var popupRender = {
             })
             priceHtml2 = []
             if (result2[0].ageprice.length == 1) {
-                priceHtml2.push(`<div class='null_data'>-</div>`)
+                priceHtml2.push(`<div class='null_data'><span>-</span></div>`)
             } else if (result2[0].ageprice == 'mnf') {
                 var objectKeyArrayMan = [];
                 var objectKeyArrayWoMan = [];
@@ -2253,20 +2303,132 @@ var popupRender = {
             var MobileMedia = window.matchMedia('(max-width:767px)');
 
             if(MobileMedia.matches == true){
+           
+
+                $(function() {			
+					$("#table").swipe( {
+						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+					
+                            
+							if(direction =="left"){
+                                $('.mo_table > .left_tab').animate({
+                                    "left":"-75%"
+                                },100)
+                                $('.mo_table > .right_tab').animate({
+                                    "left":"0%"
+                                },100)
+
+							}
+							else if(direction =="right"){
+                                $('.mo_table > .left_tab').animate({
+                                    "left":"0%"
+                                },100)
+                                $('.mo_table > .right_tab').animate({
+                                    "left":"75%"
+                                },100)
+							}
+						},
+					   threshold:0
+					});
+                });
+
+                     
+               
+
                 insTab.innerHTML = `<div class='mo_compare_bord'>
                     <div class='bord_wrap'>
                     <div class='caption'>
-                <h3 class='result_compare'>스피드 보험비교</h3>
-                <h4>고객님이 선택하신 보험상품의 특징을 꼼꼼하게 비교해보세요</h4>
-                <div class='back_btn' onclick='popupRender.returnFn("speed")'>보험료 다시 비교하기</div>
-                <div class='insert_btn' onclick='popupRender.insertTapRender("compare","${subNode}")'>무료 상담 신청하기</div>
-                </div>
-                <div class='mo_table'>
-                    <div class='tabs left_tab'></div>
-                    <div class='tabs center_tab'></div>
-                    <div class='tabs right_tab'></div>
+                        <h3 class='result_compare'>스피드 보험비교</h3>
+                        <h4>고객님이 선택하신 보험상품의 특징을 꼼꼼하게 비교해보세요</h4>
+                        <div class='back_btn' onclick='popupRender.returnFn("speed")'>보험료 다시 비교하기</div>
+                        <div class='insert_btn' onclick='popupRender.insertTapRender("compare","${subNode}")'>무료 상담 신청하기</div>
+                    </div>
+                    <div class='mo_table' id='table'>
+                        <div class='left_tab mo_tab'>
+                            <div class='top_data'>
+                            <div class='logo_section' id='result_logosection' style="background-image:url(${result1[0].logo})"></div>
+                                <div class='text_area'>
+                                    <h3 id='result_product'>${result1[0].product}</h3>
+                                    <p id='result_type'>${result1[0].type}</p>
+                                </div>
+                            </div>
+                            <div class='price_table' id="price_table">
+                                ${priceHtml1}
+                            </div>
 
-                </div>
+                            <div class='characteristic_tab tabs'>
+                                <div class='text_area'>
+                                <p>${result1[0].Characteristic1}</p>
+                                <p>${result1[0].Characteristic2}</p>
+                                </div>
+                                
+                            </div>
+                            <div class='term_tab tabs'>
+                                    <p>${result1[0].term}</p>
+                                </div>
+                                <div class='payterm_tab tabs'>
+                                    <p>${result1[0].payterm}</p>
+                                </div>
+                                <div class='extension_tab tabs'>
+                                    <p>${result1[0].extension}</p>
+                                </div>
+                        </div>
+
+                        <div class='right_tab mo_tab'>
+                            <div class='top_data'>
+                            <div class='logo_section' id='result_logosection' style="background-image:url(${result2[0].logo})"></div>
+                                <div class='text_area'>
+                                    <h3 id='result_product'>${result2[0].product}</h3>
+                                    <p id='result_type'>${result2[0].type}</p>
+                                </div>
+                            </div>
+                            <div class='price_table' id="price_table">
+                                ${priceHtml2}
+                            </div>
+                            <div class='characteristic_tab tabs'>
+                            <div class='text_area'>
+                                <p>${result2[0].Characteristic1}</p>
+                                <p>${result2[0].Characteristic2}</p>
+                                </div>
+                            </div>
+                            <div class='term_tab tabs'>
+                                    <p>${result2[0].term}</p>
+                                </div>
+                                <div class='payterm_tab tabs'>
+                                    <p>${result2[0].payterm}</p>
+                                </div>
+                                <div class='extension_tab tabs'>
+                                    <p>${result2[0].extension}</p>
+                                </div>
+                        </div>
+
+
+                        <div class='center_tab'>
+                            <div class='top_tab'>
+                                <div class='swipe_img'>
+                                    <img id='swipe1' src='img/popup/swipe_img1.png'/ alt='스와이프이미지1'>
+                                    <img id='swipe2' src='img/popup/swipe_img2.png'/ alt='스와이프이미지2'>
+                                    <img id='swipe3' src='img/popup/swipe_img3.png'/ alt='스와이프이미지3'>
+                                </div>
+                            </div>
+                            <div class='row2_tab'>
+                                <span>연령별</br> 월 보험료</span>
+                            </div>
+                            <div class='row3_tab'>
+                                <span>특징</span>
+                            </div>
+                            <div class='row4_tab'>
+                                <span>보험기간</span>
+                            </div>
+                            <div class='row5_tab'>
+                                <span>납입기간</span>
+                            </div>
+                            <div class='row6_tab'>
+                                <span>갱신/비갱신</span>
+                            </div>
+
+                        </div>
+                    </div>
                     </div>
                 </div>`
 
@@ -2326,6 +2488,7 @@ var popupRender = {
                             <div class='character_data data_tabs bottom_data'>
                             <div class='left_tab tabs'>
                                 <p>${result1[0].Characteristic1}</p>
+                                
                             </div>
                             <div class='center_tab'>
                                 <span>특징</span>
@@ -2380,6 +2543,8 @@ var popupRender = {
         } else {
             alert('목록을 두개 선택해주세요')
         }
+       
+
     },
     insertTapRender: function (accessnode, subNode) {
         var insertTab = document.getElementById('insert_box')

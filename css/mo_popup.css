@@ -5,6 +5,9 @@
   font-display: swap;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
 }
+* {
+  box-sizing: border-box;
+}
 html,
 body {
   font-size: 16px;
@@ -29,7 +32,6 @@ body {
 }
 @media (max-width:767px) {
   #wrap div.popups {
-    background: none!important;
     top: 60px;
   }
 }
@@ -82,11 +84,13 @@ body {
   #wrap div.popups div.speed_compare_popup {
     box-sizing: border-box;
     max-width: 100%;
-    height: 100%;
+    padding-bottom: 50px;
+    height: 150%;
     background: white;
     left: 00%;
     top: 0%;
     transform: translate(0%, 0%);
+    overflow-x: hidden;
   }
 }
 #wrap div.popups div.speed_compare_popup span.xbox {
@@ -149,6 +153,7 @@ body {
     width: 50%;
     height: 50%;
     border: 0px;
+    font-size: 0.875rem;
   }
 }
 #wrap div.popups div.speed_compare_popup div.popup_nav div.popup_list img {
@@ -193,7 +198,7 @@ body {
 }
 @media (max-width:767px) {
   #wrap div.popups div.speed_compare_popup div.ins_tabs {
-    height: 150%;
+    height: 140%;
   }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs h3 {
@@ -228,7 +233,7 @@ body {
 @media (max-width:767px) {
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab {
     width: 48%;
-    height: 20%;
+    height: 130px;
     margin: 3px;
   }
 }
@@ -238,6 +243,7 @@ body {
   right: -10px;
   top: -10px;
   opacity: 0;
+  z-index: 20;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab .icon_area {
   width: 150px;
@@ -252,8 +258,8 @@ body {
 @media (max-width:767px) {
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab .icon_area {
     width: 80%;
-    flex-basis: 75%;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    background-size: 55%;
   }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab p {
@@ -261,6 +267,11 @@ body {
   margin: 0 auto;
   letter-spacing: -1px;
   word-break: keep-all;
+}
+@media (max-width:767px) {
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab p {
+    font-size: 0.75rem;
+  }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab3,
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab6 {
@@ -659,6 +670,7 @@ body {
     color: white;
     line-height: 50px;
     letter-spacing: -1px;
+    font-size: 0.75rem;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.caption div.insert_btn {
     cursor: pointer;
@@ -672,40 +684,282 @@ body {
     color: white;
     line-height: 50px;
     letter-spacing: -1px;
+    font-size: 0.75rem;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table {
-    width: 100%;
-    height: 500px;
+    width: 110%;
+    height: 460px;
     overflow-y: hidden;
     overflow-x: scroll;
     position: relative;
     border: 2px solid #ec6647;
-    border-radius: 5px;
+    border-radius: 5px 0px 0px 5px;
     box-sizing: border-box;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab {
     width: 25%;
-    height: 500px;
-    position: fixed;
+    height: 100%;
     z-index: 10;
     border-left: 1px solid #d0d0d0;
+    background: #f0f0f0;
+    position: absolute;
     right: 0;
+    top: 0;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab .top_tab {
+    width: 100%;
+    background: #f5f5f5;
+    height: 75px;
+    padding-left: 10px;
+    border-bottom: 1px solid #d0d0d0;
+    background-image: url(../img/popup/vs_img.png);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    background-position: 30% 40%;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab .top_tab div.swipe_img {
+    width: 65%;
+    height: 25px;
+    position: absolute;
+    bottom: 0;
+    text-align: center;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab .top_tab div.swipe_img img {
+    display: inline-block;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab .top_tab div.swipe_img img#swipe1 {
+    left: 4px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab .top_tab div.swipe_img img#swipe3 {
+    right: 4px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row2_tab {
+    width: 100%;
+    height: 115px;
+    border-bottom: 1px solid #d0d0d0;
+    background: #f5f5f5;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row2_tab span {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    width: 80%;
+    text-align: center;
+    line-height: 1rem;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row3_tab,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row4_tab,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row5_tab,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row6_tab {
+    height: 110px;
+    border-bottom: 1px solid #d0d0d0;
+    background: #f5f5f5;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row3_tab span,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row4_tab span,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row5_tab span,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row6_tab span {
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    width: 80%;
+    text-align: center;
+    line-height: 1rem;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row4_tab,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row5_tab {
+    height: 50px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .center_tab div.row6_tab {
+    height: 50px;
+    border: 0px;
+  }
+  @keyframes swipeImgAni {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab .top_data {
+    width: 100%;
     background: white;
+    height: 75px;
+    padding-left: 10px;
+    border-bottom: 1px solid #d0d0d0;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab .top_data div.logo_section {
+    width: 25%;
+    height: 100%;
+    padding: 10px;
+    float: left;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 85%;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab .top_data .text_area {
+    width: 75%;
+    float: left;
+    padding: 10px;
+    padding-top: 25px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab .top_data h3 {
+    text-align: left;
+    margin: 0;
+    font-size: 0.75rem;
+    word-break: keep-all;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab .top_data p {
+    font-size: 0.75rem;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table {
+    width: 100%;
+    height: 115px;
+    position: relative;
+    border-bottom: 1px solid #d0d0d0;
+    padding-top: 10px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.null_data {
+    width: 95%;
+    height: 80%;
+    border: 1px solid #d0d0d0;
+    text-align: center;
+    margin: 0 auto;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.null_data span {
+    display: block;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row {
+    width: 95%;
+    height: 30px;
+    margin: 0 auto;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum {
+    height: 100%;
+    text-align: center;
+    border-top: 1px solid #d0d0d0;
+    float: left;
+    line-height: 30px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum.colum-4 {
+    width: 25%;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum.colum-6 {
+    width: calc(100%/6);
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum_head {
+    width: 20%;
+    font-size: 0.875rem;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum_body {
+    width: 40%;
+    font-size: 0.75rem;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum_body span.gender_mark {
+    position: absolute;
+    line-height: 20px;
+    color: white;
+    border-radius: 100%;
+    font-size: 0.753rem;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum_body .man_mark {
+    background: #24a1e9;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.row div.colum_body .woman_mark {
+    background: #ff449c;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.tb_body1 .colum {
+    background-color: #f0f0f0;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.tb_body1 div {
+    color: #24a1e9;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.tb_body2 {
+    border: 0px;
+    border-bottom: 1px solid #d0d0d0;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table div.tb_body2 div {
+    font-size: 0.875rem;
+    color: #ff449c;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.characteristic_tab {
+    height: 110px;
+    padding: 10px;
+    border-bottom: 1px solid #d0d0d0;
+    font-size: 0.875rem;
+    text-align: center  ;
+    word-break: keep-all;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.characteristic_tab div.text_area {
+    width: 90%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.term_tab {
+    border-bottom: 1px solid #d0d0d0;
+    height: 50px;
+    line-height: 50px;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.payterm_tab {
+    border-bottom: 1px solid #d0d0d0;
+    height: 50px;
+    line-height: 50px;
+    font-size: 0.875rem;
+    text-align: center;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.extension_tab {
+    line-height: 50px;
+    font-size: 0.875rem;
+    text-align: center;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .left_tab {
-    width: 100%;
-    background: seagreen;
+    width: 75%;
     height: 500px;
     z-index: 5;
+    overflow: hidden;
     position: absolute;
+    left: 0;
+    top: 0;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .right_tab {
-    width: 100%;
-    background: sienna;
-    z-index: 9;
-    left: 100%;
-    position: absolute;
+    width: 75%;
     height: 500px;
+    z-index: 5;
+    overflow: hidden;
+    position: absolute;
+    left: 75%;
+    top: 0;
   }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms {
@@ -714,6 +968,11 @@ body {
   margin: 40px auto;
   border-top: 1px solid #d0d0d0;
   text-align: left;
+}
+@media (max-width:767px) {
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms {
+    height: 180px;
+  }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms select {
   background-image: url(../img/popup/select_bg.png);
@@ -729,6 +988,11 @@ body {
   height: 40px;
   display: inline-block;
   overflow: hidden;
+}
+@media (max-width:767px) {
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms div.input_box {
+    width: 100%;
+  }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms div.input_box input,
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms div.input_box select {
@@ -788,8 +1052,13 @@ body {
   border: 2px solid #ec6647;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms label.container {
-  width: 250px;
+  width: 100%;
   margin-top: 10px;
+}
+@media (max-width:767px) {
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.forms label.container {
+    width: 100%;
+  }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab {
   width: 100%;
@@ -1149,6 +1418,182 @@ body {
   font-size: 0.875rem;
   overflow: hidden;
 }
+@media (max-width:767px) {
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.top_tab {
+    width: 100%;
+    height: 50px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.btn_area {
+    width: 100%;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.btn_area div.btns {
+    width: 49%;
+    float: left;
+    font-size: 0.875rem;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.btn_area div.return_cal {
+    float: right;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.row2 {
+    width: 100%;
+    height: 100px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.row2 div.user_info {
+    width: 49%;
+    height: 100px;
+    float: left;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.row2 div.service_center_phone {
+    width: 49%;
+    height: 100px;
+    float: right;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.row2 div.service_center_phone h3 {
+    font-size: 1.25rem;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info {
+    width: 100%;
+    margin-top: 10px;
+    height: 150px;
+    border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    padding: 20px;
+    position: relative;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info h3 {
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 10px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info p {
+    text-align: left;
+    font-size: 1rem;
+    margin-bottom: 5px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info p span {
+    font-weight: bold;
+    color: #ec6647;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info h2.price {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info h2.price span {
+    font-size: 1.563rem;
+    color: #ec6647;
+    margin-right: 5px   ;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.ins_info_tab {
+    width: 100%;
+    height: 380px;
+    border: 1px solid #d0d0d0;
+    margin-top: 10px;
+    border-radius: 5px;
+    padding: 20px;
+    margin-bottom: 10px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.ins_info_tab h3 {
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 20px;
+    text-align: left;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.ins_info_tab ul {
+    width: 100%;
+    height: 280px;
+    border: 1px solid #d0d0d0;
+    border-bottom: 0px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.ins_info_tab ul li {
+    height: 40px;
+    border-bottom: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    line-height: 40px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.ins_info_tab ul li div.list_head {
+    width: 25%;
+    height: 100%;
+    background: #f6f6f6;
+    float: left;
+    border-right: 1px solid #d0d0d0;
+    box-sizing: border-box;
+    font-weight: bold;
+    color: #222;
+    padding-left: 10px;
+    font-size: 0.75rem;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.ins_info_tab ul li div.list_desc {
+    width: 70%;
+    height: 100%;
+    float: left;
+    color: #444;
+    padding-left: 10px;
+    box-sizing: border-box;
+    font-size: 0.75rem;
+    overflow: hidden;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab p.coment_p {
+    color: #ec6647;
+    margin-bottom: 5px;
+    font-size: 0.875rem;
+    letter-spacing: -1px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner {
+    width: 100%;
+    height: 150px;
+    margin-top: 30px;
+    margin-bottom: 50px;
+    border-radius: 5px;
+    border: 1px solid #d0d0d0;
+    padding-top: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    box-sizing: border-box;
+    background: #f76069;
+    /* Old browsers */
+    background: -moz-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+    /* FF3.6-15 */
+    background: -webkit-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+    /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(to bottom, #f76069 0%, #ff8c55 100%);
+    /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f76069', endColorstr='#ff8c55', GradientType=0);
+    /* IE6-9 */
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner h3,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner h4,
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner p {
+    color: white;
+    margin: 0;
+    text-align: left;
+    letter-spacing: -1.5px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner h3 {
+    font-size: 1.125rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner h4 {
+    font-size: 0.875rem;
+    margin-bottom: 20px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner p {
+    font-size: 0.75rem;
+    margin-bottom: 10px;
+    letter-spacing: -1px;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.cal-banner img {
+    width: 45%;
+    position: absolute;
+    right: 5px;
+    bottom: 0px;
+  }
+}
+#wrap div.popups div.speed_compare_popup div.mo_tab {
+  height: 160%;
+}
 #wrap div.popups div.speed_compare_popup div.compare_fn_btn {
   cursor: pointer;
   width: 250px;
@@ -1174,6 +1619,14 @@ body {
   font-weight: bold;
   text-align: center;
 }
+@media (max-width:767px) {
+  #wrap div.popups div.speed_compare_popup div.cal_fn_btn {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+  }
+}
 #wrap div.insert_popup {
   background-color: rgba(0, 0, 0, 0.6);
   max-width: 100%;
@@ -1192,6 +1645,13 @@ body {
   padding-top: 40px;
   box-sizing: border-box;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box {
+    max-width: 100%;
+    height: 100%;
+    top: 50%;
+  }
+}
 #wrap div.insert_popup div.insert_box span.xbox {
   cursor: pointer;
   width: 25px;
@@ -1202,6 +1662,13 @@ body {
   right: 20px;
   top: 20px;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box span.xbox {
+    width: 15px;
+    height: 15px;
+    background-size: contain;
+  }
+}
 #wrap div.insert_popup div.insert_box h2 {
   font-size: 1.875rem;
   color: #222;
@@ -1209,20 +1676,43 @@ body {
   letter-spacing: -2px;
   text-align: center;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box h2 {
+    font-size: 1.125rem;
+  }
+}
 #wrap div.insert_popup div.insert_box div.insert_form {
   width: 100%;
   height: 410px;
   margin-top: 35px;
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form {
+    margin-top: 15px;
+    height: 320px;
+  }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.row {
   width: 100%;
   height: 75px;
   margin-bottom: 30px;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.row {
+    height: 100px;
+    margin-bottom: 0px;
+  }
+}
 #wrap div.insert_popup div.insert_box div.insert_form div.row div.colums {
   width: 50%;
   height: 100%;
   float: left;
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.row div.colums {
+    width: 100%;
+    height: 50%;
+  }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.row p {
   height: 15px;
@@ -1232,12 +1722,23 @@ body {
   font-weight: bold;
   padding-left: 5px;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.row p {
+    display: none;
+  }
+}
 #wrap div.insert_popup div.insert_box div.insert_form div.top_tab input[type=text] {
   width: 95%;
   height: 55px;
   box-sizing: border-box;
   padding-left: 20px;
   border: 2px solid #d9d9d9;
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.top_tab input[type=text] {
+    width: 100%;
+    height: 40px;
+  }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.top_tab input[type=text]:focus {
   border: 2px solid #ec6647;
@@ -1255,6 +1756,13 @@ body {
   background-size: 14PX;
   background-position-x: 95%;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.top_tab select {
+    width: 30%;
+    height: 40px;
+    float: left;
+  }
+}
 #wrap div.insert_popup div.insert_box div.insert_form div.top_tab select:focus {
   border: 2px solid #ec6647;
 }
@@ -1265,6 +1773,12 @@ body {
   padding-left: 20px;
   border: 2px solid #d9d9d9;
   float: right;
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.top_tab input.number {
+    height: 40px;
+    float: right;
+  }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.top_tab input.number:focus {
   border: 2px solid #ec6647;
@@ -1282,6 +1796,12 @@ body {
   background-size: 14PX;
   background-position-x: 95%;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab select {
+    width: 100%;
+    height: 40px;
+  }
+}
 #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab select:focus {
   border: 2px solid #ec6647;
 }
@@ -1291,14 +1811,21 @@ body {
   border: 2px solid #d9d9d9;
   box-sizing: border-box;
   padding-left: 20px;
+  position: relative;
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab input.date:focus {
   border: 2px solid #ec6647;
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab input.date {
+    height: 40px;
+  }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab span.date_btn {
   position: absolute;
   right: 53%;
   top: 50%;
+  transform: translateY(-50%);
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab .colum-2 {
   position: relative;
@@ -1311,11 +1838,21 @@ body {
   padding-left: 20px;
   border: 2px solid #d9d9d9;
 }
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab .colum-2 select {
+    height: 40px;
+  }
+}
 #wrap div.insert_popup div.insert_box div.insert_form div.middle_tab .colum-2 select:focus {
   border: 2px solid #ec6647;
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.bottom_tab {
   height: 170px;
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.bottom_tab {
+    height: 120px;
+  }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.bottom_tab textarea {
   height: 150px;
@@ -1325,6 +1862,11 @@ body {
   border: 2px solid #d9d9d9;
   resize: none;
   margin-top: 10px;
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.insert_form div.bottom_tab textarea {
+    height: 100px;
+  }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.bottom_tab textarea:focus {
   border: 2px solid #ec6647;
@@ -1344,6 +1886,15 @@ body {
   -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
   box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+}
+@media (max-width:767px) {
+  #wrap div.insert_popup div.insert_box div.sub_btn {
+    width: 200px;
+    height: 40px;
+    line-height: 40px;
+    font-size: 1rem;
+    margin: 30px auto;
+  }
 }
 input[type=text]:focus {
   outline: none;
@@ -1540,7 +2091,7 @@ div.ins_tabs.more_ins div.input_tab label.container span.checkmark {
   height: 20px;
 }
 div.ins_tabs.more_ins div.input_tab .container .checkmark:after {
-  top: 2px;
+  top: 5px;
   left: 5px;
 }
 div.ins_tabs.more_ins div.input_tab div.more_submit_btn {

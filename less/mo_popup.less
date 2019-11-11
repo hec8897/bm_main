@@ -1,6 +1,8 @@
 @mainColor: #ec6647;
 @import url('https://fonts.googleapis.com/css?family=Roboto&display=swap');
-
+*{
+    box-sizing: border-box;
+}
 html,
 body {
     font-size: 16px;
@@ -32,7 +34,6 @@ body {
         background-color: rgba(255, 255, 255);
         z-index: 999;
         @media@mediaVericalMobile {
-            background: none!important;
             top: 60px;
 
         }
@@ -90,11 +91,13 @@ body {
                 @media@mediaVericalMobile {
                     box-sizing: border-box;
                     max-width: 100%;
-                    height: 100%;
+                    padding-bottom: 50px;
+                    height: 150%;
                     background: white;
                     left: 00%;
                     top: 0%;
                     transform: translate(-00%, -00%);
+                    overflow-x: hidden;
                 }
 
             span.xbox {
@@ -155,6 +158,7 @@ body {
                         width: 50%;
                         height: 50%;
                         border: 0px;
+                        font-size: 0.875rem;
                     }
 
                     img {
@@ -200,6 +204,7 @@ body {
 
                 }
             }
+            
 
             div.ins_tabs {
                 width: 100%;
@@ -207,7 +212,8 @@ body {
                 margin-top: 20px;
                 text-align: left;
                 @media@mediaVericalMobile {
-                    height: 150%;
+                    height: 140%;
+
 
                 }
 
@@ -245,7 +251,7 @@ body {
                     vertical-align: bottom;
                 @media@mediaVericalMobile {
                     width: 48%;
-                    height: 20%;
+                    height: 130px;
                     margin: 3px;
                 }
 
@@ -256,6 +262,7 @@ body {
                         right: -10px;
                         top: -10px;
                         opacity: 0.0;
+                        z-index: 20;
                     }
 
                     .icon_area {
@@ -267,8 +274,8 @@ body {
                         background-size: contain;
                         @media@mediaVericalMobile {
                             width: 80%; 
-                            flex-basis: 75%;
-                            margin-bottom: 20px;
+                            margin-bottom: 15px;
+                            background-size: 55%;
 
                         }
 
@@ -279,6 +286,10 @@ body {
                         margin: 0 auto;
                         letter-spacing: -1px;
                         word-break: keep-all;
+                        @media@mediaVericalMobile {
+                            font-size: 0.75rem;
+                        }
+
 
                     }
                 }
@@ -421,13 +432,10 @@ body {
 
                                 div.text_area {
                                     width: 60%;
-                                    ;
                                     height: 100%;
                                     float: left;
                                     padding-left: 30px;
-                                    ;
                                     box-sizing: border-box;
-                                    ;
                                     padding-top: 25px;
                                     text-align: left;
 
@@ -780,6 +788,7 @@ body {
                                 color: white;
                                 line-height: 50px;
                                 letter-spacing: -1px;
+                                font-size: 0.75rem;
                                 
                             }
                             div.insert_btn {
@@ -794,45 +803,317 @@ body {
                                 color: white;
                                 line-height: 50px;
                                 letter-spacing: -1px;
+                                font-size: 0.75rem;
+
                             }
     
                         }
                         div.mo_table{
-                            width: 100%;
-                            height: 500px;
+                            width: 110%;
+                            height: 460px;
                             overflow-y: hidden;;
                             overflow-x: scroll;
                             position: relative;
                             border: 2px solid @mainColor;
-                            border-radius: 5px;
+                            border-radius: 5px 0px 0px 5px;
                             box-sizing: border-box;
+
                         
                             .center_tab{
                                 width: 25%;
-                                height: 500px;
-                                position: fixed;
+                                height: 100%;
                                 z-index: 10;
                                 border-left: 1px solid #d0d0d0;
+                                background: #f0f0f0;
+                                position: absolute;
                                 right: 0;
-                                background: white;
+                                top: 0;
+                                .top_tab{
+                                    width: 100%;
+                                    background: #f5f5f5;
+                                    height: 75px;
+                                    padding-left: 10px;
+                                    border-bottom: 1px solid #d0d0d0;
+                                    background-image: url(../img/popup/vs_img.png);
+                                    .backgroundOption;
+                                    background-size: 50%;
+                                    background-position: 30% 40%;
+                                    position: relative;
+                                    div.swipe_img{
+                                        width: 65%;
+                                        height: 25px;
+                                        position: absolute;
+                                        bottom: 0;
+                                        text-align: center;
+                                        img{
+                                            display: inline-block;
+                                            position: relative;
+                                            // opacity: 0.0;
+
+                                        }
+                                        img#swipe1{
+                                            left: 4px;
+                                            // animation: swipeImgAni 2s;
+                                            // animation-iteration-count: infinite;
+                                        }
+                                        img#swipe2{
+                                            // animation: swipeImgAni 1.0s;
+                                            // animation-delay: 0.5s;
+                                            // animation-iteration-count: infinite;
+                                        }
+                                        img#swipe3{
+                                            right:4px;
+                                            // animation: swipeImgAni 2s;
+                                            // animation-delay: 1s;
+                                            // animation-iteration-count: infinite;
+                                        }
+                                    }
+
+                                }
+                                div.row2_tab{
+                                    width: 100%;
+                                    height: 115px;
+                                    border-bottom: 1px solid #d0d0d0;
+                                    background: #f5f5f5;
+                                    position: relative;
+                                    span{
+                                        position: absolute;
+                                        display: inline-block;
+                                        top: 50%;
+                                        left: 40%;
+                                        transform: translate(-50%,-50%);
+                                        font-size: 0.75rem;
+                                        width: 80%;
+                                        text-align: center;
+                                        line-height: 1rem;
+                                    }
+                                }
+                                div.row3_tab,div.row4_tab,div.row5_tab,div.row6_tab{
+                                    height: 110px;
+                                    border-bottom: 1px solid #d0d0d0;
+                                    background: #f5f5f5;
+                                    position: relative;
+                                    span{
+                                        position: absolute;
+                                        display: inline-block;
+                                        top: 50%;
+                                        left: 40%;
+                                        transform: translate(-50%,-50%);
+                                        font-size: 0.75rem;
+                                        width: 80%;
+                                        text-align: center;
+                                        line-height: 1rem;
+                                    }
+                                }
+                                div.row4_tab,div.row5_tab{
+                                    height: 50px;
+                                }
+                                div.row6_tab{
+                                    height: 50px;
+                                    border: 0px;
+                                }
+                                @keyframes swipeImgAni {
+                                    0%{
+                                        opacity: 0.0;
+                                    }
+                                    100%{
+                                        opacity: 1.0;
+                                    }
+                                    
+                                }
+
+                            }
+                            .mo_tab{
+                            
+                                .top_data{
+                                    width: 100%;
+                                    background: white;
+                                    height: 75px;
+                                    padding-left: 10px;
+                                    border-bottom: 1px solid #d0d0d0;
+                                    div.logo_section{
+                                        width: 25%;
+                                        height: 100%;
+                                        padding: 10px;
+                                        float: left;
+                                        .backgroundOption;
+                                        background-size: 85%;
+                                    }
+                                    .text_area{
+                                        width: 75%;
+                                        float: left;
+                                        padding: 10px;
+                                        padding-top: 25px;
+                                    }
+                                    h3{
+                                        text-align: left;
+                                        margin: 0;
+                                        font-size: 0.75rem;
+                                        word-break: keep-all;
+                                    }
+                                    p{
+                                        font-size: 0.75rem;
+
+                                    }
+                                }
+                                div.price_table{
+                                    width: 100%;
+                                    height: 115px;
+                                    position: relative;
+                                    border-bottom: 1px solid #d0d0d0;
+                                    padding-top: 10px;
+
+        
+                                    div.null_data {
+                                        width: 95%;
+                                        height: 80%;
+                                        border: 1px solid #d0d0d0;
+                                        text-align: center;
+                                        margin: 0 auto;;
+                                        position: relative;
+                                        span{
+                                            display: block;
+                                            position: absolute;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%,-50%);
+
+                                        }
+
+                                    }
+        
+                                    div.row {
+                                        width:95%;
+                                        height: 30px;
+                                        margin: 0 auto;
+        
+                                        div.colum {
+                                            height: 100%;
+                                            text-align: center;
+                                            border-top: 1px solid #d0d0d0;
+                                            float: left;
+                                            line-height: 30px;
+                                        }
+        
+                                        div.colum.colum-4 {
+                                            width: 25%;
+                                        }
+        
+                                        div.colum.colum-6 {
+                                            width: calc(100%/6);
+                                        }
+        
+                                        div.colum_head {
+                                            width: 20%;
+                                            font-size: 0.875rem;
+                                        }
+        
+                                        div.colum_body {
+                                            width: 40%;
+                                            font-size: 0.75rem;
+                                            position: relative;
+        
+                                            span.gender_mark {
+                                                position: absolute;
+                                                line-height: 20px;
+                                                color: white;
+                                                border-radius: 100%;
+                                                font-size: 0.753rem;
+                                                top: 50%;
+                                                left: 50%;
+                                                transform: translate(-50%, -50%);
+                                                display: inline-block;
+                                                width: 20px;
+                                                height: 20px;
+                                                ;
+                                            }
+        
+                                            .man_mark {
+                                                background: #24a1e9;
+                                            }
+        
+                                            .woman_mark {
+                                                background: #ff449c;
+                                            }
+                                        }
+        
+                                    }
+        
+                                    div.tb_body1 {
+                                        .colum {
+                                            background-color: #f0f0f0;
+        
+                                        }
+        
+                                        div {
+                                            color: #24a1e9;
+                                        }
+                                    }
+        
+                                    div.tb_body2 {
+                                        border: 0px;
+                                        border-bottom: 1px solid #d0d0d0;
+        
+                                        div {
+                                            font-size: 0.875rem;
+                                            color: #ff449c;
+                                        }
+                                    }
+        
+                                }
+                                div.characteristic_tab{
+                                    height: 110px;
+                                    padding: 10px;
+                                    border-bottom: 1px solid #d0d0d0;
+                                    font-size: 0.875rem;
+                                    text-align: center  ;
+                                    word-break: keep-all;
+                                    position: relative;
+                                    div.text_area{
+                                        width: 90%;
+                                        position: absolute;
+                                        top: 50%;
+                                        left: 50%;
+                                        transform: translate(-50%,-50%);
+                                    }
+                                }
+                                div.term_tab{
+                                    border-bottom: 1px solid #d0d0d0;
+                                    height: 50px;
+                                    line-height: 50px;
+                                    font-size: 0.875rem;
+                                    text-align: center;
+                                }
+                                div.payterm_tab{
+                                    border-bottom: 1px solid #d0d0d0;
+                                    height: 50px;
+                                    line-height: 50px;
+                                    font-size: 0.875rem;
+                                    text-align: center;
+                                }
+                                div.extension_tab{
+                                    line-height: 50px;
+                                    font-size: 0.875rem;
+                                    text-align: center;
+                                }
                             }
                             .left_tab{
-                                width: 100%;
-                                background: seagreen;
+                                width: 75%;
                                 height: 500px;
-
                                 z-index: 5;
+                                overflow: hidden;
                                 position: absolute;
-
+                                left: 0;
+                                top: 0;
                             }
                             .right_tab{
-                                width: 100%;
-                                background: sienna;
-                                z-index: 9;
-                                left: 100%;
-                                position: absolute;
+                                width: 75%;
                                 height: 500px;
-
+                                z-index: 5;
+                                overflow: hidden;
+                                position: absolute;
+                                left: 75%;
+                                top: 0;
 
                             }
                             // position: absolute;
@@ -852,6 +1133,10 @@ body {
                     margin: 40px auto;
                     border-top: 1px solid #d0d0d0;
                     text-align: left;
+                    @media@mediaVericalMobile {
+                        height: 180px;
+                    }
+
 
                     select {
                         background-image: url(../img/popup/select_bg.png);
@@ -866,6 +1151,10 @@ body {
                         height: 40px;
                         display: inline-block;
                         overflow: hidden;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                        }
+
 
                         input,
                         select {
@@ -944,9 +1233,11 @@ body {
                     }
 
                     label.container {
-                        width: 250px;
+                        width: 100%;
                         margin-top: 10px;
-                        ;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                        }
                     }
                 }
 
@@ -1037,10 +1328,6 @@ body {
                             background: @mainColor;
                         }
                     }
-                   
-              
-
-                   
                 }
                 div.cal_row2_tab{
                     width: 100%;
@@ -1235,8 +1522,6 @@ body {
                     }
 
                 }
-
-
                 div.cal_bottom_tab {
                     width: 100%;
                     height:520px;
@@ -1382,6 +1667,210 @@ body {
               
                     }
                 }
+                div.cal_top_tab{
+                    @media@mediaVericalMobile {
+                        div.top_tab{
+                            width: 100%;
+                            height: 50px;
+                        }
+                        div.btn_area{
+                            width: 100%;
+                            div.btns{
+                                width: 49%;
+                                float: left;
+                                font-size: 0.875rem;
+                            }
+                            div.return_cal{
+                                float: right;
+                            }
+                        }
+                        div.row2{
+                            width: 100%;
+                            height: 100px;
+                            div.user_info{
+                                width: 49%;
+                                height: 100px;
+                                float: left;
+                            }
+                            div.service_center_phone{
+                                width: 49%;
+                                height: 100px;
+                                float: right;
+                                h3{
+                                    font-size: 1.25rem;
+                                }
+                            }
+                        }
+                       
+                        div.price_info{
+                            width: 100%;
+                            margin-top: 10px;
+                            height: 150px;
+                            border:1px solid #d0d0d0;
+                            border-radius: 5px;
+                            padding: 20px;
+                            position: relative;
+                            h3{
+                                text-align: left;
+                                font-size: 1rem;;
+                                margin-bottom: 10px;
+                            }
+                            p{
+                                text-align: left;
+                                font-size: 1rem;;
+                                margin-bottom: 5px;
+                                span{
+                          
+                                    font-weight: bold;;
+                                    color: @mainColor;
+                                }
+                            }
+                            h2.price{
+                                position: absolute;
+                                bottom: 20px;
+                                right: 20px;
+                                span{
+                                    font-size: 1.563rem;
+                                    color: @mainColor;
+                                    margin-right: 5px   ;
+                                }
+
+                            }
+                        }
+                        div.ins_info_tab{
+                            width: 100%;
+                            height: 380px;
+                            border: 1px solid #d0d0d0;
+                            margin-top: 10px;
+                            border-radius: 5px;
+                            padding: 20px;
+                            margin-bottom: 10px;
+
+        
+                                h3 {
+                                    font-weight: bold;
+                                    color: #222;
+                                    margin-bottom: 20px;
+                                    text-align: left;
+                                }
+        
+                                ul {
+                                    width: 100%;
+                                    height: 280px;
+                                    border: 1px solid #d0d0d0;
+                                    border-bottom: 0px;
+        
+                                    li {
+                                        height: 40px;
+                                        border-bottom: 1px solid #d0d0d0;
+                                        box-sizing: border-box;
+                                        line-height: 40px;
+        
+                                        div.list_head {
+                                            width: 25%;
+
+                                            height: 100%;
+                                            background: #f6f6f6;
+                                            float: left;
+                                            border-right: 1px solid #d0d0d0;
+                                            box-sizing: border-box;
+                                            font-weight: bold;
+                                            color: #222;
+                                            padding-left: 10px;
+                                            font-size: 0.75rem;
+                                        }
+        
+                                        div.list_desc {
+                                            width: 70%;
+                                            height: 100%;
+                                            float: left;
+                                            color: #444;
+                                            padding-left: 10px;
+                                            box-sizing: border-box;
+                                            font-size: 0.75rem;
+                                            overflow: hidden;
+                                        }
+                                    }
+        
+                                    li:nth-last-child(1) {}
+                                }
+        
+                        }
+                        p.coment_p{
+                            color: @mainColor;
+                            margin-bottom: 5px;;
+                            font-size: 0.875rem;
+                            letter-spacing: -1px;
+
+                        }
+                        div.cal-banner {
+                            width: 100%;
+                            height: 150px;
+                            margin-top: 30px;
+                            margin-bottom: 50px;
+                            border-radius: 5px;
+                            border: 1px solid #d0d0d0;
+                            padding-top: 15px;
+                            padding-left: 15px;
+                            padding-right: 15px;
+                            position: relative;
+                            box-sizing: border-box;
+                            ;
+                            background: #f76069;
+                            /* Old browsers */
+                            background: -moz-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                            /* FF3.6-15 */
+                            background: -webkit-linear-gradient(top, #f76069 0%, #ff8c55 100%);
+                            /* Chrome10-25,Safari5.1-6 */
+                            background: linear-gradient(to bottom, #f76069 0%, #ff8c55 100%);
+                            /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+                            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f76069', endColorstr='#ff8c55', GradientType=0);
+        
+                            /* IE6-9 */
+                            h3,
+                            h4,
+                            p {
+                                color: white;
+                                margin: 0;
+                                text-align: left;
+                                letter-spacing: -1.5px;
+                            }
+        
+                            h3 {
+                                font-size: 1.125rem;
+                                font-weight: bold;
+                                ;
+                                margin-bottom: 10px;
+        
+                            }
+        
+                            h4 {
+                                font-size: 0.875rem;
+                                margin-bottom: 20px;
+                            }
+        
+                            p {
+                                font-size: 0.75rem;
+                                margin-bottom: 10px;
+                                letter-spacing: -1px;
+                            }
+        
+                            img {
+                                width: 45%;
+                                position: absolute;
+                                right: 5px;
+                                bottom: 0px;
+                            }
+        
+                        }
+                        
+                    }
+                }
+               
+
+            }
+            div.mo_tab{
+                height: 160%;
             }
 
             div.compare_fn_btn {
@@ -1404,13 +1893,17 @@ body {
                 height: 50px;
                 background: @mainColor;
                 margin: 0 auto;
-                ;
                 border-radius: 50px;
                 line-height: 50px;
                 color: white;
                 font-weight: bold;
                 text-align: center;
-                ;
+                @media@mediaVericalMobile {
+                    width: 200px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 1rem;
+                }
             }
         }
     }
@@ -1432,6 +1925,13 @@ body {
             padding: 20px;
             padding-top: 40px;
             box-sizing: border-box;
+        @media@mediaVericalMobile {
+            max-width: 100%;
+            height: 100%;
+            top: 50%;
+
+        }
+
 
             span.xbox {
                 cursor: pointer;
@@ -1439,10 +1939,15 @@ body {
                 height: 25px;
                 display: block;
                 background-image: url(../img/popup/x_btn.png);
-                ;
                 position: absolute;
                 right: 20px;
                 top: 20px;
+                @media@mediaVericalMobile {
+                    width: 15px;
+                    height:15px;
+                    background-size: contain;
+                }
+
             }
 
             h2 {
@@ -1451,22 +1956,42 @@ body {
                 font-weight: bold;
                 letter-spacing: -2px;
                 text-align: center;
+                @media@mediaVericalMobile {
+                    font-size: 1.125rem;
+                }
+
             }
 
             div.insert_form {
                 width: 100%;
                 height: 410px;
                 margin-top: 35px;
+                @media@mediaVericalMobile {
+                margin-top: 15px;
+                height: 320px;
+
+                }
+
 
                 div.row {
                     width: 100%;
                     height: 75px;
                     margin-bottom: 30px;
+                    @media@mediaVericalMobile {
+                        height: 100px;
+                        margin-bottom:0px;
+
+                    }
 
                     div.colums {
                         width: 50%;
                         height: 100%;
                         float: left;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                            height: 50%;
+                        }
+
 
                     }
 
@@ -1477,6 +2002,10 @@ body {
                         color: #222;
                         font-weight: bold;
                         padding-left: 5px;
+                        @media@mediaVericalMobile {
+                            display: none;
+                        }
+
 
                     }
                 }
@@ -1488,7 +2017,12 @@ body {
                         box-sizing: border-box;
                         padding-left: 20px;
                         border: 2px solid #d9d9d9;
-                        ;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                            height: 40px;
+                        }
+
+                        
 
                         &:focus {
                             border: 2px solid @mainColor;
@@ -1498,16 +2032,19 @@ body {
                     select {
                         width: 30%;
                         height: 55px;
-                        border: 2px solid #d9d9d9;
-                        ;
+                        border: 2px solid #d9d9d9;                        
                         box-sizing: border-box;
                         padding-left: 20px;
-
-                        background-image: url(../img/popup/select_bg.png);
-                        ;
+                        background-image: url(../img/popup/select_bg.png);                        
                         .backgroundOption;
                         background-size: 14PX;
                         background-position-x: 95%;
+                        @media@mediaVericalMobile {
+                            width: 30%;
+                            height: 40px;
+                            float: left;
+                        }
+
 
                         &:focus {
                             border: 2px solid @mainColor;
@@ -1521,9 +2058,13 @@ body {
                         height: 55px;
                         box-sizing: border-box;
                         padding-left: 20px;
-                        border: 2px solid #d9d9d9;
-                        ;
+                        border: 2px solid #d9d9d9;                      
                         float: right;
+                        @media@mediaVericalMobile {
+                            height: 40px;
+                            float: right;
+                        }
+
 
                         &:focus {
                             border: 2px solid @mainColor;
@@ -1539,12 +2080,14 @@ body {
                         box-sizing: border-box;
                         padding-left: 20px;
                         border: 2px solid #d9d9d9;
-                        ;
                         background-image: url(../img/popup/select_bg.png);
-                        ;
                         .backgroundOption;
                         background-size: 14PX;
                         background-position-x: 95%;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                            height: 40px;
+                        }
 
                         &:focus {
                             border: 2px solid @mainColor;
@@ -1558,9 +2101,14 @@ body {
                         border: 2px solid #d9d9d9;
                         box-sizing: border-box;
                         padding-left: 20px;
+                        position: relative;
                         &:focus {
                             border: 2px solid @mainColor;
                         }
+                        @media@mediaVericalMobile {
+                            height: 40px;
+                        }
+
                         
                     }
 
@@ -1568,6 +2116,7 @@ body {
                         position: absolute;
                         right: 53%;
                         top: 50%;
+                        transform: translateY(-50%);
                     }
              
                     .colum-2 {
@@ -1580,6 +2129,9 @@ body {
                             float: right;
                             padding-left: 20px;
                             border: 2px solid #d9d9d9;
+                            @media@mediaVericalMobile {
+                                height: 40px;
+                            }
 
 
                             &:focus {
@@ -1595,6 +2147,12 @@ body {
 
                 div.bottom_tab {
                     height: 170px;
+                @media@mediaVericalMobile {
+                    height: 120px;
+                }
+
+                 
+
 
                     textarea {
                         height: 150px;
@@ -1602,9 +2160,11 @@ body {
                         box-sizing: border-box;
                         padding-left: 20px;
                         border: 2px solid #d9d9d9;
-                        ;
                         resize: none;
                         margin-top: 10px;
+                        @media@mediaVericalMobile {
+                            height: 100px;
+                        }
                     }
 
                     ;
@@ -1624,13 +2184,20 @@ body {
                 font-weight: bold;
                 font-size: 1.125rem;
                 color: white;
-                ;
                 border-radius: 100px;
                 margin: 50px auto;
-                ;
                 -webkit-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
                 -moz-box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
                 box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.3);
+                @media@mediaVericalMobile {
+                    width: 200px;
+                    height: 40px;
+                    line-height: 40px;
+                    font-size: 1rem;
+                    margin: 30px auto;
+
+                }
+
             }
         }
     }
@@ -1864,7 +2431,7 @@ div.ins_tabs.more_ins{
                 }
             }
             .container .checkmark:after{
-                top: 2px;
+                top: 5px;
                 left: 5px;
             }
             div.more_submit_btn{

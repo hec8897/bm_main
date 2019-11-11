@@ -17,13 +17,17 @@
     <link rel="shortcut icon" href="http://bmcompany.kr/favicon.ico">
     <link rel="icon" href="http://bmcompany.kr/favicon.ico">
     <script src='js/common.js'></script>
-    <!-- <script src="js/layout.min.js"></script> -->
-    <script src="js/layout.js"></script>
     <script src="js/animation.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
+    <script type="text/javascript" src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+    <script src="js/jquery.touchSwipe.min.js"></script>
+    <script src='js/swipe_main.js'></script>
+    <!-- <script src="js/layout.min.js"></script> -->
+    <script src="js/layout.js"></script>
     <link rel="stylesheet" href="css/mo_common.css">
     <link rel="stylesheet" href="css/mo_style.css">
     <link rel="stylesheet" href="css/mo_popup.css">
+
     <script>
         $(window).on('load', function () {
             var booleanControl = true;
@@ -271,7 +275,7 @@
                         <h2>보험가입자 <span>약 70% 이상이</span></h2>
                         <h2>보험해약을 합니다.</h2>
                         <p>보험가입자 70% 이상이 보장내역은 확인하지 않은 채</br>지인의 권유로 보험가입을 하고 또 해약을 합니다.</p>
-                        <div class='btn' onclick='popupRender.insertTapRender()'>
+                        <div class='btn'>
                             빠른 상담 신청하기<img src="img/common/btn_arrow.png" class='btn_arrow2' alt="계산기 화살표 이미지">
                         </div>
                     </div>
@@ -292,7 +296,7 @@
                             <div class='graph_arrow'></div>
                         </div>
 
-                        <div class='mo_btn btn' onclick='popupRender.insertTapRender()'>
+                        <div class='mo_btn btn' onclick='popupRender.insertTapRender("mainsection","mainsection")'>
                                 빠른 상담 신청하기<img src="img/common/btn_arrow.png" class='btn_arrow2' alt="계산기 화살표 이미지">
                             </div>
                         <div class='graph_counter'><span class='counter' data-count="70"

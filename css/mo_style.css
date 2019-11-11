@@ -705,7 +705,10 @@ div#wrap main.index_main section.banner div.wrap div.right_tab .mo_btn img {
 }
 @media (max-width:767px) {
   div#wrap main.index_main section.banner div.wrap div.right_tab .mo_btn {
+    cursor: pointer;
+    position: relative;
     display: block;
+    z-index: 888;
   }
 }
 div#wrap main.index_main section.banner div.wrap div.right_tab div.ani_hide_box {
