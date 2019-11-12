@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <meta property="og:url" content="http://bmcompany.kr">
+    <meta property="og:type" content="website">
+    <meta property="og:description" content="당신의 삶을 더욱 든든하게">
+    <meta property="og:title" content="BM Company">
+    <meta property="og:image" content="http://bmcompany.kr/og.jpg">
+    <link rel="shortcut icon" href="http://bmcompany.kr/favicon.ico">
+    <link rel="icon" href="http://bmcompany.kr/favicon.ico">
+    <link rel="stylesheet" href="css/mo_common.css">
+    <link rel="stylesheet" href="css/mo_style_main.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="jquery/jquery-ui.min.css">
+    <script src="jquery/jquery-ui.min.js"></script>
+    <script src="jquery/datepicker-ko.js"></script>
+  
+    <title>보험친구들</title>
+</head>
+
+<body>
+    <div id='wrap'>
+            <div class='mo_nav' id='mo_nav_box'>
+                    <ul class='mo_navs'>
+                        <li><a href='mo_main.html?id=page1&listNo=1'><img src='img/common/header-nav-icon1.png' attr='어린이 보험 아이콘' />어린이 보험<img class='arrow' src="img/common/mo_header_arrow.png" alt="모바일 헤더 화살표"></a></li>
+                        <li><a href='mo_main.html?id=page2&listNo=2'><img src='img/common/header-nav-icon2.png' attr='암 보험 아이콘' />암보험<img class='arrow' src="img/common/mo_header_arrow.png" alt="모바일 헤더 화살표"></a></li>
+                        <li><a href='mo_main.html?id=page3&listNo=3'><img src='img/common/header-nav-icon3.png' attr='2대 중대 질병 아이콘' />2대중대질병<img class='arrow' src="img/common/mo_header_arrow.png" alt="모바일 헤더 화살표"></a></li>
+                        <li><a href='mo_main.html?id=page4&listNo=4'><img src='img/common/header-nav-icon4.png' attr='치매 보험 아이콘' />치매보험<img class='arrow' src="img/common/mo_header_arrow.png" alt="모바일 헤더 화살표"></a></li>
+                        <li><a href='mo_main.html?id=page5&listNo=5'><img src='img/common/header-nav-icon5.png' attr='고객센터 아이콘' />고객센터<img class='arrow' src="img/common/mo_header_arrow.png" alt="모바일 헤더 화살표"></a></li>
+                        <li><a href='mo_main.html?id=page6&listNo=6'><img src='img/common/header-nav-icon6.png' attr='보험금 청구 아이콘' />보험금 청구<img class='arrow' src="img/common/mo_header_arrow.png" alt="모바일 헤더 화살표"></a></li>
+                    </ul>
+                    <h3 class="tel_bar">
+                                    <img src="img/common/header-sns-icon-tel.png" alt="tel_icon">
+                                    <span>02&middot;1670&middot;5208</span>
+                    </h3>
+                    <ul class='sns_bar'>
+                            <li><a href='https://www.youtube.com/channel/UCsgs4ibSA_J4q5FC2IE5Gpw' target="_blank"><img src='img/common/header-sns-icon-youtube.png' alt="youtube_icon">유튜브</a></li>
+                            <li><a href='https://www.facebook.com/bm9351' target="_blank"><img src='img/common/header-sns-icon-fb.png' alt="youtube_icon"alt="facebook_icon">페이스북</a></li>
+                            <li><a href='https://www.instagram.com/bmconsulting9351' target="_blank"><img src='img/common/header-sns-icon-ins.png' alt="instar_icon">인스타그램</a></li>
+                            <li><a href='https://blog.naver.com/bm9351' target="_blank"><img src='img/common/header-sns-icon-blog.png' alt="instar_blog">블로그</a></li>
+                        </ul>
+                </div>
+            <div class="popups" id='popup_box'>
+                    <div class='loader'>
+                    </div>
+                </div>
+                <div class='popups insert_popup' id='insert_box'>
+                    <div class='insert_box' id='innser_insert'>
+                            <div class='loader'></div>
+                    </div>
+                </div>
+        <header>
+            <!-- js/layout.js => layoutRender.HeaderRender(); -->
+        </header>
+
+        <div class='mo_head'>
+            <div class='wrap'>
+                <h1><a href='mo_index.html'><img src="img/common/header-h1-BI.png" alt="보험친구들 로고"></a></h1>
+                <ul class='mo_nav' id='mo_nav_render' onclick="moNavRender(this)">
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+        </div>
+
+
+        <main class="main_page page1" id='sub_page_main'>
+                <section class='top_banner' id='top_banner'>
+                    <div class="wrap">
+                    </div>
+                </section>
+                <!-- <div class='scroll_widget' id='floatMenu'> -->
+                    <!-- layoutRender.floatMenuRender(); -->
+                <!-- </div> -->
+                <!-- <section class='top_inputs' id='top_inputs'>
+                    <div class="wrap">
+                        <div class='left_tab'>
+                            <h2>내 보험, 어떤가요?</h2>
+                            <p>간편 보험료 계산</p>
+                        </div>
+                        <div class='input_tab'>
+                            <ul class="inputs">
+                                <li><input type="text" name="" id="reqname" placeholder="이름"></li>
+                                <li><select type="text" id="sexflag">
+                                    <option>==성별==</option>
+                                    <option value="남성">남성</option>
+                                    <option value="여성">여성</option>
+    
+                                </select></li>
+                                <li><input type="text" name="" id="reqbirth" placeholder="생년월일"></li>
+                                <li><input type="text" name="" id="reqphone" placeholder="휴대폰번호"></li>
+                            </ul>
+                            <p><label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
+                                    <input type="checkbox" id='agree_check'>
+                                    <span class="checkmark" id='check_box'></span>
+                                </label></p>
+                        </div>
+                        <div class="btn_tab">
+                            <div class='btns left_btn' onclick="popupRender.calculateFn(0)">보험료 셀프 계산하기 <img class='btn_arrow3' src="img/common/btn_arrow.png"
+                                    class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                            <div class='btns right_btn' onclick="dataInsertFn('submain')">무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
+                                    class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                        </div>
+                    </div>
+                </section>
+                <section class='section1' id='section1'>
+                    <div class="wrap">
+                        <div class="left_tab tabs" id='section_left'></div>
+                        <div class="right_tab tabs" id='section_right'></div>
+                    </div>
+                </section>
+                <section class="section2" id='section2'>
+                </section>
+                <section class="section3" id='section3'></section>
+                <section class="section4" id='section4'></section> -->
+
+                <section class='top_inputs' id='top_inputs'>
+                        <div class="wrap">
+                                <h2>내 보험, 어떤가요?</h2>
+                            <div class='input_tab'>
+                                <ul class="inputs">
+                                    <li><input type="text" name="" id="reqname" placeholder="이름"></li>
+                                    <li><select type="text" id="sexflag">
+                                        <option>==성별==</option>
+                                        <option value="남성">남성</option>
+                                        <option value="여성">여성</option>
+        
+                                    </select></li>
+                                    <li><input type="text" name="" id="reqbirth" placeholder="생년월일"></li>
+                                    <li><input type="text" name="" id="reqphone" placeholder="휴대폰번호"></li>
+                                </ul>
+                                <p><label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
+                                        <input type="checkbox" id='agree_check'>
+                                        <span class="checkmark" id='check_box'></span>
+                                    </label></p>
+                            </div>
+                            <div class="btn_tab">
+                                <div class='btns left_btn' onclick="popupRender.calculateFn(0)">보험료 셀프 계산하기 <img class='btn_arrow3' src="img/common/btn_arrow.png"
+                                        class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                                <div class='btns right_btn' onclick="dataInsertFn('submain')">무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
+                                        class='btn_arrow1' alt="계산기 화살표 이미지"></div>
+                            </div>
+                        </div>
+                    </section>
+                    <section class='section1' id='section1'>
+                            <div class="wrap">
+                                <div class="left_tab tabs" id='section_left'></div>
+                                <div class="right_tab tabs" id='section_right'></div>
+                            </div>
+                        </section>
+                        <section class='section2' id='section2'></section>
+                        <section class="section3" id='section3'></section>
+
+            </main>
+      
+        <!-- <footer></footer> -->
+    </div>
+    <script src='js/common.js'></script>
+    <!-- <script src="js/layout.min.js"></script> -->
+    <script src="js/layout.js"></script>
+
+    <script src="js/animation.js"></script>
+    <script>
+        layoutRender.HeaderRender();
+        // layoutRender.floatMenuRender();
+        activeList();
+        subLayoutRender.subSectionRender();
+        subLayoutRender.subMainbannerRender()
+        layoutRender.getQueryString();
+        var pageNo = params.listNo;
+
+        if(pageNo!="5" && pageNo!="6"){
+        subLayoutRender.section1Render()
+        subLayoutRender.section2Render()
+        subLayoutRender.section3Render()
+        // subLayoutRender.section4Render()
+        }
+        else if(pageNo == "5"){
+            subLayoutRender.page5Layout()
+            subLayoutRender.page5LayOutRender("consult",this,'firstrednig')
+        }
+        else if(pageNo == "6"){
+            subLayoutRender.page6Layout()
+        }
+        // layoutRender.footerRender();
+
+
+      
+
+
+    </script>
+</body>
+
+
+</html>

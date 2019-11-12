@@ -19,9 +19,33 @@ var layoutRender = {
         return params;
     },
     HeaderRender: function () {
+        var uAgent = navigator.userAgent.toLowerCase();
+        var mobilePhones = new Array('iphone', 'ipod', 'ipad', 'android', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
+        for (var i = 0; i < mobilePhones.length; i++) {
+            if (uAgent.indexOf(mobilePhones[i]) != -1) {
+            }
+        }
+
+        var PcMedia = window.matchMedia('( max-width: 1200px )');
+        var TabletMedia = window.matchMedia('( max-width: 1024px ) and (min-width: 768px)');
+        var MobileMedia = window.matchMedia('(max-width:767px)');
         //Header Rendering
         this.getQueryString();
-        const mobileLink = params.device!=undefined ?'mo_':'';
+        console.log(TabletMedia.matches)
+        if(TabletMedia.matches == true){
+            var mobileLink = 'mo_';
+        }
+        else if (MobileMedia.matches == true){
+            var mobileLink = 'mo_';
+        }
+        else{
+            var mobileLink = '';
+
+            
+        }
+        // const mobileLink = params.device!=undefined ?'mo_':'';
+
+
 
         var acitveList = ['disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li'];
         if (params.listNo != undefined) {
@@ -1973,6 +1997,7 @@ var popupRender = {
 
         }
         else if(MobileMedia.matches == true){
+
             setTimeout(() => {
                 insTab.className = 'ins_tabs mo_tab'
                 insTab.innerHTML = `<div class='cal_top_tab'>
@@ -2049,6 +2074,8 @@ var popupRender = {
                                     
                                            
                         </div>`
+
+            
             },500)
         }
         else{
@@ -2431,6 +2458,10 @@ var popupRender = {
                     </div>
                     </div>
                 </div>`
+            
+            $('.speed_compare_popup').animate({
+                scrollTop: 200
+            }, 0);
 
             }
             else{

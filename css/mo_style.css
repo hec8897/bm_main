@@ -5,6 +5,9 @@
   font-display: swap;
   src: local('Roboto'), local('Roboto-Regular'), url(https://fonts.gstatic.com/s/roboto/v20/KFOmCnqEu92Fr1Mu4mxP.ttf) format('truetype');
 }
+select {
+  background: white;
+}
 html,
 body {
   font-size: 16px;
