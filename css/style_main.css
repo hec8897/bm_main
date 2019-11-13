@@ -1272,6 +1272,9 @@ body {
   padding-top: 100px;
   box-sizing: border-box;
 }
+#wrap main.main_page section.section3 img.figure {
+  display: none;
+}
 #wrap main.main_page section.section3 h2 {
   font-size: 3.125rem;
   font-weight: bold;

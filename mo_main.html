@@ -15,7 +15,7 @@
     <link rel="icon" href="http://bmcompany.kr/favicon.ico">
     <link rel="stylesheet" href="css/mo_common.css">
     <link rel="stylesheet" href="css/mo_style_main.css">
-    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/mo_popup.css">
     <link rel="stylesheet" href="jquery/jquery-ui.min.css">
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="jquery/datepicker-ko.js"></script>
@@ -75,51 +75,6 @@
                     <div class="wrap">
                     </div>
                 </section>
-                <!-- <div class='scroll_widget' id='floatMenu'> -->
-                    <!-- layoutRender.floatMenuRender(); -->
-                <!-- </div> -->
-                <!-- <section class='top_inputs' id='top_inputs'>
-                    <div class="wrap">
-                        <div class='left_tab'>
-                            <h2>내 보험, 어떤가요?</h2>
-                            <p>간편 보험료 계산</p>
-                        </div>
-                        <div class='input_tab'>
-                            <ul class="inputs">
-                                <li><input type="text" name="" id="reqname" placeholder="이름"></li>
-                                <li><select type="text" id="sexflag">
-                                    <option>==성별==</option>
-                                    <option value="남성">남성</option>
-                                    <option value="여성">여성</option>
-    
-                                </select></li>
-                                <li><input type="text" name="" id="reqbirth" placeholder="생년월일"></li>
-                                <li><input type="text" name="" id="reqphone" placeholder="휴대폰번호"></li>
-                            </ul>
-                            <p><label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
-                                    <input type="checkbox" id='agree_check'>
-                                    <span class="checkmark" id='check_box'></span>
-                                </label></p>
-                        </div>
-                        <div class="btn_tab">
-                            <div class='btns left_btn' onclick="popupRender.calculateFn(0)">보험료 셀프 계산하기 <img class='btn_arrow3' src="img/common/btn_arrow.png"
-                                    class='btn_arrow1' alt="계산기 화살표 이미지"></div>
-                            <div class='btns right_btn' onclick="dataInsertFn('submain')">무료 상담 신청하기 <img class='btn_arrow4' src="img/common/btn_arrow.png"
-                                    class='btn_arrow1' alt="계산기 화살표 이미지"></div>
-                        </div>
-                    </div>
-                </section>
-                <section class='section1' id='section1'>
-                    <div class="wrap">
-                        <div class="left_tab tabs" id='section_left'></div>
-                        <div class="right_tab tabs" id='section_right'></div>
-                    </div>
-                </section>
-                <section class="section2" id='section2'>
-                </section>
-                <section class="section3" id='section3'></section>
-                <section class="section4" id='section4'></section> -->
-
                 <section class='top_inputs' id='top_inputs'>
                         <div class="wrap">
                                 <h2>내 보험, 어떤가요?</h2>
@@ -156,10 +111,10 @@
                         </section>
                         <section class='section2' id='section2'></section>
                         <section class="section3" id='section3'></section>
-
+                        <section class="section4" id='section4'></section>
             </main>
-      
-        <!-- <footer></footer> -->
+
+            <footer></footer>
     </div>
     <script src='js/common.js'></script>
     <!-- <script src="js/layout.min.js"></script> -->
@@ -178,7 +133,7 @@
         if(pageNo!="5" && pageNo!="6"){
         subLayoutRender.section1Render()
         subLayoutRender.section2Render()
-        subLayoutRender.section3Render()
+        // subLayoutRender.section3Render()
         // subLayoutRender.section4Render()
         }
         else if(pageNo == "5"){
@@ -188,7 +143,7 @@
         else if(pageNo == "6"){
             subLayoutRender.page6Layout()
         }
-        // layoutRender.footerRender();
+        layoutRender.footerRender();
 
 
       

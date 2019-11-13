@@ -23,6 +23,13 @@ body {
     max-width: 740px;
     height: 100%;
     margin: 0 auto;
+    @media@mediaVericalMobile {
+        max-width: 340px;
+
+    }
+
+  
+
 }
 
 .backgroundOption {
@@ -33,16 +40,30 @@ body {
 
 #wrap {
     main.main_page {
+        @media@mediaVericalMobile {
+            position: relative;
+            top: 60px;
+        }
+
         section.top_banner {
             width: 100%;
             height: 400px;
             background: gainsboro;
             .backgroundOption;
+            @media@mediaVericalMobile {
+                height: 450px;
+                background-position: bottom;    
+            
+            }
 
             div.wrap {
                 .wraps;
                 padding-top: 110px;
                 box-sizing: border-box;
+                @media@mediaVericalMobile {
+                    padding-top: 0px;
+                }
+
                 h2{
                     img{
                         width: 40%;
@@ -61,13 +82,19 @@ body {
             width: 100%;
             height: 250px;
             transform: translateY(-50px);
+            @media@mediaVericalMobile {
+                height: 320px;
+            }
+
 
             div.wrap {
                 .wraps;
                 background-color: white;
                 padding: 35px;
                 box-sizing: border-box;
-
+                @media@mediaVericalMobile {
+                    max-width: 100%;
+                }
         
                     h2 {
                         font-size: 1.25rem;
@@ -87,6 +114,11 @@ body {
                         margin-bottom: 20px;
                         height: 50px;
                         text-align: center;
+                        @media@mediaVericalMobile {
+                            height: 90px;
+
+                        }
+
 
                         li {
                             width: 23.5%;
@@ -94,6 +126,10 @@ body {
                             height: 40px;
                             margin-bottom: 2%;
                             display: inline-block;
+                            @media@mediaVericalMobile {
+                                width: 48%;
+                            }
+
 
                             input {
                                 width: 100%;
@@ -167,7 +203,19 @@ body {
                         img{
                             opacity: 0.0;
                         }
+                        @media@mediaVericalMobile {
+                            display: block;
+                            width: 80%;
+                            margin-top: 15px;
+                        }
+
                     }
+                    @media@mediaVericalMobile {
+                        div.left_btn{
+                            display: none;
+                        }
+                    }
+
                 }
 
             }
@@ -176,6 +224,11 @@ body {
         section.section1 {
             height: 500px;
             background: #f0f0f0;
+            @media@mediaVericalMobile {
+                height: 650px;
+
+            }
+
             div.wrap.tab2_mode {
                 .wraps;
                 padding-top: 0px;
@@ -197,6 +250,10 @@ body {
                         letter-spacing: -2px;
                         color: #222222;
                         margin-bottom: 30px;
+                        @media@mediaVericalMobile {
+                            font-size: 1.563rem;
+                        }
+
                     }
 
                     p {
@@ -204,21 +261,35 @@ body {
                         font-size: 1.125rem;
                         margin-bottom: 5px;
                         color: #444444;
-                        ;
+                        word-break: keep-all;
+                        @media@mediaVericalMobile {
+                            display: block;
+
+                        }
+
                     }
                 }
 
                 .right_tab {
                     height: 400px;
-
                     .ani_section {
                         width: 730px;
+                        @media@mediaVericalMobile {
+                            max-width: 340px;
+
+                        }
+
 
                     }
 
                     .page1-section1-ani {
                         padding-top: 70px;
                         box-sizing: border-box;
+                        @media@mediaVericalMobile {
+                            padding-top: 50px;
+
+                        }
+
 
                         h2 {
                             text-align: center;
@@ -234,16 +305,26 @@ body {
                             margin-top: 20px;
                             position: relative;
                             z-index: 10;
+                            @media@mediaVericalMobile {
+                                height: 210px;
+
+                            }
+
 
                             li {
                                 opacity: 0.0;
-
                                 width: 150px;
                                 height: 100%;
                                 display: inline-block;
                                 margin-left: 15px;
                                 margin-right: 15px;
                                 overflow: hidden;
+                                @media@mediaVericalMobile {
+                                    width: 136px;
+                                    margin-left: 10px;
+                                    margin-right: 10px;
+                                }
+
 
                                 div.circle_box {
                                     width: 150px;
@@ -255,6 +336,12 @@ body {
                                     margin-bottom: 10px;
                                     .backgroundOption;
                                     background-size: 86%;
+                                    @media@mediaVericalMobile {
+                                        width: 135px;
+                                        height: 135px;
+                                    }
+
+                                   
                                 }
 
                                 p {
@@ -262,11 +349,21 @@ body {
                                     letter-spacing: -1px;
                                     margin-bottom: 5px;
                                     color: #666666;
+                                    @media@mediaVericalMobile {
+                                        font-size: 0.75rem;
+
+                                    }
+
                                 }
                             }
 
                             li:nth-child(1) {
                                 margin-left: 0px;
+                                @media@mediaVericalMobile {
+                                    margin-left: 10px;
+                                    margin-right: 10px;
+                                }
+
 
                                 div.circle_box {
                                     background-image: url(../img/sub_page/section1-circle1.png)
@@ -287,6 +384,11 @@ body {
 
                             li:nth-last-child(1) {
                                 margin-right: 0px;
+                                @media@mediaVericalMobile {
+                                    margin-left: 10px;
+                                    margin-right: 10px;
+                                }
+
 
                                 div.circle_box {
                                     background-image: url(../img/sub_page/section1-circle4.png)
@@ -301,6 +403,10 @@ body {
                             position: relative;
                             top: -150px;
                             z-index: 1;
+                            @media@mediaVericalMobile {
+                                display: none;
+                            }
+
                         }
                     }
 
@@ -308,7 +414,7 @@ body {
                         text-align: center;
 
                         h2 {
-                            padding-top: 50px;
+                            padding-top: 20px;
                             box-sizing: border-box;
                             text-align: center;
                             font-size: 1.125rem;
@@ -426,35 +532,43 @@ body {
 
             div.wrap.tab3_mode {
                 .wraps;
-                padding-top: 50px;
+                padding-top: 0px;
                 box-sizing: border-box;
 
                 h2 {
-                    font-size: 2.5rem;
+                    font-size: 1.875rem;
                     letter-spacing: -1px;
                     font-weight: bold;
                     color: #222222;
-                    margin-bottom: 30px;
+                    margin-bottom: 15px;
+                    text-align: center;
+                    span{
+                        display: block;
+                        margin-top: 10px    ;
+                    }
+                    
                 }
 
                 p {
-                    font-size: 1.125rem;
+                    font-size: 1rem;
                     letter-spacing: -1px;
+                    text-align: center;
+
                 }
 
                 .page3-section1-ani {
                     margin-top: 30px;
                     width: 100%;
-                    height: 280px;
+                    height: 600px;
 
                     .tabs {
-                        width: 48%;
-                        height: 100%;
-                        display: inline-block;
-                        float: left;
+                        width: 40%;
+                        height: 300px;
                         background: white;
                         padding: 30px;
                         box-sizing: border-box;
+                        margin: 30px auto;
+
 
                         h3 {
                             font-size: 1rem;
@@ -562,7 +676,7 @@ body {
 
                             ul.count {
                                 width: 100%;
-                                height: 10%;
+                                height: 20px%;
                                 border: 0px;
                                 padding-top: 10px;
 
@@ -604,7 +718,6 @@ body {
                     }
 
                     .right_tab {
-                        float: right;
 
                         p.gender_tab {
                             position: absolute;
@@ -721,21 +834,21 @@ body {
                 .page4-section1-ani {
                     margin-top: 30px;
                     width: 100%;
-                    height: 280px;
-
+                    height: 300px;
+                 
                     .tabs {
-                        width: 48%;
+                        width: 90%;
                         height: 100%;
-                        display: inline-block;
-                        float: left;
                         background: white;
                         padding: 30px;
                         box-sizing: border-box;
+                        margin: 20px auto;
 
                         h3 {
                             font-size: 1rem;
                             font-weight: bold;
                             line-height: 1.3rem;
+                           
                         }
 
                         p {
@@ -743,6 +856,7 @@ body {
                             font-size: 0.875rem;
                             color: #777777;
                             line-height: 1.2rem;
+                            text-align: left;
                         }
 
                         div.graph_tab {
@@ -793,6 +907,7 @@ body {
                                             font-size: 0.875rem;
                                             color: #222222;
                                             opacity: 0.0;
+                                            text-align: center;
                                         }
 
                                         .count_people4 {
@@ -838,7 +953,7 @@ body {
 
                             ul.count {
                                 width: 100%;
-                                height: 10%;
+                                height: 30px;
                                 border: 0px;
                                 padding-top: 10px;
 
@@ -1071,7 +1186,6 @@ body {
     
 
         section.section1.page2 {
-            background-image: url(../img/sub_page/page2-section1_bg.jpg);
         }
 
         section.section2 {
@@ -1083,11 +1197,16 @@ body {
                 height: 100%;
                 padding-top: 50px;
                 box-sizing: border-box;
+                @media@mediaVericalMobile {
+                    max-width: 340px;
+                    margin: 0 auto;
+                }
+
 
                 div.left_tab {
                     width: 100%;
                     height:20%;
-                    float: left;
+                    float: inherit;
                     text-align: center;
 
                     h2 {
@@ -1095,6 +1214,11 @@ body {
                         font-weight: bold;
                         color: #222222;
                         letter-spacing: -1.5px;
+                        line-height: 2.5rem;
+                        @media@mediaVericalMobile {
+                            font-size: 1.5rem;
+                        }
+
 
                         span {
                             font-size: 1.875rem;
@@ -1113,11 +1237,12 @@ body {
                     }
 
                 }
+             
 
                 div.right_tab {
-                    width: 100%;
+                    max-width: 740px;
                     height: 40%;
-                    float: left;
+                    margin: 0 auto;
 
                     div.animation_tab_page1 {
                         width: 90%;
@@ -1127,10 +1252,22 @@ body {
                         top: 50px;
                         left: 50%;
                         transform: translateX(-50%);
+                        @media@mediaVericalMobile {
+                            width: 100%;
+
+                        }
+
 
                         p {
                             text-align: center;
-                            margin-bottom: 10px;
+                            margin-bottom: 5px;
+                            @media@mediaVericalMobile {
+                                span{
+                                    display: block;
+                                    margin-top: 5px;
+                                }
+                            }
+
                         }
 
                         div.animation_area {
@@ -1166,6 +1303,10 @@ body {
                                 z-index: 10;
                                 position: relative;
                                 left: -90%;
+                                @media@mediaVericalMobile {
+                                    background-position: right;
+                                }
+
                             }
 
                             div.stick_2 {
@@ -1176,6 +1317,10 @@ body {
                                 background-size: cover;
                                 position: relative;
                                 left: -25%;
+                                @media@mediaVericalMobile {
+                                    background-position: right;
+                                }
+
 
                             }
 
@@ -1196,6 +1341,15 @@ body {
                                     font-weight: bold;
                                     font-size: 0.875rem;
                                     margin-left: 65px;
+                                    @media@mediaVericalMobile {
+                                        width: 70px;
+                                        height: 25px;
+                                        line-height: 25px;
+                                        font-size: 0.75rem;
+                                        margin: 0;
+
+                                    }
+
                                 }
 
                                 span.text-ani-2 {
@@ -1216,30 +1370,30 @@ body {
                         box-sizing: border-box;
 
                         div.tit_box {
-                            width: 600px;
+                            width: 520px;
                             height: 110px;
                             background-image: url(../img/sub_page/page2-section2-text-box.png);
                             padding-top: 20px;
                             box-sizing: border-box;
-                            ;
+                            margin: 0 auto;
                             .backgroundOption;
+                            background-size: contain;
 
                             h3 {
                                 text-align: center;
-                                ;
                                 font-size: 1.125rem;
                                 font-weight: bold;
-                                ;
                                 margin-bottom: 7px;
                             }
                         }
 
                         div.graph_box {
-                            width: 100%;
+                            width: 520px;
                             height: 240px;
                             margin-top: 10px;
                             box-sizing: border-box;
                             border-left: 1px solid #999;
+                            margin: 0 auto;
 
                             ul {
                                 li {
@@ -1367,7 +1521,7 @@ body {
             div.page3 {
                 h2 {
                     text-align: center;
-                    font-size: 2.5rem;
+                    font-size: 1.875rem;
                     color: #222222;
                     letter-spacing: -1.5px;
                     font-weight: bold;
@@ -1381,8 +1535,8 @@ body {
                 .page3-animation-tab{
                     text-align: center;;
                     div.page3-circle{
-                        width: 270px;
-                        height: 270px;;
+                        width: 180px;
+                        height: 180px;;
                         background-color: rgba(0, 0, 0, 0.2);;
                         margin-top: 50px;;
                         position: relative;
@@ -1391,12 +1545,12 @@ body {
                         overflow: hidden;
                         opacity: 0.0;
                         div.inner_circle{
-                            width: 210px;
-                            height: 210px;
-                            margin: 30px auto;;
+                            width: 140px;
+                            height: 140px;
+                            margin: 20px auto;;
                             background: white;;
                             border-radius: 100%;
-                            padding-top: 50px;
+                            padding-top: 15px;
                             box-sizing: border-box;
                             text-align: center;;;
                             .backgroundOption;
@@ -1570,11 +1724,26 @@ body {
         section.section3{
             width: 100%;
             height: 460px;
-            background-color: white;;
             .backgroundOption;
             text-align: center;
-            padding-top: 100px;
+            padding-top: 70px;
             box-sizing: border-box;;
+            background: white;
+            position: relative;
+
+
+
+            img.figure{
+                position: absolute;
+            }
+            img.figure_left{
+                left: 0.5%;
+                top: 60px;
+            }
+            img.figure_right{
+                right: 0.5%;
+                top: 260px;
+            }
             h2{
                 font-size: 1.875rem;;
                 font-weight: bold;
@@ -1582,13 +1751,20 @@ body {
                 letter-spacing: -2px;
                 margin-bottom: 30px;
             }
+            div.sub_tit{
+                height: 180px;
+                background: #e9edf3;
+                padding-top:40px;
+                box-sizing: border-box;
+              
+            }
             h3{
-                height: 100px;
-                background: #f0f0f0;
-                font-size: 1.875rem;
+                height: 2rem;
+                font-size: 1.56rem;
                 letter-spacing: -2px;
-                margin-bottom: 20px;
+                margin-bottom: 10px;
                 color: #444;
+                line-height: 30px;
 
                 span{
                     color: @mainColor;;
@@ -1596,12 +1772,13 @@ body {
                 };
             }
             div.text_box{
-                max-width: 700px;
+                max-width: 80%;
                 height: 90px;
-                background: white;;
-                margin:40px auto;;
+                margin:0px auto;;
                 padding-top: 30px;
                 box-sizing: border-box;;
+                background: white;
+                transform: translateY(-50%);
                 h4{
                     font-size: 1.313rem;
                     letter-spacing: -2px;
@@ -1620,11 +1797,11 @@ body {
             background: white;;
             div.wrap{
                 .wraps;
-                padding-top: 100px;
+                padding-top: 50px;
                 box-sizing: border-box;;
                 text-align: center;;
                 h2{
-                    font-size: 3.125rem;;
+                    font-size: 2.5rem;;
                     font-weight: bold;
                     letter-spacing: -4px;;
                     margin-bottom: 20px;
@@ -1632,6 +1809,7 @@ body {
                 p{
                     font-size: 1.125rem;
                     letter-spacing: -2px;;
+                    margin-bottom: 30px;
                 }
                 div.fn_boxs{
                     width: 100%;
@@ -1639,14 +1817,14 @@ body {
                     margin: 0px auto;;;
                     margin-bottom: 20px;
                     margin-top: 20px;;
-                    text-align: left;;
+                    text-align: center;;
                     div.fn_box{
                         cursor: pointer;
-                        width: 285px;
+                        width: 31.5%;
                         height: 250px;
                         border:1px solid #d9d9d9;
                         box-sizing: border-box;;
-                        float: left;
+                        display: inline-block;
                         // margin-right: 15px;
                         margin-bottom: 10px;;
                         border-radius: 5px;
@@ -1654,6 +1832,7 @@ body {
                         text-align: center;;
                         margin-right: 5px;
                         margin-left: 5px;
+                        vertical-align: middle;
                         
                         img.bedge{
                             width: 35px;
@@ -1701,19 +1880,8 @@ body {
                         img.bedge{
                             display: block;
                             opacity: 1.0;
-    
-    
                         }
                     }
-                  
-                  
-
-
-
-
-
-
-
                 }
                 div.fn_btn{
                     cursor: pointer;
@@ -1739,6 +1907,18 @@ body {
     main.page1 {
         section.top_banner {
             background-image: url(../img/sub_page/page1-banner1.jpg);
+            @media@mediaVericalMobile {
+                background-image: url(../img/sub_page/page1-mo_banner1.jpg);
+                h2{
+                    display: none;
+                }
+                h3{
+                    display: none;
+
+                }
+
+            }
+
         }
 
         section.section2 {
@@ -1748,6 +1928,7 @@ body {
             background-position-x: 17%;
             background-position-y: bottom;
             margin-top: 30px;
+         
 
 
         }
@@ -1761,10 +1942,11 @@ body {
 
         section.section2 {
             height: 600px;
-            background-image: url(../img/sub_page/page2-section2_bg.jpg);
             .backgroundOption;
             background-position: bottom;
         }
+
+     
     }
 
     main.page3 {
@@ -1772,8 +1954,12 @@ body {
             background-image: url(../img/sub_page/page3-banner1.jpg);
         }
 
+        section.section1 {
+            height: 820px;
+        }
+
         section.section2 {
-            height: 620px;
+            height: 450px;
             background-image: url(../img/sub_page/page3-section2_bg.jpg);
             .backgroundOption;
             background-position: bottom;
@@ -1784,12 +1970,20 @@ body {
         section.top_banner {
             background-image: url(../img/sub_page/page4-banner1.jpg);
         }
+        section.section1{
+            height: 850px;
+        }
 
         section.section2 {
-            height: 440px;
+            height: 540px;
             background-image: url(../img/sub_page/page4-section2_bg.jpg);
             .backgroundOption;
             background-position: bottom;
+            div.page4{
+                div.left_tab{
+                    height: 40%;
+                }
+            }
         }
     }
 

@@ -407,7 +407,7 @@ var subLayoutRender = {
             },
             {
 
-                h2: "건강한 100세 시대를 위한 당신의 치매보험을 점검해드립니다.",
+                h2: "건강한 100세 시대를 위한 당신의 <span>치매보험을 점검해드립니다.</span>",
                 p: "경도, 중도, 중증치매까지 단계별 보장, 간병비, 생활자금까지 빠짐없이 보장되는지 확인하세요.",
                 SectionAnimaitionHtml: `<div class='ani_section page4-section1-ani'>
                                             <div class='left_tab  tabs'>
@@ -516,7 +516,7 @@ var subLayoutRender = {
                 p: '내 아이 성장 과정에 따라</br>보장내역과 만기를 다르게 설정해야합니다.',
                 SectionAnimaitionHtml: `<div class='animation_tab_page1'>
                                            <p>큰 병 아니더라도 입원할 일이 많은 영유아기</p> 
-                                           <p>입원일당 특약은 최대로! 어른이 되면 불필요한 내역은 30세 만기로!</p>
+                                           <p>입원일당 특약은 최대로! <span>어른이 되면 불필요한 내역은 30세 만기로!</span></p>
                                            <div class='animation_area'>
                                            <div class='center_line'></div>
 
@@ -697,12 +697,17 @@ var subLayoutRender = {
             }
         ]
         Section.innerHTML = `<h2>${data[pageNo-1].h2}</h2>
+                                    <div class='sub_tit'>
                                      <h3>${data[pageNo-1].h31}</span></h3>
                                      <h3>${data[pageNo-1].h32}</h3>
+                                    </div>
                                      <div class='text_box'>
                                          <h4>국내 32개 보험사의 모든 보험상품을 꼼꼼하게 분석해</h4>
                                          <h4>${data[pageNo-1].textbox}에게 딱 맞는 보험을 찾아주는 <span>1:1 맞춤 보장분석서비스!</span></h4>
                                      </div>
+                                     <img class='figure figure_left' src='img/sub_page/section3_left.png'>
+                                     <img class='figure figure_right' src='img/sub_page/section3_right.png'>
+
                                      `
 
     },
