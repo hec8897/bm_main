@@ -12,7 +12,6 @@ body {
     max-width: 1920px;
     margin: 0 auto;
     background-color: #f0f0f0;
-    min-height: 2000px;
 }
 
 * {
@@ -84,6 +83,8 @@ body {
             transform: translateY(-50px);
             @media@mediaVericalMobile {
                 height: 320px;
+                transform: translateY(-0px);
+
             }
 
 
@@ -94,6 +95,9 @@ body {
                 box-sizing: border-box;
                 @media@mediaVericalMobile {
                     max-width: 100%;
+                    padding: 15px;
+                    padding-top: 35px;
+
                 }
         
                     h2 {
@@ -115,6 +119,7 @@ body {
                         height: 50px;
                         text-align: center;
                         @media@mediaVericalMobile {
+                            width: 100%;
                             height: 90px;
 
                         }
@@ -141,13 +146,15 @@ body {
                                 line-height: 52px;
                                 font-size: 1.125rem;
                                 color: #444;;
-                                vertical-align: bottom;
+                                vertical-align: top;
 
 
                             }
                             input::placeholder{
-                                font-size: 1.0rem;
+                                font-size: 0.75rem;
                                 color: #777;;
+                                vertical-align: top;
+
                             }
                             select{
                                 width: 100%;
@@ -162,7 +169,13 @@ body {
                                 background-position-x: 95%;
                                 font-size: 1rem;
                                 color: #777;;
-                                vertical-align: bottom;
+                                vertical-align: top;
+
+                                @media@mediaVericalMobile {
+                                    font-size: 0.75rem;
+                                }
+
+                                
 
                             }
                             input[type=text]:focus {
@@ -226,6 +239,7 @@ body {
             background: #f0f0f0;
             @media@mediaVericalMobile {
                 height: 650px;
+                margin-top: 50px;
 
             }
 
@@ -263,7 +277,13 @@ body {
                         color: #444444;
                         word-break: keep-all;
                         @media@mediaVericalMobile {
-                            display: block;
+                            font-size: 1rem;
+                            span{
+                                display: block;
+                                margin-top: 10px;
+                                margin-bottom: 10px;
+
+                            }
 
                         }
 
@@ -323,6 +343,7 @@ body {
                                     width: 136px;
                                     margin-left: 10px;
                                     margin-right: 10px;
+                                    position: relative;
                                 }
 
 
@@ -339,6 +360,8 @@ body {
                                     @media@mediaVericalMobile {
                                         width: 135px;
                                         height: 135px;
+                                        position: absolute;
+                                        top: 0;
                                     }
 
                                    
@@ -350,11 +373,22 @@ body {
                                     margin-bottom: 5px;
                                     color: #666666;
                                     @media@mediaVericalMobile {
+                                        width: 100%;
                                         font-size: 0.75rem;
-
+                                        position: absolute;
+                                        bottom: 35px;
+                                        left: 50%;
+                                        transform: translateX(-50%);
                                     }
-
                                 }
+                                p.p_two {
+                                    bottom: 20px;
+                                }
+                                p.p_three {
+                                    bottom: 5px;
+                                }
+
+
                             }
 
                             li:nth-child(1) {
@@ -412,6 +446,10 @@ body {
 
                     .page2-section1-ani {
                         text-align: center;
+                        @media@mediaVericalMobile {
+                            margin-top: 35px;
+                        }
+
 
                         h2 {
                             padding-top: 20px;
@@ -420,9 +458,17 @@ body {
                             font-size: 1.125rem;
                             letter-spacing: -1px;
                             font-weight: bold;
+                            @media@mediaVericalMobile {
+                                width: 85%;
+                                word-break: keep-all;
+                                margin: 0 auto;
+                                line-height: 1.5rem;
+                            }
 
                             span {
                                 color: @mainColor;
+                             
+
                             }
                         }
 
@@ -542,6 +588,13 @@ body {
                     color: #222222;
                     margin-bottom: 15px;
                     text-align: center;
+                    @media@mediaVericalMobile {
+                        font-size: 1.563rem;
+                        word-break: keep-all;
+                        letter-spacing: -2px;
+
+                    }
+
                     span{
                         display: block;
                         margin-top: 10px    ;
@@ -553,6 +606,8 @@ body {
                     font-size: 1rem;
                     letter-spacing: -1px;
                     text-align: center;
+                    word-break: keep-all;
+
 
                 }
 
@@ -560,6 +615,8 @@ body {
                     margin-top: 30px;
                     width: 100%;
                     height: 600px;
+                
+
 
                     .tabs {
                         width: 40%;
@@ -568,12 +625,23 @@ body {
                         padding: 30px;
                         box-sizing: border-box;
                         margin: 30px auto;
+                        @media@mediaVericalMobile {
+                            width: 98%;
+                            height: 280px;
+                            padding: 15px;
+                            overflow: hidden;
+                            margin: 10px auto;
+                        }
+
 
 
                         h3 {
                             font-size: 1rem;
                             font-weight: bold;
-                            line-height: 1.3rem;
+                            @media@mediaVericalMobile {
+                                vertical-align: top;
+                            }
+
                         }
 
                         p {
@@ -581,6 +649,12 @@ body {
                             font-size: 0.875rem;
                             color: #777777;
                             line-height: 1.2rem;
+                            @media@mediaVericalMobile {
+                                width: 80%;
+                                text-align: left;
+                                word-break: keep-all;
+                            }
+
                         }
 
                         div.graph_tab {
@@ -588,11 +662,15 @@ body {
                             height: 155px;
                             margin: 25px auto;
                             position: relative;
+                            @media@mediaVericalMobile {
+                                width: 100%;
+
+                            }
+
 
                             div.hide_bar {
                                 width: 95%;
                                 height: 9px;
-                                ;
                                 left: 50%;
                                 transform: translateX(-50%);
                                 background: white;
@@ -601,7 +679,11 @@ body {
                                 border-right: 0px;
                                 position: absolute;
                                 bottom: 40px;
-                                z-index: 90
+                                z-index: 90;
+                                @media@mediaVericalMobile {
+                                    width: 98%;
+                                }
+
                             }
 
                             ul {
@@ -618,6 +700,10 @@ body {
                                     float: left;
                                     text-align: center;
                                     overflow: hidden;
+                                    @media@mediaVericalMobile {
+                                        // height: 50px;
+                                    }
+
 
                                     div.graph_wrap {
                                         position: absolute;
@@ -631,6 +717,11 @@ body {
                                             font-size: 0.875rem;
                                             color: #222222;
                                             opacity: 0.0;
+                                            @media@mediaVericalMobile {
+                                                font-size: 0.663rem;
+
+                                            }
+
                                         }
 
                                         .count_people4 {
@@ -725,9 +816,14 @@ body {
                             left: -10px;
                             font-size: 0.775rem;
                             color: #777777;
+                            @media@mediaVericalMobile {
+                                left: 5px;
+                            }
+
 
                             b {
                                 margin-right: 5px;
+                           
                             }
 
                             b:nth-child(1) {
@@ -762,6 +858,11 @@ body {
                                     height: 100%;
                                     margin: 0 auto;
                                     position: relative;
+                                    @media@mediaVericalMobile {
+                                        width: 75%;
+
+                                    }
+
 
                                     div.left_stick {
                                         width: 60%;
@@ -843,6 +944,11 @@ body {
                         padding: 30px;
                         box-sizing: border-box;
                         margin: 20px auto;
+                        @media@mediaVericalMobile {
+                            width: 98%;
+                            padding: 15px;
+                        }
+
 
                         h3 {
                             font-size: 1rem;
@@ -857,6 +963,11 @@ body {
                             color: #777777;
                             line-height: 1.2rem;
                             text-align: left;
+                            @media@mediaVericalMobile {
+                                word-break: keep-all;
+                                letter-spacing: -2px;
+                            }
+
                         }
 
                         div.graph_tab {
@@ -864,11 +975,15 @@ body {
                             height: 155px;
                             margin: 25px auto;
                             position: relative;
+                            @media@mediaVericalMobile {
+                                width: 98%;
+
+                            }
+
 
                             div.hide_bar {
                                 width: 95%;
-                                height: 9px;
-                                ;
+                                height: 9px;                                
                                 left: 50%;
                                 transform: translateX(-50%);
                                 background: white;
@@ -877,7 +992,11 @@ body {
                                 border-right: 0px;
                                 position: absolute;
                                 bottom: 40px;
-                                z-index: 90
+                                z-index: 90;
+                                @media@mediaVericalMobile {
+                                    width: 98%;
+                                }
+
                             }
 
                             ul {
@@ -908,6 +1027,10 @@ body {
                                             color: #222222;
                                             opacity: 0.0;
                                             text-align: center;
+                                            @media@mediaVericalMobile {
+                                                font-size: 0.75rem;
+                                            }
+
                                         }
 
                                         .count_people4 {
@@ -995,15 +1118,38 @@ body {
                     }
 
                     .right_tab {
+                        @media@mediaVericalMobile {
+                            height: 390px;
+                        }
+
 
                         .tab_left {
                             width: 40%;
                             float: left;
+                            @media@mediaVericalMobile {
+                                width: 100%;
+                            }
+                            h3{
+                                @media@mediaVericalMobile {
+                                    letter-spacing: -1px;
+                                }
+                            }
+                            p{
+                                span{
+                                    color: #777;
+                                }
+                            }
+
 
                             p.count_sticker {
                                 margin-top: 90px;
                                 font-size: 0.813rem;
                                 color: #777777;
+                                @media@mediaVericalMobile {
+                                    margin-top: 10px;
+
+                                }
+
 
                                 b {
                                     color: @mainColor;
@@ -1034,6 +1180,11 @@ body {
                             height: 100%;
                             float: right;
                             position: relative;
+                            @media@mediaVericalMobile {
+                                width: 100%;
+
+                            }
+
 
                             div.line {
                                 //    width: 135px;
@@ -1183,10 +1334,6 @@ body {
 
         }
 
-    
-
-        section.section1.page2 {
-        }
 
         section.section2 {
             height: 600px;
@@ -1216,7 +1363,7 @@ body {
                         letter-spacing: -1.5px;
                         line-height: 2.5rem;
                         @media@mediaVericalMobile {
-                            font-size: 1.5rem;
+                            font-size: 1.25rem;
                         }
 
 
@@ -1225,15 +1372,25 @@ body {
                             font-weight: normal;
                             color: #222222;
                             letter-spacing: -1.5px;
+                            @media@mediaVericalMobile {
+                                font-size: 1rem;
+                            }
+
                         }
                     }
 
                     p {
                         margin-top: 15px;
-                        font-size: 1.125rem;
+                        font-size: 1.0rem;
                         color: #444444;
                         line-height: 1.5rem;
                         letter-spacing: -1.5px;
+                        span{
+                            @media@mediaVericalMobile {
+                                display: block;
+                            }
+
+                        }
                     }
 
                 }
@@ -1254,7 +1411,7 @@ body {
                         transform: translateX(-50%);
                         @media@mediaVericalMobile {
                             width: 100%;
-
+                            top: 30px;
                         }
 
 
@@ -1262,9 +1419,11 @@ body {
                             text-align: center;
                             margin-bottom: 5px;
                             @media@mediaVericalMobile {
+                                font-size: .75rem;
                                 span{
                                     display: block;
                                     margin-top: 5px;
+                                    
                                 }
                             }
 
@@ -1274,24 +1433,34 @@ body {
                             width: 100%;
                             height: 120px;
                             margin-top: 20px;
-                            border-left: 1px solid #777777;
-                            border-right: 1px solid #777777;
+                            border-left: 1px solid #d0d0d0;
+                            border-right: 1px solid #d0d0d0;
                             box-sizing: border-box;
                             overflow: hidden;
 
                             div.center_line {
                                 width: 1px;
                                 height: 120px;
-                                background: #777777;
+                                background: #d0d0d0;
                                 z-index: 9;
                                 position: absolute;
                                 left: 35%;
                                 z-index: 15;
+                                @media@mediaVericalMobile {
+                                }
 
                             }
 
                             div.stick {
                                 height: 35px;
+                                position: relative;
+
+                                @media@mediaVericalMobile {
+                                    height: 25px;
+                                    z-index: 17;
+
+                                }
+
                             }
 
                             div.stick_1 {
@@ -1326,9 +1495,19 @@ body {
 
                             div.text_area {
                                 line-height: 30px;
+                                text-align: right;
+                                @media@mediaVericalMobile {
+                                    margin-top: 20px;
+                                }
+
 
                                 span {
                                     display: inline-block;
+                                    @media@mediaVericalMobile {
+                                        font-size: 0.75rem;
+                                        
+                                    }
+
                                 }
 
                                 span.text-box {
@@ -1347,7 +1526,8 @@ body {
                                         line-height: 25px;
                                         font-size: 0.75rem;
                                         margin: 0;
-
+                                        float: left;
+                                        margin-left: 25px;
                                     }
 
                                 }
@@ -1358,6 +1538,12 @@ body {
                                     margin-right: 10px;
                                     z-index: 20;
                                     ;
+                                }
+                                span.text-ani-3 {
+                                    @media@mediaVericalMobile {
+                                        margin-right: 20px;
+                                    }
+
                                 }
                             }
 
@@ -1378,12 +1564,25 @@ body {
                             margin: 0 auto;
                             .backgroundOption;
                             background-size: contain;
+                            @media@mediaVericalMobile {
+                                background-image: url(../img/sub_page/page2-mo-section2-text-box.png);
+                                width: 340px;
+                                padding-top: 25px;
+
+                            }
+
 
                             h3 {
                                 text-align: center;
                                 font-size: 1.125rem;
                                 font-weight: bold;
                                 margin-bottom: 7px;
+                                @media@mediaVericalMobile {
+                                    font-size: 1rem;
+                                    letter-spacing: -1px;
+
+                                }
+
                             }
                         }
 
@@ -1392,9 +1591,11 @@ body {
                             height: 240px;
                             margin-top: 10px;
                             box-sizing: border-box;
-                            border-left: 1px solid #999;
+                            border-left: 1px solid #d0d0d0;
                             margin: 0 auto;
-
+                            @media@mediaVericalMobile {
+                                width: 100%;
+                            }
                             ul {
                                 li {
                                     height: 20px;
@@ -1504,9 +1705,12 @@ body {
                                         color: @mainColor;
 
                                         b {
-                                            font-size: 1.5rem;
-                                            ;
+                                            font-size: 1.5rem;                                            
                                             color: @mainColor;
+                                            @media@mediaVericalMobile {
+                                                font-size: 1.125rem;                                            
+                                            }
+
 
                                         }
                                     }
@@ -1526,14 +1730,36 @@ body {
                     letter-spacing: -1.5px;
                     font-weight: bold;
                     margin-bottom: 30px;
+                    @media@mediaVericalMobile {
+                        font-size: 1.563rem;
+                        span{
+                            display: block;
+                            margin-top: 5px;
+                        }
+
+                    }
+
                 }
 
                 p {
                     text-align: center;
                     margin-bottom: 5px;
+                    @media@mediaVericalMobile {
+                        font-size: 1rem;
+                        letter-spacing: -1px;
+                        span{
+                            display: block;
+                            margin-top: 5px;
+                        }
+
+                    }
                 }
                 .page3-animation-tab{
                     text-align: center;;
+                    @media@mediaVericalMobile {
+                        position: relative;
+                        height: 180px;
+                    }
                     div.page3-circle{
                         width: 180px;
                         height: 180px;;
@@ -1544,6 +1770,10 @@ body {
                         border-radius: 100%;;
                         overflow: hidden;
                         opacity: 0.0;
+                        @media@mediaVericalMobile {
+                            position: absolute;
+                        }
+                       
                         div.inner_circle{
                             width: 140px;
                             height: 140px;
@@ -1554,6 +1784,8 @@ body {
                             box-sizing: border-box;
                             text-align: center;;;
                             .backgroundOption;
+                        
+    
 
                          
                             p.text_area{
@@ -1563,6 +1795,11 @@ body {
                                 margin-top: 10px;;;
                                 padding-top: 75px;
                                 letter-spacing: -1px;
+                                @media@mediaVericalMobile {
+                                    font-size: 1rem;
+
+                                }
+
                             }
                         }
                     }
@@ -1570,6 +1807,12 @@ body {
                         transform: translateX(18%);
                         background: #ff8a77;
                         z-index: 3;
+                        @media@mediaVericalMobile {
+                            transform: translateX(0%);
+                            left: 0;
+
+                        }
+
                         div.inner_circle{
                             background-image: url(../img/sub_page/page3-section2-icon.png);
                         }
@@ -1579,6 +1822,10 @@ body {
                         transform: translateX(6%);
                         background-color: rgba(53,152,225,0.7);;
                         z-index: 6;
+                        @media@mediaVericalMobile {
+                            transform: translateX(0%);
+                            right: 0;
+                        }
                         div.inner_circle{
                             background-image: url(../img/sub_page/page3-section2-icon2.png);
                         }
@@ -1589,6 +1836,12 @@ body {
                         transform: translateX(-6%);
                         background: #ffca3e;
                         z-index: 3;
+                        @media@mediaVericalMobile {
+                            transform: translateX(0%);
+                            top: 160px;
+                            left: 0;
+                            
+                        }
                         div.inner_circle{
                             background-image: url(../img/sub_page/page3-section2-icon3.png);
                         }
@@ -1598,6 +1851,13 @@ body {
                         transform: translateX(-18%);
                         background-color: rgba(255,157,59,0.7);;
                         z-index: 6;
+                        @media@mediaVericalMobile {
+                            transform: translateX(0%);
+                            right: 0;
+                            top: 160px;
+
+
+                        }
                         div.inner_circle{
                             background-image: url(../img/sub_page/page3-section2-icon4.png);
                         }
@@ -1615,6 +1875,15 @@ body {
                     letter-spacing: -2.5px;
                     margin-bottom: 10px;
                     color: #222222;
+                    @media@mediaVericalMobile {
+                        font-size: 1.563rem;
+                        margin-bottom: 5px;
+                        span{
+                            display: block;
+                            margin-top: 5px;
+                        }
+                    }
+
 
                 }
 
@@ -1624,10 +1893,23 @@ body {
                     letter-spacing: -2px;
                     line-height: 2.8rem;
                     color: #222222;
+                    @media@mediaVericalMobile {
+                        font-size: 1.563rem;
+                        line-height: 1.75rem;
+                    }
 
                     span {
                         color: @mainColor;
                     }
+                }
+                p{
+                    word-break: keep-all;
+                    @media@mediaVericalMobile {
+                        span{
+                            display: block;
+                        }
+                    }
+
                 }
                 div.right_tab{
                     div.top_line{
@@ -1640,6 +1922,10 @@ body {
                         padding-bottom: 5px;
                         position: relative;
                         color: #777;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                        }
+
                     }
                     div.ani_section{
                         width: 440px;
@@ -1650,6 +1936,12 @@ body {
                         text-align: center;;
                         padding-left: 30px;
                         box-sizing: border-box;;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                            padding: 0px;
+                            padding-left: 60px;;
+                        }
+
 
                         div.page4_s2_graph{
                             width: 150px;
@@ -1658,6 +1950,10 @@ body {
                             display: inline-block;
                             overflow: hidden;
                             position: relative;
+                            @media@mediaVericalMobile {
+                                width: 120px;
+                            }
+
                             .inner_box{
                                 width: 100%;;
                                 height: 200px;
@@ -1688,12 +1984,22 @@ body {
                         }
                         div.page4_s2_graph_1{
                             margin-right: 30px;
+                            @media@mediaVericalMobile {
+                                margin-right: 10px;
+                            }
+                           
+
                             .inner_box{
                                 background-image: url(../img/sub_page/page4-section2-graph1.png);;
                             }
                         }
                         div.page4_s2_graph_2{
                             margin-right: 30px;
+                            @media@mediaVericalMobile {
+                                margin: 0px;
+                                margin-left: 0px;
+
+                            }
                             .inner_box{
                                 background-image: url(../img/sub_page/page4-section2-graph2.png);;
                             }
@@ -1717,6 +2023,10 @@ body {
                         padding-top: 10px;
                         letter-spacing: -1px;
                         color: #666;
+                        @media@mediaVericalMobile {
+                            width: 100%;
+                        }
+                        
                     }
                 }
             }
@@ -1730,11 +2040,16 @@ body {
             box-sizing: border-box;;
             background: white;
             position: relative;
-
-
+            @media@mediaVericalMobile {
+                height: 400px;
+            }
 
             img.figure{
                 position: absolute;
+                @media@mediaVericalMobile {
+                    display: none;
+                }
+
             }
             img.figure_left{
                 left: 0.5%;
@@ -1750,12 +2065,22 @@ body {
                 color: @mainColor;;
                 letter-spacing: -2px;
                 margin-bottom: 30px;
+                @media@mediaVericalMobile {
+                    font-size: 1.5rem;;
+
+                }
+
             }
             div.sub_tit{
                 height: 180px;
                 background: #e9edf3;
                 padding-top:40px;
                 box-sizing: border-box;
+                @media@mediaVericalMobile {
+                    padding-top:25px;
+
+                }
+
               
             }
             h3{
@@ -1765,10 +2090,20 @@ body {
                 margin-bottom: 10px;
                 color: #444;
                 line-height: 30px;
+                @media@mediaVericalMobile {
+                    height: auto;
+                    font-size: 1.125rem;
+                    margin: 0;
+                }
+
 
                 span{
                     color: @mainColor;;
                     font-weight: bold;;
+                    @media@mediaVericalMobile {
+                        display: block;
+                    }
+
                 };
             }
             div.text_box{
@@ -1779,13 +2114,33 @@ body {
                 box-sizing: border-box;;
                 background: white;
                 transform: translateY(-50%);
+                @media@mediaVericalMobile {
+                    max-width: 340px;
+
+                }
+
                 h4{
                     font-size: 1.313rem;
                     letter-spacing: -2px;
                     margin-bottom: 10px;
                     color: #444;
+                    @media@mediaVericalMobile {
+                        font-size: 1rem;
+                        margin: 0 auto;
+                        margin-bottom: 5px;
+                        word-break: keep-all;
+
+
+                    }
+
                     span{
                         color: @mainColor;
+                        @media@mediaVericalMobile {
+                            display: block;
+                            margin-top: 5px;
+
+                        }
+
                     }
                 }
             }
@@ -1795,6 +2150,11 @@ body {
             height: 840px;
             padding-bottom: 100px;
             background: white;;
+            @media@mediaVericalMobile {
+                padding:0px;
+                margin-bottom: 50px;
+            }
+
             div.wrap{
                 .wraps;
                 padding-top: 50px;
@@ -1805,11 +2165,25 @@ body {
                     font-weight: bold;
                     letter-spacing: -4px;;
                     margin-bottom: 20px;
+                    @media@mediaVericalMobile {
+                        font-size: 1.563rem;
+                    }
+
                 }
                 p{
                     font-size: 1.125rem;
                     letter-spacing: -2px;;
                     margin-bottom: 30px;
+                    @media@mediaVericalMobile {
+                        font-size: 1rem;
+                        span{
+                            display: block;
+                        }
+
+                    }
+
+                    
+
                 }
                 div.fn_boxs{
                     width: 100%;
@@ -1818,6 +2192,8 @@ body {
                     margin-bottom: 20px;
                     margin-top: 20px;;
                     text-align: center;;
+                   
+
                     div.fn_box{
                         cursor: pointer;
                         width: 31.5%;
@@ -1833,12 +2209,26 @@ body {
                         margin-right: 5px;
                         margin-left: 5px;
                         vertical-align: middle;
+                        @media@mediaVericalMobile {
+                            width: 160px;
+                            height: 160px;
+                            margin: 0px;
+                            margin-right: 3px;
+                            margin-left: 3px;
+                            padding-top: 10px;
+                            margin-bottom: 6px;
+                        }
                         
                         img.bedge{
                             width: 35px;
                             float: right;
                             transform: translate(30%,-100%);
                             opacity: 0.0;
+                            @media@mediaVericalMobile {
+                                transform: translate(40%,-80%);
+
+                            }
+
                         }
                         .fn_icon{
                             width: 100px;;
@@ -1846,14 +2236,28 @@ body {
                             .backgroundOption;
                             background-size: contain;;
                             margin: 0 auto;;
+                            @media@mediaVericalMobile {
+                                width: 80px;
+                                height: 40px;
+                            }
+
                         }
                         p{
                             font-size: 1rem;
                             color: #444;
                             margin-bottom: 5px;
+                            @media@mediaVericalMobile {
+                                font-size: 0.75rem;
+                                margin-top: 15px;
+                                word-break: keep-all;
+                            }
+
                             span{
                                 display: block;;
                                 margin-top: 5px;
+                                @media@mediaVericalMobile {
+                                        display: none;
+                                }
                             }
                         }
                         div.more_btn{
@@ -1866,6 +2270,13 @@ body {
                             border:2px solid #d0d0d0;
                             box-sizing: border-box;;
                             color: #444;
+                            @media@mediaVericalMobile {
+                                width: 100px;
+                                height: 35px;
+                                line-height: 35px;
+                                font-size: 0.75rem;
+                            }
+
                         }
                         div.more_btn:hover{
                             background: @mainColor;
@@ -1898,6 +2309,10 @@ body {
                     -webkit-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
                     -moz-box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
                     box-shadow: 10px 10px 20px 0px rgba(0, 0, 0, 0.2);
+                    @media@mediaVericalMobile {
+                        margin-top: 20px
+                    }
+
                 }
             }
         }
@@ -1914,9 +2329,7 @@ body {
                 }
                 h3{
                     display: none;
-
                 }
-
             }
 
         }
@@ -1928,6 +2341,14 @@ body {
             background-position-x: 17%;
             background-position-y: bottom;
             margin-top: 30px;
+            @media@mediaVericalMobile {
+                height: 500px   ;
+                background-size: 250%;
+                background-position-x: 20%;
+
+
+            }
+
          
 
 
@@ -1938,6 +2359,15 @@ body {
     main.page2 {
         section.top_banner {
             background-image: url(../img/sub_page/page2-banner1.jpg);
+            @media@mediaVericalMobile {
+                background-image: url(../img/sub_page/page2-mo_banner1.jpg);
+                h2{
+                    display: none;
+                }
+                h3{
+                    display: none;
+                }
+            }
         }
 
         section.section2 {
@@ -1952,10 +2382,24 @@ body {
     main.page3 {
         section.top_banner {
             background-image: url(../img/sub_page/page3-banner1.jpg);
+            @media@mediaVericalMobile {
+                background-image: url(../img/sub_page/page3-mo_banner1.jpg);
+                h2{
+                    display: none;
+                }
+                h3{
+                    display: none;
+                }
+            }
         }
 
         section.section1 {
             height: 820px;
+            @media@mediaVericalMobile {
+                height: 750px;
+
+            }
+
         }
 
         section.section2 {
@@ -1963,15 +2407,33 @@ body {
             background-image: url(../img/sub_page/page3-section2_bg.jpg);
             .backgroundOption;
             background-position: bottom;
+            @media@mediaVericalMobile {
+                height: 650px;
+            }
+
         }
     }
 
     main.page4 {
         section.top_banner {
             background-image: url(../img/sub_page/page4-banner1.jpg);
+            @media@mediaVericalMobile {
+                background-image: url(../img/sub_page/page4-mo_banner1.jpg);
+                h2{
+                    display: none;
+                }
+                h3{
+                    display: none;
+                }
+            }
         }
         section.section1{
             height: 850px;
+            @media@mediaVericalMobile {
+                height: 900px;
+
+            }
+
         }
 
         section.section2 {
@@ -1988,17 +2450,36 @@ body {
     }
 
     main.page5 {
+        overflow-x: hidden;
         section.top_banner {
             background-image: url(../img/sub_page/page5-banner1.jpg);
+            @media@mediaVericalMobile {
+                background-image: url(../img/sub_page/page5-mo_banner1.jpg);
+                h2{
+                    display: none;
+                }
+                h3{
+                    display: none;
+                }
+            }
         }
         section.section1{
             background: white;
             padding-bottom: 200px;
+            margin: 0px;
+            @media@mediaVericalMobile {
+                padding-bottom: 50px;
+                margin-bottom: 50px;
+
+            }
+
             div.page5-nav{
                 background: rosybrown;
                 .wraps;
                 height: 60px;
                 transform: translateY(-60px);
+              
+
                 div.navs{
                     cursor: pointer;
                     width: 50%;
@@ -2010,6 +2491,10 @@ body {
                     font-size: 1.125rem;
                     color: #444;
                     font-weight: bold;
+                    @media@mediaVericalMobile {
+                        font-size: 1rem;
+                    }
+
                 }
                 div.navs#active{
                     background: white;
@@ -2020,10 +2505,12 @@ body {
             }
             div.main_con{
                 .wraps;
-                padding-top: 100px;
+                padding-top: 00px;
                 box-sizing: border-box;;
+             
+
                 h2{
-                    font-size: 3.125rem;
+                    font-size: 1.875rem;
                     font-weight: bold;
                     color: #222;
                     text-align: center;
@@ -2050,20 +2537,30 @@ body {
 
                         }
                         div.row_tit{
-                            width: 260px;
+                            width: 25%;
                             height: 100%;
                             float: left;
                             box-sizing: border-box;
                             padding-top: 20px;
                             color: #222;
-                            padding-left: 40px;
+                            padding-left: 10px;
+                            letter-spacing: -2px;
+                            @media@mediaVericalMobile {
+                                display: none;
+                            }
+
                         }
                         div.row_desc{
-                            width: 800px;
+                            width: 70%;
                             height: 100%;
                             float: left;
-                            padding-top: 10px;
                             box-sizing: border-box;
+                            padding-top: 10px;
+                            @media@mediaVericalMobile {
+                                width: 100%;
+                            }
+
+                         
                         }
                     }
                     div.row-3{
@@ -2075,11 +2572,19 @@ body {
                             background-size: 15px;
                             background-position-x: 95%;
                             border: 1px solid #d0d0d0;
+                            @media@mediaVericalMobile {
+                                width: 30%;
+                            }
 
                         }
                         input{
                             height: 40px;
                             width: 300px;
+                            @media@mediaVericalMobile {
+                                width: 50%;
+                            }
+
+                            
                         }
                     }
                     div.row-4{
@@ -2096,6 +2601,11 @@ body {
                         height: 240px;
                         border: 0px;
                         padding-top: 25px;
+                        @media@mediaVericalMobile {
+                            padding-top: 5px;
+
+                        }
+
                         label.container{
                             padding-top: 3px;
                             font-size: 0.875rem;
@@ -2143,7 +2653,7 @@ body {
                 div.fna_nav{
                     .wraps;
                     height: 60px;
-                    border:2px solid #444;
+                    border:1px solid #444;
                     margin-top: 50px;
 
                     div{
@@ -2166,6 +2676,21 @@ body {
                         border: 0px;
                         float: right;
                     }
+                    select.select_nav_fna{
+                        width: 100%;
+                        height: 100%;
+                        outline: none;
+                        border: 0px;
+                        background: white;
+                        appearance: none;
+                        padding-left: 15px;
+                        box-sizing: border-box;
+                        background-position-x: 95%;
+                        background-position-y: center;
+                        background-image: url(../img/common/select_arrow.png);
+                        background-size: 15px;
+                        background-repeat: no-repeat;
+                    }
                 }
                 div.fna_box{
                     max-width: 1200px;
@@ -2187,6 +2712,14 @@ body {
                                 transform: translateY(-50%);
                                 padding-left: 20px;
                                 box-sizing: border-box;;
+                                @media@mediaVericalMobile {
+                                    width: 80%;
+                                    font-size: 0.875rem;
+                                    padding-left: 10px;
+                                    overflow: hidden;
+
+                                }
+                             
                                 span{
                                     display: inline-block;
                                     width: 20px;
@@ -2199,11 +2732,28 @@ body {
                                     border-radius: 100%;
                                     color: white;
                                     margin-right: 20px;
-                                }
+                                    @media@mediaVericalMobile {
+                                        margin-right: 10px;
+                                        float: left;
+                                    }                         
+                            }
+
                                 b{
                                     margin-right: 40px;
                                     color: #888;
                                     letter-spacing: -1px;
+                                    @media@mediaVericalMobile {
+                                        display: inline-block;
+                                        margin-bottom: 5px;
+                                        width: 85%;
+                                        margin-right: 0px;
+                                        word-break: keep-all;
+
+                                    }
+
+                                }
+                                b.qa_b{
+                                    color: #222;
                                 }
                                 
                             }
@@ -2212,6 +2762,10 @@ body {
                                 right: 20px;
                                 top: 50%;
                                 transform: translateY(-50%);
+                                @media@mediaVericalMobile {
+                                    width: 10px;
+                                }
+
                             }
                            
                         }
@@ -2240,6 +2794,10 @@ body {
                                     color: white;
                                     margin-right: 20px;
                                     transform: translateY(-50%);
+                                    @media@mediaVericalMobile {
+                                        margin-left: 20px;
+                                    }
+
 
                                 }
                                 b{
@@ -2249,6 +2807,12 @@ body {
                                     word-break: keep-all;
                                     line-height: 25px;
                                     margin-left: 120px;
+                                    @media@mediaVericalMobile {
+                                        margin-left: 60px;
+                                        width: 75%;
+                                        font-size: 0.875rem;
+                                    }
+
                                 }
                             }
                         }
@@ -2286,13 +2850,13 @@ body {
             padding-bottom: 100px;
         }
         div.input_area{
-            height: 480px;
+            height: 430px;
             div.wrap{
                 .wraps;
                 padding-top: 100px;
                 box-sizing: border-box;
                 h2{
-                    font-size: 2.5rem;
+                    font-size: 1.875rem;
                     text-align: center;
                     font-weight: bold;
                     color: #222;
@@ -2306,15 +2870,17 @@ body {
                     letter-spacing: -1px;
                 }
                 div.forms{
-                    width: 1100px;
-                    height: 60px;
+                    max-width: 740px;
+                    height: 40px;
                     margin: 0px auto;;
                     margin-top: 30px;
+                    text-align: center;
+
                     div.input_box{
-                        width: 250px;
+                        width: 160px;
                         height: 100%;
                         float: left;
-                        margin-right: 20px;
+                        margin-right:10px;
                         input,select{
                             width: 100%;
                             height: 100%;
@@ -2327,6 +2893,7 @@ body {
                         input::placeholder{
                             font-size: 1.125rem;    
                             color: #777;
+                            font-size: 0.875rem;
                         }
                         select{
                             background-image: url(../img/popup/select_bg.png);;
@@ -2334,7 +2901,7 @@ body {
                             .backgroundOption;
                             background-size: 12px;
                             background-position-x: 95%;
-
+                            font-size: 0.875rem;
                         }
                         input[type=text]:focus {
                             outline: none;
@@ -2356,7 +2923,7 @@ body {
                     }
                 }
                 label{
-                    margin-left: 70px;
+                    margin-left: 20px;
                     margin-top: 15px;;
                 }
                 div.insert_btn{
@@ -2382,19 +2949,18 @@ body {
             box-sizing: border-box;;
             h2{
                 text-align: center;;
-                font-size: 1.875rem;
+                font-size: 1.563rem;
                 font-weight: bold;;
                 letter-spacing: -2px;
             }
             div.icon_area{
-                width: 1100px;
+                width: 100%;
                 margin: 0 auto;;
                 margin-top: 30px;
-                height: 80px;
-                background-image: url(../img/sub_page/page5-section2-icons.png);
+                height: 100px;
+                background-image: url(../img/sub_page/page6-section2-md-icons.png);
                 .backgroundOption;
-                // background-size: contain;
-                background-size: 90%;
+                background-size: contain;
             }
         }
         div.page6-section2{
@@ -2432,13 +2998,13 @@ body {
                     border-right: 1px solid #d0d0d0;
                 };
                 div.colum1{
-                    width: 240px;
+                    width: 20%;
                 }
                 div.colum2{
-                    width: 480px;
+                    width: 40%;
                 }
                 div.colum3{
-                    width: 480px;
+                    width: 40%;
                     border: 0px;
                 }
             }
@@ -2452,7 +3018,7 @@ body {
                         padding-left: 15px;
                         text-align: left;
                         p{
-                            width: 240px;
+                            width: 60%;
                             text-align: center;
                             color: #444;
                             position: absolute;
@@ -2462,6 +3028,7 @@ body {
                             font-weight: normal;
                             font-size: 0.875rem;;
                             letter-spacing: -1px;
+                            line-height: 1.2rem;
                         }
                         b{
                             display: block;
@@ -2488,16 +3055,17 @@ body {
 
             }
             div.page6-table1{
-                height: 330px;
+                height: 460px;
                 div.tb_body{
-                    height:  270px;
+                    height:  400px;
+                    word-break: keep-all;
                     
                 }
             }
             div.page6-table2{
-                height: 160px;
+                height: 180px;
                 div.tb_head{
-                    height: 50px;
+                    height: 70px;
                     div.colum{
                         line-height: 50px;
                     }

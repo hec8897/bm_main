@@ -216,7 +216,7 @@ var subLayoutRender = {
                                         <ul>
                                             <li class='page1_circle1'><div class='circle_box'></div>
                                                 <p>다양한 선천기형,</p>
-                                                <p>변형 및 염색체 이상 보장</p>
+                                                <p class='p_two'>변형 및 염색체 이상 보장</p>
                                             </li>
                                             <li class='page1_circle2'>
                                             <div class='circle_box'></div>
@@ -225,13 +225,13 @@ var subLayoutRender = {
                                             <li class='page1_circle3'>
                                             <div class='circle_box'></div>
                                             <p>인큐베이터 사용비 및</p>
-                                            <p>입원비 보장내역 확인!</p>
+                                            <p class='p_two'>입원비 보장내역 확인!</p>
                                             </li>
                                             <li class='page1_circle4'>
                                             <div class='circle_box'></div>
                                             <p>커서 겪을 수 있는 아토피,</p>
-                                            <p>성조숙증, ADHD 특약도</p>
-                                            <p>꼼꼼하게 확인!</p>
+                                            <p class='p_two'>성조숙증, ADHD 특약도</p>
+                                            <p class='p_three'>꼼꼼하게 확인!</p>
                                             </li>
                                         </ul>
                                         <p class='ani_line'></p>
@@ -239,7 +239,7 @@ var subLayoutRender = {
             },
             {
                 h2: "당신의 암보험은 든든합니까?",
-                p1: "여러 개의 암 보험을 가입했지만 보장내역&지급조건을",
+                p1: "여러 개의 암 보험을 가입했지만 <span>보장내역과 지급조건을</span>",
                 p2: "자세히 알고 있는 분은 많지 않습니다.",
                 SectionAnimaitionHtml: `<div class='ani_section page2-section1-ani'>
                                        <h2><span>연간 약 21만여 명의 신규 암 환자</span>가 발생하고 있습니다.</h2>
@@ -465,8 +465,8 @@ var subLayoutRender = {
                                             </div>
                                             <div class='right_tab  tabs'>
                                             <div class='tab_left'>
-                                            <h3>치매환자 입원 외래별</br>요양급여비용총액 비율</h3>
-                                            <p>요양급여비용이 외래비용보다</br>월등히 높게 나타나 이에 대한</br>단계별 대비가 필요합니다</p>
+                                            <h3>치매환자 입원 외래별 요양급여비용총액 비율</h3>
+                                            <p>요양급여비용이 외래비용보다 월등히 <span>높게 나타나 이에 대한 단계별 대비가 필요합니다</p>
                                             <p class='count_sticker'><b><span></span>입원</b><b><span></span>외래</b> (단위:%)</p>
                                             </div>
                                                 <div class='tab_right'>
@@ -568,15 +568,15 @@ var subLayoutRender = {
 
             },
             {
-                h2: '더 저렴한 보험으로 미래를 대비하세요',
-                p1: '변화된 생활패턴으로 꾸준하게 증가하고 있는 2대 질병에 대한 대비!',
+                h2: '더 저렴한 보험으로 <span>미래를 대비하세요</span>',
+                p1: '변화된 생활패턴으로 꾸준하게 증가하고 있는 <span>2대 질병에 대한 대비!</span>',
                 p2: '같은 보장, 더 저렴한 보험으로 미래를 대비하세요',
                 SectionAnimaitionHtml: ''
             },
             {
-                h2: '치매는 오랜 시간동안 소요되는 간병비와의 싸움!',
+                h2: '치매는 오랜 시간동안 소요되는 <span>간병비와의 싸움!</span>',
                 h3: '고령자, 유병자라면</br><span>치매보험은 더욱 필수입니다.</span>',
-                p: '기존에 가입한 보험을 꼼꼼하게 비교분석하고 부족한 보장을 채워줍니다.'
+                p: '기존에 가입한 보험을 꼼꼼하게 <span>비교분석하고 부족한 보장을 채워줍니다.</span>'
             }
 
 
@@ -742,7 +742,7 @@ var subLayoutRender = {
                 Section.innerHTML = `
                             <div class="wrap">
                             <h2>스피드 보험비교</h2>
-                            <p>보험친구들에서 추천하는 상품을 비교해보세요.(최대 2개의 상품을 비교해보실 수 있습니다.)</p>
+                            <p>보험친구들에서 추천하는 상품을 비교해보세요.<span>(최대 2개의 상품을 비교해보실 수 있습니다.)</span></p>
                             <div class="fn_boxs">                                
                                 ${replaceAll3}
                             </div>
@@ -885,34 +885,62 @@ var subLayoutRender = {
             mainCon.innerHTML = `${MainHtml}`
 
         } else {
+
+            var MobileMedia = window.matchMedia('(max-width:767px)');
+
+            if(MobileMedia.matches == true){
+                
+                var NavFna = `<select class='select_nav_fna' onchange='subLayoutRender.mobileFnaNav(this.value)'>
+                              <option class='fna_navs fna_nav1' value="all">전체</option>
+                              <option class='fna_navs fna_nav2' value="baby">어린이보험</option>
+                              <option class='fna_navs fna_nav3' value="cancer">암보험</option>
+                              <option class='fna_navs fna_nav4' value="disease">2대중대질병</option>
+                              <option class='fna_navs fna_nav5' value="dementia">치매보험</option>
+                              </select>
+                              `
+                        }
+            else{
+                var NavFna = `
+                <div class='fna_navs fna_nav1' onclick='subLayoutRender.FnaRender(this,"all",0,10), subLayoutRender.DataNumbering()' id='active'>전체</div>
+                <div class='fna_navs fna_nav2' onclick='subLayoutRender.FnaRender(this,"baby")' >어린이보험</div>
+                <div class='fna_navs fna_nav3' onclick='subLayoutRender.FnaRender(this,"cancer")' >암보험</div>
+                <div class='fna_navs fna_nav4' onclick='subLayoutRender.FnaRender(this,"disease")' >2대중대질병</div>
+                <div class='fna_navs fna_nav5' onclick='subLayoutRender.FnaRender(this,"dementia")' >치매보험</div>`
+            }
+
             mainCon.innerHTML = `<h2>자주하는 질문</h2>
                      <div class='fna_nav'>
-                        <div class='fna_navs fna_nav1' onclick='subLayoutRender.FnaRender(this,"all",0,10), subLayoutRender.DataNumbering()' id='active'>전체</div>
-                        <div class='fna_navs fna_nav2'onclick='subLayoutRender.FnaRender(this,"baby")' >태아 어린이보험</div>
-                        <div class='fna_navs fna_nav3'onclick='subLayoutRender.FnaRender(this,"cancer")' >암보험</div>
-                        <div class='fna_navs fna_nav4'onclick='subLayoutRender.FnaRender(this,"disease")' >2대중대질병</div>
-                        <div class='fna_navs fna_nav5'onclick='subLayoutRender.FnaRender(this,"dementia")' >치매보험</div>
+                     ${NavFna}
                     </div>
                     <div class='fna_box' id='fna_box'></div>
                     <ul class='numbering' id='numbering'></ul>`
 
-
-            this.FnaRender(this, "all", 10, 20, 0)
+            this.FnaRender(this, "all", 0, 10)
             var NumberRender = document.getElementById('numbering');
             setTimeout(() => {
                 NumberRender.innerHTML = `${NumberResultOk}`
-                var NumberClass = document.querySelectorAll('.NumberingFn');
+                NumberClass = document.querySelectorAll('.NumberingFn');
                 NumberClass[0].id = 'active'
-            }, 500);
+                console.log(NumberClass)
+            }, 300);
             setTimeout(() => {
                 for (var i = 0; i < NumberClass.length; i++) {
                     NumberClass[i].id = ''
                     NumberRender.innerHTML = `${NumberResultOk}`
                 }
-            }, 300);
+            }, 600);
 
         }
     },
+    mobileFnaNav:function(thisValue){
+        if(thisValue == 'all'){
+            subLayoutRender.FnaRender(this,"all",0,10)
+            subLayoutRender.DataNumbering()
+        }
+        else{
+            subLayoutRender.FnaRender(this,thisValue,0,10)
+        }
+    },  
     FnaRender: function (thistag, datakey, no, limit) {
         //page5 FnA Data Render
         var FnaRendeing = document.getElementById('fna_box');
@@ -937,7 +965,12 @@ var subLayoutRender = {
 
         function ListPush(no, limit) {
             for (var i = no; i < limit; i++) {
-                returnQa.push(`<li id='list_an${i}' onclick='subLayoutRender.thisListViewFn(${i})'><p><span id='q_icon${i}' class='q_icon'>Q</span><b>${fnareturnJson[i].cate}</b>${fnareturnJson[i].qa}</p><img src='img/sub_page/page5-down-arrow.png' id='arrow${i}' class='arrows' alt='리스트 오픈 화살표 이미지'></li>
+                returnQa.push(`<li id='list_an${i}' onclick='subLayoutRender.thisListViewFn(${i})'>
+                <p>
+                <span id='q_icon${i}' class='q_icon'>Q</span>
+                <b>${fnareturnJson[i].cate}</b><b class='qa_b'>${fnareturnJson[i].qa}</b>
+                </p>
+                <img src='img/sub_page/page5-down-arrow.png' id='arrow${i}' class='arrows' alt='리스트 오픈 화살표 이미지'></li>
                     <div id='hide_an${i}' class='hide_an hide_an${i}'><p><span>A</span><b>${fnareturnJson[i].an}</b></p></div>
                     `)
                 returnAn.push(fnareturnJson[i].an)
@@ -957,7 +990,8 @@ var subLayoutRender = {
                     for (var i = 0; i < MaxNumber - 1; i++) {
                         listNumbering.push(`<li class='NumberingFn' id onclick='subLayoutRender.FnaRender(this|"all"|${i*10}|${(i+1)*10}|${i})'>${i+1}</li>`)
                     }
-                    listNumbering.push(`<li class='NumberingFn' id onclick='subLayoutRender.FnaRender(this|"all"|${(MaxNumber-1)*10}|${fnareturnJson.length}|${i})'>${MaxNumber}</li>`)
+                    listNumbering.push(`<li class='NumberingFn' id 
+                    onclick='subLayoutRender.FnaRender(this|"all"|${(MaxNumber-1)*10}|${fnareturnJson.length}|${i})'>${MaxNumber}</li>`)
                     var NumberResult = listNumbering.toString();
                     var NumberResult1 = NumberResult.replaceAll(",", "");
                     NumberResultOk = NumberResult1.replaceAll("|", ",");
@@ -968,11 +1002,22 @@ var subLayoutRender = {
                         return x.catekey == datakey;
                     })
                     for (var i = 0; i < Fnaresult.length; i++) {
-                        returnQa.push(`<li id='list_an${i}' onclick='subLayoutRender.thisListViewFn(${i})'><p><span class='q_span' id='q_icon${i}' class='q_icon'>Q</span><b>${Fnaresult[i].cate}</b>${Fnaresult[i].qa}</p><img src='img/sub_page/page5-down-arrow.png' class='arrows' id='arrow${i}' alt='리스트 오픈 화살표 이미지'></li>
-                            <div id='hide_an${i}' class='hide_an'><p><span>A</span><b>${Fnaresult[i].an}</b></p></div>
+                        returnQa.push(`
+                        <li id='list_an${i}' onclick='subLayoutRender.thisListViewFn(${i})'>
+                        <p>
+                            <span class='q_span' id='q_icon${i}' class='q_icon'>Q</span>
+                            <b>${Fnaresult[i].cate}</b><b class='qa_b'>${Fnaresult[i].qa}</b>
+                        </p>
+                        <img src='img/sub_page/page5-down-arrow.png' class='arrows' id='arrow${i}' alt='리스트 오픈 화살표 이미지'>
+                        </li>
+                            <div id='hide_an${i}' class='hide_an'>
+                            <p><span>A</span><b>${Fnaresult[i].an}</b></p>
+                            </div>
                             `)
                         returnAn.push(Fnaresult[i].an)
                     }
+                    console.log(returnQa)
+
                     NumberRender.innerHTML = ``
                 }
                 resultQa = returnQa.toString();
@@ -1209,7 +1254,7 @@ var subLayoutRender = {
                 </div>
         </div>
         <div class='page6-section3'>
-            <h2>보험금 청구시 필요 서류</h2>
+            <h2>보험 청구 문서 다운로드</h2>
             <div class='link-acrobat'>
                 <a href='https://get.adobe.com/kr/reader/' target="_blank">
                 <div class='acrobat_btn'>
