@@ -1343,6 +1343,8 @@ var popupRender = {
         result1 = returnJson.filter((x) => {
             return x.no == Number(datakey);
         })
+        this.arrayDish.push(result1[0])
+
 
         function objectValues2(obj, ArrayName) {
             var vals;
@@ -1502,7 +1504,7 @@ var popupRender = {
                         <p class='cal_mention'>최대한 빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
                     </div>
                     <div class='input_tab'>
-                        <h3>간편 월 보험료 계산하기</h3>
+                        <h3>간편 상담 신청하기</h3>
                         <ul>
                             <li>
                                 <p>이름</p>
@@ -1543,8 +1545,8 @@ var popupRender = {
                             <span class="checkmark" id='check_box'></span>
                         </label>
                     </p>
-                    <div class='more_submit_btn' onclick='popupRender.applyFn()'>
-                        간편 보험료 계산
+                    <div class='more_submit_btn' onclick='popupRender.applyFn("more_data")'>
+                        간편 상담 신청
                     </div>
 
                     </div>
@@ -1816,7 +1818,7 @@ var popupRender = {
         var reqSexflag = document.getElementById('apply_sexflag').value;
         var reqBirth = document.getElementById('apply_reqbirth').value;
         var Checked = document.getElementById('agree_check').checked;
-        var Btns = document.getElementById('submit_btns')
+        // var Btns = document.getElementById('submit_btns')
         if (reqName == '') {
             alert('성함을 입력해주세요')
         } else if (reqPhone.length <= 10) {
@@ -1837,9 +1839,10 @@ var popupRender = {
                     "Nodes": "front cals"
                 })
                 dataInsertFn("dir", "calBegin")
+
                 setTimeout(() => {
                     if (DBreturnJson.phpresult == 'ok') {
-                        alert('입력하신 자료로 계산합니다!')
+                        alert('입력하신 상담 신청합니다!')
                         this.calResultRender('refresh')
                     }
                 }, 500);
@@ -1862,7 +1865,7 @@ var popupRender = {
                 }, 500);
 
             }
-            Btns.style.display = 'none'
+            // Btns.style.display = 'none'  
         }
 
     },
@@ -1886,7 +1889,9 @@ var popupRender = {
             result1 = returnJson.filter((x) => {
                 return x.no == this.arrayDish[0];
             })
-        } else {}
+        } else {
+
+        }
         var ageYear = this.applyUserinfo[0].reqBirth.substr(0, 4);
         var age = year - ageYear;
         var ObjKey = Number(result1[0].no);
