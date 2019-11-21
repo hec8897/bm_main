@@ -725,7 +725,7 @@ var subLayoutRender = {
                                         <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
                                         <div class="fn_icon" style="background-image:url(${result1[i].logo})"></div>
                                         <p>${result1[i].product}<span>${result1[i].type}</span></p>
-                                        <div class="more_btn">자세히 보기</div>
+                                        <div class="more_btn" onclick='popupRender.moreData(${result1[i].no})'>자세히 보기</div>
                                     </div>`)
 
                 }
@@ -748,6 +748,54 @@ var subLayoutRender = {
         xhttp.open('POST', 'data/ins_data.json', true);
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("data=0")
+    },
+    insZoom:function(){
+        if(params.mode == 'ins_zoom'){
+
+            var result = returnJson.filter((x) => {
+                return x.no == params.datakey;
+            })
+            var ThisCate = [];
+
+            for(var i = 0; i<returnJson.length; i++){
+                if(returnJson[i].catekey == result[0].catekey){
+                    ThisCate.push(returnJson[i])
+                }
+            }
+            var Section1 = document.getElementById('section1');
+            var Section2 = document.getElementById('section2');
+            var Section3 = document.getElementById('section3');
+            var Section4 = document.getElementById('section4');
+            var topInput = document.getElementById('top_inputs');
+            var ThisBanner = document.getElementById('top_banner');
+
+
+            ThisBanner.style.background='#dbe4e7'             
+            ThisBanner.className='mode_ins_zoom'
+            ThisBanner.innerHTML=`${params.datakey}
+                                    <div class="wrap">
+                                    <ul>
+                                    <li><img src='${ThisCate[0].logo}'>
+                                    <p>${ThisCate[0].product}</p></li>
+                                    <li><img src='${ThisCate[1].logo}'>
+                                    <p>${ThisCate[1].product}</p></li>
+                                    <li><img src='${ThisCate[2].logo}'>
+                                    <p>${ThisCate[2].product}</p></li>
+                                    <li><img src='${ThisCate[3].logo}'>
+                                    <p>${ThisCate[3].product}</p></li>
+                                    <li><img src='${ThisCate[4].logo}'>
+                                    <p>${ThisCate[4].product}</p></li>
+                                    <li><img src='${ThisCate[5].logo}'>
+                                    <p>${ThisCate[5].product}</p></li>
+                                    </ul>
+                                  </div>`   
+            topInput.style.display ='none'
+            Section1.innerHTML=`${params.mode,params.listNo}`
+            Section2.style.display='none'
+            Section3.style.display='none'
+            Section4.style.display='none'
+        }
+       
     },
     arrayDish: [],//list Array
     tabListActive: function (thisdata, Dataindex) {
@@ -1336,235 +1384,239 @@ var result1, result2;
 var popupRender = {
     moreData: function (datakey) {
         event.stopPropagation();//event bubbling
-        //subPage moreData popup
-        var popup = document.getElementById('popup_box');
-        popup.style.display = 'block';
-        popup.style.backgroundColor = 'rgba(0,0,0,0.6)';
-        result1 = returnJson.filter((x) => {
-            return x.no == Number(datakey);
-        })
-        this.arrayDish.push(result1[0])
-
-
-        function objectValues2(obj, ArrayName) {
-            var vals;
-            for (var key in obj) {
-                if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
-                    vals = obj[key];
-                }
-            }
-            ArrayName.push(vals)
-            return vals;
-        };
-        priceHtml1 = []
-        if (result1[0].ageprice.length == 1) {
-
-            var objectKeyArrays = []
-            setTimeout(() => {
-                var infoBox = document.getElementById('info_ul')
-                infoBox.style.height = '320px'
-            }, 700);
-            objectValues2(result1[0].ageprice[0], objectKeyArrays);
-            priceHtml1.push(`<div class='null_data'>
-                <span>출생 전 </span>${objectKeyArrays[0]}원 
-                </div>`)
-        } else if (result1[0].ageprice == 'mnf') {
-            setTimeout(() => {
-                var priceRow = document.getElementById('price_row')
-                var infoBox = document.getElementById('info_ul')
-                priceRow.style.height = '120px'
-                infoBox.style.height = '400px'
-
-            }, 700);
-            var objectKeyArrayMan = [];
-            var objectKeyArrayWoMan = [];
-
-            for (var i = 0; i < result1[0].agepricem.length; i++) {
-                objectValues2(result1[0].agepricem[i], objectKeyArrayMan);
-            }
-            for (var i = 0; i < result1[0].agepricef.length; i++) {
-                objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
-            }
-            priceHtml1.push(
-                `<div class='price_bord'>
-                <div class='tb_head row'>
-                        <div class='colum colum-4  colum_head'>-</div>
-                        <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[0])}세</div>
-                        <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[1])}세</div>
-                        <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[2])}세</div>
-
-                    </div>
-                    <div class='tb_body1 row'>
-                        <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[0]}원</div>
-                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[1]}원</div>
-                        <div class='colum colum-4 colum_body'>${objectKeyArrayMan[2]}원</div>
-                    </div>
-                    <div class='tb_body2 row'>
-                    <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[0]}원</div>
-                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[1]}원</div>
-                    <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
-                </div>
-                </div>`
-            )
-
-        } else if (result1[0].ageprice != 0) {
-            var objectKeyArray = [];
-            setTimeout(() => {
-                var priceRow = document.getElementById('price_row')
-                var infoBox = document.getElementById('info_ul')
-                priceRow.style.height = '120px'
-                infoBox.style.height = '400px'
-
-            }, 700);
-
-            for (var i = 0; i < result1[0].ageprice.length; i++) {
-                objectValues2(result1[0].ageprice[i], objectKeyArray);
-            }
-            priceHtml1.push(`          <div class='price_bord'>
-                                            <div class='tb_head row'>
-                                                    <div class='colum colum-4  colum_head'>-</div>
-                                                    <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[0])}세</div>
-                                                    <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[1])}세</div>
-                                                    <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[2])}세</div>
-
-                                                </div>
-                                                <div class='tb_body1 row'>
-                                                    <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
-                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
-                                                    <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
-                                                </div>
-                                                <div class='tb_body2 row'>
-                                                <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-                                                <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
-                                                <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
-                                                <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
-                                            </div>
-                                            </div>`)
-        }
-        setTimeout(() => {
-            popup.innerHTML = `<div class='speed_compare_popup'>
-            <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
-            <div class='ins_tabs more_ins' id='ins_tab'>
-                <div class='cal_top_tab'>
-                    <div class='user_info'>
-                        <img class='more_logo' src='${result1[0].logo}' alt='선택보험사 로고'>
-                        <span class='more_cate'>${result1[0].cate}</span>
-                    </div>
-                    <div class='place_info place_more'>
-                                <p>${result1[0].product}</p>
-                        <p><span>※ 상품 개정으로 인하여 보장내용 및 보험료가 달라질 수 있습니다.</span></p>
-
-                    </div>
-                </div>
-                <div class='cal_bottom_tab'>
-        
-                    <div class='bottom_right section_rigth'>
-                        <div class='ins_info_tab'>
-                            <h3>상품 특징 및 가입조건</h3>
-                            <ul class='ins_info_tb' id='info_ul'>
-                                <li>
-                                    <div class='list_head'>상품종류</div>
-                                    <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
-                                </li>
-                                <li>
-                                    <div class='list_head'>상품명</div>
-                                    <div class='list_desc'>${result1[0].product}</div>
-                                </li>
-                                <li>
-                                    <div class='list_head'>특징</div>
-                                    <div class='list_desc'>${result1[0].Characteristic1}</div>
-                                </li>
-                                <li>
-                                    <div class='list_head'>갱신/비갱신</div>
-                                    <div class='list_desc'>${result1[0].extension}</div>
-                                </li>
-                                <li>
-                                    <div class='list_head'>보험기간</div>
-                                    <div class='list_desc'>${result1[0].term}</div>
-                                </li>
-                                <li class='price_row' id='price_row'>
-                                    <div class='list_head'>월 보험료</div>
-                                    <div class='list_desc'>${priceHtml1}</div>
-                                </li>
-                                <li>
-                                    <div class='list_head'>납입기간</div>
-                                    <div class='list_desc'>${result1[0].payterm}년</div>
-                                </li>
-                                <li>
-                                    <div class='list_head'>가입유형</div>
-                                    <div class='list_desc'>${result1[0].type} </div>
-                                </li>        
-                            </ul>
-                            
-                        </div>
-                        <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면</p>
-                        <p class='cal_mention'>최대한 빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
-                    </div>
-                    <div class='input_tab'>
-                        <h3>간편 상담 신청하기</h3>
-                        <ul>
-                            <li>
-                                <p>이름</p>
-                                <input type='text' id='apply_reqname'>
-                            </li>
-                            <li>
-                                <p>성별</p>
-                                <select id='apply_sexflag'>
-                                    <option>성별을선택해주세요</option>
-                                    <option value='남성'>남성</option>
-                                    <option value='여성'>여성</option>
-                                </select>
-                            </li>
-                            <li>
-                                <p>생년월일</p>
-                                <input type='text' id='apply_reqbirth'>
-                            </li>
-                            <li class='phones'>
-                                <p>연락처</p>
-                                <select id='reqphone-front'>
-                                    <option value='010'>010</option>
-                                    <option value='011'>011</option>
-                                    <option value='012'>012</option>
-                                    <option value='013'>013</option>
-                                    <option value='014'>014</option>
-                                    <option value='015'>015</option>
-                                    <option value='016'>016</option>
-                                    <option value='017'>017</option>
-                                    <option value='018'>018</option>
-                                    <option value='019'>019</option>
-                            </select>
-                                <input type='text' id='reqphone-end'>
-                            </li>
-                        </ul>
-                        <p>
-                        <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
-                            <input type="checkbox" id='agree_check'>
-                            <span class="checkmark" id='check_box'></span>
-                        </label>
-                    </p>
-                    <div class='more_submit_btn' onclick='popupRender.applyFn("more_data")'>
-                        간편 상담 신청
-                    </div>
-
-                    </div>
-        
-                </div>
-            </div>
-            <div class='submit_btns' id='submit_btns' onclick="popupRender.insertTapRender('more_btn','more_data')">무료 상담 신청</div>
-        </div>
-        `
-            var fnsubBox = document.querySelectorAll('.fn_box');
-            for (var i = 0; i < fnsubBox.length; i++) {
-                fnsubBox[i].id = '';
-            }
-        }, 500);
-
-
-
+        location.href=`main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`
     },
+
+    // moreData: function (datakey) {
+    //     //subPage moreData popup
+    //     var popup = document.getElementById('popup_box');
+    //     popup.style.display = 'block';
+    //     popup.style.backgroundColor = 'rgba(0,0,0,0.6)';
+    //     result1 = returnJson.filter((x) => {
+    //         return x.no == Number(datakey);
+    //     })
+    //     this.arrayDish.push(result1[0])
+
+
+    //     function objectValues2(obj, ArrayName) {
+    //         var vals;
+    //         for (var key in obj) {
+    //             if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
+    //                 vals = obj[key];
+    //             }
+    //         }
+    //         ArrayName.push(vals)
+    //         return vals;
+    //     };
+    //     priceHtml1 = []
+    //     if (result1[0].ageprice.length == 1) {
+
+    //         var objectKeyArrays = []
+    //         setTimeout(() => {
+    //             var infoBox = document.getElementById('info_ul')
+    //             infoBox.style.height = '320px'
+    //         }, 700);
+    //         objectValues2(result1[0].ageprice[0], objectKeyArrays);
+    //         priceHtml1.push(`<div class='null_data'>
+    //             <span>출생 전 </span>${objectKeyArrays[0]}원 
+    //             </div>`)
+    //     } else if (result1[0].ageprice == 'mnf') {
+    //         setTimeout(() => {
+    //             var priceRow = document.getElementById('price_row')
+    //             var infoBox = document.getElementById('info_ul')
+    //             priceRow.style.height = '120px'
+    //             infoBox.style.height = '400px'
+
+    //         }, 700);
+    //         var objectKeyArrayMan = [];
+    //         var objectKeyArrayWoMan = [];
+
+    //         for (var i = 0; i < result1[0].agepricem.length; i++) {
+    //             objectValues2(result1[0].agepricem[i], objectKeyArrayMan);
+    //         }
+    //         for (var i = 0; i < result1[0].agepricef.length; i++) {
+    //             objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
+    //         }
+    //         priceHtml1.push(
+    //             `<div class='price_bord'>
+    //             <div class='tb_head row'>
+    //                     <div class='colum colum-4  colum_head'>-</div>
+    //                     <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[0])}세</div>
+    //                     <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[1])}세</div>
+    //                     <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[2])}세</div>
+
+    //                 </div>
+    //                 <div class='tb_body1 row'>
+    //                     <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
+    //                     <div class='colum colum-4 colum_body'>${objectKeyArrayMan[0]}원</div>
+    //                     <div class='colum colum-4 colum_body'>${objectKeyArrayMan[1]}원</div>
+    //                     <div class='colum colum-4 colum_body'>${objectKeyArrayMan[2]}원</div>
+    //                 </div>
+    //                 <div class='tb_body2 row'>
+    //                 <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
+    //                 <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[0]}원</div>
+    //                 <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[1]}원</div>
+    //                 <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
+    //             </div>
+    //             </div>`
+    //         )
+
+    //     } else if (result1[0].ageprice != 0) {
+    //         var objectKeyArray = [];
+    //         setTimeout(() => {
+    //             var priceRow = document.getElementById('price_row')
+    //             var infoBox = document.getElementById('info_ul')
+    //             priceRow.style.height = '120px'
+    //             infoBox.style.height = '400px'
+
+    //         }, 700);
+
+    //         for (var i = 0; i < result1[0].ageprice.length; i++) {
+    //             objectValues2(result1[0].ageprice[i], objectKeyArray);
+    //         }
+    //         priceHtml1.push(`          <div class='price_bord'>
+    //                                         <div class='tb_head row'>
+    //                                                 <div class='colum colum-4  colum_head'>-</div>
+    //                                                 <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[0])}세</div>
+    //                                                 <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[1])}세</div>
+    //                                                 <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[2])}세</div>
+
+    //                                             </div>
+    //                                             <div class='tb_body1 row'>
+    //                                                 <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
+    //                                                 <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+    //                                                 <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+    //                                                 <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
+    //                                             </div>
+    //                                             <div class='tb_body2 row'>
+    //                                             <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
+    //                                             <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+    //                                             <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+    //                                             <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
+    //                                         </div>
+    //                                         </div>`)
+    //     }
+    //     setTimeout(() => {
+    //         popup.innerHTML = `<div class='speed_compare_popup'>
+    //         <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
+    //         <div class='ins_tabs more_ins' id='ins_tab'>
+    //             <div class='cal_top_tab'>
+    //                 <div class='user_info'>
+    //                     <img class='more_logo' src='${result1[0].logo}' alt='선택보험사 로고'>
+    //                     <span class='more_cate'>${result1[0].cate}</span>
+    //                 </div>
+    //                 <div class='place_info place_more'>
+    //                             <p>${result1[0].product}</p>
+    //                     <p><span>※ 상품 개정으로 인하여 보장내용 및 보험료가 달라질 수 있습니다.</span></p>
+
+    //                 </div>
+    //             </div>
+    //             <div class='cal_bottom_tab'>
+        
+    //                 <div class='bottom_right section_rigth'>
+    //                     <div class='ins_info_tab'>
+    //                         <h3>상품 특징 및 가입조건</h3>
+    //                         <ul class='ins_info_tb' id='info_ul'>
+    //                             <li>
+    //                                 <div class='list_head'>상품종류</div>
+    //                                 <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
+    //                             </li>
+    //                             <li>
+    //                                 <div class='list_head'>상품명</div>
+    //                                 <div class='list_desc'>${result1[0].product}</div>
+    //                             </li>
+    //                             <li>
+    //                                 <div class='list_head'>특징</div>
+    //                                 <div class='list_desc'>${result1[0].Characteristic1}</div>
+    //                             </li>
+    //                             <li>
+    //                                 <div class='list_head'>갱신/비갱신</div>
+    //                                 <div class='list_desc'>${result1[0].extension}</div>
+    //                             </li>
+    //                             <li>
+    //                                 <div class='list_head'>보험기간</div>
+    //                                 <div class='list_desc'>${result1[0].term}</div>
+    //                             </li>
+    //                             <li class='price_row' id='price_row'>
+    //                                 <div class='list_head'>월 보험료</div>
+    //                                 <div class='list_desc'>${priceHtml1}</div>
+    //                             </li>
+    //                             <li>
+    //                                 <div class='list_head'>납입기간</div>
+    //                                 <div class='list_desc'>${result1[0].payterm}년</div>
+    //                             </li>
+    //                             <li>
+    //                                 <div class='list_head'>가입유형</div>
+    //                                 <div class='list_desc'>${result1[0].type} </div>
+    //                             </li>        
+    //                         </ul>
+                            
+    //                     </div>
+    //                     <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면</p>
+    //                     <p class='cal_mention'>최대한 빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
+    //                 </div>
+    //                 <div class='input_tab'>
+    //                     <h3>간편 상담 신청하기</h3>
+    //                     <ul>
+    //                         <li>
+    //                             <p>이름</p>
+    //                             <input type='text' id='apply_reqname'>
+    //                         </li>
+    //                         <li>
+    //                             <p>성별</p>
+    //                             <select id='apply_sexflag'>
+    //                                 <option>성별을선택해주세요</option>
+    //                                 <option value='남성'>남성</option>
+    //                                 <option value='여성'>여성</option>
+    //                             </select>
+    //                         </li>
+    //                         <li>
+    //                             <p>생년월일</p>
+    //                             <input type='text' id='apply_reqbirth'>
+    //                         </li>
+    //                         <li class='phones'>
+    //                             <p>연락처</p>
+    //                             <select id='reqphone-front'>
+    //                                 <option value='010'>010</option>
+    //                                 <option value='011'>011</option>
+    //                                 <option value='012'>012</option>
+    //                                 <option value='013'>013</option>
+    //                                 <option value='014'>014</option>
+    //                                 <option value='015'>015</option>
+    //                                 <option value='016'>016</option>
+    //                                 <option value='017'>017</option>
+    //                                 <option value='018'>018</option>
+    //                                 <option value='019'>019</option>
+    //                         </select>
+    //                             <input type='text' id='reqphone-end'>
+    //                         </li>
+    //                     </ul>
+    //                     <p>
+    //                     <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
+    //                         <input type="checkbox" id='agree_check'>
+    //                         <span class="checkmark" id='check_box'></span>
+    //                     </label>
+    //                 </p>
+    //                 <div class='more_submit_btn' onclick='popupRender.applyFn("more_data")'>
+    //                     간편 상담 신청
+    //                 </div>
+
+    //                 </div>
+        
+    //             </div>
+    //         </div>
+    //         <div class='submit_btns' id='submit_btns' onclick="popupRender.insertTapRender('more_btn','more_data')">무료 상담 신청</div>
+    //     </div>
+    //     `
+    //         var fnsubBox = document.querySelectorAll('.fn_box');
+    //         for (var i = 0; i < fnsubBox.length; i++) {
+    //             fnsubBox[i].id = '';
+    //         }
+    //     }, 500);
+
+
+
+    // },
     arrayDish: [],
     applyUserinfo: [],
     closepopup: function (target) {
