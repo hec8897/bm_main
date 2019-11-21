@@ -40,12 +40,8 @@ var layoutRender = {
         }
         else{
             var mobileLink = '';
-
-            
         }
         // const mobileLink = params.device!=undefined ?'mo_':'';
-
-
 
         var acitveList = ['disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li', 'disable_li'];
         if (params.listNo != undefined) {
@@ -187,7 +183,6 @@ var layoutRender = {
     </ul>`
     }
 }
-
 var subLayoutRender = {
     //main.html(subpage) Render Object
     subSectionRender: function () {
@@ -730,7 +725,7 @@ var subLayoutRender = {
                                         <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
                                         <div class="fn_icon" style="background-image:url(${result1[i].logo})"></div>
                                         <p>${result1[i].product}<span>${result1[i].type}</span></p>
-                                        <div class="more_btn" onclick='popupRender.moreData(${result1[i].no})'>자세히 보기</div>
+                                        <div class="more_btn">자세히 보기</div>
                                     </div>`)
 
                 }
