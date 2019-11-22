@@ -2462,20 +2462,23 @@ body {
             max-width: 1200px;
             margin: 0 auto;
             height: 360px;
+            padding-top: 30px;
+            box-sizing: border-box;
             ul{
                 text-align: center;
                 li{
+                    cursor: pointer;
                     position: relative;
                     display:inline-block;
                     width: 180px;
                     height: 100px;
-                    background: white;
                     border-radius: 5px;
                     margin-right: 5px;
                     margin-left: 5px;
                     vertical-align: bottom;
                     padding: 20px;
                     box-sizing: border-box;
+                    border:1px solid #d0d0d0;
                     img{
                         height: 25px;
                     }
@@ -2490,7 +2493,358 @@ body {
                         transform: translateX(-50%);
                     }
                 }
+                .active{
+                    background: white;
+                }
             }
+            h4,h2,p{
+                text-align: center;
+            }
+            h4,p{
+                margin-top: 40px;
+                font-size: 0.875rem;
+                color: #888;
+            }
+            p{
+                margin: 0px;
+            }
+            h2{
+                font-size: 1.875rem;
+                color: #222;
+                font-weight: bold;
+                letter-spacing: -1px;
+                margin-top:15px;
+                margin-bottom: 15px;
+            }
+        }
+    }
+    section.zoom_render_nav{
+        div.wrap{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            transform: translateY(-60px);
+            ul{
+                li{
+                    cursor: pointer;
+                    width: 25%;
+                    height: 60px;
+                    float: left;
+                    background: #c6d2d6;
+                    text-align: center;
+                    line-height: 60px;
+                }
+                li.active{
+                    background: white;
+                    color: @mainColor;
+                }
+            }
+        }
+
+    }
+    section.zoom_render_main{
+        width: 100%;
+        min-height: 800px;
+        background: white;
+        div.wrap{
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-top: 50px;
+            box-sizing: border-box;
+            padding-bottom: 100px;
+            div.product_chars{
+                margin-bottom: 40px;
+                img{
+                    display: inline-block;
+                    float: left;
+                    margin-right: 5px;
+                    margin-top: -10px;
+                }
+                h2{
+                    color: #222;
+                    font-size: 1.125rem;
+                    font-weight: bold;
+                    span{
+                        font-size: 0.875rem;
+                        color: #888;
+                        display: block;
+                        margin-top: 10px;
+                        margin-left: 35px;
+                    }
+                }
+            }
+            div.ins_product_tb{
+                ul{
+                    width: 100%;
+                    li{
+                        width: 100%;
+                        height: 40px;
+                        border-top: 1px solid #d0d0d0;
+                        line-height: 40px;
+                        div{
+                            box-sizing: border-box;
+                        }
+
+                        div.tb_heads{
+                            width: 18%;
+                            float: left;
+                            background: #f6f6f6;
+                            border-right: 1px solid #d0d0d0;
+                            border-left: 1px solid #d0d0d0;
+                            font-size: 0.875rem;
+                            color: #222;
+                            font-weight: bold;
+                            height: 100%;
+                            padding-left: 20px;
+
+                        }
+                        div.tb_body{
+                            width: 82%;
+                            float: left;
+                            border-right: 1px solid #d0d0d0;
+                            height: 100%;
+                            padding-left: 20px;
+                            font-size: 0.875rem;
+                            color: #888;
+
+
+
+                            div.price_bord {
+                                width: 70%;
+                                height: 80%;
+                                border: 1px solid #d0d0d0;
+                                overflow: hidden;
+                                margin-top: 10px;
+
+                                div.null_data {
+                                    width: 100%;
+                                    height: 100%;
+                                    line-height: 100px;
+                                }
+
+                                div.row {
+                                    width: 100%;
+                                    height: 33.3%;
+
+                                    div.colum {
+                                        height: 100%;
+                                        text-align: center;
+                                        ;
+                                        float: left;
+                                        line-height: 33.3px;
+                                    }
+
+                                    div.colum.colum-4 {
+                                        width: 25%;
+                                    }
+
+                                    div.colum.colum-6 {
+                                        width: calc(100%/6);
+                                    }
+
+                                    div.colum_head {
+                                        width: 20%;
+                                        font-size: 0.875rem;
+                                    }
+
+                                    div.colum_body {
+                                        width: 40%;
+                                        font-size: 0.875rem;
+                                        position: relative;
+
+                                        span.gender_mark {
+                                            position: absolute;
+                                            line-height: 25px;
+                                            color: white;
+                                            border-radius: 100%;
+                                            font-size: 0.875rem;
+                                            top: 50%;
+                                            left: 50%;
+                                            transform: translate(-50%, -50%);
+                                            display: inline-block;
+                                            width: 25px;
+                                            height: 25px;
+                                            ;
+                                        }
+
+                                        .man_mark {
+                                            background: #24a1e9;
+                                        }
+
+                                        .woman_mark {
+                                            background: #ff449c;
+                                        }
+                                    }
+
+                                }
+
+                                div.tb_body1 {
+                                    .colum {
+                                        background-color: #f0f0f0;
+
+                                    }
+
+                                    div {
+                                        color: #24a1e9;
+                                    }
+                                }
+
+                                div.tb_body2 {
+                                    border: 0px;
+
+                                    div {
+                                        font-size: 0.875rem;
+                                        color: #ff449c;
+                                    }
+                                }
+
+                            }
+                        }
+                       
+                    }
+                    li:nth-last-child(1){
+                        border-bottom: 1px solid #d0d0d0;
+                    }
+                    li.tb_price{
+                        height: 110px;
+                    }
+
+                }
+            }
+            p.bottom_text{
+                color: @mainColor;
+                font-size: 0.875rem;
+                margin-top: 10px;
+            }
+        }
+
+        div.product_desc{
+            h2{
+                font-size: 1.125rem;
+                font-weight: bold;
+                color: #222;
+                letter-spacing: -1px;
+                img{
+                    margin-right: 10px;
+                    vertical-align: text-bottom;
+                }
+            }
+        }
+        div.tb_basic_contract{
+            width: 100%;
+            margin-top: 20px;
+            table{
+                width: 100%;
+                border-top: 2px solid #222;
+                margin-bottom: 50px;
+                border-bottom: 2px solid #222;
+
+                tr{
+                    th{
+                        vertical-align: middle;
+                        height: 50px;
+                        background: #f6f6f6;
+                        border-right: 1px solid #d0d0d0;
+                        font-size: 0.875rem;
+                        border-bottom: 1px solid #d0d0d0;
+                        font-weight: bold;
+                        color: #222;
+                    }
+                    td{
+                        vertical-align: middle;
+                        padding-top: 20px;
+                        padding-bottom: 20px;
+                        border-right: 1px solid #d0d0d0;
+                        font-size: 0.875rem;
+                        word-break: keep-all;
+                        padding-left: 10px;
+                        border-bottom: 1px solid #d0d0d0;
+                        color: #666;
+                        line-height: 1.2rem;
+                        p{
+                            color: #666;
+                            line-height: 1.2rem;
+                        }
+                    }
+                    th:nth-child(1){
+                        width: 20%;
+                    }
+                    th:nth-child(2){
+                        width: 65%;
+                    }
+                    th:nth-child(3),td:nth-child(3){
+                        border-right: 0px;
+                    }
+                    td:nth-child(3){
+                        padding-right: 10px;
+                    }
+                }
+            }
+            ul{
+                li.li_head{
+                    width: 100%;
+                    height: 50px;
+                    background: #f6f6f6;
+                    border-top: 2px solid #222;
+                    border-bottom: 1px solid #d0d0d0;
+                    div{
+                        float: left;
+                        text-align: center;
+                        line-height: 50px;
+                        box-sizing: border-box;
+                        color: #444;
+                        font-size: 0.875rem;
+                    }
+                    div.colum-1{
+                        width: 20%;
+                        border-right: 1px solid #d0d0d0;
+                    }
+                    div.colum-2{
+                        width: 65%;
+                        border-right: 1px solid #d0d0d0;
+
+                    }
+                    div.colum-3{
+                        width: 15%;
+                    }
+                }
+                li.li_body{
+                    width: 100%;
+                    padding-top: 50px;
+                    float: left;
+                    div{
+
+                        float: left;
+                        box-sizing: border-box;
+                     
+                        span,p{
+                            display: block;
+                            height: 100%;
+                        }
+                    }
+                    div.colum-1{
+                        width: 20%;
+                        border-right: 1px solid #d0d0d0;
+                        height: 100%;
+                    }
+                    div.colum-2{
+                        width: 65%;
+                        border-right: 1px solid #d0d0d0;
+                        height: 100%;
+                    }
+                    div.colum-3{
+                        width: 15%;
+                        height: 100%;
+                        span{
+                            text-align: right;
+                        }
+                    }
+
+                }
+            }
+        }
+        div.contract2{
         }
     }
 }

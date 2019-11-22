@@ -725,7 +725,7 @@ var subLayoutRender = {
                                         <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
                                         <div class="fn_icon" style="background-image:url(${result1[i].logo})"></div>
                                         <p>${result1[i].product}<span>${result1[i].type}</span></p>
-                                        <div class="more_btn" onclick='popupRender.moreData(${result1[i].no})'>자세히 보기</div>
+                                        <div class="more_btn" onclick='popupRender.moreData(${result1.indexOf(result1[i])})'>자세히 보기</div>
                                     </div>`)
 
                 }
@@ -751,17 +751,17 @@ var subLayoutRender = {
     },
     insZoom:function(){
         if(params.mode == 'ins_zoom'){
-
-            var result = returnJson.filter((x) => {
-                return x.no == params.datakey;
+            result = returnJson.filter((x) => {
+                return x.catekey == result1[0].catekey;
             })
-            var ThisCate = [];
+                ThisCate = [];
 
+            
             for(var i = 0; i<returnJson.length; i++){
                 if(returnJson[i].catekey == result[0].catekey){
                     ThisCate.push(returnJson[i])
                 }
-            }
+            }   
             var Section1 = document.getElementById('section1');
             var Section2 = document.getElementById('section2');
             var Section3 = document.getElementById('section3');
@@ -769,33 +769,236 @@ var subLayoutRender = {
             var topInput = document.getElementById('top_inputs');
             var ThisBanner = document.getElementById('top_banner');
 
+            var zoomModeTopNav = [];
+
+            for(var i = 0; i<ThisCate.length; i++){
+                zoomModeTopNav.push(`<a href='main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${ThisCate[i].no}'><li class='ins_zoom_navs'><img src='${ThisCate[i].logo}'>
+                                        <p>${ThisCate[i].product}</p></li></a>`)
+            }
+
+
+            zoomModeTopNav.toString();
+
+            var resultArrayHtml = zoomModeTopNav.toString();
+                var replaceAll1 = resultArrayHtml.replaceAll(',', '');
+                var replaceAll2 = replaceAll1.replaceAll('|', ',');
+                var replaceAll3 = replaceAll2.replaceAll(null, ' ');
+
+            dataKey = params.datakey
 
             ThisBanner.style.background='#dbe4e7'             
             ThisBanner.className='mode_ins_zoom'
-            ThisBanner.innerHTML=`${params.datakey}
-                                    <div class="wrap">
+            ThisBanner.innerHTML=`<div class="wrap">
                                     <ul>
-                                    <li><img src='${ThisCate[0].logo}'>
-                                    <p>${ThisCate[0].product}</p></li>
-                                    <li><img src='${ThisCate[1].logo}'>
-                                    <p>${ThisCate[1].product}</p></li>
-                                    <li><img src='${ThisCate[2].logo}'>
-                                    <p>${ThisCate[2].product}</p></li>
-                                    <li><img src='${ThisCate[3].logo}'>
-                                    <p>${ThisCate[3].product}</p></li>
-                                    <li><img src='${ThisCate[4].logo}'>
-                                    <p>${ThisCate[4].product}</p></li>
-                                    <li><img src='${ThisCate[5].logo}'>
-                                    <p>${ThisCate[5].product}</p></li>
+                                    ${replaceAll3}
                                     </ul>
+                                    <h4>${ThisCate[dataKey].managenumber}</h4>
+                                    <h2>${ThisCate[dataKey].product}</h2>
+                                    <p>※ 상품개정으로 인하여 보장내용 및 보험료가 달라질 수 있습니다.</p>
                                   </div>`   
             topInput.style.display ='none'
-            Section1.innerHTML=`${params.mode,params.listNo}`
-            Section2.style.display='none'
+            Section1.className='zoom_render_nav'
+            Section1.innerHTML=`<div class='wrap'>
+                                <ul>
+                                <li class='ins_navs active' onclick='subLayoutRender.zoomSecionCharRender()'>상품특징</li>
+                                <li class='ins_navs' onclick='subLayoutRender.zoomSectionDescRender()'>보장내용</li>
+                                <li class='ins_navs'>가입예시/가입안내</li>
+                                <li class='ins_navs'>무료 상담 신청</li>
+                                </ul>
+                                </div>`;
+                                this.zoomSecionCharRender()
+
             Section3.style.display='none'
             Section4.style.display='none'
+            var zoomLi = document.querySelectorAll('.ins_zoom_navs');
+            zoomLi[params.datakey].className = 'ins_zoom_navs active'
+
         }
        
+    },
+    zoomSecionCharRender:function(){
+        var Section2 = document.getElementById('section2');
+
+        function objectValues2(obj, ArrayName) {
+            var vals;
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
+                    vals = obj[key];
+                }
+            }
+            ArrayName.push(vals)
+            return vals;
+        };
+        priceHtml1 = [];
+        if (ThisCate[dataKey].ageprice.length == 1) {
+            priceHtml1.push(`<div class='null_data'><span>-</span></div>`)
+        } else if (ThisCate[dataKey].ageprice == 'mnf') {
+            var objectKeyArrayMan = [];
+            var objectKeyArrayWoMan = [];
+
+            for (var i = 0; i < ThisCate[dataKey].agepricem.length; i++) {
+                objectValues2(ThisCate[dataKey].agepricem[i], objectKeyArrayMan);
+            }
+            for (var i = 0; i < ThisCate[dataKey].agepricef.length; i++) {
+                objectValues2(ThisCate[dataKey].agepricef[i], objectKeyArrayWoMan);
+            }
+
+            
+
+     
+            priceHtml1.push(
+                `<div class='price_bord'>
+            <div class='tb_head row'>
+                    <div class='colum colum-4  colum_head'>-</div>
+                    <div class='colum colum-4 colum_body'>${Object.keys(ThisCate[dataKey].agepricem[0])}세</div>
+                    <div class='colum colum-4 colum_body'>${Object.keys(ThisCate[dataKey].agepricem[1])}세</div>
+                    <div class='colum colum-4 colum_body'>${Object.keys(ThisCate[dataKey].agepricem[2])}세</div>
+
+                </div>
+                <div class='tb_body1 row'>
+                    <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayMan[0]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayMan[1]}원</div>
+                    <div class='colum colum-4 colum_body'>${objectKeyArrayMan[2]}원</div>
+                </div>
+                <div class='tb_body2 row'>
+                <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
+                <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[0]}원</div>
+                <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[1]}원</div>
+                <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
+            </div>
+            </div>`
+            )
+        } else if (result1[0].ageprice != 0) {
+            var objectKeyArray = [];
+
+            for (var i = 0; i < result1[0].ageprice.length; i++) {
+                objectValues2(result1[0].ageprice[i], objectKeyArray);
+            }
+            priceHtml1.push(`          <div class='price_bord'>
+                                        <div class='tb_head row'>
+                                                <div class='colum colum-4  colum_head'>-</div>
+                                                <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[0])}세</div>
+                                                <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[1])}세</div>
+                                                <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[2])}세</div>
+
+                                            </div>
+                                            <div class='tb_body1 row'>
+                                                <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                                <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
+                                            </div>
+                                            <div class='tb_body2 row'>
+                                            <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
+                                            <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
+                                            <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
+                                            <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
+                                        </div>
+                                        </div>`)
+        }
+Section2.className='zoom_render_main'
+Section2.innerHTML=`<div class='wrap'>
+            <div class='product_chars'>
+            <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>
+            <h2>${ThisCate[dataKey].Characteristic1}
+            <span>- ${ThisCate[dataKey].Characteristic1_1}</span>
+            </h2>
+            </div>
+            <div class='product_chars'>
+            <img src='img/sub_page/zoom_char_label02.png' alt='zoom_char_label'>
+            <h2>${ThisCate[dataKey].Characteristic2}
+            <span>- ${ThisCate[dataKey].Characteristic2_1}</span>
+            </h2>
+            </div>
+            <div class='product_chars'>
+            <img src='img/sub_page/zoom_char_label03.png' alt='zoom_char_label'>
+            <h2>${ThisCate[dataKey].Characteristic3}
+            <span>${ThisCate[dataKey].Characteristic3_1}</span>
+            <span>${ThisCate[dataKey].Characteristic3_2}</span>
+            <span>${ThisCate[dataKey].Characteristic3_3}</span>
+            </h2>
+            </div>
+
+            <div class='ins_product_tb'>
+                <ul>
+                    <li><div class='tb_heads'>상품종류</div><div class='tb_body'>${ThisCate[dataKey].cate}</div></li>
+                    <li><div class='tb_heads'>상품명</div><div class='tb_body'>${ThisCate[dataKey].product}</div></li>
+                    <li><div class='tb_heads'>특징</div><div class='tb_body'>${ThisCate[dataKey].Characteristic1}</div></li>
+                    <li><div class='tb_heads'>갱신/비갱신</div><div class='tb_body'>${ThisCate[dataKey].extension}</div></li>
+                    <li><div class='tb_heads'>보험기간</div><div class='tb_body'>${ThisCate[dataKey].term}</div></li>
+                    <li class='tb_price'><div class='tb_heads'>월 보험료</div><div class='tb_body'>${priceHtml1[0]}</div></li>
+                    <li><div class='tb_heads'>납입기간</div><div class='tb_body'>${ThisCate[dataKey].payterm}</div></li>
+                    <li><div class='tb_heads'>가입유형</div><div class='tb_body'>${ThisCate[dataKey].type}</div></li>
+                </ul>
+            </div>
+            <p class='bottom_text'>선택하신 보험상품에 대한 설명이 필요하시거나 다른 상품 비교견적을 받고 싶으신 분들은 [상담신청]을 남겨 주시면 최대한 빠른 시간 내에 전문상담사가 연락드리도록</p>
+        </div>`
+        var NavLi = document.querySelectorAll('.ins_navs');
+        for(var i = 0; i<NavLi.length; i++){
+            NavLi[i].className = 'ins_navs'
+        }
+        NavLi[0].className = 'ins_navs active'
+    },
+    zoomSectionDescRender:function(){
+        var Section2 = document.getElementById('section2');
+
+        var ContractChoiceDivisionTb = [];
+        var ContractDivision = ThisCate[dataKey].ContractChoiceDivision
+
+        for(var i = 0; i<ContractDivision.length; i++){
+            ContractChoiceDivisionTb.push(`<tr><td>${ContractDivision[i].Division}</td>
+                                                <td>${ContractDivision[i].desc}</td>
+                                                <td>${ContractDivision[i].price}</td></tr>`)
+        }
+
+
+        var resultArrayHtml= ContractChoiceDivisionTb.toString()
+        var replaceAll1 = resultArrayHtml.replaceAll(',', '');
+        var replaceAll2 = replaceAll1.replaceAll('|', ',');
+        var replaceAll3 = replaceAll2.replaceAll(null, ' ');
+
+
+        Section2.innerHTML=`<div class='wrap'>
+                            <div class='product_desc'>
+                            <h2>
+                            <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>기본계약
+                            </h2>
+                            <div class='tb_basic_contract'>
+                            <table>
+                            <tr>
+                            <th>담보명</th>
+                            <th>지급사유</th>
+                            <th>가입금액</th>
+                            </tr> 
+                            <tr>
+                            <td>${ThisCate[dataKey].basicDivision[0].Division}</td>
+                            <td>${ThisCate[dataKey].basicDivision[0].desc}</td>
+                            <td>${ThisCate[dataKey].basicDivision[0].price}</td>
+                            </tr> 
+                            </table>
+
+                            <h2>
+                            <img src='img/sub_page/zoom_char_label02.png' alt='zoom_char_label'>선택특약
+                            </h2>
+                            <div class='tb_basic_contract contract2'>
+                            <table>
+                            <tr>
+                            <th>담보명</th>
+                            <th>지급사유</th>
+                            <th>가입금액</th>
+                            </tr> 
+                            ${replaceAll3}
+                            </table>
+                            </div>
+                            </div>`
+
+        var NavLi = document.querySelectorAll('.ins_navs');
+        for(var i = 0; i<NavLi.length; i++){
+            NavLi[i].className = 'ins_navs'
+        }
+        NavLi[1].className = 'ins_navs active'
+
     },
     arrayDish: [],//list Array
     tabListActive: function (thisdata, Dataindex) {
