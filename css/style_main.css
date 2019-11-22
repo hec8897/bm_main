@@ -2409,12 +2409,39 @@ body {
 #wrap section.zoom_render_main div.tb_basic_contract table tr th:nth-child(2) {
   width: 65%;
 }
-#wrap section.zoom_render_main div.tb_basic_contract table tr th:nth-child(3),
-#wrap section.zoom_render_main div.tb_basic_contract table tr td:nth-child(3) {
+#wrap section.zoom_render_main div.tb_basic_contract table tr th:nth-last-child(1),
+#wrap section.zoom_render_main div.tb_basic_contract table tr td:nth-last-child(1) {
   border-right: 0px;
 }
 #wrap section.zoom_render_main div.tb_basic_contract table tr td:nth-child(3) {
   padding-right: 10px;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb thead {
+  background: #f6f6f6;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr th:nth-child(1) {
+  width: 10%;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr th:nth-child(2) {
+  width: 18%;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr th:nth-child(3) {
+  width: 18%;
+  border-right: 1px solid #d0d0d0;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr th:nth-child(4) {
+  width: 14%;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr th:nth-child(5) {
+  width: 20%;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr th:nth-child(6) {
+  width: 20%;
+  border-right: 0px solid #d0d0d0;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr td:nth-child(3) {
+  border-right: 1px solid #d0d0d0;
+  padding-right: 0px;
 }
 #wrap section.zoom_render_main div.tb_basic_contract ul li.li_head {
   width: 100%;

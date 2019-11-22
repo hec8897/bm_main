@@ -802,7 +802,7 @@ var subLayoutRender = {
                                 <ul>
                                 <li class='ins_navs active' onclick='subLayoutRender.zoomSecionCharRender()'>상품특징</li>
                                 <li class='ins_navs' onclick='subLayoutRender.zoomSectionDescRender()'>보장내용</li>
-                                <li class='ins_navs'>가입예시/가입안내</li>
+                                <li class='ins_navs' onclick='subLayoutRender.zoomSectionPriceTableRender()'>가입예시/가입안내</li>
                                 <li class='ins_navs'>무료 상담 신청</li>
                                 </ul>
                                 </div>`;
@@ -986,6 +986,7 @@ Section2.innerHTML=`<div class='wrap'>
                             <tr>
                             <th>담보명</th>
                             <th>지급사유</th>
+                            <th>납기/만기</th>
                             <th>가입금액</th>
                             </tr> 
                             ${replaceAll3}
@@ -999,6 +1000,47 @@ Section2.innerHTML=`<div class='wrap'>
         }
         NavLi[1].className = 'ins_navs active'
 
+    },
+    zoomSectionPriceTableRender:function(){
+        var Section2 = document.getElementById('section2');
+        Section2.innerHTML=`<div class='wrap'>
+        <div class='product_desc'>
+        <h2>
+        <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>보험료 예시        
+        </h2>
+        <div class='tb_basic_contract'>
+        <table class='price_tb'>
+                            <thead>
+                            <tr>
+                            <th rowspan="2">구분</th>
+                            <th rowspan="2">담보명</th>
+                            <th rowspan="2">납기/만기</th>
+                            <th rowspan="2">가입금액</th>
+                            <th colspan="3">남자 보험료(원)</th>
+                            <th colspan="3">여자 보험료(원)</th>
+                            </tr> 
+                            <tr>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            <td>1</td>
+                            </tr>
+                            </thead>
+                           
+                            </table>
+                            </div>
+        
+        
+        </div>`
+
+
+        var NavLi = document.querySelectorAll('.ins_navs');
+        for(var i = 0; i<NavLi.length; i++){
+            NavLi[i].className = 'ins_navs'
+        }
+        NavLi[2].className = 'ins_navs active'
     },
     arrayDish: [],//list Array
     tabListActive: function (thisdata, Dataindex) {
