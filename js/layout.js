@@ -900,23 +900,16 @@ var subLayoutRender = {
 Section2.className='zoom_render_main'
 Section2.innerHTML=`<div class='wrap'>
             <div class='product_chars'>
-            <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>
-            <h2>${ThisCate[dataKey].Characteristic1}
-            <span>- ${ThisCate[dataKey].Characteristic1_1}</span>
-            </h2>
+            <h2>${ThisCate[dataKey].Characteristic1}</h2>
+            <span>- ${ThisCate[dataKey].Characteristic1_desc}</span>
             </div>
             <div class='product_chars'>
-            <img src='img/sub_page/zoom_char_label02.png' alt='zoom_char_label'>
-            <h2>${ThisCate[dataKey].Characteristic2}
-            <span>- ${ThisCate[dataKey].Characteristic2_1}</span>
-            </h2>
+            <h2>${ThisCate[dataKey].Characteristic2}</h2>
+            <span>- ${ThisCate[dataKey].Characteristic2_desc}</span>
             </div>
             <div class='product_chars'>
-            <img src='img/sub_page/zoom_char_label03.png' alt='zoom_char_label'>
-            <h2>${ThisCate[dataKey].Characteristic3}
-            <span>${ThisCate[dataKey].Characteristic3_1}</span>
-            <span>${ThisCate[dataKey].Characteristic3_2}</span>
-            <span>${ThisCate[dataKey].Characteristic3_3}</span>
+            <h2>${ThisCate[dataKey].Characteristic3}</h2>
+            <span>${ThisCate[dataKey].Characteristic3_desc}</span>
             </h2>
             </div>
 
@@ -952,11 +945,26 @@ Section2.innerHTML=`<div class='wrap'>
                                                 <td>${ContractDivision[i].price}</td></tr>`)
         }
 
+        var BasicTableTb = [];
+
+        for(var i = 0; i<ThisCate[dataKey].basicDivision.length; i++){
+            BasicTableTb.push(`<tr>
+            <td>${ThisCate[dataKey].basicDivision[i].Division}</td>
+            <td>${ThisCate[dataKey].basicDivision[i].desc}</td>
+            <td>${ThisCate[dataKey].basicDivision[i].price}</td>
+            </tr>`)
+        }
+
 
         var resultArrayHtml= ContractChoiceDivisionTb.toString()
         var replaceAll1 = resultArrayHtml.replaceAll(',', '');
         var replaceAll2 = replaceAll1.replaceAll('|', ',');
         var replaceAll3 = replaceAll2.replaceAll(null, ' ');
+
+        var resultArrayHtml2= BasicTableTb.toString()
+        var replaceAll4 = resultArrayHtml2.replaceAll(',', '');
+        var replaceAll5 = replaceAll4.replaceAll('|', ',');
+        var replaceAll6 = replaceAll5.replaceAll(null, ' ');
 
 
         Section2.innerHTML=`<div class='wrap'>
@@ -971,13 +979,8 @@ Section2.innerHTML=`<div class='wrap'>
                             <th>지급사유</th>
                             <th>가입금액</th>
                             </tr> 
-                            <tr>
-                            <td>${ThisCate[dataKey].basicDivision[0].Division}</td>
-                            <td>${ThisCate[dataKey].basicDivision[0].desc}</td>
-                            <td>${ThisCate[dataKey].basicDivision[0].price}</td>
-                            </tr> 
+                            ${replaceAll6}
                             </table>
-
                             <h2>
                             <img src='img/sub_page/zoom_char_label02.png' alt='zoom_char_label'>선택특약
                             </h2>
@@ -986,7 +989,6 @@ Section2.innerHTML=`<div class='wrap'>
                             <tr>
                             <th>담보명</th>
                             <th>지급사유</th>
-                            <th>납기/만기</th>
                             <th>가입금액</th>
                             </tr> 
                             ${replaceAll3}
@@ -1003,37 +1005,199 @@ Section2.innerHTML=`<div class='wrap'>
     },
     zoomSectionPriceTableRender:function(){
         var Section2 = document.getElementById('section2');
-        Section2.innerHTML=`<div class='wrap'>
-        <div class='product_desc'>
-        <h2>
-        <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>보험료 예시        
-        </h2>
-        <div class='tb_basic_contract'>
-        <table class='price_tb'>
-                            <thead>
-                            <tr>
-                            <th rowspan="2">구분</th>
-                            <th rowspan="2">담보명</th>
-                            <th rowspan="2">납기/만기</th>
-                            <th rowspan="2">가입금액</th>
-                            <th colspan="3">남자 보험료(원)</th>
-                            <th colspan="3">여자 보험료(원)</th>
-                            </tr> 
-                            <tr>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            <td>1</td>
-                            </tr>
-                            </thead>
-                           
-                            </table>
-                            </div>
-        
-        
-        </div>`
+
+        var PriceData = [];
+        PriceData.push(`<tr class='basic_data'>
+                            <td>${ThisCate[dataKey].basicDivision[0].classification}</td>
+                            <td>${ThisCate[dataKey].basicDivision[0].Division}</td>
+                            <td>${ThisCate[dataKey].basicDivision[0].option}</td>
+                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].price}</td>
+                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[0]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[1]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[2]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[3]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[4]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[5]}</td>
+                            </tr> `)
+
+        for(var i = 0; i<ThisCate[dataKey].ContractChoiceDivision.length; i++){
+            PriceData.push( `<tr>
+                            <td>${ThisCate[dataKey].ContractChoiceDivision[i].classification}</td>
+                            <td>${ThisCate[dataKey].ContractChoiceDivision[i].Division}</td>
+                            <td>${ThisCate[dataKey].ContractChoiceDivision[i].option}</td>
+                            <td class='price_data'>${ThisCate[dataKey].ContractChoiceDivision[i].price}</td>
+                            <td class='price_data'>${ThisCate[dataKey].ContractChoiceDivision[i].priceoption[0]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].ContractChoiceDivision[i].priceoption[1]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].ContractChoiceDivision[i].priceoption[2]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].ContractChoiceDivision[i].priceoption[3]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].ContractChoiceDivision[i].priceoption[4]}</td>
+                            <td class='price_data'>${ThisCate[dataKey].ContractChoiceDivision[i].priceoption[5]}</td>
+                            </tr> `)
+        }
+
+        var TerminationData = [];
+
+        for(var i = 0; i<ThisCate[dataKey].TerminationData.length; i++){
+            TerminationData.push(
+                `<tr>
+                            <td>${ThisCate[dataKey].TerminationData[i].classification}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].price}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].minRetrun[0]}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].minRetrun[1]}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].applyRate[0]}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].applyRate[1]}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].AvgRate[1]}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].AvgRate[0]}</td>
+                            </tr> `
+            )
+        }
+
+        var resultArrayHtml=  PriceData.toString()
+        var replaceAll1 = resultArrayHtml.replaceAll(',', '');
+        var replaceAll2 = replaceAll1.replaceAll('|', ',');
+        var replaceAll3 = replaceAll2.replaceAll(null, ' ');
+
+
+        var resultArrayHtml2= TerminationData.toString()
+        var replaceAll4 = resultArrayHtml2.replaceAll(',', '');
+        var replaceAll5 = replaceAll4.replaceAll('|', ',');
+        var replaceAll6 = replaceAll5.replaceAll(null, ' ');
+
+        function objectValues2(obj, ArrayName) {
+            var vals;
+            for (var key in obj) {
+                if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
+                    vals = obj[key];
+                }
+            }
+            ArrayName.push(vals)
+            return vals;
+        };
+        var guaranteeprPriceArray = [];
+        var SavePriceArray = [];
+        var ResultPriceArray = [];
+
+        objectValues2(ThisCate[dataKey].guaranteepricem[0],guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricef[0],guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricem[1],guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricef[1],guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricem[2],guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricef[2],guaranteeprPriceArray)
+
+
+        objectValues2(ThisCate[dataKey].Savem[0],SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savef[0],SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savem[1],SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savef[1],SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savem[2],SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savef[2],SavePriceArray)
+
+
+        objectValues2(ThisCate[dataKey].agepricem[0],ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricef[0],ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricem[1],ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricef[1],ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricem[2],ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricef[2],ResultPriceArray)
+
+
+        console.log(ResultPriceArray)
+
+        Section2.innerHTML=`
+        <div class='wrap'>
+            <div class='product_desc'>
+                <h2>
+                <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>보험료 예시        
+                </h2>
+                    <div class='tb_basic_contract'>
+                        <table class='price_tb'>
+                                    <thead>
+                                    <tr>
+                                    <th rowspan="2">구분</th>
+                                    <th rowspan="2">담보명</th>
+                                    <th rowspan="2">납기/만기</th>
+                                    <th rowspan="2">가입금액</th>
+                                    <th colspan="3">남자 보험료(원)</th>
+                                    <th colspan="3">여자 보험료(원)</th>
+                                    </tr> 
+                                    <tr>
+                                    <td>${Object.keys(ThisCate[dataKey].agepricem[0])}세</td>
+                                    <td>${Object.keys(ThisCate[dataKey].agepricem[1])}세</td>
+                                    <td>${Object.keys(ThisCate[dataKey].agepricem[2])}세</td>
+                                    <td>${Object.keys(ThisCate[dataKey].agepricef[0])}세</td>
+                                    <td>${Object.keys(ThisCate[dataKey].agepricef[1])}세</td>
+                                    <td>${Object.keys(ThisCate[dataKey].agepricef[2])}세</td>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    ${replaceAll3}
+                                    <tr>
+                                    <td colspan="4" class='last_line'>보장보험료</td>
+                                    <td class='price_data'>${guaranteeprPriceArray[0]}</td>
+                                    <td class='price_data'>${guaranteeprPriceArray[1]}</td>
+                                    <td class='price_data'>${guaranteeprPriceArray[2]}</td>
+                                    <td class='price_data'>${guaranteeprPriceArray[3]}</td>
+                                    <td class='price_data'>${guaranteeprPriceArray[4]}</td>
+                                    <td class='price_data'>${guaranteeprPriceArray[5]}</td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="4" class='last_line'>적립보험료</td>
+                                    <td class='price_data'>${SavePriceArray[0]}</td>
+                                    <td class='price_data'>${SavePriceArray[1]}</td>
+                                    <td class='price_data'>${SavePriceArray[2]}</td>
+                                    <td class='price_data'>${SavePriceArray[3]}</td>
+                                    <td class='price_data'>${SavePriceArray[4]}</td>
+                                    <td class='price_data'>${SavePriceArray[5]}</td>
+                                    </tr>
+                                    <tr>
+                                    <td colspan="4" class='last_line'>합계보험료</td>
+                                    <td class='price_data'>${ResultPriceArray[0]}</td>
+                                    <td class='price_data'>${ResultPriceArray[1]}</td>
+                                    <td class='price_data'>${ResultPriceArray[2]}</td>
+                                    <td class='price_data'>${ResultPriceArray[3]}</td>
+                                    <td class='price_data'>${ResultPriceArray[4]}</td>
+                                    <td class='price_data'>${ResultPriceArray[5]}</td>
+                                    </tr>
+                                    </tbody>
+                        </table>
+                    </div>
+            </div>
+
+            <div class='product_desc'>
+            <h2>
+            <img src='img/sub_page/zoom_char_label02.png' alt='zoom_char_label'>해지환급금 예시        
+            </h2>
+                <div class='tb_basic_contract'>
+                    <table class='price_tb termination_tb'>
+                                <thead>
+                                <tr>
+                                <th rowspan="3" class='head_th'>구분</th>
+                                <th rowspan="3">납입 보험료</th>
+                                <th rowspan="1" colspan="6">납입 보험료</th>
+                                </tr>
+                                <tr>
+                                <th rowspan="1" colspan="2">최저보증이률</th>
+                                <th rowspan="1" colspan="2">공시이율</th>
+                                <th rowspan="1" colspan="2">평균공시이율</th>
+                                </tr> 
+                                <tr>
+                                <td>환급금(원)</td>
+                                <td>환급률(%)</td>
+                                <td>환급금(원)</td>
+                                <td>환급률(%)</td>
+                                <td>환급금(원)</td>
+                                <td>환급률(%)</td>
+                                </tr>
+                                </thead>
+                                <tbody>
+                               ${replaceAll6}
+                                </tbody>
+                    </table>
+                </div>
+        </div>
+        </div>
+
+        `
 
 
         var NavLi = document.querySelectorAll('.ins_navs');

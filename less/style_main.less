@@ -2565,14 +2565,16 @@ body {
                     color: #222;
                     font-size: 1.125rem;
                     font-weight: bold;
+                }
+
                     span{
                         font-size: 0.875rem;
                         color: #888;
                         display: block;
                         margin-top: 10px;
                         margin-left: 35px;
+                        line-height: 1.2rem;
                     }
-                }
             }
             div.ins_product_tb{
                 ul{
@@ -2607,6 +2609,9 @@ body {
                             padding-left: 20px;
                             font-size: 0.875rem;
                             color: #888;
+                            img{
+                                display: none;
+                            }
 
 
 
@@ -2739,7 +2744,6 @@ body {
                 border-top: 2px solid #222;
                 margin-bottom: 50px;
                 border-bottom: 2px solid #222;
-
                 tr{
                     th{
                         vertical-align: middle;
@@ -2784,8 +2788,26 @@ body {
             table.price_tb{
                 thead{
                     background: #f6f6f6;
+                    td{
+                        text-align: center;
+                        padding-left: 0px;
+                        color: #222;
+                        font-weight: bold;
+                    }
                 }
-                
+                tbody{
+                    td.price_data{
+                        text-align: right;
+                        padding-right: 5px;
+                        box-sizing: border-box;
+                    }
+                    td{
+                        font-size: 0.875rem;
+                    }
+                }
+                tr.basic_data{
+                    border-bottom: 2px solid #d0d0d0;
+                }
                 tr{
                  
                     th:nth-child(1){
@@ -2810,6 +2832,7 @@ body {
                         border-right:0px solid #d0d0d0; 
                     }
                   
+                  
                     td:nth-child(1){
                     }td:nth-child(2){
                     }
@@ -2818,6 +2841,39 @@ body {
                         padding-right: 0px;
                     }
                 }
+            }
+            table.termination_tb{
+                tr{
+                    padding: 10px;
+                }
+                thead{
+                 
+                    tr{
+                        th:nth-child(1){
+                            width: auto;
+                        }
+                        th:nth-child(2){
+                            width: auto;
+                        }
+                        th:nth-child(3){
+                            width: auto;
+                        }
+                        th:nth-last-child(1){
+                            border-right: 0px solid #d0d0d0; 
+
+                        }
+                       
+                    }
+                }
+                tbody{
+                    td{
+                        text-align: center;
+                    }
+                }
+
+            }
+            table{
+
             }
             ul{
                 li.li_head{
@@ -2882,7 +2938,6 @@ body {
                 }
             }
         }
-        div.contract2{
-        }
+      
     }
 }

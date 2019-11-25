@@ -2237,12 +2237,13 @@ body {
   font-size: 1.125rem;
   font-weight: bold;
 }
-#wrap section.zoom_render_main div.wrap div.product_chars h2 span {
+#wrap section.zoom_render_main div.wrap div.product_chars span {
   font-size: 0.875rem;
   color: #888;
   display: block;
   margin-top: 10px;
   margin-left: 35px;
+  line-height: 1.2rem;
 }
 #wrap section.zoom_render_main div.wrap div.ins_product_tb ul {
   width: 100%;
@@ -2276,6 +2277,9 @@ body {
   padding-left: 20px;
   font-size: 0.875rem;
   color: #888;
+}
+#wrap section.zoom_render_main div.wrap div.ins_product_tb ul li div.tb_body img {
+  display: none;
 }
 #wrap section.zoom_render_main div.wrap div.ins_product_tb ul li div.tb_body div.price_bord {
   width: 70%;
@@ -2419,6 +2423,23 @@ body {
 #wrap section.zoom_render_main div.tb_basic_contract table.price_tb thead {
   background: #f6f6f6;
 }
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb thead td {
+  text-align: center;
+  padding-left: 0px;
+  color: #222;
+  font-weight: bold;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tbody td.price_data {
+  text-align: right;
+  padding-right: 5px;
+  box-sizing: border-box;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tbody td {
+  font-size: 0.875rem;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr.basic_data {
+  border-bottom: 2px solid #d0d0d0;
+}
 #wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr th:nth-child(1) {
   width: 10%;
 }
@@ -2442,6 +2463,24 @@ body {
 #wrap section.zoom_render_main div.tb_basic_contract table.price_tb tr td:nth-child(3) {
   border-right: 1px solid #d0d0d0;
   padding-right: 0px;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.termination_tb tr {
+  padding: 10px;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.termination_tb thead tr th:nth-child(1) {
+  width: auto;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.termination_tb thead tr th:nth-child(2) {
+  width: auto;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.termination_tb thead tr th:nth-child(3) {
+  width: auto;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.termination_tb thead tr th:nth-last-child(1) {
+  border-right: 0px solid #d0d0d0;
+}
+#wrap section.zoom_render_main div.tb_basic_contract table.termination_tb tbody td {
+  text-align: center;
 }
 #wrap section.zoom_render_main div.tb_basic_contract ul li.li_head {
   width: 100%;
