@@ -1353,6 +1353,7 @@ body {
   text-align: center;
   margin-right: 5px;
   margin-left: 5px;
+  position: relative;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box img.bedge {
   width: 35px;
@@ -1370,24 +1371,26 @@ body {
   margin: 0 auto;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box p {
-  font-size: 1rem;
+  width: 80%;
+  margin: 0 auto;
+  font-size: 0.875rem;
   color: #444;
-  margin-bottom: 5px;
-}
-#wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box p span {
-  display: block;
-  margin-top: 5px;
+  word-break: keep-all;
+  margin-top: 15px;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box div.more_btn {
   cursor: pointer;
   width: 120px;
   height: 40px;
-  margin: 30px auto;
   text-align: center;
   line-height: 38px;
   border: 2px solid #d0d0d0;
   box-sizing: border-box;
   color: #444;
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box div.more_btn:hover {
   background: #ec6647;
@@ -2148,23 +2151,14 @@ body {
   border-radius: 5px;
   margin-right: 5px;
   margin-left: 5px;
-  vertical-align: bottom;
-  padding: 20px;
+  vertical-align: top;
   box-sizing: border-box;
   border: 1px solid #d0d0d0;
+  line-height: 100px;
 }
 #wrap section.mode_ins_zoom div.wrap ul li img {
-  height: 25px;
-}
-#wrap section.mode_ins_zoom div.wrap ul li p {
-  width: 70%;
-  position: absolute;
-  font-size: 0.75rem;
-  word-break: keep-all;
-  line-height: 1rem;
-  top: 50px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 60%;
+  vertical-align: middle;
 }
 #wrap section.mode_ins_zoom div.wrap ul .active {
   background: white;
@@ -2236,6 +2230,12 @@ body {
   color: #222;
   font-size: 1.125rem;
   font-weight: bold;
+}
+#wrap section.zoom_render_main div.wrap div.product_chars h2 span {
+  color: #ec6647;
+  display: inline;
+  font-size: 1.125rem;
+  margin: 0;
 }
 #wrap section.zoom_render_main div.wrap div.product_chars span {
   font-size: 0.875rem;
@@ -2361,15 +2361,30 @@ body {
   font-size: 0.875rem;
   margin-top: 10px;
 }
+#wrap section.zoom_render_main div.product_desc h3 {
+  font-weight: bold;
+}
 #wrap section.zoom_render_main div.product_desc h2 {
   font-size: 1.125rem;
   font-weight: bold;
   color: #222;
   letter-spacing: -1px;
 }
+#wrap section.zoom_render_main div.product_desc h2 span {
+  font-size: 0.75rem;
+  margin-left: 10px;
+}
 #wrap section.zoom_render_main div.product_desc h2 img {
   margin-right: 10px;
   vertical-align: text-bottom;
+}
+#wrap section.zoom_render_main div.product_desc p {
+  color: #444;
+  font-size: 0.875rem;
+  margin-top: 20px;
+  line-height: 1.6rem;
+  word-break: keep-all;
+  letter-spacing: -2px;
 }
 #wrap section.zoom_render_main div.tb_basic_contract {
   width: 100%;
@@ -2419,6 +2434,14 @@ body {
 }
 #wrap section.zoom_render_main div.tb_basic_contract table tr td:nth-child(3) {
   padding-right: 10px;
+}
+#wrap section.zoom_render_main div.tb_basic_contract p {
+  color: #444;
+  font-size: 0.875rem;
+  margin-top: 20px;
+}
+#wrap section.zoom_render_main div.tb_basic_contract p span {
+  color: #ec6647;
 }
 #wrap section.zoom_render_main div.tb_basic_contract table.price_tb thead {
   background: #f6f6f6;

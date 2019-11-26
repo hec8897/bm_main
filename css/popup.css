@@ -145,6 +145,7 @@ body {
   background: white;
   border: 1px solid #f0f0f0;
   display: inline-block;
+  vertical-align: middle;
   margin-bottom: 10px;
   margin-right: 20px;
   border-radius: 5px;
@@ -170,8 +171,12 @@ body {
   background-position: center;
   background-size: contain;
 }
-#wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab .p {
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab p {
   letter-spacing: -1px;
+  font-size: 0.875rem;
+  word-break: keep-all;
+  width: 85%;
+  margin: 0 auto;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab3,
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab6 {
@@ -297,6 +302,7 @@ body {
   color: #222;
   letter-spacing: -1px;
   word-break: keep-all;
+  font-size: 0.875rem;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.head_data div.tabs div.text_area p {
   color: #222;
@@ -445,6 +451,7 @@ body {
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.illust_tab div.text_tab p {
   color: #444;
   margin-bottom: 5px;
+  font-size: 0.875rem;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.illust_tab div.text_tab div.consult_btn {
   cursor: pointer;
@@ -480,6 +487,9 @@ body {
   box-sizing: border-box;
   word-break: keep-all;
 }
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.bottom_data .left_tab p {
+  font-size: 0.875rem;
+}
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.bottom_data .center_tab {
   width: 10%;
   height: 100%;
@@ -508,8 +518,14 @@ body {
   box-sizing: border-box;
   word-break: keep-all;
 }
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.bottom_data .right_tab p {
+  font-size: 0.875rem;
+}
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.character_data.bottom_data {
   height: 90px;
+}
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.character_data.bottom_data img {
+  display: none;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.term_data.bottom_data {
   height: 50px;

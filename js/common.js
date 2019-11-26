@@ -254,6 +254,8 @@ function moNavRender(thistag){
         event.stopPropagation();
         return false;
       });
+
+  
     
     
     
@@ -284,7 +286,4 @@ function closeMoNav(thistag){
         'overflow-y': 'auto'
     });
     $('*').off('scroll touchmove mousewheel');
-
-
-
 }

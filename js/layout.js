@@ -719,12 +719,26 @@ var subLayoutRender = {
                     return x.catekey == key[pageIndex];
                 })
 
+                var uAgent = navigator.userAgent.toLowerCase();
+                var mobilePhones = new Array('iphone', 'ipod', 'ipad', 'android', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
+                var MobilePage; 
+                for (var i = 0; i < mobilePhones.length; i++) {
+                    if (uAgent.indexOf(mobilePhones[i]) != -1) {
+                        console.log(mobilePhones[i])
+                        var MobilePage = 'mo_popup.html'
+                    }
+                    else{
+                        var MobilePage = 'mo_popup.html'
+
+                    }
+                }
+
                 var resultArray = [];
                 for (var i = 0; i < result1.length; i++) {
                     resultArray.push(` <div class='fn_box fn_box${i}' onclick='subLayoutRender.tabListActive(this|${result1[i].no})'>
                                         <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
                                         <div class="fn_icon" style="background-image:url(${result1[i].logo})"></div>
-                                        <p>${result1[i].product}<span>${result1[i].type}</span></p>
+                                        <p>${result1[i].product}</p>
                                         <div class="more_btn" onclick='popupRender.moreData(${result1.indexOf(result1[i])})'>자세히 보기</div>
                                     </div>`)
 
@@ -768,23 +782,18 @@ var subLayoutRender = {
             var Section4 = document.getElementById('section4');
             var topInput = document.getElementById('top_inputs');
             var ThisBanner = document.getElementById('top_banner');
-
             var zoomModeTopNav = [];
-
             for(var i = 0; i<ThisCate.length; i++){
-                zoomModeTopNav.push(`<a href='main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${ThisCate[i].no}'><li class='ins_zoom_navs'><img src='${ThisCate[i].logo}'>
-                                        <p>${ThisCate[i].product}</p></li></a>`)
+                zoomModeTopNav.push(`<a href='main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${i}'><li class='ins_zoom_navs'><img src='${ThisCate[i].logo}'>
+                                        </li></a>`)
             }
 
-
             zoomModeTopNav.toString();
-
             var resultArrayHtml = zoomModeTopNav.toString();
                 var replaceAll1 = resultArrayHtml.replaceAll(',', '');
                 var replaceAll2 = replaceAll1.replaceAll('|', ',');
                 var replaceAll3 = replaceAll2.replaceAll(null, ' ');
-
-            dataKey = params.datakey
+                dataKey = params.datakey
 
             ThisBanner.style.background='#dbe4e7'             
             ThisBanner.className='mode_ins_zoom'
@@ -901,17 +910,19 @@ Section2.className='zoom_render_main'
 Section2.innerHTML=`<div class='wrap'>
             <div class='product_chars'>
             <h2>${ThisCate[dataKey].Characteristic1}</h2>
-            <span>- ${ThisCate[dataKey].Characteristic1_desc}</span>
+            <span>${ThisCate[dataKey].Characteristic1_desc}</span>
             </div>
             <div class='product_chars'>
             <h2>${ThisCate[dataKey].Characteristic2}</h2>
-            <span>- ${ThisCate[dataKey].Characteristic2_desc}</span>
+            <span>${ThisCate[dataKey].Characteristic2_desc}</span>
             </div>
             <div class='product_chars'>
             <h2>${ThisCate[dataKey].Characteristic3}</h2>
             <span>${ThisCate[dataKey].Characteristic3_desc}</span>
             </h2>
             </div>
+
+
 
             <div class='ins_product_tb'>
                 <ul>
@@ -956,6 +967,7 @@ Section2.innerHTML=`<div class='wrap'>
         }
 
 
+
         var resultArrayHtml= ContractChoiceDivisionTb.toString()
         var replaceAll1 = resultArrayHtml.replaceAll(',', '');
         var replaceAll2 = replaceAll1.replaceAll('|', ',');
@@ -969,6 +981,7 @@ Section2.innerHTML=`<div class='wrap'>
 
         Section2.innerHTML=`<div class='wrap'>
                             <div class='product_desc'>
+
                             <h2>
                             <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>기본계약
                             </h2>
@@ -993,6 +1006,7 @@ Section2.innerHTML=`<div class='wrap'>
                             </tr> 
                             ${replaceAll3}
                             </table>
+
                             </div>
                             </div>`
 
@@ -1007,18 +1021,23 @@ Section2.innerHTML=`<div class='wrap'>
         var Section2 = document.getElementById('section2');
 
         var PriceData = [];
-        PriceData.push(`<tr class='basic_data'>
-                            <td>${ThisCate[dataKey].basicDivision[0].classification}</td>
-                            <td>${ThisCate[dataKey].basicDivision[0].Division}</td>
-                            <td>${ThisCate[dataKey].basicDivision[0].option}</td>
-                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].price}</td>
-                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[0]}</td>
-                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[1]}</td>
-                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[2]}</td>
-                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[3]}</td>
-                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[4]}</td>
-                            <td class='price_data'>${ThisCate[dataKey].basicDivision[0].priceoption[5]}</td>
-                            </tr> `)
+        for(var i = 0; i<ThisCate[dataKey].basicDivision.length; i++){
+            PriceData.push(`<tr class='basic_data'>
+            <td>${ThisCate[dataKey].basicDivision[i].classification}</td>
+            <td>${ThisCate[dataKey].basicDivision[i].Division}</td>
+            <td>${ThisCate[dataKey].basicDivision[i].option}</td>
+            <td class='price_data'>${ThisCate[dataKey].basicDivision[i].price}</td>
+            <td class='price_data'>${ThisCate[dataKey].basicDivision[i].priceoption[0]}</td>
+            <td class='price_data'>${ThisCate[dataKey].basicDivision[i].priceoption[1]}</td>
+            <td class='price_data'>${ThisCate[dataKey].basicDivision[i].priceoption[2]}</td>
+            <td class='price_data'>${ThisCate[dataKey].basicDivision[i].priceoption[3]}</td>
+            <td class='price_data'>${ThisCate[dataKey].basicDivision[i].priceoption[4]}</td>
+            <td class='price_data'>${ThisCate[dataKey].basicDivision[i].priceoption[5]}</td>
+            </tr> `)
+        }
+
+       
+
 
         for(var i = 0; i<ThisCate[dataKey].ContractChoiceDivision.length; i++){
             PriceData.push( `<tr>
@@ -1037,6 +1056,8 @@ Section2.innerHTML=`<div class='wrap'>
 
         var TerminationData = [];
 
+        console.log(PriceData)
+
         for(var i = 0; i<ThisCate[dataKey].TerminationData.length; i++){
             TerminationData.push(
                 `<tr>
@@ -1046,8 +1067,8 @@ Section2.innerHTML=`<div class='wrap'>
                             <td>${ThisCate[dataKey].TerminationData[i].minRetrun[1]}</td>
                             <td>${ThisCate[dataKey].TerminationData[i].applyRate[0]}</td>
                             <td>${ThisCate[dataKey].TerminationData[i].applyRate[1]}</td>
-                            <td>${ThisCate[dataKey].TerminationData[i].AvgRate[1]}</td>
                             <td>${ThisCate[dataKey].TerminationData[i].AvgRate[0]}</td>
+                            <td>${ThisCate[dataKey].TerminationData[i].AvgRate[1]}</td>
                             </tr> `
             )
         }
@@ -1100,15 +1121,14 @@ Section2.innerHTML=`<div class='wrap'>
         objectValues2(ThisCate[dataKey].agepricem[2],ResultPriceArray)
         objectValues2(ThisCate[dataKey].agepricef[2],ResultPriceArray)
 
-
-        console.log(ResultPriceArray)
-
         Section2.innerHTML=`
         <div class='wrap'>
             <div class='product_desc'>
                 <h2>
-                <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>보험료 예시        
+                <img src='img/sub_page/zoom_char_label01.png' alt='zoom_char_label'>보험료 예시<span>${ThisCate[dataKey].JoinCondition}</span>  
                 </h2>
+                <p>상기 보험료는 가입나이, 성별, 직업, 직종에 따라 달라질 수 있으며, 보험기간, 납입기간, 가입금액 선택에 따라 달라질 수 있습니다.</p>
+
                     <div class='tb_basic_contract'>
                         <table class='price_tb'>
                                     <thead>
@@ -1160,12 +1180,14 @@ Section2.innerHTML=`<div class='wrap'>
                                     </tr>
                                     </tbody>
                         </table>
+
+
                     </div>
             </div>
 
             <div class='product_desc'>
             <h2>
-            <img src='img/sub_page/zoom_char_label02.png' alt='zoom_char_label'>해지환급금 예시        
+            <img src='img/sub_page/zoom_char_label02.png' alt='zoom_char_label'>해지환급금 예시<span>${ThisCate[dataKey].TerminationComent[0].TerminationCondition}</span> 
             </h2>
                 <div class='tb_basic_contract'>
                     <table class='price_tb termination_tb'>
@@ -1193,6 +1215,9 @@ Section2.innerHTML=`<div class='wrap'>
                                ${replaceAll6}
                                 </tbody>
                     </table>
+
+                    <h3>${ThisCate[dataKey].TerminationComent[0].tit}</h3>
+                    <p>${ThisCate[dataKey].TerminationComent[0].desc}</p>
                 </div>
         </div>
         </div>
@@ -2124,9 +2149,8 @@ var popupRender = {
         setTimeout(() => {
             this.tabData(0, 'cal')
         }, 700);
-        $('html, body').css({
-            // 'overflow-y': 'hidden'
-        });
+        $('html, body').css({'overflow': 'hidden', 'height': '150%'});
+
     },
     calculateFn: function (a) {
         var popup = document.getElementById('popup_box');
@@ -2887,7 +2911,6 @@ var popupRender = {
                             <div class='logo_section' id='result_logosection' style="background-image:url(${result1[0].logo})"></div>
                                 <div class='text_area'>
                                     <h3 id='result_product'>${result1[0].product}</h3>
-                                    <p id='result_type'>${result1[0].type}</p>
                                 </div>
                             </div>
                             <div class='price_table' id="price_table">
@@ -2917,7 +2940,6 @@ var popupRender = {
                             <div class='logo_section' id='result_logosection' style="background-image:url(${result2[0].logo})"></div>
                                 <div class='text_area'>
                                     <h3 id='result_product'>${result2[0].product}</h3>
-                                    <p id='result_type'>${result2[0].type}</p>
                                 </div>
                             </div>
                             <div class='price_table' id="price_table">

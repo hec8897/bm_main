@@ -1977,6 +1977,7 @@ body {
   margin-right: 5px;
   margin-left: 5px;
   vertical-align: middle;
+  position: relative;
 }
 @media (max-width:767px) {
   #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box {
@@ -2019,6 +2020,8 @@ body {
   font-size: 1rem;
   color: #444;
   margin-bottom: 5px;
+  width: 80%;
+  margin: 0 auto;
 }
 @media (max-width:767px) {
   #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box p {
@@ -2040,12 +2043,16 @@ body {
   cursor: pointer;
   width: 120px;
   height: 40px;
-  margin: 30px auto;
+  margin: 0px auto;
   text-align: center;
   line-height: 38px;
   border: 2px solid #d0d0d0;
   box-sizing: border-box;
   color: #444;
+  position: absolute;
+  bottom: 5px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 @media (max-width:767px) {
   #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box div.more_btn {

@@ -85,7 +85,7 @@ body {
     box-sizing: border-box;
     max-width: 100%;
     padding-bottom: 50px;
-    height: 150%;
+    height: 140%;
     background: white;
     left: 00%;
     top: 0%;
@@ -198,7 +198,7 @@ body {
 }
 @media (max-width:767px) {
   #wrap div.popups div.speed_compare_popup div.ins_tabs {
-    height: 140%;
+    height: 130%;
   }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs h3 {
@@ -267,6 +267,7 @@ body {
   margin: 0 auto;
   letter-spacing: -1px;
   word-break: keep-all;
+  font-size: 0.75rem;
 }
 @media (max-width:767px) {
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab p {
@@ -399,18 +400,17 @@ body {
   text-align: left;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.head_data div.tabs div.text_area h3 {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   color: #222;
   letter-spacing: -1px;
   word-break: keep-all;
   text-align: left;
-  font-size: 0.875rem;
-  font-weight: bold;
+  font-size: 0.75rem;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.head_data div.tabs div.text_area p {
   color: #222;
   word-break: keep-all;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.head_data .left_tab {
   width: 45%;
@@ -563,7 +563,8 @@ body {
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.illust_tab div.text_tab p {
   color: #444;
   margin-bottom: 5px;
-  font-size: 0.875rem;
+  font-size: 0.75rem;
+  word-break: keep-all;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.illust_tab div.text_tab div.consult_btn {
   cursor: pointer;
@@ -600,6 +601,9 @@ body {
   box-sizing: border-box;
   word-break: keep-all;
 }
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.bottom_data .left_tab p {
+  font-size: 0.875rem;
+}
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.bottom_data .center_tab {
   width: 10%;
   height: 100%;
@@ -617,7 +621,7 @@ body {
   top: 50%;
   left: 0px;
   transform: translate(0%, -50%);
-  font-size: 0.875rem;
+  font-size: 0.75rem;
   color: #444444;
   font-weight: bold;
 }
@@ -628,8 +632,14 @@ body {
   box-sizing: border-box;
   word-break: keep-all;
 }
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.bottom_data .right_tab p {
+  font-size: 0.875rem;
+}
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.character_data.bottom_data {
   height: 90px;
+}
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.character_data.bottom_data img {
+  display: none;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.compare_bord .bord_wrap div.term_data.bottom_data {
   height: 50px;
@@ -824,7 +834,7 @@ body {
     word-break: keep-all;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab .top_data p {
-    font-size: 0.75rem;
+    font-size: 0.65rem;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.price_table {
     width: 100%;
@@ -923,6 +933,14 @@ body {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.characteristic_tab div.text_area img {
+    display: none;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.characteristic_tab div.text_area p {
+    font-size: 0.75rem;
+    margin-bottom: 5px;
+    text-align: left;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.mo_compare_bord div.mo_table .mo_tab div.term_tab {
     border-bottom: 1px solid #d0d0d0;
@@ -1906,9 +1924,6 @@ select:focus {
 input[type=number]:focus {
   outline: none;
   border: 2px solid #ec6647;
-}
-div.ins_tabs.more_ins {
-  height: 700px!important;
 }
 div.ins_tabs.more_ins div.cal_top_tab {
   overflow: hidden;

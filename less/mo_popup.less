@@ -92,7 +92,7 @@ body {
                     box-sizing: border-box;
                     max-width: 100%;
                     padding-bottom: 50px;
-                    height: 150%;
+                    height: 140%;
                     background: white;
                     left: 00%;
                     top: 0%;
@@ -212,7 +212,7 @@ body {
                 margin-top: 20px;
                 text-align: left;
                 @media@mediaVericalMobile {
-                    height: 140%;
+                    height: 130%;                    
 
 
                 }
@@ -286,6 +286,7 @@ body {
                         margin: 0 auto;
                         letter-spacing: -1px;
                         word-break: keep-all;
+                        font-size: 0.75rem;
                         @media@mediaVericalMobile {
                             font-size: 0.75rem;
                         }
@@ -440,20 +441,20 @@ body {
                                     text-align: left;
 
                                     h3 {
-                                        margin-bottom: 10px;
+                                        margin-bottom: 5px;
                                         color: #222;
                                         letter-spacing: -1px;
                                         word-break: keep-all;
                                         text-align: left;
-                                        font-size: 0.875rem;
-                                        font-weight: bold;
+                                        font-size: 0.75rem;
 
                                     }
 
                                     p {
                                         color: #222;
                                         word-break: keep-all;
-                                        font-size: 0.875rem;
+                                        font-size: 0.75rem;
+
 
                                     }
 
@@ -644,7 +645,8 @@ body {
                                 p {
                                     color: #444;
                                     margin-bottom: 5px;
-                                    font-size: 0.875rem;
+                                    font-size: 0.75rem;
+                                    word-break: keep-all;
                                 }
 
                                 div.consult_btn {
@@ -690,8 +692,10 @@ body {
                                 height: 100%;
                                 float: left;
                                 box-sizing: border-box;
-                                ;
                                 word-break: keep-all;
+                                p{
+                                    font-size: 0.875rem;
+                                }
 
 
                             }
@@ -709,6 +713,7 @@ body {
                                 ;
                                 background-size: 50px;
                                 position: relative;
+                        
 
                                 span {
                                     width: 100%;
@@ -716,7 +721,7 @@ body {
                                     top: 50%;
                                     left: 0px;
                                     transform: translate(0%, -50%);
-                                    font-size: 0.875rem;
+                                    font-size: 0.75rem;
                                     color: #444444;
                                     font-weight: bold;
                                     ;
@@ -729,8 +734,10 @@ body {
                                 height: 100%;
                                 float: left;
                                 box-sizing: border-box;
-                                ;
                                 word-break: keep-all;
+                                p{
+                                    font-size: 0.875rem;
+                                }
 
 
                             }
@@ -739,6 +746,9 @@ body {
 
                         div.character_data.bottom_data {
                             height: 90px;
+                            img{
+                                display: none;
+                            }
                         }
 
                         div.term_data.bottom_data {
@@ -952,7 +962,7 @@ body {
                                         word-break: keep-all;
                                     }
                                     p{
-                                        font-size: 0.75rem;
+                                        font-size: 0.65rem;
 
                                     }
                                 }
@@ -1075,6 +1085,14 @@ body {
                                         top: 50%;
                                         left: 50%;
                                         transform: translate(-50%,-50%);
+                                        img{
+                                            display: none;
+                                        }
+                                        p{
+                                            font-size: 0.75rem;
+                                            margin-bottom: 5px;
+                                            text-align: left;
+                                        }
                                     }
                                 }
                                 div.term_tab{
@@ -2218,7 +2236,6 @@ input[type=number]:focus {
 }
 
 div.ins_tabs.more_ins{
-    height: 700px!important;
         // text-align: center;
         div.cal_top_tab{
             overflow: hidden;
