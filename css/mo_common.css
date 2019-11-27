@@ -741,6 +741,12 @@ div#wrap footer div.company_info div.wrap div.info_box p.address {
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
+@media (max-width:767px) {
+  .container .checkmark:after {
+    left: 0px;
+    top: 0px;
+  }
+}
 .container {
   display: block;
   position: relative;
@@ -784,8 +790,8 @@ div#wrap footer div.company_info div.wrap div.info_box p.address {
   display: block;
 }
 .container .checkmark:after {
-  left: 9px;
-  top: 5px;
+  left: 5px;
+  top: 2px;
   width: 5px;
   height: 10px;
   border: solid white;

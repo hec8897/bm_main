@@ -2487,6 +2487,9 @@ body {
   border-right: 1px solid #d0d0d0;
   padding-right: 0px;
 }
+#wrap section.zoom_render_main div.tb_basic_contract table.price_tb td span {
+  color: #ec6647;
+}
 #wrap section.zoom_render_main div.tb_basic_contract table.termination_tb tr {
   padding: 10px;
 }

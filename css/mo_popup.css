@@ -258,7 +258,6 @@ body {
 @media (max-width:767px) {
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab .icon_area {
     width: 80%;
-    margin-bottom: 15px;
     background-size: 55%;
   }
 }
@@ -272,6 +271,7 @@ body {
 @media (max-width:767px) {
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab p {
     font-size: 0.75rem;
+    word-break: normal;
   }
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab3,
@@ -1482,23 +1482,28 @@ body {
     text-align: left;
     font-size: 1rem;
     margin-bottom: 10px;
+    font-size: 0.875rem;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info p {
     text-align: left;
-    font-size: 1rem;
+    font-size: 0.875rem;
     margin-bottom: 5px;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info p span {
+    font-size: 0.875rem;
+    display: block;
     font-weight: bold;
     color: #ec6647;
+    margin-top: 5px;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info h2.price {
     position: absolute;
     bottom: 20px;
     right: 20px;
+    font-size: 1rem;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.price_info h2.price span {
-    font-size: 1.563rem;
+    font-size: 1rem;
     color: #ec6647;
     margin-right: 5px   ;
   }
@@ -1550,6 +1555,9 @@ body {
     box-sizing: border-box;
     font-size: 0.75rem;
     overflow: hidden;
+  }
+  #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.ins_info_tab ul li div.list_desc img {
+    display: none;
   }
   #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab p.coment_p {
     color: #ec6647;
@@ -1884,6 +1892,8 @@ body {
 @media (max-width:767px) {
   #wrap div.insert_popup div.insert_box div.insert_form div.bottom_tab textarea {
     height: 100px;
+    font-size: 0.75rem;
+    padding-left: 5px;
   }
 }
 #wrap div.insert_popup div.insert_box div.insert_form div.bottom_tab textarea:focus {

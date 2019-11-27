@@ -22,8 +22,7 @@ var layoutRender = {
         var uAgent = navigator.userAgent.toLowerCase();
         var mobilePhones = new Array('iphone', 'ipod', 'ipad', 'android', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
         for (var i = 0; i < mobilePhones.length; i++) {
-            if (uAgent.indexOf(mobilePhones[i]) != -1) {
-            }
+            if (uAgent.indexOf(mobilePhones[i]) != -1) {}
         }
 
         var PcMedia = window.matchMedia('( max-width: 1200px )');
@@ -31,14 +30,11 @@ var layoutRender = {
         var MobileMedia = window.matchMedia('(max-width:767px)');
         //Header Rendering
         this.getQueryString();
-        console.log(TabletMedia.matches)
-        if(TabletMedia.matches == true){
+        if (TabletMedia.matches == true) {
             var mobileLink = 'mo_';
-        }
-        else if (MobileMedia.matches == true){
+        } else if (MobileMedia.matches == true) {
             var mobileLink = 'mo_';
-        }
-        else{
+        } else {
             var mobileLink = '';
         }
         // const mobileLink = params.device!=undefined ?'mo_':'';
@@ -721,13 +717,12 @@ var subLayoutRender = {
 
                 var uAgent = navigator.userAgent.toLowerCase();
                 var mobilePhones = new Array('iphone', 'ipod', 'ipad', 'android', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
-                var MobilePage; 
+                var MobilePage;
                 for (var i = 0; i < mobilePhones.length; i++) {
                     if (uAgent.indexOf(mobilePhones[i]) != -1) {
                         console.log(mobilePhones[i])
                         var MobilePage = 'mo_popup.html'
-                    }
-                    else{
+                    } else {
                         var MobilePage = 'mo_popup.html'
 
                     }
@@ -763,19 +758,19 @@ var subLayoutRender = {
         xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xhttp.send("data=0")
     },
-    insZoom:function(){
-        if(params.mode == 'ins_zoom'){
+    insZoom: function () {
+        if (params.mode == 'ins_zoom') {
             result = returnJson.filter((x) => {
                 return x.catekey == result1[0].catekey;
             })
-                ThisCate = [];
+            ThisCate = [];
 
-            
-            for(var i = 0; i<returnJson.length; i++){
-                if(returnJson[i].catekey == result[0].catekey){
+
+            for (var i = 0; i < returnJson.length; i++) {
+                if (returnJson[i].catekey == result[0].catekey) {
                     ThisCate.push(returnJson[i])
                 }
-            }   
+            }
             var Section1 = document.getElementById('section1');
             var Section2 = document.getElementById('section2');
             var Section3 = document.getElementById('section3');
@@ -783,31 +778,32 @@ var subLayoutRender = {
             var topInput = document.getElementById('top_inputs');
             var ThisBanner = document.getElementById('top_banner');
             var zoomModeTopNav = [];
-            for(var i = 0; i<ThisCate.length; i++){
+            for (var i = 0; i < ThisCate.length; i++) {
                 zoomModeTopNav.push(`<a href='main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${i}'><li class='ins_zoom_navs'><img src='${ThisCate[i].logo}'>
                                         </li></a>`)
             }
 
             zoomModeTopNav.toString();
             var resultArrayHtml = zoomModeTopNav.toString();
-                var replaceAll1 = resultArrayHtml.replaceAll(',', '');
-                var replaceAll2 = replaceAll1.replaceAll('|', ',');
-                var replaceAll3 = replaceAll2.replaceAll(null, ' ');
-                dataKey = params.datakey
+            var replaceAll1 = resultArrayHtml.replaceAll(',', '');
+            var replaceAll2 = replaceAll1.replaceAll('|', ',');
+            var replaceAll3 = replaceAll2.replaceAll(null, ' ');
+            dataKey = params.datakey
 
-            ThisBanner.style.background='#dbe4e7'             
-            ThisBanner.className='mode_ins_zoom'
-            ThisBanner.innerHTML=`<div class="wrap">
+            ThisBanner.style.background = '#dbe4e7'
+            ThisBanner.className = 'mode_ins_zoom'
+            ThisBanner.innerHTML = `<div class="wrap">
                                     <ul>
                                     ${replaceAll3}
                                     </ul>
                                     <h4>${ThisCate[dataKey].managenumber}</h4>
                                     <h2>${ThisCate[dataKey].product}</h2>
                                     <p>※ 상품개정으로 인하여 보장내용 및 보험료가 달라질 수 있습니다.</p>
-                                  </div>`   
-            topInput.style.display ='none'
-            Section1.className='zoom_render_nav'
-            Section1.innerHTML=`<div class='wrap'>
+                                  </div>`
+            topInput.style.display = 'none'
+            Section1.className = 'zoom_render_nav'
+
+            Section1.innerHTML = `<div class='wrap'>
                                 <ul>
                                 <li class='ins_navs active' onclick='subLayoutRender.zoomSecionCharRender()'>상품특징</li>
                                 <li class='ins_navs' onclick='subLayoutRender.zoomSectionDescRender()'>보장내용</li>
@@ -815,17 +811,18 @@ var subLayoutRender = {
                                 <li class='ins_navs'>무료 상담 신청</li>
                                 </ul>
                                 </div>`;
-                                this.zoomSecionCharRender()
+            this.zoomSecionCharRender()
 
-            Section3.style.display='none'
-            Section4.style.display='none'
+            Section3.style.display = 'none'
+            Section4.style.display = 'none'
+
             var zoomLi = document.querySelectorAll('.ins_zoom_navs');
             zoomLi[params.datakey].className = 'ins_zoom_navs active'
 
         }
-       
+
     },
-    zoomSecionCharRender:function(){
+    zoomSecionCharRender: function () {
         var Section2 = document.getElementById('section2');
 
         function objectValues2(obj, ArrayName) {
@@ -851,10 +848,6 @@ var subLayoutRender = {
             for (var i = 0; i < ThisCate[dataKey].agepricef.length; i++) {
                 objectValues2(ThisCate[dataKey].agepricef[i], objectKeyArrayWoMan);
             }
-
-            
-
-     
             priceHtml1.push(
                 `<div class='price_bord'>
             <div class='tb_head row'>
@@ -906,8 +899,8 @@ var subLayoutRender = {
                                         </div>
                                         </div>`)
         }
-Section2.className='zoom_render_main'
-Section2.innerHTML=`<div class='wrap'>
+        Section2.className = 'zoom_render_main'
+        Section2.innerHTML = `<div class='wrap'>
             <div class='product_chars'>
             <h2>${ThisCate[dataKey].Characteristic1}</h2>
             <span>${ThisCate[dataKey].Characteristic1_desc}</span>
@@ -921,9 +914,6 @@ Section2.innerHTML=`<div class='wrap'>
             <span>${ThisCate[dataKey].Characteristic3_desc}</span>
             </h2>
             </div>
-
-
-
             <div class='ins_product_tb'>
                 <ul>
                     <li><div class='tb_heads'>상품종류</div><div class='tb_body'>${ThisCate[dataKey].cate}</div></li>
@@ -936,21 +926,21 @@ Section2.innerHTML=`<div class='wrap'>
                     <li><div class='tb_heads'>가입유형</div><div class='tb_body'>${ThisCate[dataKey].type}</div></li>
                 </ul>
             </div>
-            <p class='bottom_text'>선택하신 보험상품에 대한 설명이 필요하시거나 다른 상품 비교견적을 받고 싶으신 분들은 [상담신청]을 남겨 주시면 최대한 빠른 시간 내에 전문상담사가 연락드리도록</p>
+            <p class='bottom_text'>선택하신 보험상품에 대한 설명이 필요하시거나 다른 상품 비교견적을 받고 싶으신 분들은 [상담신청]을 남겨 주시면 최대한 빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
         </div>`
         var NavLi = document.querySelectorAll('.ins_navs');
-        for(var i = 0; i<NavLi.length; i++){
+        for (var i = 0; i < NavLi.length; i++) {
             NavLi[i].className = 'ins_navs'
         }
         NavLi[0].className = 'ins_navs active'
     },
-    zoomSectionDescRender:function(){
+    zoomSectionDescRender: function () {
         var Section2 = document.getElementById('section2');
 
         var ContractChoiceDivisionTb = [];
         var ContractDivision = ThisCate[dataKey].ContractChoiceDivision
 
-        for(var i = 0; i<ContractDivision.length; i++){
+        for (var i = 0; i < ContractDivision.length; i++) {
             ContractChoiceDivisionTb.push(`<tr><td>${ContractDivision[i].Division}</td>
                                                 <td>${ContractDivision[i].desc}</td>
                                                 <td>${ContractDivision[i].price}</td></tr>`)
@@ -958,7 +948,7 @@ Section2.innerHTML=`<div class='wrap'>
 
         var BasicTableTb = [];
 
-        for(var i = 0; i<ThisCate[dataKey].basicDivision.length; i++){
+        for (var i = 0; i < ThisCate[dataKey].basicDivision.length; i++) {
             BasicTableTb.push(`<tr>
             <td>${ThisCate[dataKey].basicDivision[i].Division}</td>
             <td>${ThisCate[dataKey].basicDivision[i].desc}</td>
@@ -968,18 +958,18 @@ Section2.innerHTML=`<div class='wrap'>
 
 
 
-        var resultArrayHtml= ContractChoiceDivisionTb.toString()
+        var resultArrayHtml = ContractChoiceDivisionTb.toString()
         var replaceAll1 = resultArrayHtml.replaceAll(',', '');
         var replaceAll2 = replaceAll1.replaceAll('|', ',');
         var replaceAll3 = replaceAll2.replaceAll(null, ' ');
 
-        var resultArrayHtml2= BasicTableTb.toString()
+        var resultArrayHtml2 = BasicTableTb.toString()
         var replaceAll4 = resultArrayHtml2.replaceAll(',', '');
         var replaceAll5 = replaceAll4.replaceAll('|', ',');
         var replaceAll6 = replaceAll5.replaceAll(null, ' ');
 
 
-        Section2.innerHTML=`<div class='wrap'>
+        Section2.innerHTML = `<div class='wrap'>
                             <div class='product_desc'>
 
                             <h2>
@@ -1011,17 +1001,17 @@ Section2.innerHTML=`<div class='wrap'>
                             </div>`
 
         var NavLi = document.querySelectorAll('.ins_navs');
-        for(var i = 0; i<NavLi.length; i++){
+        for (var i = 0; i < NavLi.length; i++) {
             NavLi[i].className = 'ins_navs'
         }
         NavLi[1].className = 'ins_navs active'
 
     },
-    zoomSectionPriceTableRender:function(){
+    zoomSectionPriceTableRender: function () {
         var Section2 = document.getElementById('section2');
 
         var PriceData = [];
-        for(var i = 0; i<ThisCate[dataKey].basicDivision.length; i++){
+        for (var i = 0; i < ThisCate[dataKey].basicDivision.length; i++) {
             PriceData.push(`<tr class='basic_data'>
             <td>${ThisCate[dataKey].basicDivision[i].classification}</td>
             <td>${ThisCate[dataKey].basicDivision[i].Division}</td>
@@ -1036,11 +1026,11 @@ Section2.innerHTML=`<div class='wrap'>
             </tr> `)
         }
 
-       
 
 
-        for(var i = 0; i<ThisCate[dataKey].ContractChoiceDivision.length; i++){
-            PriceData.push( `<tr>
+
+        for (var i = 0; i < ThisCate[dataKey].ContractChoiceDivision.length; i++) {
+            PriceData.push(`<tr>
                             <td>${ThisCate[dataKey].ContractChoiceDivision[i].classification}</td>
                             <td>${ThisCate[dataKey].ContractChoiceDivision[i].Division}</td>
                             <td>${ThisCate[dataKey].ContractChoiceDivision[i].option}</td>
@@ -1058,7 +1048,7 @@ Section2.innerHTML=`<div class='wrap'>
 
         console.log(PriceData)
 
-        for(var i = 0; i<ThisCate[dataKey].TerminationData.length; i++){
+        for (var i = 0; i < ThisCate[dataKey].TerminationData.length; i++) {
             TerminationData.push(
                 `<tr>
                             <td>${ThisCate[dataKey].TerminationData[i].classification}</td>
@@ -1073,13 +1063,13 @@ Section2.innerHTML=`<div class='wrap'>
             )
         }
 
-        var resultArrayHtml=  PriceData.toString()
+        var resultArrayHtml = PriceData.toString()
         var replaceAll1 = resultArrayHtml.replaceAll(',', '');
         var replaceAll2 = replaceAll1.replaceAll('|', ',');
         var replaceAll3 = replaceAll2.replaceAll(null, ' ');
 
 
-        var resultArrayHtml2= TerminationData.toString()
+        var resultArrayHtml2 = TerminationData.toString()
         var replaceAll4 = resultArrayHtml2.replaceAll(',', '');
         var replaceAll5 = replaceAll4.replaceAll('|', ',');
         var replaceAll6 = replaceAll5.replaceAll(null, ' ');
@@ -1098,30 +1088,30 @@ Section2.innerHTML=`<div class='wrap'>
         var SavePriceArray = [];
         var ResultPriceArray = [];
 
-        objectValues2(ThisCate[dataKey].guaranteepricem[0],guaranteeprPriceArray)
-        objectValues2(ThisCate[dataKey].guaranteepricef[0],guaranteeprPriceArray)
-        objectValues2(ThisCate[dataKey].guaranteepricem[1],guaranteeprPriceArray)
-        objectValues2(ThisCate[dataKey].guaranteepricef[1],guaranteeprPriceArray)
-        objectValues2(ThisCate[dataKey].guaranteepricem[2],guaranteeprPriceArray)
-        objectValues2(ThisCate[dataKey].guaranteepricef[2],guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricem[0], guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricef[0], guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricem[1], guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricef[1], guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricem[2], guaranteeprPriceArray)
+        objectValues2(ThisCate[dataKey].guaranteepricef[2], guaranteeprPriceArray)
 
 
-        objectValues2(ThisCate[dataKey].Savem[0],SavePriceArray)
-        objectValues2(ThisCate[dataKey].Savef[0],SavePriceArray)
-        objectValues2(ThisCate[dataKey].Savem[1],SavePriceArray)
-        objectValues2(ThisCate[dataKey].Savef[1],SavePriceArray)
-        objectValues2(ThisCate[dataKey].Savem[2],SavePriceArray)
-        objectValues2(ThisCate[dataKey].Savef[2],SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savem[0], SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savef[0], SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savem[1], SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savef[1], SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savem[2], SavePriceArray)
+        objectValues2(ThisCate[dataKey].Savef[2], SavePriceArray)
 
 
-        objectValues2(ThisCate[dataKey].agepricem[0],ResultPriceArray)
-        objectValues2(ThisCate[dataKey].agepricef[0],ResultPriceArray)
-        objectValues2(ThisCate[dataKey].agepricem[1],ResultPriceArray)
-        objectValues2(ThisCate[dataKey].agepricef[1],ResultPriceArray)
-        objectValues2(ThisCate[dataKey].agepricem[2],ResultPriceArray)
-        objectValues2(ThisCate[dataKey].agepricef[2],ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricem[0], ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricef[0], ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricem[1], ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricef[1], ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricem[2], ResultPriceArray)
+        objectValues2(ThisCate[dataKey].agepricef[2], ResultPriceArray)
 
-        Section2.innerHTML=`
+        Section2.innerHTML = `
         <div class='wrap'>
             <div class='product_desc'>
                 <h2>
@@ -1226,12 +1216,12 @@ Section2.innerHTML=`<div class='wrap'>
 
 
         var NavLi = document.querySelectorAll('.ins_navs');
-        for(var i = 0; i<NavLi.length; i++){
+        for (var i = 0; i < NavLi.length; i++) {
             NavLi[i].className = 'ins_navs'
         }
         NavLi[2].className = 'ins_navs active'
     },
-    arrayDish: [],//list Array
+    arrayDish: [], //list Array
     tabListActive: function (thisdata, Dataindex) {
         //sub1-sub4 section4 select tab Fn
         if (popupRender.arrayDish.length < 2) {
@@ -1365,8 +1355,8 @@ Section2.innerHTML=`<div class='wrap'>
 
             var MobileMedia = window.matchMedia('(max-width:767px)');
 
-            if(MobileMedia.matches == true){
-                
+            if (MobileMedia.matches == true) {
+
                 var NavFna = `<select class='select_nav_fna' onchange='subLayoutRender.mobileFnaNav(this.value)'>
                               <option class='fna_navs fna_nav1' value="all">전체</option>
                               <option class='fna_navs fna_nav2' value="baby">어린이보험</option>
@@ -1375,8 +1365,7 @@ Section2.innerHTML=`<div class='wrap'>
                               <option class='fna_navs fna_nav5' value="dementia">치매보험</option>
                               </select>
                               `
-                        }
-            else{
+            } else {
                 var NavFna = `
                 <div class='fna_navs fna_nav1' onclick='subLayoutRender.FnaRender(this,"all",0,10), subLayoutRender.DataNumbering()' id='active'>전체</div>
                 <div class='fna_navs fna_nav2' onclick='subLayoutRender.FnaRender(this,"baby")' >어린이보험</div>
@@ -1409,15 +1398,14 @@ Section2.innerHTML=`<div class='wrap'>
 
         }
     },
-    mobileFnaNav:function(thisValue){
-        if(thisValue == 'all'){
-            subLayoutRender.FnaRender(this,"all",0,10)
+    mobileFnaNav: function (thisValue) {
+        if (thisValue == 'all') {
+            subLayoutRender.FnaRender(this, "all", 0, 10)
             subLayoutRender.DataNumbering()
+        } else {
+            subLayoutRender.FnaRender(this, thisValue, 0, 10)
         }
-        else{
-            subLayoutRender.FnaRender(this,thisValue,0,10)
-        }
-    },  
+    },
     FnaRender: function (thistag, datakey, no, limit) {
         //page5 FnA Data Render
         var FnaRendeing = document.getElementById('fna_box');
@@ -1748,7 +1736,7 @@ Section2.innerHTML=`<div class='wrap'>
         `
         this.page6DataRending();
     },
-    page6DataRending:function(){
+    page6DataRending: function () {
         //page6 Insu Data Render
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {
@@ -1756,55 +1744,55 @@ Section2.innerHTML=`<div class='wrap'>
                 billreturnJson = JSON.parse(this.responseText)
                 billreturnJsonArrayLeft = []
                 billreturnJsonArrayRight = []
-                    billreturnJsonArrayLeft.push(`<div class='tb_head'>
+                billreturnJsonArrayLeft.push(`<div class='tb_head'>
                                                         <div class='colum colum1'>생명보험사</div>
                                                         <div class='colum colum2'>대표번호</div>
                                                         <div class='colum colum3'>청구서</div>
                                                         <div class='colum colum4'>홈페이지</div>
                                                     </div>`)
-                    billreturnJsonArrayRight.push(`<div class='tb_head'>
+                billreturnJsonArrayRight.push(`<div class='tb_head'>
                         <div class='colum colum1'>손해험사</div>
                         <div class='colum colum2'>대표번호</div>
                         <div class='colum colum3'>청구서</div>
                         <div class='colum colum4'>홈페이지</div>
                     </div>`)
-                    Cate1result = billreturnJson.filter((x) => {
-                        return x.catekey == "cate1";
-                    })
-                    Cate2result = billreturnJson.filter((x) => {
-                        return x.catekey == "cate2";
-                    })
-                    for(var i = 0; i<Cate1result.length; i++){
-                        billreturnJsonArrayLeft.push(
-                            `<div class='tb_body'>
+                Cate1result = billreturnJson.filter((x) => {
+                    return x.catekey == "cate1";
+                })
+                Cate2result = billreturnJson.filter((x) => {
+                    return x.catekey == "cate2";
+                })
+                for (var i = 0; i < Cate1result.length; i++) {
+                    billreturnJsonArrayLeft.push(
+                        `<div class='tb_body'>
                             <div class='colum colum1'>${Cate1result[i].insname}</div>
                                 <div class='colum colum2'>${Cate1result[i].number}</div>
                                 <div class='colum colum3'><a href='http://bmcompany.kr/${Cate1result[i].billfile}' target='__blank'><img src='img/sub_page/pdf.png'></a></div>
                                 <div class='colum colum4'><a href='http://${Cate1result[i].hompage}'>${Cate1result[i].hompage}</a></div>
                             </div>`
-                        )
-                    }
-                    for(var i = 0; i<Cate2result.length; i++){
-                        billreturnJsonArrayRight.push(
-                            `<div class='tb_body'>
+                    )
+                }
+                for (var i = 0; i < Cate2result.length; i++) {
+                    billreturnJsonArrayRight.push(
+                        `<div class='tb_body'>
                             <div class='colum colum1'>${Cate2result[i].insname}</div>
                                 <div class='colum colum2'>${Cate2result[i].number}</div>
                                 <div class='colum colum3'><a href='http://bmcompany.kr/${Cate2result[i].billfile}' target='__blank'><img src='img/sub_page/pdf.png'></a></div>
                                 <div class='colum colum4'><a href='http://${Cate2result[i].hompage}'>${Cate2result[i].hompage}</a></div>
                             </div>`
-                        )
-                    }
-                    var LeftHtml = document.getElementById('bottom_left_tb')
-                    var RightHtml = document.getElementById('bottom_right_tb')
+                    )
+                }
+                var LeftHtml = document.getElementById('bottom_left_tb')
+                var RightHtml = document.getElementById('bottom_right_tb')
 
-                    var resultLeft = billreturnJsonArrayLeft.toString();
-                    var resultLeftArray =  resultLeft.replaceAll(',',"")
-                    LeftHtml.innerHTML = `${resultLeftArray}`
+                var resultLeft = billreturnJsonArrayLeft.toString();
+                var resultLeftArray = resultLeft.replaceAll(',', "")
+                LeftHtml.innerHTML = `${resultLeftArray}`
 
-                    var resultRight = billreturnJsonArrayRight.toString();
-                    var resultRightArray =  resultRight.replaceAll(',',"")
-                    RightHtml.innerHTML = `${resultRightArray}`
-                
+                var resultRight = billreturnJsonArrayRight.toString();
+                var resultRightArray = resultRight.replaceAll(',', "")
+                RightHtml.innerHTML = `${resultRightArray}`
+
             }
         }
         xhttp.open('POST', 'data/bill_data.json', true);
@@ -1817,240 +1805,9 @@ Section2.innerHTML=`<div class='wrap'>
 var result1, result2;
 var popupRender = {
     moreData: function (datakey) {
-        event.stopPropagation();//event bubbling
-        location.href=`main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`
+        event.stopPropagation(); //event bubbling
+        location.href = `main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`
     },
-
-    // moreData: function (datakey) {
-    //     //subPage moreData popup
-    //     var popup = document.getElementById('popup_box');
-    //     popup.style.display = 'block';
-    //     popup.style.backgroundColor = 'rgba(0,0,0,0.6)';
-    //     result1 = returnJson.filter((x) => {
-    //         return x.no == Number(datakey);
-    //     })
-    //     this.arrayDish.push(result1[0])
-
-
-    //     function objectValues2(obj, ArrayName) {
-    //         var vals;
-    //         for (var key in obj) {
-    //             if (obj.hasOwnProperty(key) && obj.propertyIsEnumerable(key)) {
-    //                 vals = obj[key];
-    //             }
-    //         }
-    //         ArrayName.push(vals)
-    //         return vals;
-    //     };
-    //     priceHtml1 = []
-    //     if (result1[0].ageprice.length == 1) {
-
-    //         var objectKeyArrays = []
-    //         setTimeout(() => {
-    //             var infoBox = document.getElementById('info_ul')
-    //             infoBox.style.height = '320px'
-    //         }, 700);
-    //         objectValues2(result1[0].ageprice[0], objectKeyArrays);
-    //         priceHtml1.push(`<div class='null_data'>
-    //             <span>출생 전 </span>${objectKeyArrays[0]}원 
-    //             </div>`)
-    //     } else if (result1[0].ageprice == 'mnf') {
-    //         setTimeout(() => {
-    //             var priceRow = document.getElementById('price_row')
-    //             var infoBox = document.getElementById('info_ul')
-    //             priceRow.style.height = '120px'
-    //             infoBox.style.height = '400px'
-
-    //         }, 700);
-    //         var objectKeyArrayMan = [];
-    //         var objectKeyArrayWoMan = [];
-
-    //         for (var i = 0; i < result1[0].agepricem.length; i++) {
-    //             objectValues2(result1[0].agepricem[i], objectKeyArrayMan);
-    //         }
-    //         for (var i = 0; i < result1[0].agepricef.length; i++) {
-    //             objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
-    //         }
-    //         priceHtml1.push(
-    //             `<div class='price_bord'>
-    //             <div class='tb_head row'>
-    //                     <div class='colum colum-4  colum_head'>-</div>
-    //                     <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[0])}세</div>
-    //                     <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[1])}세</div>
-    //                     <div class='colum colum-4 colum_body'>${Object.keys(result1[0].agepricem[2])}세</div>
-
-    //                 </div>
-    //                 <div class='tb_body1 row'>
-    //                     <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-    //                     <div class='colum colum-4 colum_body'>${objectKeyArrayMan[0]}원</div>
-    //                     <div class='colum colum-4 colum_body'>${objectKeyArrayMan[1]}원</div>
-    //                     <div class='colum colum-4 colum_body'>${objectKeyArrayMan[2]}원</div>
-    //                 </div>
-    //                 <div class='tb_body2 row'>
-    //                 <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-    //                 <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[0]}원</div>
-    //                 <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[1]}원</div>
-    //                 <div class='colum colum-4 colum_body'>${objectKeyArrayWoMan[2]}원</div>
-    //             </div>
-    //             </div>`
-    //         )
-
-    //     } else if (result1[0].ageprice != 0) {
-    //         var objectKeyArray = [];
-    //         setTimeout(() => {
-    //             var priceRow = document.getElementById('price_row')
-    //             var infoBox = document.getElementById('info_ul')
-    //             priceRow.style.height = '120px'
-    //             infoBox.style.height = '400px'
-
-    //         }, 700);
-
-    //         for (var i = 0; i < result1[0].ageprice.length; i++) {
-    //             objectValues2(result1[0].ageprice[i], objectKeyArray);
-    //         }
-    //         priceHtml1.push(`          <div class='price_bord'>
-    //                                         <div class='tb_head row'>
-    //                                                 <div class='colum colum-4  colum_head'>-</div>
-    //                                                 <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[0])}세</div>
-    //                                                 <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[1])}세</div>
-    //                                                 <div class='colum colum-4 colum_body'>${Object.keys(result1[0].ageprice[2])}세</div>
-
-    //                                             </div>
-    //                                             <div class='tb_body1 row'>
-    //                                                 <div class='colum colum-4 colum_body'><span class='gender_mark man_mark'>남</span></div>
-    //                                                 <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
-    //                                                 <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
-    //                                                 <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
-    //                                             </div>
-    //                                             <div class='tb_body2 row'>
-    //                                             <div class='colum colum-4 colum_body'><span class='gender_mark woman_mark'>여</span></div>
-    //                                             <div class='colum colum-4 colum_body'>${objectKeyArray[0]}원</div>
-    //                                             <div class='colum colum-4 colum_body'>${objectKeyArray[1]}원</div>
-    //                                             <div class='colum colum-4 colum_body'>${objectKeyArray[2]}원</div>
-    //                                         </div>
-    //                                         </div>`)
-    //     }
-    //     setTimeout(() => {
-    //         popup.innerHTML = `<div class='speed_compare_popup'>
-    //         <span class='xbox' onclick='popupRender.closepopup("popup")'></span>
-    //         <div class='ins_tabs more_ins' id='ins_tab'>
-    //             <div class='cal_top_tab'>
-    //                 <div class='user_info'>
-    //                     <img class='more_logo' src='${result1[0].logo}' alt='선택보험사 로고'>
-    //                     <span class='more_cate'>${result1[0].cate}</span>
-    //                 </div>
-    //                 <div class='place_info place_more'>
-    //                             <p>${result1[0].product}</p>
-    //                     <p><span>※ 상품 개정으로 인하여 보장내용 및 보험료가 달라질 수 있습니다.</span></p>
-
-    //                 </div>
-    //             </div>
-    //             <div class='cal_bottom_tab'>
-        
-    //                 <div class='bottom_right section_rigth'>
-    //                     <div class='ins_info_tab'>
-    //                         <h3>상품 특징 및 가입조건</h3>
-    //                         <ul class='ins_info_tb' id='info_ul'>
-    //                             <li>
-    //                                 <div class='list_head'>상품종류</div>
-    //                                 <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
-    //                             </li>
-    //                             <li>
-    //                                 <div class='list_head'>상품명</div>
-    //                                 <div class='list_desc'>${result1[0].product}</div>
-    //                             </li>
-    //                             <li>
-    //                                 <div class='list_head'>특징</div>
-    //                                 <div class='list_desc'>${result1[0].Characteristic1}</div>
-    //                             </li>
-    //                             <li>
-    //                                 <div class='list_head'>갱신/비갱신</div>
-    //                                 <div class='list_desc'>${result1[0].extension}</div>
-    //                             </li>
-    //                             <li>
-    //                                 <div class='list_head'>보험기간</div>
-    //                                 <div class='list_desc'>${result1[0].term}</div>
-    //                             </li>
-    //                             <li class='price_row' id='price_row'>
-    //                                 <div class='list_head'>월 보험료</div>
-    //                                 <div class='list_desc'>${priceHtml1}</div>
-    //                             </li>
-    //                             <li>
-    //                                 <div class='list_head'>납입기간</div>
-    //                                 <div class='list_desc'>${result1[0].payterm}년</div>
-    //                             </li>
-    //                             <li>
-    //                                 <div class='list_head'>가입유형</div>
-    //                                 <div class='list_desc'>${result1[0].type} </div>
-    //                             </li>        
-    //                         </ul>
-                            
-    //                     </div>
-    //                     <p class='cal_mention'>선택하신 보험상품에 대한 자세한 설명이 필요하거나 다른 상품 비교견적을 받고 싶으신 분들은[상담신청]을 남겨 주시면</p>
-    //                     <p class='cal_mention'>최대한 빠른 시간 내에 전문상담사가 연락드리도록 하겠습니다.</p>
-    //                 </div>
-    //                 <div class='input_tab'>
-    //                     <h3>간편 상담 신청하기</h3>
-    //                     <ul>
-    //                         <li>
-    //                             <p>이름</p>
-    //                             <input type='text' id='apply_reqname'>
-    //                         </li>
-    //                         <li>
-    //                             <p>성별</p>
-    //                             <select id='apply_sexflag'>
-    //                                 <option>성별을선택해주세요</option>
-    //                                 <option value='남성'>남성</option>
-    //                                 <option value='여성'>여성</option>
-    //                             </select>
-    //                         </li>
-    //                         <li>
-    //                             <p>생년월일</p>
-    //                             <input type='text' id='apply_reqbirth'>
-    //                         </li>
-    //                         <li class='phones'>
-    //                             <p>연락처</p>
-    //                             <select id='reqphone-front'>
-    //                                 <option value='010'>010</option>
-    //                                 <option value='011'>011</option>
-    //                                 <option value='012'>012</option>
-    //                                 <option value='013'>013</option>
-    //                                 <option value='014'>014</option>
-    //                                 <option value='015'>015</option>
-    //                                 <option value='016'>016</option>
-    //                                 <option value='017'>017</option>
-    //                                 <option value='018'>018</option>
-    //                                 <option value='019'>019</option>
-    //                         </select>
-    //                             <input type='text' id='reqphone-end'>
-    //                         </li>
-    //                     </ul>
-    //                     <p>
-    //                     <label class="container" id='check_label' onclick="checkBoxEvent()">개인정보 수집 및 이용 동의 합니다.
-    //                         <input type="checkbox" id='agree_check'>
-    //                         <span class="checkmark" id='check_box'></span>
-    //                     </label>
-    //                 </p>
-    //                 <div class='more_submit_btn' onclick='popupRender.applyFn("more_data")'>
-    //                     간편 상담 신청
-    //                 </div>
-
-    //                 </div>
-        
-    //             </div>
-    //         </div>
-    //         <div class='submit_btns' id='submit_btns' onclick="popupRender.insertTapRender('more_btn','more_data')">무료 상담 신청</div>
-    //     </div>
-    //     `
-    //         var fnsubBox = document.querySelectorAll('.fn_box');
-    //         for (var i = 0; i < fnsubBox.length; i++) {
-    //             fnsubBox[i].id = '';
-    //         }
-    //     }, 500);
-
-
-
-    // },
     arrayDish: [],
     applyUserinfo: [],
     closepopup: function (target) {
@@ -2149,7 +1906,10 @@ var popupRender = {
         setTimeout(() => {
             this.tabData(0, 'cal')
         }, 700);
-        $('html, body').css({'overflow': 'hidden', 'height': '150%'});
+        $('html, body').css({
+            'overflow': 'hidden',
+            'height': '150%'
+        });
 
     },
     calculateFn: function (a) {
@@ -2379,82 +2139,75 @@ var popupRender = {
         }
         var ageYear = this.applyUserinfo[0].reqBirth.substr(0, 4);
         var age = year - ageYear;
-        var ObjKey = Number(result1[0].no);
         var priceResultArray = [];
-        var priceKeyArray = [];
 
-        Productprice;
-        if (ObjKey <= 5) {
-            objectValues2(result1[0].ageprice[0], priceResultArray)
-            Productprice = `<span>출생전:</span> ${priceResultArray[0]}`
-        } else if (ObjKey > 5 && ObjKey < 18) {
-            objectValues2(result1[0].ageprice[0], priceResultArray)
-            objectValues2(result1[0].ageprice[1], priceResultArray)
-            objectValues2(result1[0].ageprice[2], priceResultArray)
-            setTimeout(() => {
-                MinKey = Object.keys(result1[0].ageprice[0]);
-                MidKey = Object.keys(result1[0].ageprice[1]);
-                MaxKey = Object.keys(result1[0].ageprice[2]);
-                if (Number(MinKey) > age) {
-                    Productprice = `${priceResultArray[0]}`
-                } else if (Number(MinKey) <= age && Number(MidKey) > age) {
-                    Productprice = `${priceResultArray[0]}`
-                } else if (Number(MidKey) <= age && Number(MaxKey) > age) {
-                    Productprice = `${priceResultArray[1]}`
-                } else if (Number(MaxKey) < age) {
-                    Productprice = `${priceResultArray[2]}`
-                }
-            }, 300)
-        } else {
-            var Productprice;
-            var reqSexflag = this.applyUserinfo[0].reqSexflag
+        function getPriceResult() {
+            var reqSexflag = popupRender.applyUserinfo[0].reqSexflag
+
             if (reqSexflag == "남성") {
                 objectValues2(result1[0].agepricem[0], priceResultArray)
                 objectValues2(result1[0].agepricem[1], priceResultArray)
                 objectValues2(result1[0].agepricem[2], priceResultArray)
-                setTimeout(() => {
-                    MinKey = Object.keys(result1[0].agepricem[0]);
-                    MidKey = Object.keys(result1[0].agepricem[1]);
-                    MaxKey = Object.keys(result1[0].agepricem[2]);
+
+                    var MinKey = Object.keys(result1[0].agepricem[0]);
+                    var MidKey = Object.keys(result1[0].agepricem[1]);
+                    var MaxKey = Object.keys(result1[0].agepricem[2]);
                     if (Number(MinKey) > age) {
-                        Productprice = `${priceResultArray[0]}`
+                        Productprice = `${priceResultArray[0]}원`
                     } else if (Number(MinKey) <= age && Number(MidKey) > age) {
                         Productprice = `${priceResultArray[0]}`
                     } else if (Number(MidKey) <= age && Number(MaxKey) > age) {
-                        Productprice = `${priceResultArray[1]}`
+                        Productprice = `${priceResultArray[1]}원`
                     } else if (Number(MaxKey) < age) {
-                        Productprice = `${priceResultArray[2]}`
+                        Productprice = `${priceResultArray[2]}원`
                     }
-                }, 300)
+
             } else {
                 objectValues2(result1[0].agepricef[0], priceResultArray)
                 objectValues2(result1[0].agepricef[1], priceResultArray)
                 objectValues2(result1[0].agepricef[2], priceResultArray)
-                setTimeout(() => {
-                    MinKey = Object.keys(result1[0].agepricef[0]);
-                    MidKey = Object.keys(result1[0].agepricef[1]);
-                    MaxKey = Object.keys(result1[0].agepricef[2]);
+
+                    var MinKey = Object.keys(result1[0].agepricef[0]);
+                    var MidKey = Object.keys(result1[0].agepricef[1]);
+                    var MaxKey = Object.keys(result1[0].ageprice[2]);
                     if (Number(MinKey) > age) {
-                        Productprice = `${priceResultArray[0]}`
+                        Productprice = `${priceResultArray[0]}원`
                     } else if (Number(MinKey) <= age && Number(MidKey) > age) {
-                        Productprice = `${priceResultArray[0]}`
+                        Productprice = `${priceResultArray[0]}원`
                     } else if (Number(MidKey) <= age && Number(MaxKey) > age) {
-                        Productprice = `${priceResultArray[1]}`
+                        Productprice = `${priceResultArray[1]}원`
                     } else if (Number(MaxKey) < age) {
-                        Productprice = `${priceResultArray[2]}`
+                        Productprice = `${priceResultArray[2]}원`
                     }
-                }, 300)
+            }
+        }
+
+
+
+
+        if (result1[0].catekey == "baby") {
+            if(age > 7){
+                Productprice = `<b>해당상품은 연령 제한이 있는 상품입니다 가입자정보로 입력해주세요</b>`;
+            }
+            else{
+                getPriceResult()
             }
 
-           
-
+        } else {
+            getPriceResult()
 
         }
+
+        console.log(Productprice)
+
+
+        
+
         var PcMedia = window.matchMedia('( max-width: 1200px )');
         var TabletMedia = window.matchMedia('( max-width: 1024px ) and (min-width: 768px)');
         var MobileMedia = window.matchMedia('(max-width:767px)');
 
-        if(TabletMedia.matches == true){
+        if (TabletMedia.matches == true) {
             setTimeout(() => {
                 insTab.innerHTML = `<div class='cal_top_tab'>
                                     <div class='user_info'>
@@ -2475,7 +2228,7 @@ var popupRender = {
 
                               <div class='place_info'>
                                     <h3>월 납입보험료<h3>
-                                    <h2 class='price'>${Productprice}<span>원</span></h2>
+                                    <h2 class='price'>${Productprice}</h2>
                                     <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
                                     <p>월 예상 납입 보험료</p>
                               </div>
@@ -2528,10 +2281,9 @@ var popupRender = {
                                     </div>
 
                 </div>`
-            },500)
+            }, 500)
 
-        }
-        else if(MobileMedia.matches == true){
+        } else if (MobileMedia.matches == true) {
 
             setTimeout(() => {
                 insTab.className = 'ins_tabs mo_tab'
@@ -2558,14 +2310,14 @@ var popupRender = {
                                 <h3>월 납입보험료<h3>
                                 <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
                                 <p>월 예상 납입 보험료</p>
-                                <h2 class='price'><span>${Productprice}</span>원</h2>
+                                <h2 class='price'><span>${Productprice}</span></h2>
                             </div>
                             <div class='ins_info_tab'>
                                         <h3>상품 특징 및 가입조건</h3>
                                         <ul class='ins_info_tb'>
                                             <li>
                                                 <div class='list_head'>상품종류</div>
-                                                <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
+                                                <div class='list_desc'>${result1[0].cate}</div>
                                             </li>
                                             <li>
                                                 <div class='list_head'>상품명</div>
@@ -2610,10 +2362,9 @@ var popupRender = {
                                            
                         </div>`
 
-            
-            },500)
-        }
-        else{
+
+            }, 500)
+        } else {
             setTimeout(() => {
                 insTab.innerHTML = `<div class='cal_top_tab'>
                               <div class='user_info'>
@@ -2624,7 +2375,7 @@ var popupRender = {
                               </div>
                               <div class='place_info'>
                                     <h3>월 납입보험료<h3>
-                                    <h2 class='price'>${Productprice}<span>원</span></h2>
+                                    <h2 class='price'>${Productprice}</h2>
                                     <p class='price_tag'>선택하신 <span>${result1[0].product}</span></p>
                                     <p>월 예상 납입 보험료</p>
                               </div>
@@ -2658,7 +2409,7 @@ var popupRender = {
                                         <ul class='ins_info_tb'>
                                             <li>
                                                 <div class='list_head'>상품종류</div>
-                                                <div class='list_desc'>${result1[0].cate} / ${result1[0].productcate} </div>
+                                                <div class='list_desc'>${result1[0].cate}</div>
                                             </li>
                                             <li>
                                                 <div class='list_head'>상품명</div>
@@ -2693,9 +2444,9 @@ var popupRender = {
                                 </div>
                                 `
             }, 500);
-    
+
         }
-        
+
 
 
     },
@@ -2737,7 +2488,7 @@ var popupRender = {
                     objectValues2(result1[0].agepricef[i], objectKeyArrayWoMan);
                 }
 
-         
+
                 priceHtml1.push(
                     `<div class='price_bord'>
                 <div class='tb_head row'>
@@ -2864,38 +2615,37 @@ var popupRender = {
             var TabletMedia = window.matchMedia('( max-width: 1024px ) and (min-width: 768px)');
             var MobileMedia = window.matchMedia('(max-width:767px)');
 
-            if(MobileMedia.matches == true){
-           
+            if (MobileMedia.matches == true) {
 
-                $(function() {			
-					$("#table").swipe( {
-						swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
-					
-                            
-							if(direction =="left"){
-                                $('.mo_table > .left_tab').animate({
-                                    "left":"-75%"
-                                },100)
-                                $('.mo_table > .right_tab').animate({
-                                    "left":"0%"
-                                },100)
 
-							}
-							else if(direction =="right"){
+                $(function () {
+                    $("#table").swipe({
+                        swipe: function (event, direction, distance, duration, fingerCount, fingerData) {
+
+
+                            if (direction == "left") {
                                 $('.mo_table > .left_tab').animate({
-                                    "left":"0%"
-                                },100)
+                                    "left": "-75%"
+                                }, 100)
                                 $('.mo_table > .right_tab').animate({
-                                    "left":"75%"
-                                },100)
-							}
-						},
-					   threshold:0
-					});
+                                    "left": "0%"
+                                }, 100)
+
+                            } else if (direction == "right") {
+                                $('.mo_table > .left_tab').animate({
+                                    "left": "0%"
+                                }, 100)
+                                $('.mo_table > .right_tab').animate({
+                                    "left": "75%"
+                                }, 100)
+                            }
+                        },
+                        threshold: 0
+                    });
                 });
 
-                     
-               
+
+
 
                 insTab.innerHTML = `<div class='mo_compare_bord'>
                     <div class='bord_wrap'>
@@ -2991,13 +2741,12 @@ var popupRender = {
                     </div>
                     </div>
                 </div>`
-            
-            $('.speed_compare_popup').animate({
-                scrollTop: 200
-            }, 0);
 
-            }
-            else{
+                $('.speed_compare_popup').animate({
+                    scrollTop: 200
+                }, 0);
+
+            } else {
                 insTab.innerHTML = `<div class='compare_bord'>
                 <div class='bord_wrap'>
                 <div class='caption'>
@@ -3103,11 +2852,11 @@ var popupRender = {
                 </div>`
             }
 
-           
+
         } else {
             alert('목록을 두개 선택해주세요')
         }
-       
+
 
     },
     insertTapRender: function (accessnode, subNode) {
@@ -3144,7 +2893,7 @@ var popupRender = {
                 var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
             } else {
                 var name = accessnode == "calsEnd" ? `${this.applyUserinfo[0].reqName}` : ``;
-                var Memo = accessnode == "calsEnd" ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})` : `${result1[0].cate} 상품비교\n${result1[0].product}`;
+                var Memo = accessnode == "calsEnd" ? `${result[0].cate}\n${result[0].product}(${result[0].productcate})` : `${result1[0].cate} 상품비교\n${result1[0].product}\n${result2[0].product}`;
                 var Nodes = subNode != "" ? `${subNode}` : `${accessnode}`;
             }
 
@@ -3415,7 +3164,7 @@ function dataInsertFn(fnNode, Nodes) {
             })
             InsertDates()
         }
-    } else if (fnNode == 'page6_consult'){
+    } else if (fnNode == 'page6_consult') {
         var reqName = document.getElementById('reqname_page6').value;
         var reqPhone = document.getElementById('reqphone_page6').value;
         var reqArea = document.getElementById('reqarea').value;
@@ -3441,10 +3190,10 @@ function dataInsertFn(fnNode, Nodes) {
             })
             InsertDates()
         }
-    }
-    else {
+    } else {
         InsertDates()
     }
+
     function InsertDates() {
         xhttp = new XMLHttpRequest();
         xhttp.onreadystatechange = function () {

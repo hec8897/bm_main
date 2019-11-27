@@ -141,7 +141,7 @@ body {
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab {
   cursor: pointer;
   width: 32%;
-  height: 45%;
+  height: 55%;
   background: white;
   border: 1px solid #f0f0f0;
   display: inline-block;
@@ -164,8 +164,7 @@ body {
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab .icon_area {
   width: 150px;
   height: 40px;
-  margin: 0px auto;
-  margin-bottom: 10px;
+  margin: 15px auto;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -176,7 +175,7 @@ body {
   font-size: 0.875rem;
   word-break: keep-all;
   width: 85%;
-  margin: 0 auto;
+  margin: 20px auto;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab3,
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.ins_tab6 {
@@ -692,6 +691,17 @@ body {
   color: #222;
   margin-left: 10px;
 }
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.place_info h2.price b {
+  width: 200px;
+  font-size: 0.75rem;
+  line-height: 1rem;
+  display: block;
+  position: absolute;
+  right: -15px;
+  top: 23px;
+  word-break: keep-all;
+  text-align: left;
+}
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_top_tab div.place_info div.btn_area {
   width: 30%;
   float: right;
@@ -856,6 +866,9 @@ body {
   box-sizing: border-box;
   font-size: 0.875rem;
   overflow: hidden;
+}
+#wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_bottom_tab div.bottom_right div.ins_info_tab ul li div.list_desc img {
+  display: none;
 }
 #wrap div.popups div.speed_compare_popup div.ins_tabs div.cal_bottom_tab div.bottom_right p.cal_mention {
   color: #ec6647;
