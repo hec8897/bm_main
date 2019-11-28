@@ -57,6 +57,9 @@ switch($Nodes){
     case "sectiontab" :
                     $Node = '유입경로: 서브페이지 자세히보기 탭';
                     break;
+    case "zoom_ins" :            
+                    $Node = '유입경로: 보험자세히보기';
+                    
     case "page5_consult" :
                     $Node = '유입경로: page5 상담신청';
                     break;

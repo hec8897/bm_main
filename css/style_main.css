@@ -1333,12 +1333,11 @@ body {
   letter-spacing: -2px;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs {
-  width: 100%;
+  width: 80%;
   height: 520px;
   margin: 0px auto;
   margin-bottom: 20px;
   margin-top: 20px;
-  text-align: left;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box {
   cursor: pointer;
@@ -1346,7 +1345,6 @@ body {
   height: 250px;
   border: 1px solid #d9d9d9;
   box-sizing: border-box;
-  float: left;
   margin-bottom: 10px;
   border-radius: 5px;
   padding-top: 20px;
@@ -1354,6 +1352,8 @@ body {
   margin-right: 5px;
   margin-left: 5px;
   position: relative;
+  display: inline-block;
+  vertical-align: middle;
 }
 #wrap main.main_page section.section4 div.wrap div.fn_boxs div.fn_box img.bedge {
   width: 35px;
@@ -2208,6 +2208,8 @@ body {
   width: 100%;
   min-height: 800px;
   background: white;
+  padding-top: 50px;
+  padding-bottom: 50px;
 }
 #wrap section.zoom_render_main div.wrap {
   width: 100%;
@@ -2360,6 +2362,123 @@ body {
   color: #ec6647;
   font-size: 0.875rem;
   margin-top: 10px;
+}
+#wrap section.zoom_render_main h2.inputs_tit {
+  margin-top: 50px;
+  font-size: 3.125rem;
+  font-weight: bold;
+  color: #222;
+  text-align: center;
+  letter-spacing: -1px;
+}
+#wrap section.zoom_render_main div.input_tb {
+  max-width: 1200px;
+  height: 100%;
+  margin: 0 auto;
+  height: 600px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  border-top: 2px solid #222;
+  border-bottom: 2px solid #222;
+}
+#wrap section.zoom_render_main div.input_tb div.row {
+  width: 100%;
+  height: 60px;
+  border-bottom: 1px solid #d0d0d0;
+}
+#wrap section.zoom_render_main div.input_tb div.row input {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #d0d0d0;
+  outline: none;
+  padding-left: 10px;
+  box-sizing: border-box;
+}
+#wrap section.zoom_render_main div.input_tb div.row div.row_tit {
+  width: 260px;
+  height: 100%;
+  float: left;
+  box-sizing: border-box;
+  padding-top: 20px;
+  color: #222;
+  padding-left: 40px;
+}
+#wrap section.zoom_render_main div.input_tb div.row div.row_desc {
+  width: 800px;
+  height: 100%;
+  float: left;
+  padding-top: 10px;
+  box-sizing: border-box;
+}
+#wrap section.zoom_render_main div.input_tb div.row-3 select {
+  width: 130px;
+  height: 40px;
+  background-image: url(../img/popup/select_bg.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 15px;
+  background-position-x: 95%;
+  border: 1px solid #d0d0d0;
+}
+#wrap section.zoom_render_main div.input_tb div.row-3 input {
+  height: 40px;
+  width: 300px;
+}
+#wrap section.zoom_render_main div.input_tb div.row-4 {
+  height: 180px;
+}
+#wrap section.zoom_render_main div.input_tb div.row-4 textarea {
+  height: 160px;
+  width: 100%;
+  resize: none;
+  outline: none;
+  border: 1px solid #d0d0d0;
+}
+#wrap section.zoom_render_main div.input_tb div.row-5 {
+  height: 240px;
+  border: 0px;
+  padding-top: 25px;
+}
+#wrap section.zoom_render_main div.input_tb div.row-5 label.container {
+  padding-top: 3px;
+  font-size: 0.875rem;
+}
+#wrap section.zoom_render_main div.input_tb div.row-5 label.container span.checkmark {
+  width: 20px;
+  height: 20px;
+}
+#wrap section.zoom_render_main div.input_tb div.row-5 .container .checkmark:after {
+  top: 2px;
+  left: 5px;
+}
+#wrap section.zoom_render_main div.input_tb div.row-5 div.agree_desc {
+  width: 100%;
+  height: 160px;
+  border: 1px solid #d0d0d0;
+  box-sizing: border-box;
+  padding: 15px;
+  font-size: 0.875rem;
+  overflow-y: scroll;
+}
+#wrap section.zoom_render_main div.input_tb div.row-5 div.agree_desc p {
+  margin-bottom: 5px;
+}
+#wrap section.zoom_render_main div.input_tb div.row-5 div.agree_desc p.margin_point {
+  margin-bottom: 20px;
+}
+#wrap section.zoom_render_main div.insert_btn {
+  cursor: pointer;
+  width: 250px;
+  height: 50px;
+  background: #ec6647;
+  margin: 0 auto;
+  border-radius: 50px;
+  font-size: 1.125rem;
+  color: white;
+  font-weight: bold;
+  text-align: center;
+  line-height: 50px;
 }
 #wrap section.zoom_render_main div.product_desc h3 {
   font-weight: bold;

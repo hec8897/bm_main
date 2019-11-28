@@ -18,6 +18,17 @@
     <link rel="stylesheet" href="jquery/jquery-ui.min.css">
     <script src="jquery/jquery-ui.min.js"></script>
     <script src="jquery/datepicker-ko.js"></script>
+    <style>
+        html,
+        body {
+            background-color: white;
+        }
+    section#section2{
+        padding: 50px;
+        box-sizing: border-box;
+    }
+
+    </style>
   
   
     <title>보험친구들</title>
@@ -83,8 +94,8 @@
                 </div>
             </section>
             <section class="section2" id='section2'></section>
-            <section class="section3" id='section3'></section>
-            <section class="section4" id='section4'></section>
+            <section class="section3" style='display: none;' id='section3'></section>
+            <section class="section4" style='display: none;' id='section4'></section>
         </main>
         <footer style='display: none;'></footer>
     </div>
@@ -107,18 +118,12 @@
         subLayoutRender.section3Render()
         subLayoutRender.section4Render()
         }
-        else if(pageNo == "5"){
-            subLayoutRender.page5Layout()
-            subLayoutRender.page5LayOutRender("consult",this,'firstrednig')
-        }
-        else if(pageNo == "6"){
-            subLayoutRender.page6Layout()
-        }
+        
         layoutRender.footerRender();
 
         setTimeout(function(){
             subLayoutRender.insZoom()
-        },500)
+        },1000)
 
 
 

@@ -21,7 +21,7 @@ body {
 }
 
 @mediaVericalMobile: ~"(max-width:767px)"; //basic setting
-// @mediaHorizontalMobile: ~"(min-width: 576px) and (max-width: 767px)"; //HorizontalMobile
+@mediaHorizontalMobile: ~"(min-width: 576px) and (max-width: 767px)"; //HorizontalMobile
 @mediaTablet: ~"(min-width: 768px) and (max-width: 1024px)"; //tablet   
 
 
@@ -33,25 +33,35 @@ body {
         position: fixed;
         background-color: rgba(255, 255, 255);
         z-index: 999;
+        text-align: center;
+
         @media@mediaVericalMobile {
             top: 60px;
 
         }
 
-
         div.loader {
-            width: 100px;
-            height: 100px;
-            position: relative;
-            left: 50%;
-            top: 50%;
-            transform: translate(-50%, -50%);
-            margin: -75px 0 0 -75px;
+            width: 100%;
+            height: 100%;
+            max-width: 100px;
+            max-height: 100px;
+            display: inline-block;
             border: 16px solid #f3f3f3;
             border-radius: 50%;
             border-top: 16px solid #3498db;
             -webkit-animation: spin 2s linear infinite;
             animation: spin 2s linear infinite;
+            margin-top: 40vh;
+            @media@mediaVericalMobile {
+                margin-top: 30vh;
+
+            }
+
+
+            @media@mediaHorizontalMobile{
+                margin-top: 20vh;
+            }
+            
         }
 
         @-webkit-keyframes spin {
@@ -85,7 +95,7 @@ body {
             padding: 20px;
             box-sizing: border-box;
             text-align: center;
-            overflow-y: scroll;
+            overflow-y: hidden;
             padding-bottom: 50px;
             padding-top: 50px;
                 @media@mediaVericalMobile {
@@ -98,6 +108,8 @@ body {
                     top: 0%;
                     transform: translate(-00%, -00%);
                     overflow-x: hidden;
+                    overflow-y: scroll;
+
                 }
 
             span.xbox {
@@ -236,13 +248,13 @@ body {
 
                 div.ins_tab {
                     cursor: pointer;
-                    width: 30%;
+                    width: 32.5%;
                     height: 50%;
                     background: white;
                     border: 1px solid #f0f0f0;
                     display: inline-block;
                     margin-bottom: 10px;
-                    margin-right: 20px;
+                    margin-right: 5px;
                     border-radius: 5px;
                     padding-top: 25px;
                     box-sizing: border-box;
@@ -959,11 +971,10 @@ body {
                                         text-align: left;
                                         margin: 0;
                                         font-size: 0.75rem;
-                                        word-break: keep-all;
+                                        word-break: normal;
                                     }
                                     p{
                                         font-size: 0.65rem;
-
                                     }
                                 }
                                 div.price_table{
@@ -1101,6 +1112,9 @@ body {
                                     line-height: 50px;
                                     font-size: 0.875rem;
                                     text-align: center;
+                                    p{
+                                        font-size: 0.75rem;
+                                    }
                                 }
                                 div.payterm_tab{
                                     border-bottom: 1px solid #d0d0d0;
@@ -1108,11 +1122,18 @@ body {
                                     line-height: 50px;
                                     font-size: 0.875rem;
                                     text-align: center;
+                                    overflow: hidden;
+                                    p{
+                                        font-size: 0.75rem;
+                                    }
                                 }
                                 div.extension_tab{
                                     line-height: 50px;
                                     font-size: 0.875rem;
                                     text-align: center;
+                                    p{
+                                        font-size: 0.75rem;
+                                    }
                                 }
                             }
                             .left_tab{
@@ -1753,9 +1774,18 @@ body {
                                 font-size: 1rem;;
 
                                 span{
-                                    font-size: 1rem;
+                                    font-size:1.75rem;
                                     color: @mainColor;
-                                    margin-right: 5px   ;
+
+                                    b{
+
+                                        font-size: 0.75rem;
+                                        margin-right: 5px;
+                                        display: block;
+                                        width: 100%;
+                                        float: right;
+                                        margin-top: 20px;
+                                    }
                                 }
 
                             }
@@ -1951,10 +1981,16 @@ body {
             padding: 20px;
             padding-top: 40px;
             box-sizing: border-box;
+            p,label{
+                text-align: left;
+            }
         @media@mediaVericalMobile {
             max-width: 100%;
             height: 100%;
             top: 50%;
+            p,label{
+                text-align: left;
+            }
 
         }
 
@@ -2141,8 +2177,13 @@ body {
                     span.date_btn{
                         position: absolute;
                         right: 53%;
-                        top: 50%;
-                        transform: translateY(-50%);
+                        top: 60%;
+                        transform: translateY(0%);
+                        @media@mediaVericalMobile {
+                            top: 30%;
+
+                        }
+
                     }
              
                     .colum-2 {

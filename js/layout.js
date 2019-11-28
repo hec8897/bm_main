@@ -139,13 +139,7 @@ var layoutRender = {
         <div class="wrap">
             <h2><img src="img/common/header-h1-BI.png" alt=""></h2>
             <div class='info_box'>
-                <ul class="footer_nav">
-                    <li><a href=''>회사소개</a></li>
-                    <li><a href=''>개인정보처리방침</a></li>
-                    <li><a href=''>이용약관</a></li>
-                    <li><a href=''>제휴안내</a></li>
-                    <li><a href=''>고객센터</a></li>
-                </ul>
+             
                 <p class="address">
                     보험친구들 | 대표:방진수 | 이메일:bm9351@naver.com | 사업자등록번호:612-24-18240</br>
                     전화 : 02-1670-5208 팩스 : 070-4369-1010 주소 : 서울시 구로구 디지털로 31길 38-21 이엔씨벤처드림타워3차 6층 606호</br>
@@ -717,23 +711,14 @@ var subLayoutRender = {
 
                 var uAgent = navigator.userAgent.toLowerCase();
                 var mobilePhones = new Array('iphone', 'ipod', 'ipad', 'android', 'blackberry', 'windows ce', 'nokia', 'webos', 'opera mini', 'sonyericsson', 'opera mobi', 'iemobile');
-                var MobilePage;
-                for (var i = 0; i < mobilePhones.length; i++) {
-                    if (uAgent.indexOf(mobilePhones[i]) != -1) {
-                        console.log(mobilePhones[i])
-                        var MobilePage = 'mo_popup.html'
-                    } else {
-                        var MobilePage = 'mo_popup.html'
-
-                    }
-                }
+               
 
                 var resultArray = [];
                 for (var i = 0; i < result1.length; i++) {
                     resultArray.push(` <div class='fn_box fn_box${i}' onclick='subLayoutRender.tabListActive(this|${result1[i].no})'>
                                         <img src="img/sub_page/section4_bedge.png" class='bedge' alt="bedge">
                                         <div class="fn_icon" style="background-image:url(${result1[i].logo})"></div>
-                                        <p>${result1[i].product}</p>
+                                        <p>${result1[i].productShort}</p>
                                         <div class="more_btn" onclick='popupRender.moreData(${result1.indexOf(result1[i])})'>자세히 보기</div>
                                     </div>`)
 
@@ -778,8 +763,28 @@ var subLayoutRender = {
             var topInput = document.getElementById('top_inputs');
             var ThisBanner = document.getElementById('top_banner');
             var zoomModeTopNav = [];
+
+            var TabletMedia = window.matchMedia('( max-width: 1024px )');
+
+            if(TabletMedia.matches == true){
+                var Node = 'mo_popup.html';
+            }
+            else{
+                var Node = 'main.html';
+            }
+
+
+            ///마지막 수정
+
+
+
+
+
+
+
+
             for (var i = 0; i < ThisCate.length; i++) {
-                zoomModeTopNav.push(`<a href='main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${i}'><li class='ins_zoom_navs'><img src='${ThisCate[i].logo}'>
+                zoomModeTopNav.push(`<a href='${Node}?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${i}'><li class='ins_zoom_navs'><img src='${ThisCate[i].logo}'>
                                         </li></a>`)
             }
 
@@ -808,7 +813,7 @@ var subLayoutRender = {
                                 <li class='ins_navs active' onclick='subLayoutRender.zoomSecionCharRender()'>상품특징</li>
                                 <li class='ins_navs' onclick='subLayoutRender.zoomSectionDescRender()'>보장내용</li>
                                 <li class='ins_navs' onclick='subLayoutRender.zoomSectionPriceTableRender()'>가입예시/가입안내</li>
-                                <li class='ins_navs'>무료 상담 신청</li>
+                                <li class='ins_navs' onclick='subLayoutRender.zoomSectionInputsRender()'>무료 상담 신청</li>
                                 </ul>
                                 </div>`;
             this.zoomSecionCharRender()
@@ -1046,8 +1051,6 @@ var subLayoutRender = {
 
         var TerminationData = [];
 
-        console.log(PriceData)
-
         for (var i = 0; i < ThisCate[dataKey].TerminationData.length; i++) {
             TerminationData.push(
                 `<tr>
@@ -1221,6 +1224,86 @@ var subLayoutRender = {
         }
         NavLi[2].className = 'ins_navs active'
     },
+    zoomSectionInputsRender(){
+        var Section2 = document.getElementById('section2');
+        Section2.innerHTML =`<h2 class='inputs_tit'>무료상담 예약신청</h2>
+        <div class='input_tb'>
+        <div class='row'>
+        <div class='row_tit'>이름</div>
+        <div class='row_desc'>
+        <input type='text' id='reqname_zoom_ins' placeholder='이름을 입력하세요'>
+        </div>
+        </div>
+        <div class='row'>
+        <div class='row_tit'>생년월일</div>
+        <div class='row_desc'>
+        <input type='text' id='reqbirth_zoom_ins' placeholder='생년월일을 입력하세요(예:20190101)'>
+        </div>
+        </div>
+        <div class='row row-3'>
+        <div class='row_tit'>전화번호</div>
+        <div class='row_desc'>
+        <select id='reqphone_zoom_ins'>
+        <option value='010'>010</option>
+        <option value='011'>011</option>
+        <option value='012'>012</option>
+        <option value='013'>013</option>
+        <option value='014'>014</option>
+        <option value='015'>015</option>
+        <option value='016'>016</option>
+        <option value='017'>017</option>
+        <option value='018'>018</option>
+        <option value='019'>019</option>
+        </select>
+        <input type='text' id='reqphone-end' placeholder='전화번호를 입력하세요'>
+        </div>
+        </div>
+        <div class='row row-4'>
+        <div class='row_tit'>문의내용(선택)</div>
+        <div class='row_desc'>
+        <textarea id='reqmemo_zoom_ins'>${ThisCate[dataKey].cate} 상품 보장분석\n확인한 상품: ${ThisCate[dataKey].product}</textarea>
+        </div>
+        </div>
+        <div class='row row-5'>
+        <div class='row_tit'>개인정보 취급 방침 동의</div>
+        <div class='row_desc'>
+        <label class="container" id='check_label_page5' onclick="checkBoxEvent5()">개인정보 수집 및 이용 동의 합니다.
+        <input type="checkbox" id='agree_check_page5'>
+        <span class="checkmark" id='check_box_page5'></span>
+        </label>
+        <div class='agree_desc'>
+        <p>당사는 [개인정보보호법] 및 [신용정보의 이용 및 보호에 관한 법률]에 따라</p>
+        <p class='margin_point'>보험 상품소개 및 홍보등을 위하여 귀하의 개인(신용)정보를 다음과 같이 수집 및 이용하고자 함을 알려드립니다.
+        </p>
+        <p>1. 개인(신용)정보의 수입 및 이용 목적</p>
+        <p class='margin_point'>-보험보장분석, 보험리모델링, 보험상담, 상품소개, 가입권유를 위한 안내 및 서비스제공</p>
+        <p>2. 개인(신용)정보 수집 및 이용 대상</p>
+        <p class='margin_point'>- 이름, 생년월일, 성별, 연락처, 지역 외</p>
+        <p>
+        3.  개인(신용)정보의 보유 및 이용기간
+        </p>
+        <p class='margin_point'>
+        - 동의일로부터 3년
+        </p>
+        <p>
+        * 본 동의를 거부하시는 경우 보장분석서비스(보험리모델링) 및 보험상담 등의 서비스를 받으실 수 없습니다.
+        </p>
+        <p>
+        *동의하신 후에도 당사 홈페이지 고객센터(02-1670-5208)을 통해 철회하거나 상담 및 가입권유 목적의 연락에 </br>대한 중단을 요청하실 수 있습니다.
+        </p>
+
+        </div>
+        </div>
+        </div>
+        </div>
+        <div class='insert_btn' onclick='dataInsertFn("page5_consult")'>무료상담 신청하기</div>`
+
+        var NavLi = document.querySelectorAll('.ins_navs');
+        for (var i = 0; i < NavLi.length; i++) {
+            NavLi[i].className = 'ins_navs'
+        }
+        NavLi[3].className = 'ins_navs active'
+    },
     arrayDish: [], //list Array
     tabListActive: function (thisdata, Dataindex) {
         //sub1-sub4 section4 select tab Fn
@@ -1387,7 +1470,6 @@ var subLayoutRender = {
                 NumberRender.innerHTML = `${NumberResultOk}`
                 NumberClass = document.querySelectorAll('.NumberingFn');
                 NumberClass[0].id = 'active'
-                console.log(NumberClass)
             }, 300);
             setTimeout(() => {
                 for (var i = 0; i < NumberClass.length; i++) {
@@ -1481,7 +1563,6 @@ var subLayoutRender = {
                             `)
                         returnAn.push(Fnaresult[i].an)
                     }
-                    console.log(returnQa)
 
                     NumberRender.innerHTML = ``
                 }
@@ -1805,8 +1886,22 @@ var subLayoutRender = {
 var result1, result2;
 var popupRender = {
     moreData: function (datakey) {
+        var TabletMedia = window.matchMedia('( max-width: 1024px )');
+        var MobileMedia = window.matchMedia('(max-width:767px)');
+
         event.stopPropagation(); //event bubbling
-        location.href = `main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`
+
+        if(TabletMedia.matches == true){
+            // var newWindow = window.open("about:blank");
+            // newWindow.location.href = `mo_popup.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`;
+            // window.open('about:blank')openNewWindow.location.href = `mo_popup.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`
+            location.href = `mo_popup.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`
+
+        }
+        else{
+            location.href = `main.html?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${datakey}`
+        }
+
     },
     arrayDish: [],
     applyUserinfo: [],
@@ -2086,10 +2181,11 @@ var popupRender = {
                 dataInsertFn("dir", "calBegin")
 
                 setTimeout(() => {
-                    if (DBreturnJson.phpresult == 'ok') {
+                    //복구
+                    // if (DBreturnJson.phpresult == 'ok') {
                         alert('입력하신 상담 신청합니다!')
                         this.calResultRender('refresh')
-                    }
+                    // }
                 }, 500);
             } else if (this.arrayDish.length == 0) {
                 alert('목록을 선택해주세요')
@@ -2103,10 +2199,10 @@ var popupRender = {
                 })
                 dataInsertFn("dir", "calBegin")
                 setTimeout(() => {
-                    if (DBreturnJson.phpresult == 'ok') {
+                    // if (DBreturnJson.phpresult == 'ok') {
                         alert('입력하신 자료로 계산합니다!')
                         this.calResultRender('none')
-                    }
+                    // }
                 }, 500);
 
             }
@@ -2198,12 +2294,6 @@ var popupRender = {
 
         }
 
-        console.log(Productprice)
-
-
-        
-
-        var PcMedia = window.matchMedia('( max-width: 1200px )');
         var TabletMedia = window.matchMedia('( max-width: 1024px ) and (min-width: 768px)');
         var MobileMedia = window.matchMedia('(max-width:767px)');
 
@@ -2760,7 +2850,6 @@ var popupRender = {
                                 <div class='logo_section' style="background-image:url(${result1[0].logo})"></div>
                                 <div class='text_area'>
                                     <h3>${result1[0].product}</h3>
-                                    <p>${result1[0].type}</p>
                                 </div>
                             </div>
 
@@ -2769,7 +2858,6 @@ var popupRender = {
                                 <div class='logo_section' style="background-image:url(${result2[0].logo})"></div>
                                     <div class='text_area'>
                                         <h3>${result2[0].product}</h3>
-                                        <p>${result2[0].type}</p>
                                     </div>
                             </div>
                             </div>
@@ -2856,8 +2944,6 @@ var popupRender = {
         } else {
             alert('목록을 두개 선택해주세요')
         }
-
-
     },
     insertTapRender: function (accessnode, subNode) {
         var insertTab = document.getElementById('insert_box')
@@ -2963,7 +3049,7 @@ var popupRender = {
                 </div>
                 <div class='row bottom_tab'>
                     <p>문의내용</p>
-                    <textarea id='long_memo'>${Memo}</textarea>
+                    <textarea id='long_memo'>${Memo}분석</textarea>
                 </div>
             </div>
             <label class="container checked" id='check_labels' onclick="checkBoxEvents()">개인정보 수집 및 이용 동의 합니다.
@@ -3164,7 +3250,33 @@ function dataInsertFn(fnNode, Nodes) {
             })
             InsertDates()
         }
-    } else if (fnNode == 'page6_consult') {
+    }
+    else if (fnNode == 'zoom_ins') {
+        var reqName = document.getElementById('reqname_zoom_ins').value;
+        var reqBirth = document.getElementById('reqbirth_zoom_ins').value;
+        var reqPhone = document.getElementById('reqphone_zoom_ins').value + "-" + document.getElementById('reqphone-end').value;
+        var reqMemo = document.getElementById('reqmemo_zoom_ins').value;
+        var Checked = document.getElementById('agree_check_page5').checked;
+        if (reqName == '') {
+            alert('성함을 입력해주세요')
+        } else if (reqBirth == '') {
+            alert('생년월일을 확인해주세요')
+        } else if (reqPhone.length < '10') {
+            alert('전화 번호를 확인해 주세요')
+        } else if (Checked == false) {
+            alert('개인정보 수집 및 이용을 체크해주세요')
+        } else {
+            popupRender.applyUserinfo.push({
+                "reqName": reqName,
+                "reqPhone": reqPhone,
+                "reqMemo": reqMemo,
+                "reqBirth": reqBirth,
+                "Nodes": fnNode
+            })
+            InsertDates()
+        }
+    } 
+     else if (fnNode == 'page6_consult') {
         var reqName = document.getElementById('reqname_page6').value;
         var reqPhone = document.getElementById('reqphone_page6').value;
         var reqArea = document.getElementById('reqarea').value;

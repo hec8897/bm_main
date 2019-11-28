@@ -227,7 +227,7 @@ $(window).on('load',function(){
         $('#popup_box').css({
             "display":"none"
         })
-    },500)
+    },1000)
     
     
     // $('#popup_box').on('scroll touchmove mousewheel', function(event) {
