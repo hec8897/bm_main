@@ -1,7 +1,6 @@
 <?php
 include('../conn/conn.php');
 mysqli_set_charset($conn,"utf8");
-
 $data = json_decode($_POST['data']);
 
 $PhonePattern = '/^(010|011|016|017|018|019)-[^0][0-9]{3,4}-[0-9]{4}/';
@@ -40,7 +39,7 @@ switch($Nodes){
                     $Node = '유입경로: 위젯';
                     break;
     case "submain-page1" :
-                    $Node = '유입경로: 서브페이지1 상단';
+                    $Node = '유입경로: 서브페이지1 상단';   
                     break;
     case "submain-page2" :
                     $Node = '유입경로: 서브페이지2 상단';
@@ -82,7 +81,6 @@ $consultType1 = (isset($data[0]->consultType1)?$consultType1='사이트 선택 �
 $consultType2 = (isset($data[0]->consultType2)?$consultType2='사이트 선택 내용2'.$data[0]->consultType2:"");
 $site_code = '보험친구들';
 $time = date('Y-m-d H:i:s');
-
 $reqMemos = "$Node\n$reqWantDay     $reqWantTime\n$consultType\n$consultType1\n$consultType2\n$reqMemo";
 
 $sql ="INSERT INTO `tb_consult` (site_code,reqName,reqArea,reqBirth,reqPhone,reqSexflag,reqMemo,Insertdate) 

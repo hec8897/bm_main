@@ -749,8 +749,6 @@ var subLayoutRender = {
                 return x.catekey == result1[0].catekey;
             })
             ThisCate = [];
-
-
             for (var i = 0; i < returnJson.length; i++) {
                 if (returnJson[i].catekey == result[0].catekey) {
                     ThisCate.push(returnJson[i])
@@ -775,14 +773,6 @@ var subLayoutRender = {
 
 
             ///마지막 수정
-
-
-
-
-
-
-
-
             for (var i = 0; i < ThisCate.length; i++) {
                 zoomModeTopNav.push(`<a href='${Node}?id=${params.id}&listNo=${params.listNo}&mode=ins_zoom&datakey=${i}'><li class='ins_zoom_navs'><img src='${ThisCate[i].logo}'>
                                         </li></a>`)
@@ -830,6 +820,25 @@ var subLayoutRender = {
     zoomSecionCharRender: function () {
         var Section2 = document.getElementById('section2');
 
+        priceResults = []
+        testArray = (index) =>{
+            let  resultPrice = 0.0;
+            for(var i = 0; i<ThisCate[dataKey].ContractChoiceDivision.length; i++){
+                let PriceData = [];
+                PriceData.push(ThisCate[dataKey].ContractChoiceDivision[i].priceoption[index])
+                console.log(PriceData)
+                for (var j = 0; j < PriceData.length; j++){
+                    resultPrice += PriceData[j]
+                }
+            }
+            priceResults.push(resultPrice)
+        }
+        for(var i = 0; i<6; i++){
+            testArray(i)
+        }
+        console.log(priceResults)
+
+        //   PriceArraysum(PriceResult1)
         function objectValues2(obj, ArrayName) {
             var vals;
             for (var key in obj) {
@@ -846,6 +855,7 @@ var subLayoutRender = {
         } else if (ThisCate[dataKey].ageprice == 'mnf') {
             var objectKeyArrayMan = [];
             var objectKeyArrayWoMan = [];
+
 
             for (var i = 0; i < ThisCate[dataKey].agepricem.length; i++) {
                 objectValues2(ThisCate[dataKey].agepricem[i], objectKeyArrayMan);
