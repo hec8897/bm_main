@@ -791,7 +791,7 @@ var subLayoutRender = {
                                     <ul>
                                     ${replaceAll3}
                                     </ul>
-                                    <h4>${ThisCate[dataKey].managenumber}</h4>
+                                    <h4>설계번호 : ${ThisCate[dataKey].design_no}</h4>
                                     <h2>${ThisCate[dataKey].product}</h2>
                                     <p>※ 상품개정으로 인하여 보장내용 및 보험료가 달라질 수 있습니다.</p>
                                   </div>`
@@ -934,7 +934,7 @@ var subLayoutRender = {
                     <li><div class='tb_heads'>상품종류</div><div class='tb_body'>${ThisCate[dataKey].cate}</div></li>
                     <li><div class='tb_heads'>상품명</div><div class='tb_body'>${ThisCate[dataKey].product}</div></li>
                     <li><div class='tb_heads'>특징</div><div class='tb_body'>${ThisCate[dataKey].Characteristic1}</div></li>
-                    <li><div class='tb_heads'>갱신/비갱신</div><div class='tb_body'>${ThisCate[dataKey].extension}</div></li>
+                    <!-- <li><div class='tb_heads'>갱신/비갱신</div><div class='tb_body'>${ThisCate[dataKey].extension}</div></li> -->
                     <li><div class='tb_heads'>보험기간</div><div class='tb_body'>${ThisCate[dataKey].term}</div></li>
                     <li class='tb_price'><div class='tb_heads'>월 보험료</div><div class='tb_body'>${priceHtml1[0]}</div></li>
                     <li><div class='tb_heads'>납입기간</div><div class='tb_body'>${ThisCate[dataKey].payterm}</div></li>
