@@ -1,0 +1,36 @@
+@media (max-width:1200px){
+    div.wrap{max-width: 99%;}
+    header div.head {padding: 30px 20px;box-sizing: border-box;}
+    div.gnb ul li:nth-child(1) {border-left: 0px}
+    div.gnb ul li:nth-last-child(1) {border: 0px;}
+    section.main.con2 div.right_application input[type=text], 
+    section.main.con2 div.right_application div.submit{
+        margin-right: 5px;
+        width: 30%;
+    }
+    section.main.con2 div.left_application img{
+        right: -20%;
+    }
+    footer div.foot div.company_info{
+        width: 60%;
+    }
+}
+
+@media (max-width:1024px){
+    header div.head h1 {width: 28%;}
+    header div.head div.head_caption {width: 71%;}
+}
+
+
+@media (max-width:960px){
+    header div.head div.head_caption ul li {margin-right: 10px;}
+}
+
+@media (max-width:767px){
+    .mo{display: block;}
+    .pc{display: none;}
+    header div.head {padding: 20px 20px;box-sizing: border-box;}
+    header div.head h1 img {width: 100px;}
+    header div.head div.head_caption {display: none;}
+    div.gnb{display: none;}
+}
