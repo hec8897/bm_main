@@ -1,8 +1,9 @@
 @media (max-width:1200px){
-    div.wrap{max-width: 99%;}
+    div.wrap{max-width: 95%;}
     header div.head {padding: 30px 20px;box-sizing: border-box;}
     div.gnb ul li:nth-child(1) {border-left: 0px}
     div.gnb ul li:nth-last-child(1) {border: 0px;}
+    section.main.con2 div.right_application div.input_area{padding: 0; text-align: center;}
     section.main.con2 div.right_application input[type=text], 
     section.main.con2 div.right_application div.submit{
         margin-right: 5px;
@@ -14,11 +15,35 @@
     footer div.foot div.company_info{
         width: 60%;
     }
+        
 }
 
 @media (max-width:1024px){
     header div.head h1 {width: 28%;}
     header div.head div.head_caption {width: 71%;}
+    section.main.con3{background-size: cover;}
+    h2{font-size: 40px;}
+    h4{font-size: 30px;}
+    section.main div.text_area h4 span{font-size: 30px;}
+    section.main div.text_area p{font-size: 16px;}
+    section.main.con3 div.wrap, 
+    section.main.con4 div.wrap{
+        padding: 50px 0px;
+    }
+    section.main.con5{
+        height: auto;
+    }
+    section.main.con5 div.wrap{
+        padding: 50px 0px;
+    }
+    section.main.con6 h4 span{font-size: 30px;}
+    section.main.con6 div.pc_slider img{width: 70%}
+    section.main.con6 div.pc_slider div.slider_wrap{width: 50%;}
+    footer div.company_ci img{margin: 0px 10px;}
+    footer div.foot div.ci{display: block; width: 100%; text-align: center; max-width:100%; margin: 50px 0px;}
+    footer div.foot div.company_info{text-align: center; width: 100%; display: block; margin: 0; padding: 0;}
+    footer address{max-width: 100%; width: 100%;}
+
 }
 
 
